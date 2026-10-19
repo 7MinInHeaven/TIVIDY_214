@@ -1,11 +1,7 @@
 # TIVIDY: Generic Workflow Management System
-**COS 214 - Practical 6 & Project Engineering Repository**
 
-Welcome to the development repository for **TIVIDY**, a generic workflow management engine built in C++11. This repository includes automated CI/CD pipelines, GoogleTest unit testing infrastructure, and strict memory leak inspection via Valgrind.
-
----
-
-## 1. Quick Start & Build Instructions
+## CI workflow setup(Github)
+## 1. Quick Start & Build Instructions 
 
 This project uses modern **CMake** with automatic dependency management. You do not need to install GoogleTest manually; CMake fetches and builds it automatically.
 
