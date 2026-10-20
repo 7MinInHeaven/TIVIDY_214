@@ -7,15 +7,21 @@
 #include <iostream>
 using namespace std; 
 
+class NotificationCHannel;
 //=============ABSTRACTION====================//
 class Notification {
 private: 
     NotificationChannel* channel; 
-    Participant* recipient; 
+    //Participant* recipient;
+    string recipient; //For now
 
 public: 
-    void send(); 
-    string compose();
+     Notification(NotificationChannel* ch, string rec)
+      : channel(ch), recipient(rec) {};
+    virtual void send()= 0; 
+    virtual string compose() = 0;
+
+    virtual ~Notification() = default; 
 
 };
 
@@ -23,32 +29,44 @@ public:
 
 class ResultNotice : public Notification {
 public: 
-    compose();
+    ResultNotice(NotificationChannel* ch, string rec)
+     : Notification(ch, rec) {}
+    string compose() override;
+    void send() override;
 }
+
+class DeadlineNotice : public Notification {
+public: 
+    DeadlineNotice(NotificationChannel* ch, string rec)
+     : Notification(ch, rec) {}
+    void send() override; 
+    string compose() override; 
+};
 
 
 //============IMPLEMENTOR==============//
 
 class NotificationChannel {
 public: 
+    virtual ~NotificationChannel() = default;
     virtual void deliver(string to, string text)=0;
 }
 
 //============CONCRETE_IMPLEMENTOR==========//
-
-class EmailChannel : public Notification{
+class EmailTransport;
+class EmailChannel : public NotificationChannel{
 private: 
     unique_ptr<EmailTransport> transport; 
 
 public: 
     EmailChannel(EmailTransport* t);
-    void deliver(string to, string subject, string body); 
-
+    void deliver(string to, string subject, string body) override; 
+    ~EmailChannel() override;
 };
 
 class AppChannel : public NotificationChannel{
 public: 
-    void deliver(string to, string subject, string body); 
+    void deliver(string to, string text) override; 
 };
 
 //=======================================//
@@ -60,6 +78,7 @@ public:
 
 class EmailTransport{
 public: 
+    virtual ~EmailTransport() = default;
     virtual bool sendEmail(string to, string subject, string body)=0; 
 }
 
@@ -68,8 +87,8 @@ private:
     ostream& out; 
 
 public: 
-    ConsoleEmailAdapter(ostream& o); 
-    bool sendEmail(string to, string subject, string body);
+    ConsoleEmailAdapter(ostream& o) : out(o){}; 
+    bool sendEmail(string to, string subject, string body) override;
 
 }
 
