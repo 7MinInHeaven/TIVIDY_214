@@ -5,12 +5,13 @@
 
 #include <string>
 #include <iostream>
+#include <memory>
 using namespace std; 
 
-class NotificationCHannel;
+class NotificationChannel;
 //=============ABSTRACTION====================//
 class Notification {
-private: 
+protected: 
     NotificationChannel* channel; 
     //Participant* recipient;
     string recipient; //For now
@@ -60,7 +61,7 @@ private:
 
 public: 
     EmailChannel(EmailTransport* t);
-    void deliver(string to, string subject, string body) override; 
+    void deliver(string to, string text) override; 
     ~EmailChannel() override;
 };
 
