@@ -1,5 +1,9 @@
 #include "PostgresAPI.h"
+<<<<<<< HEAD
 #include <libpq-fe.h>
+=======
+#include <pqxx/pqxx>
+>>>>>>> aa798df (completed PostgresAPI implentation and header)
 #include <iostream>
 #include <cstdlib>
 
@@ -21,6 +25,7 @@ bool PostgresAPI::connect() {
         connected = false;
         return false;
     }
+<<<<<<< HEAD
     PGconn* conn = PQconnectdb(connString.c_str());
     if (PQstatus(conn) != CONNECTION_OK) {
         std::cerr << "[PostgresAPI::connect Error] " << PQerrorMessage(conn) << std::endl;
@@ -31,12 +36,24 @@ bool PostgresAPI::connect() {
     PQfinish(conn);
     connected = true;
     return true;
+=======
+    try {
+        pqxx::connection conn(connString);
+        connected = conn.is_open();
+        return connected;
+    } catch (const std::exception& e) {
+        std::cerr << "[PostgresAPI::connect Error] " << e.what() << std::endl;
+        connected = false;
+        return false;
+    }
+>>>>>>> aa798df (completed PostgresAPI implentation and header)
 }
 
 void PostgresAPI::disconnect() {
     connected = false;
 }
 
+<<<<<<< HEAD
 int PostgresAPI::executeTransaction(std::string sqlQuery, const std::vector<std::string>& params) {
     if (connString.empty()) {
         return -1;
@@ -84,10 +101,31 @@ int PostgresAPI::executeTransaction(std::string sqlQuery, const std::vector<std:
 }
 
 std::vector<std::string> PostgresAPI::executeSelect(std::string sqlQuery, const std::vector<std::string>& params) {
+=======
+int PostgresAPI::executeTransaction(std::string sqlQuery) {
+    if (connString.empty()) {
+        return -1;
+    }
+    try {
+        pqxx::connection conn(connString);
+        pqxx::work txn(conn);
+        txn.exec(sqlQuery);
+        txn.commit();
+        connected = true;
+        return 0; // 0 = SQL success code
+    } catch (const std::exception& e) {
+        std::cerr << "[PostgresAPI::executeTransaction Error] " << e.what() << std::endl;
+        return -1; // -1 = SQL error code
+    }
+}
+
+std::vector<std::string> PostgresAPI::executeSelect(std::string sqlQuery) {
+>>>>>>> aa798df (completed PostgresAPI implentation and header)
     std::vector<std::string> results;
     if (connString.empty()) {
         return results;
     }
+<<<<<<< HEAD
    
     PGconn* conn = PQconnectdb(connString.c_str());
     if (PQstatus(conn) != CONNECTION_OK) {
@@ -141,6 +179,27 @@ std::vector<std::string> PostgresAPI::executeSelect(std::string sqlQuery, const 
     PQclear(res);
     PQfinish(conn);
     connected = true;
+=======
+    try {
+        pqxx::connection conn(connString);
+        pqxx::nontransaction ntx(conn);
+        pqxx::result res = ntx.exec(sqlQuery);
+
+        for (pqxx::result::const_iterator row = res.begin(); row != res.end(); ++row) {
+            std::string rowStr = "";
+            for (pqxx::row::const_iterator field = row->begin(); field != row->end(); ++field) {
+                if (field != row->begin()) {
+                    rowStr += " | ";
+                }
+                rowStr += field->c_str();
+            }
+            results.push_back(rowStr);
+        }
+        connected = true;
+    } catch (const std::exception& e) {
+        std::cerr << "[PostgresAPI::executeSelect Error] " << e.what() << std::endl;
+    }
+>>>>>>> aa798df (completed PostgresAPI implentation and header)
     return results;
 }
 
