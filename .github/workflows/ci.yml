@@ -17,7 +17,7 @@ jobs:
       - name: Install Compilers and Tools
         run: |
           sudo apt-get update
-          sudo apt-get install -y cmake build-essential valgrind
+          sudo apt-get install -y cmake build-essential valgrind pkg-config libpq-dev libpqxx-dev 
 
       - name: Configure CMake
         run: cmake -B build -DCMAKE_BUILD_TYPE=Debug
