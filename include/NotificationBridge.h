@@ -33,7 +33,7 @@ public:
      : Notification(ch, rec) {}
     string compose() override;
     void send() override;
-}
+};
 
 class DeadlineNotice : public Notification {
 public: 
@@ -50,7 +50,7 @@ class NotificationChannel {
 public: 
     virtual ~NotificationChannel() = default;
     virtual void deliver(string to, string text)=0;
-}
+};
 
 //============CONCRETE_IMPLEMENTOR==========//
 class EmailTransport;
@@ -80,7 +80,7 @@ class EmailTransport{
 public: 
     virtual ~EmailTransport() = default;
     virtual bool sendEmail(string to, string subject, string body)=0; 
-}
+};
 
 class ConsoleEmailAdapter : public EmailTransport {
 private: 
@@ -90,6 +90,6 @@ public:
     ConsoleEmailAdapter(ostream& o) : out(o){}; 
     bool sendEmail(string to, string subject, string body) override;
 
-}
+};
 
 #endif //NOTIFICATIONBRIDGE_H
