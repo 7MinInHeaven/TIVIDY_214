@@ -18,9 +18,16 @@ cmake --build build
 
 # 4. Run the unit test suite
 ./build/bin/tividy_tests
+#How to run in Docker:
+sudo docker compose up --build
+sudo docker compose run --rm tividy_app ./build/bin/tividy_tests
 
 # 5. Check for memory leaks with Valgrind
 valgrind --leak-check=full --show-leak-kinds=all --error-exitcode=1 ./build/bin/tividy_tests
+#How to run in Docker:
+sudo docker compose up --build
+sudo docker compose run --rm tividy_app valgrind --leak-check=full ./build/bin/tividy_tests
+
 ```
 
 ---
