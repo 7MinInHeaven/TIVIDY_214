@@ -1,0 +1,13 @@
+#include "InProgressState.h"
+#include "CompletedState.h"
+#include "WorkComponent.h"
+
+void InProgressState::handleUpdate(WorkComponent* context)
+{
+    context->setState(new CompletedState());
+}
+
+std::string InProgressState::getStatus()
+{
+    return "In Progress";
+}
