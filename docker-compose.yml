@@ -1,8 +1,0 @@
-services:
-  tividy_app:
-    build: .
-    container_name: tividy_app
-    env_file:
-      - .env   #so connection string can be accessed
-    stdin_open: true
-    tty: true
