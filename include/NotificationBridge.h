@@ -30,7 +30,7 @@ public:
 
 class NotificationChannel {
 public: 
-    void deliver(string to, string text);
+    virtual void deliver(string to, string text)=0;
 }
 
 //============CONCRETE_IMPLEMENTOR==========//
@@ -43,7 +43,12 @@ public:
     EmailChannel(EmailTransport* t);
     void deliver(string to, string subject, string body); 
 
-}
+};
+
+class AppChannel : public NotificationChannel{
+public: 
+    void deliver(string to, string subject, string body); 
+};
 
 //=======================================//
 //======ADAPTER==========================//
