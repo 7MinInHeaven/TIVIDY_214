@@ -1,11 +1,15 @@
-#include <string>
-#include "WorkComponent.h"
+#ifndef WORKSTATE_H
+#define WORKSTATE_H
 
-class WorkComponent;
+#include <string>
+
+class WorkComponent; 
 
 class WorkState {
-    public: 
+public: 
     virtual ~WorkState() {}    
     virtual void handleUpdate(WorkComponent* context) = 0;
     virtual std::string getStatus() = 0;
 };
+
+#endif
