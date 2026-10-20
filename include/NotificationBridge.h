@@ -1,5 +1,5 @@
-#ifndef BRIDGE_H 
-#define BRIDGE_H 
+#ifndef NOTIFICATIONBRIDGE_H 
+#define NOTIFICATIONBRIDGE_H 
 
 
 
@@ -45,8 +45,26 @@ public:
 
 }
 
+//=======================================//
+//======ADAPTER==========================//
+//=======================================//
+
+//===============TARGET===================//
 
 
+class EmailTransport{
+public: 
+    virtual bool sendEmail(string to, string subject, string body)=0; 
+}
 
+class ConsoleEmailAdapter : public EmailTransport {
+private: 
+    ostream& out; 
 
-#endif //BRIDGE_H
+public: 
+    ConsoleEmailAdapter(ostream& o); 
+    bool sendEmail(string to, string subject, string body);
+
+}
+
+#endif //NOTIFICATIONBRIDGE_H
