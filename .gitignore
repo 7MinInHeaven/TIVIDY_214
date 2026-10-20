@@ -1,0 +1,17 @@
+# Build artifacts
+build/
+bin/
+*.o
+*.a
+*.so
+compile_commands.json
+
+# IDE and OS files
+.vscode/
+.idea/
+*.swp
+*Zone.Identifier
+.DS_Store
+
+# Environment variables
+.env
