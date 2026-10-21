@@ -8,14 +8,14 @@
 
 class PostgresAdapter : public ExternalDatabase {
 private:
-    PostgresAPI* pgApi;//
+    PostgresAPI* api;
     std::string tableName;
-    bool ownsAPI;
+    bool ownsApi;
 
     std::string rmvQuotes(const std::string& input) const;
 
 public:
-    PostgresAdapter(PostgresAPI* pgApi, std::string table = "workflow_audit_log", bool takeOwnership = true);
+    PostgresAdapter(PostgresAPI* pgApi, std::string table = "workflow_audit_log", bool takeOwnership = false);
     virtual ~PostgresAdapter();
 
     virtual bool saveRecord(int taskID, std::string taskName, std::string state, std::string payload) override;
