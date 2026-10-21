@@ -30,7 +30,11 @@ void WorkComponent::setData(std::string key, std::string value){
     item->setData(key, value);
 }
 
-void WorkComponent::setState(WorkState* state){
-    delete this->state;
+void WorkComponent::setState(WorkState* state)
+{
+    if (state != nullptr)
+    {
+        delete this->state;
+    }
     this->state = state;
 }
