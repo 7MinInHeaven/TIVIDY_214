@@ -12,7 +12,7 @@ class Handler
     public: 
         void setNext(Handler* nextPhase);
         virtual Handler* clone() = 0;
-        void handleRequest(WorkItem item);
+        virtual void handleRequest(WorkItem item);
 };
 
 #endif

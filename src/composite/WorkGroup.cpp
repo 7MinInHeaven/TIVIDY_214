@@ -1,4 +1,5 @@
 #include "Composite.h"
+#include <iostream>
 
 WorkGroup::WorkGroup(const WorkGroup& other) : WorkComponent(other){
     for(size_t i = 0; i < children.size(); i++){
@@ -20,5 +21,14 @@ void WorkGroup::remove(WorkComponent* child){
 
 std::vector<WorkComponent*> WorkGroup::getChildren(){
     return children;
+}
+
+void WorkGroup::handleRequest(WorkItem item) {
+    std::cout << "stage: " << getName() << "\n";
+
+    for (WorkComponent* child : children) {
+        std::cout << "  sub task: " << child->getName() << "\n";
+    }
+    Handler::handleRequest(item);
 }
 

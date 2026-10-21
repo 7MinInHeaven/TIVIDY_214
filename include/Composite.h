@@ -4,6 +4,8 @@
 #include <string>
 #include <vector>
 #include "TEMP.h"
+#include "Handler.h"
+
 
 class WorkState; 
 
@@ -40,6 +42,8 @@ class WorkGroup : public WorkComponent{
 
     virtual void  accept(WorkVisitor& visitor) = 0;
     virtual WorkGroup* clone() = 0;
+
+    void handleRequest(WorkItem item) override;
 
     //ensure proper division of composite classes
     protected:
