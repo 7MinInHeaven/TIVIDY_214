@@ -1,4 +1,7 @@
 #include "Composite.h"
+#include "PendingState.h"
+#include "CompletedState.h"
+#include "InProgressState.h"
 
 WorkComponent::WorkComponent(std::string name) : name(name){
     item = new WorkItem();

@@ -11,3 +11,5 @@ std::string InProgressState::getStatus()
 {
     return "In Progress";
 }
+
+WorkState* InProgressState::clone() { return new InProgressState(*this); }

@@ -1,6 +1,11 @@
+#ifndef COMPOSITE_H
+#define COMPOSITE_H
+
 #include <string>
 #include <vector>
 #include "TEMP.h"
+
+class WorkState; 
 
 class WorkComponent : public Handler
 {
@@ -64,3 +69,5 @@ class WorkUnit : public WorkComponent {
     void setMemento(WorkMemento* memento);
     void accept(WorkVisitor& visitor);
 };
+
+#endif
