@@ -1,5 +1,5 @@
 #include "PostgresAPI.h"
-#include <pqxx/pqxx>
+#include <libpq-fe.h>
 #include <iostream>
 #include <cstdlib>
 
@@ -21,15 +21,16 @@ bool PostgresAPI::connect() {
         connected = false;
         return false;
     }
-    try {
-        pqxx::connection conn(connString);
-        connected = conn.is_open();
-        return connected;
-    } catch (const std::exception& e) {
-        std::cerr << "[PostgresAPI::connect Error] " << e.what() << std::endl;
+    PGconn* conn = PQconnectdb(connString.c_str());
+    if (PQstatus(conn) != CONNECTION_OK) {
+        std::cerr << "[PostgresAPI::connect Error] " << PQerrorMessage(conn) << std::endl;
+        PQfinish(conn);
         connected = false;
         return false;
     }
+    PQfinish(conn);
+    connected = true;
+    return true;
 }
 
 void PostgresAPI::disconnect() {
@@ -40,17 +41,27 @@ int PostgresAPI::executeTransaction(std::string sqlQuery) {
     if (connString.empty()) {
         return -1;
     }
-    try {
-        pqxx::connection conn(connString);
-        pqxx::work txn(conn);
-        txn.exec(sqlQuery);
-        txn.commit();
-        connected = true;
-        return 0; // 0 = SQL success code
-    } catch (const std::exception& e) {
-        std::cerr << "[PostgresAPI::executeTransaction Error] " << e.what() << std::endl;
-        return -1; // -1 = SQL error code
+    PGconn* conn = PQconnectdb(connString.c_str());
+    if (PQstatus(conn) != CONNECTION_OK) {
+        std::cerr << "[PostgresAPI::executeTransaction Connection Error] " << PQerrorMessage(conn) << std::endl;
+        PQfinish(conn);
+        return -1;
     }
+
+    PGresult* res = PQexec(conn, sqlQuery.c_str());
+    ExecStatusType status = PQresultStatus(res);
+
+    if (status != PGRES_COMMAND_OK && status != PGRES_TUPLES_OK) {
+        std::cerr << "[PostgresAPI::executeTransaction Query Error] " << PQerrorMessage(conn) << std::endl;
+        PQclear(res);
+        PQfinish(conn);
+        return -1;
+    }
+
+    PQclear(res);
+    PQfinish(conn);
+    connected = true;
+    return 0; // 0 = SQL success code
 }
 
 std::vector<std::string> PostgresAPI::executeSelect(std::string sqlQuery) {
@@ -58,25 +69,42 @@ std::vector<std::string> PostgresAPI::executeSelect(std::string sqlQuery) {
     if (connString.empty()) {
         return results;
     }
-    try {
-        pqxx::connection conn(connString);
-        pqxx::nontransaction ntx(conn);
-        pqxx::result res = ntx.exec(sqlQuery);
 
-        for (pqxx::result::const_iterator row = res.begin(); row != res.end(); ++row) {
-            std::string rowStr = "";
-            for (pqxx::row::const_iterator field = row->begin(); field != row->end(); ++field) {
-                if (field != row->begin()) {
-                    rowStr += " | ";
-                }
-                rowStr += field->c_str();
-            }
-            results.push_back(rowStr);
-        }
-        connected = true;
-    } catch (const std::exception& e) {
-        std::cerr << "[PostgresAPI::executeSelect Error] " << e.what() << std::endl;
+    PGconn* conn = PQconnectdb(connString.c_str());
+    if (PQstatus(conn) != CONNECTION_OK) {
+        std::cerr << "[PostgresAPI::executeSelect Connection Error] " << PQerrorMessage(conn) << std::endl;
+        PQfinish(conn);
+        return results;
     }
+
+    PGresult* res = PQexec(conn, sqlQuery.c_str());
+    if (PQresultStatus(res) != PGRES_TUPLES_OK) {
+        std::cerr << "[PostgresAPI::executeSelect Query Error] " << PQerrorMessage(conn) << std::endl;
+        PQclear(res);
+        PQfinish(conn);
+        return results;
+    }
+
+    int rows = PQntuples(res);
+    int cols = PQnfields(res);
+
+    for (int r = 0; r < rows; ++r) {
+        std::string rowStr = "";
+        for (int c = 0; c < cols; ++c) {
+            if (c > 0) {
+                rowStr += " | ";
+            }
+            const char* val = PQgetvalue(res, r, c);
+            if (val != nullptr) {
+                rowStr += val;
+            }
+        }
+        results.push_back(rowStr);
+    }
+
+    PQclear(res);
+    PQfinish(conn);
+    connected = true;
     return results;
 }
 
