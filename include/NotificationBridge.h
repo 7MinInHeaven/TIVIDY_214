@@ -57,7 +57,7 @@ public:
 class EmailTransport;
 class EmailChannel : public NotificationChannel{
 private: 
-    unique_ptr<EmailTransport> transport; 
+     EmailTransport* transport; 
 
 public: 
     EmailChannel(EmailTransport* t);
