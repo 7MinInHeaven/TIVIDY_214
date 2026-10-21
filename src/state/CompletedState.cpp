@@ -1,5 +1,5 @@
 #include "CompletedState.h"
-#include "WorkComponent.h"
+#include "Composite.h"
 
 void CompletedState::handleUpdate(WorkComponent* context)
 {
