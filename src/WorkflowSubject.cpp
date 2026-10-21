@@ -31,7 +31,3 @@ void WorkflowSubject::notify() {
         }
     }
 }
-
-int WorkflowSubject::getObserverCount() const {
-    return static_cast<int>(observerList.size());
-}
