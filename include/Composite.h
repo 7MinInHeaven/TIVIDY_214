@@ -1,11 +1,8 @@
 #include <string>
-#include "WorkFlowSubject.h"
-#include "WorkState.h"
-#include "WorkItem.h"
-#include "WorkVisitor.h"
-#include "Handler.h"
+#include <vector>
+#include "TEMP.h"
 
-class WorkComponent : public WorkFlowSubject
+class WorkComponent : public Handler
 {
 public:
     WorkComponent(std::string name);
@@ -17,16 +14,11 @@ public:
     std::string getData(std::string key);
 
     //setters
+    void setState(WorkState* state);
     void setData(std::string key, std::string value);
 
-    //states
-    void virtual start();
-    void virtual review();
-    void virtual completeReview();
-    void virtual complete();
-
-    void virtual accept(WorkVisitor& visitor) = 0;
-    Handler* virtual clone();
+    virtual void accept(WorkVisitor& visitor) = 0;
+    virtual WorkComponent* clone() = 0;
 
 private:
     WorkState *state;
@@ -39,27 +31,22 @@ class WorkGroup : public WorkComponent{
     WorkGroup(const WorkGroup& other);
 
     void remove(WorkComponent* child);
-    vector<WorkComponent*> getChildren();
+    std::vector<WorkComponent*> getChildren();
 
-    void start() override;
-    void review() override;
-    void completeReview() override;
-    void complete() override;
-
-    void virtual accept(WorkVisitor& visitor) override;
-    Handler* clone() override;
+    virtual void  accept(WorkVisitor& visitor) = 0;
+    virtual WorkGroup* clone() = 0;
 
     //ensure proper division of composite classes
     protected:
     void add(WorkComponent* child);
 
     private:
-    vector<WorkComponent*> children;
+    std::vector<WorkComponent*> children;
 };
 
 class Stage : public WorkGroup {
     public:
-    accept(WorkVisitor& visitor) override;
+    void accept(WorkVisitor& visitor) override;
     void add(SubProcess* child);
     void add(WorkUnit* child);
 
@@ -67,11 +54,11 @@ class Stage : public WorkGroup {
 
 class SubProcess : public WorkGroup{
     public:
-    accept(WorkVisitor& visitor) override;
+    void accept(WorkVisitor& visitor) override;
     void add(WorkUnit* child);
 };
 
-class WorkUnit : public WorkUnit {
+class WorkUnit : public WorkComponent {
     public:
     WorkMemento* createMemento();
     void setMemento(WorkMemento* memento);
