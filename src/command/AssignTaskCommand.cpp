@@ -1,4 +1,4 @@
-#include "../include/Command.h"
+#include "Command.h"
 
 AssignTaskCommand::AssignTaskCommand(WorkUnit* receiver, const std::string& workerId) : receiver(receiver), workerId(workerId) {}
 

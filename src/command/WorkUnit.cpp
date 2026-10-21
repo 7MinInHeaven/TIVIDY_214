@@ -1,4 +1,4 @@
-#include "../include/Command.h"
+#include "Command.h"
 #include "Memento.h"
 
 WorkUnit::WorkUnit(const std::string &taskId)

@@ -1,4 +1,4 @@
-#include "../include/Command.h"
+#include "Command.h"
 
 CompleteTaskCommand::CompleteTaskCommand(WorkUnit* receiver) : receiver(receiver){}
 

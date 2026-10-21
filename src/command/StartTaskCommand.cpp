@@ -1,4 +1,4 @@
-#include "../include/Command.h"
+#include "Command.h"
 
 StartTaskCommand::StartTaskCommand(WorkUnit* receiver) : receiver(receiver) {}
 
