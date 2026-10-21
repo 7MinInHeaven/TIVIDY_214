@@ -27,9 +27,9 @@ bool PostgresAdapter::saveRecord(int taskID, std::string taskName, std::string s
         return false;
     }
 
-    std::string safeName = sanitizeInput(taskName);
-    std::string safeState = sanitizeInput(state);
-    std::string safePayload = sanitizeInput(payload);
+    std::string safeName = rmvQuotes(taskName);
+    std::string safeState = rmvQuotes(state);
+    std::string safePayload = rmvQuotes(payload);
 
     std::string sqlQuery =
         "INSERT INTO " + tableName + " (task_id, task_name, state, payload) VALUES (" +
@@ -47,7 +47,7 @@ std::string PostgresAdapter::getRecordState(std::string taskName) {
         return "";
     }
 
-    std::string safeName = sanitizeInput(taskName);
+    std::string safeName = rmvQuotes(taskName);
     std::string sqlQuery =
         "SELECT state FROM " + tableName +
         " WHERE task_name = '" + safeName + "' ORDER BY id DESC LIMIT 1;";
