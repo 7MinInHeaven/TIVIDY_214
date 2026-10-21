@@ -1,6 +1,7 @@
 #ifndef DIRECTOR_H
 #define DIRECTOR
 #include "ChainBuilder.h"
+#include <string>
 
 class Director 
 {
@@ -9,6 +10,7 @@ class Director
 
     public:
         Director(ChainBuilder* b);
-        void construct(const std::string& type) //enum in future
+        void construct(const std::string& type); //enum in future
 };
+
 #endif
