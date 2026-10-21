@@ -35,13 +35,15 @@ private:
 
 class WorkGroup : public WorkComponent{
     public:
+    
+    WorkGroup(std::string name);
     WorkGroup(const WorkGroup& other);
 
     void remove(WorkComponent* child);
     std::vector<WorkComponent*> getChildren();
 
-    virtual void  accept(WorkVisitor& visitor) = 0;
-    virtual WorkGroup* clone() = 0;
+    virtual void  accept(WorkVisitor& visitor);
+    virtual WorkGroup* clone();
 
     void handleRequest(WorkItem item) override;
 

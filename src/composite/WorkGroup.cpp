@@ -1,6 +1,8 @@
 #include "Composite.h"
 #include <iostream>
 
+WorkGroup::WorkGroup(std::string name) : WorkComponent(name) {}
+
 WorkGroup::WorkGroup(const WorkGroup& other) : WorkComponent(other){
     for(size_t i = 0; i < children.size(); i++){
         children.push_back(other.children[i]->clone());

@@ -2,23 +2,15 @@
 
 Director::Director(ChainBuilder* b) : builder(b) {}
 
-void construct(const std::string& type) 
+void Director::construct(const std::string& type) 
 {
-        builder->reset();
-        builder->buildStep("Initialisation");
-        builder->buildStep("Routing");
+    builder->reset();
+    builder->buildNestedProcess("Init");
 
-        if (type == "STEP1") {
-            builder->buildStep("S1");
-        } 
-        else if (type == "STEP2") 
-        {
-            builder->buildStep("S2");
-        } 
-        else if (type == "STEP3") 
-        {
-            builder->buildStep("S3");
-        }
+    if (type == "STEP1") 
+    {
+        builder->buildNestedProcess("S1");
+    } 
 
-        builder->buildStep("Final");
-    }
+    builder->buildNestedProcess("Final");
+}
