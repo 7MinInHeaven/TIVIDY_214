@@ -2,6 +2,7 @@
 #define WORKSTATE_H
 
 #include <string>
+#include "Composite.h"
 
 class WorkComponent; 
 

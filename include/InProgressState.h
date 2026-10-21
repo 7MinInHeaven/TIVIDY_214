@@ -1,9 +1,9 @@
-#ifndef PENDINGSTATE_H
-#define PENDINGSTATE_H
+#ifndef INPROGRESSSTATE_H
+#define INPROGRESSSTATE_H
 
 #include "WorkState.h"
 
-class PendingState : public WorkState {
+class InProgressState : public WorkState {
 public: 
     void handleUpdate(WorkComponent* context) override;
     std::string getStatus() override;

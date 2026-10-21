@@ -1,6 +1,6 @@
 #include "InProgressState.h"
 #include "CompletedState.h"
-#include "WorkComponent.h"
+#include "Composite.h"
 
 void InProgressState::handleUpdate(WorkComponent* context)
 {
