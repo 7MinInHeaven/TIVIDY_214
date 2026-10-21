@@ -11,3 +11,5 @@ std::string PendingState::getStatus()
 {
     return "Pending";
 }
+
+WorkState* PendingState::clone() { return new PendingState(*this); }

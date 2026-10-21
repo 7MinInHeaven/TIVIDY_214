@@ -24,16 +24,6 @@ public:
     virtual void visit(Stage&) {}
 };
 
-class WorkState {
-public:
-    virtual ~WorkState() = default;
-    virtual WorkState* clone() = 0;
-};
-
-class PendingState : public WorkState {
-public:
-    WorkState* clone() override { return new PendingState(*this); }
-};
 
 class WorkItem {
     std::map<std::string, std::string> data;
