@@ -15,7 +15,18 @@ struct NotificationData{
     string body;
 };
 
-class NotificationChannel;
+class NotificationChannel {
+public: 
+    virtual ~NotificationChannel() = default;
+    virtual void deliver(const NotificationData&)=0;
+};
+
+class EmailTransport{
+public: 
+    virtual ~EmailTransport() = default;
+    virtual bool sendEmail(string to, string subject, string body)=0; 
+};
+
 //=============ABSTRACTION====================//
 class Notification {
 protected: 
@@ -55,28 +66,22 @@ public:
 };
 
 
-//============IMPLEMENTOR==============//
 
 
-class NotificationChannel {
-public: 
-    virtual ~NotificationChannel() = default;
-    virtual void deliver(const NotificationData&)=0;
-};
 
 //============CONCRETE_IMPLEMENTOR==========//
-class EmailTransport;
+
 
 class EmailChannel : public NotificationChannel{
 private: 
      EmailTransport* transport; 
 
 public: 
-    EmailChannel(EmailTransport* t):transport(t){};
+    explicit EmailChannel(EmailTransport* t):transport(t){};
     void deliver(const NotificationData& d) override{
         if(transport) transport->sendEmail(d.to,d.subject,d.body);
     }
-    ~EmailChannel() override;
+    
 };
 
 class AppChannel : public NotificationChannel{
@@ -88,18 +93,7 @@ public:
     }; 
 };
 
-//=======================================//
-//======ADAPTER==========================//
-//=======================================//
-
-//===============TARGET===================//
-
-
-class EmailTransport{
-public: 
-    virtual ~EmailTransport() = default;
-    virtual bool sendEmail(string to, string subject, string body)=0; 
-};
+//CONCRETE ADAPTER//
 
 class ConsoleEmailAdapter : public EmailTransport {
 private: 
