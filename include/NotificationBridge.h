@@ -8,20 +8,29 @@
 #include <memory>
 #include "WorkItem.h"
 using namespace std; 
+//==============IMPLEMENTOR_DATA==========//
+struct NotificationData{
+    string to; 
+    string subject; 
+    string body;
+};
 
 class NotificationChannel;
 //=============ABSTRACTION====================//
 class Notification {
 protected: 
     NotificationChannel* channel; 
-    //Participant* recipient;
-    string recipient; //For now
-
+    string recipient;
+    WorkItem* context;
 public: 
-     Notification(NotificationChannel* ch, string rec)
-      : channel(ch), recipient(rec) {}
-    virtual void send()= 0; 
-    virtual string compose() = 0;
+     Notification(NotificationChannel* ch, WorkItem* ctx, string to)
+      : channel(ch), recipient(to), context(ctx) {}
+
+    virtual void send(){
+        if(channel) channel->deliver(compose());
+    }
+
+    virtual NotificationData compose() = 0;
 
     virtual ~Notification() = default; 
 
@@ -31,44 +40,52 @@ public:
 
 class ResultNotice : public Notification {
 public: 
-    ResultNotice(NotificationChannel* ch, string rec)
-     : Notification(ch, rec) {}
-    string compose() override;
-    void send() override;
+    ResultNotice(NotificationChannel* ch, WorkItem* ctx, string to)
+     : Notification(ch, ctx, to) {}
+    NotificationData compose() override;
+    
 };
 
 class DeadlineNotice : public Notification {
 public: 
-    DeadlineNotice(NotificationChannel* ch, string rec)
-     : Notification(ch, rec) {}
-    void send() override; 
-    string compose() override; 
+    DeadlineNotice(NotificationChannel* ch, WorkItem* ctx, string to)
+     : Notification(ch, ctx, to) {}
+    
+    NotificationData compose() override; 
 };
 
 
 //============IMPLEMENTOR==============//
 
+
 class NotificationChannel {
 public: 
     virtual ~NotificationChannel() = default;
-    virtual void deliver(string to, string text)=0;
+    virtual void deliver(const NotificationData&)=0;
 };
 
 //============CONCRETE_IMPLEMENTOR==========//
 class EmailTransport;
+
 class EmailChannel : public NotificationChannel{
 private: 
      EmailTransport* transport; 
 
 public: 
-    EmailChannel(EmailTransport* t);
-    void deliver(string to, string text) override; 
+    EmailChannel(EmailTransport* t):transport(t){};
+    void deliver(const NotificationData& d) override{
+        if(transport) transport->sendEmail(d.to,d.subject,d.body);
+    }
     ~EmailChannel() override;
 };
 
 class AppChannel : public NotificationChannel{
 public: 
-    void deliver(string to, string text) override; 
+    void deliver(const NotificationData& d) override{
+        cout << "\n[APP ALERT for " << d.to << "]\n"
+                  << d.subject << "\n" << d.body << "\n"
+                  << "-----------------------------------\n";
+    }; 
 };
 
 //=======================================//
