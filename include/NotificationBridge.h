@@ -6,6 +6,7 @@
 #include <string>
 #include <iostream>
 #include <memory>
+#include "WorkItem.h"
 using namespace std; 
 
 class NotificationChannel;
@@ -18,7 +19,7 @@ protected:
 
 public: 
      Notification(NotificationChannel* ch, string rec)
-      : channel(ch), recipient(rec) {};
+      : channel(ch), recipient(rec) {}
     virtual void send()= 0; 
     virtual string compose() = 0;
 

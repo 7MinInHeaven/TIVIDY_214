@@ -42,9 +42,6 @@ git config --global rebase.autoStash true
 
 # Remember and auto-apply conflict resolutions
 git config --global rerere.enabled true
-
-# Keep git pull clean via rebase rather than creating extra merge commits
-git config --global pull.rebase true
 ```
 
 ---
