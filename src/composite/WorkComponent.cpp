@@ -6,21 +6,26 @@ WorkComponent::WorkComponent(std::string name) : name(name){
 }
 
 WorkComponent::WorkComponent(const WorkComponent& other){
-    state = state->clone();
+    state = other.state->clone();
     item = new WorkItem(*other.item);
     name = other.name;
 }
 
-WorkState* WorkComponent::getState() {
-    return state;
+WorkComponent::~WorkComponent() {
+    delete state;
+    delete item;
 }
 
-std::string WorkComponent::getName() {
+WorkState* WorkComponent::getState() const {
+    return state;
+}   
+
+std::string WorkComponent::getName() const {
     return name;
 }
 
-std::string WorkComponent::getData(std::string key){
-    return item->getData(key);
+WorkItem* WorkComponent::getItem() const{
+    return item;
 }
 
 void WorkComponent::setData(std::string key, std::string value){
@@ -31,3 +36,5 @@ void WorkComponent::setState(WorkState* state){
     delete this->state;
     this->state = state;
 }
+
+

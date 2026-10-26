@@ -5,6 +5,7 @@
 #include <string>
 
 class WorkComponent;
+class WorkGroup;
 class WorkUnit;
 class SubProcess;
 class Stage;
@@ -22,26 +23,41 @@ public:
     virtual void visit(WorkUnit&) {}
     virtual void visit(SubProcess&) {}
     virtual void visit(Stage&) {}
+    virtual void visit(WorkGroup&){}
 };
 
 class WorkState {
 public:
+    WorkState() = default;
+    WorkState(const WorkState&) = default;
     virtual ~WorkState() = default;
+    virtual std::string getStatus() = 0;
     virtual WorkState* clone() = 0;
 };
 
 class PendingState : public WorkState {
 public:
     WorkState* clone() override { return new PendingState(*this); }
+    std::string getStatus() override {return "Pending";};
+    ~PendingState() override = default;
 };
 
-class WorkItem {
-    std::map<std::string, std::string> data;
-public:
-    WorkItem() = default;
-    WorkItem(const WorkItem& other) = default;
-    std::string getData(const std::string& key) { return data[key]; }
-    void setData(const std::string& key, const std::string& value) { data[key] = value; }
+class WorkIterator {
+    public:
+    WorkIterator() = default;
+
+    void first();
+    void next();
+    bool isDone();
+    WorkComponent* getCurrent();
+};
+
+class DepthFirstIterator : public WorkIterator {
+    private:
+    WorkComponent* root;
+
+    public:
+    DepthFirstIterator(WorkComponent* root);
 };
 
 #endif /* TEMP_H */

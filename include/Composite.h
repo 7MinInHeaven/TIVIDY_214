@@ -1,17 +1,20 @@
 #include <string>
 #include <vector>
+#include <iostream>
 #include "TEMP.h"
+#include "WorkItem.h"
 
 class WorkComponent : public Handler
 {
 public:
     WorkComponent(std::string name);
     WorkComponent(const WorkComponent& other);
+    virtual ~WorkComponent();
 
     //getters
-    WorkState* getState();
-    std::string getName();
-    std::string getData(std::string key);
+    WorkState* getState() const;
+    std::string getName() const;
+    WorkItem* getItem() const;
 
     //setters
     void setState(WorkState* state);
@@ -28,13 +31,21 @@ private:
 
 class WorkGroup : public WorkComponent{
     public:
+    WorkGroup(std::string name);
     WorkGroup(const WorkGroup& other);
+    ~WorkGroup() override;
+
+    void add(Stage* child);
+    void add(SubProcess* child);
+    void add(WorkUnit* child);
 
     void remove(WorkComponent* child);
-    std::vector<WorkComponent*> getChildren();
+    void remove(std::string name);
 
-    virtual void  accept(WorkVisitor& visitor) = 0;
-    virtual WorkGroup* clone() = 0;
+    std::vector<WorkComponent*> getChildren() const;
+
+    virtual void accept(WorkVisitor& visitor);
+    virtual WorkGroup* clone();
 
     //ensure proper division of composite classes
     protected:
@@ -46,21 +57,30 @@ class WorkGroup : public WorkComponent{
 
 class Stage : public WorkGroup {
     public:
-    void accept(WorkVisitor& visitor) override;
+    Stage(std::string name);
+
     void add(SubProcess* child);
     void add(WorkUnit* child);
+    void accept(WorkVisitor& visitor) override;
+    Stage* clone() override;
 
 };
 
 class SubProcess : public WorkGroup{
     public:
-    void accept(WorkVisitor& visitor) override;
+    SubProcess(std::string name);
+
     void add(WorkUnit* child);
+    void accept(WorkVisitor& visitor) override;
+    SubProcess* clone() override;
 };
 
 class WorkUnit : public WorkComponent {
     public:
+    WorkUnit(std::string name);
+
     WorkMemento* createMemento();
     void setMemento(WorkMemento* memento);
     void accept(WorkVisitor& visitor);
+    WorkUnit* clone() override;
 };
