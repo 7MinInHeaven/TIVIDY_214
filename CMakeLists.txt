@@ -29,7 +29,7 @@ find_package(nlohmann_json REQUIRED)
 # PostgreSQL (libpqxx & libpq) Dependency (Robert added this)
 # -------------------------------------------------------------
 find_package(PkgConfig REQUIRED)
-pkg_check_modules(PQXX REQUIRED libpqxx libpq)
+pkg_check_modules(PQXX REQUIRED libpqxx libpq sqlite3) 
 include_directories(${PQXX_INCLUDE_DIRS})
 link_directories(${PQXX_LIBRARY_DIRS})
 
