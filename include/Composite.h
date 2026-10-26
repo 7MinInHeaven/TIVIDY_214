@@ -4,6 +4,10 @@
 #include "TEMP.h"
 #include "WorkItem.h"
 #include "Handler.h"
+#include "WorkState.h"
+#include "PendingState.h"
+#include "InProgressState.h"
+#include "CompletedState.h"
 
 class WorkComponent : public Handler
 {
