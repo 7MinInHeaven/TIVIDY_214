@@ -10,11 +10,6 @@ class WorkUnit;
 class SubProcess;
 class Stage;
 
-class Handler {
-public:
-    virtual ~Handler() = default;
-};
-
 class WorkMemento {};
 
 class WorkVisitor {
