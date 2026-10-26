@@ -1,5 +1,6 @@
 name: TIVIDY C++ CI
 
+# Trigger on pushes to any branch, and all Pull Requests targeting main or dev
 on:
   push:
     branches: [ main, dev, '**' ]
@@ -7,31 +8,33 @@ on:
     branches: [ main, dev ]
 
 jobs:
+  # The status check name used for GitHub Branch Protection ("build-and-test")
   build-and-test:
     runs-on: ubuntu-22.04
 
     steps:
+      # Step 1: Download repository source code onto the GitHub cloud runner
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Install Compilers and Tools
+      # Step 2: Create an empty .env file if missing so Docker Compose doesn't fail
+      - name: Ensure .env exists for Docker Compose
+        run: touch .env
+
+      # Step 3: Build the Docker image (reads all dependencies from Dockerfile)
+      - name: Build Docker Container
+        run: docker compose build
+
+      # Step 4: Run all unit tests inside the container using the compiled test binary
+      - name: Run Unit Tests in Docker
+        run: docker compose run --rm tividy_app ./build/bin/tividy_tests
+
+      # Step 5: Run Valgrind inside Docker -- fails with exit code 1 if memory leaks exist
+      - name: Check Memory Leaks with Valgrind in Docker
         run: |
-          sudo apt-get update
-          sudo apt-get install -y cmake build-essential valgrind pkg-config libpq-dev libpqxx-dev 
-
-      - name: Configure CMake
-        run: cmake -B build -DCMAKE_BUILD_TYPE=Debug
-
-      - name: Build Project
-        run: cmake --build build -- -j$(nproc)
-
-      - name: Run Unit Tests
-        run: ctest --test-dir build --output-on-failure
-
-      - name: Check Memory Leaks with Valgrind
-        run: |
-          valgrind --leak-check=full \
-                   --show-leak-kinds=all \
-                   --track-origins=yes \
-                   --error-exitcode=1 \
-                   ./build/bin/tividy_tests
+          docker compose run --rm tividy_app \
+            valgrind --leak-check=full \
+                     --show-leak-kinds=all \
+                     --track-origins=yes \
+                     --error-exitcode=1 \
+                     ./build/bin/tividy_tests
