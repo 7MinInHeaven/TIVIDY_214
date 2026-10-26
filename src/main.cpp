@@ -33,23 +33,14 @@ int main() {
     // 4. Test the Bridge Refined Abstractions (The Notices)
     // ---------------------------------------------------------
     
-    // Scenario A: Send an email to the customer about their claim
-    cout << "--- Triggering: Customer Email (Result Notice) ---\n";
-    ResultNotice emailResult(&emailChannel, customerEmail);
-    emailResult.send();
-    cout << "\n";
+    // With no work item context (compose will say "unknown"):
+ResultNotice   emailResult(&emailChannel, nullptr, customerEmail);
+ResultNotice   appResult(&appChannel, nullptr, supportAgentId);
+DeadlineNotice deadlineAlert(&appChannel, nullptr, supportAgentId);
 
-    // Scenario B: Send an in-app TUI alert to the Support Agent
-    cout << "--- Triggering: Support Agent App Alert (Result Notice) ---\n";
-    ResultNotice appResult(&appChannel, supportAgentId);
-    appResult.send();
-    cout << "\n";
-
-    // Scenario C: Send an urgent deadline alert to the Support Agent
-    cout << "--- Triggering: Support Agent App Alert (Deadline Notice) ---\n";
-    DeadlineNotice deadlineAlert(&appChannel, supportAgentId);
-    deadlineAlert.send();
-    cout << "\n";
+emailResult.send();
+appResult.send();
+deadlineAlert.send();
 
     cout << "========================================\n";
     cout << "   All Notifications Sent Successfully  \n";

@@ -24,7 +24,7 @@ HttpResponse MailjetHttpClient::postJson(const string& url, const string& json){
 
 curl_slist* headers = curl_slist_append(nullptr, "Contnet-Type: application/json");
 
-const std::string userpwd = apiKey_ + ":" + apiSecret_;
+const std::string userpwd = apiKey + ":" + apiSecret;
 
     curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
     curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
