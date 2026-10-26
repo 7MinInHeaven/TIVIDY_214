@@ -21,6 +21,7 @@ RUN echo 'Acquire::http::Pipeline-Depth "0";' > /etc/apt/apt.conf.d/99custom && 
     libpq-dev \
     libpqxx-dev \
     ca-certificates \
+    libsqlite3-dev \
     libcurl4-openssl-dev \
     nlohmann-json3-dev \
     && rm -rf /var/lib/apt/lists/*
