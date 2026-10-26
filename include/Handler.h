@@ -8,7 +8,7 @@
 class Handler
 {
     protected: 
-        Handler* successor;
+        Handler* successor = nullptr;;
     public: 
         void setNext(Handler* nextPhase);
         virtual Handler* clone() = 0;
