@@ -48,7 +48,7 @@ class WorkGroup : public WorkComponent{
     virtual void accept(WorkVisitor& visitor);
     virtual WorkGroup* clone();
 
-    void handleRequest(WorkItem item) override;
+    void handleRequest(WorkItem item);
 
     //ensure proper division of composite classes
     protected:
