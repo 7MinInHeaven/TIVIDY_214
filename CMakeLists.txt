@@ -18,6 +18,13 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 # Include directory for header files
 include_directories(include)
 
+#------------------------------------------
+# MailJest API 
+#------------------------------------------
+find_package(CURL REQUIRED)
+find_package(nlohmann_json REQUIRED)
+
+
 # -------------------------------------------------------------
 # PostgreSQL (libpqxx & libpq) Dependency (Robert added this)
 # -------------------------------------------------------------
@@ -32,8 +39,11 @@ link_directories(${PQXX_LIBRARY_DIRS})
 file(GLOB_RECURSE APP_SOURCES "src/*.cpp")
 add_executable(tividy_app ${APP_SOURCES})
 target_include_directories(tividy_app PRIVATE include ${PQXX_INCLUDE_DIRS})
-target_link_libraries(tividy_app PRIVATE ${PQXX_LIBRARIES})
-
+target_link_libraries(tividy_app PRIVATE
+    ${PQXX_LIBRARIES}
+    CURL::libcurl
+    nlohmann_json::nlohmann_json
+)
 # -------------------------------------------------------------
 # GoogleTest Integration (FetchContent for zero-friction setup)
 # -------------------------------------------------------------
@@ -56,7 +66,10 @@ list(FILTER LIB_SOURCES EXCLUDE REGEX ".*main\\.cpp$")
 
 add_executable(tividy_tests ${TEST_SOURCES} ${LIB_SOURCES})
 target_include_directories(tividy_tests PRIVATE include tests ${PQXX_INCLUDE_DIRS})
-target_link_libraries(tividy_tests PRIVATE GTest::gtest_main ${PQXX_LIBRARIES})
+target_link_libraries(tividy_tests PRIVATE GTest::gtest_main ${PQXX_LIBRARIES}
+    CURL::libcurl
+    nlohmann_json::nlohmann_json
+)
 
 include(GoogleTest)
 gtest_discover_tests(tividy_tests)

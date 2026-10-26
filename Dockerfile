@@ -21,6 +21,8 @@ RUN echo 'Acquire::http::Pipeline-Depth "0";' > /etc/apt/apt.conf.d/99custom && 
     libpq-dev \
     libpqxx-dev \
     ca-certificates \
+    libcurl4-openssl-dev \
+    nlohmann-json3-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # Move into /app folder in container
