@@ -1,12 +1,11 @@
 #include "PostgresAdapter.h"
 
-PostgresAdapter::PostgresAdapter(PostgresAPI* pgApi, std::string table, bool takeOwnership)
-    : api(pgApi), tableName(table), ownsApi(takeOwnership) {}
+PostgresAdapter::PostgresAdapter(PostgresAPI* api, std::string table, bool takeOwnership) : pgApi(api), tableName(table), ownsAPI(takeOwnership) {}
 
 PostgresAdapter::~PostgresAdapter() {
-    if (ownsApi && api != nullptr) {
-        delete api;
-        api = nullptr;
+    if (ownsApi && pgApi != nullptr) {
+        delete pgApi;
+        pgApi = nullptr;
     }
 }
 
@@ -14,7 +13,7 @@ std::string PostgresAdapter::rmvQuotes(const std::string& input) const {
     std::string sanitized = "";
     for (size_t i = 0; i < input.length(); ++i) {
         if (input[i] == '\'') {
-            sanitized += "''"; // Escape single quote for SQL safety
+            sanitized += "''"; // escape single quote for SQL safety
         } else {
             sanitized += input[i];
         }
@@ -23,36 +22,31 @@ std::string PostgresAdapter::rmvQuotes(const std::string& input) const {
 }
 
 bool PostgresAdapter::saveRecord(int taskID, std::string taskName, std::string state, std::string payload) {
-    if (api == nullptr) {
+    if (pgApi == nullptr) {
         return false;
     }
-
-    std::string safeName = rmvQuotes(taskName);
-    std::string safeState = rmvQuotes(state);
-    std::string safePayload = rmvQuotes(payload);
-
+    
     std::string sqlQuery =
-        "INSERT INTO " + tableName + " (task_id, task_name, state, payload) VALUES (" +
-        std::to_string(taskID) + ", '" +
-        safeName + "', '" +
-        safeState + "', '" +
-        safePayload + "');";
-
-    int statusCode = api->executeTransaction(sqlQuery);
+        "INSERT INTO " + tableName + " (task_id, task_name, state, payload) VALUES ($1, $2, $3, $4);";
+    std::vector<std::string> params;
+    params.push_back(std::to_string(taskID));
+    params.push_back(taskName);
+    params.push_back(state);
+    params.push_back(payload);
+    int statusCode = pgApi->executeTransaction(sqlQuery, params);
     return (statusCode == 0);
 }
 
 std::string PostgresAdapter::getRecordState(std::string taskName) {
-    if (api == nullptr) {
+    if (pgApi == nullptr) {
         return "";
     }
-
-    std::string safeName = rmvQuotes(taskName);
     std::string sqlQuery =
         "SELECT state FROM " + tableName +
-        " WHERE task_name = '" + safeName + "' ORDER BY id DESC LIMIT 1;";
-
-    std::vector<std::string> rows = api->executeSelect(sqlQuery);
+        " WHERE task_name = $1 ORDER BY id DESC LIMIT 1;";
+    std::vector<std::string> params;
+    params.push_back(taskName);
+    std::vector<std::string> rows = pgApi->executeSelect(sqlQuery, params);
     if (rows.empty()) {
         return "";
     }
@@ -60,22 +54,22 @@ std::string PostgresAdapter::getRecordState(std::string taskName) {
 }
 
 std::vector<std::string> PostgresAdapter::fetchAllRecords() {
-    if (api == nullptr) {
+    if (pgApi == nullptr) {
         return std::vector<std::string>();
     }
 
     std::string sqlQuery =
         "SELECT task_id, task_name, state, payload FROM " + tableName + " ORDER BY id ASC;";
 
-    return api->executeSelect(sqlQuery);
+    return pgApi->executeSelect(sqlQuery);
 }
 
 bool PostgresAdapter::isConnected() {
-    if (api == nullptr) {
+    if (pgApi == nullptr) {
         return false;
     }
-    if (api->getConnectionStatus()) {
+    if (pgApi->getConnectionStatus()) {
         return true;
     }
-    return api->connect();
+    return pgApi->connect();
 }

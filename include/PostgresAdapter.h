@@ -8,7 +8,7 @@
 
 class PostgresAdapter : public ExternalDatabase {
 private:
-    PostgresAPI* api;
+    PostgresAPI* pgApi;//
     std::string tableName;
     bool ownsApi;
 
