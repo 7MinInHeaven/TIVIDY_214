@@ -3,6 +3,7 @@
 #include <iostream>
 #include "TEMP.h"
 #include "WorkItem.h"
+#include "Handler.h"
 
 class WorkComponent : public Handler
 {
@@ -46,6 +47,8 @@ class WorkGroup : public WorkComponent{
 
     virtual void accept(WorkVisitor& visitor);
     virtual WorkGroup* clone();
+
+    void handleRequest(WorkItem item) override;
 
     //ensure proper division of composite classes
     protected:
