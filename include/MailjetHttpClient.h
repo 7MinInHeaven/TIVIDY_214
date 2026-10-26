@@ -2,24 +2,23 @@
 #define MAILJETHTTPCLIENT_H
 
 #include <string>
-using namespace std;
 
 struct HttpResponse { 
     long status = 0; 
-    string body; 
-    string error; 
+    std::string body; 
+    std::string error; 
 }; 
 
 class MailjetHttpClient { 
 private: 
-    string apiKey; 
-    string apiSecret;
+    std::string apiKey_; 
+    std::string apiSecret_;
 
 public: 
-    MailjetHttpClient(string apiKey, string apiSecret): 
-    apiKey(this->apiKey), apiSecret(this->apiSecret){}
+    
+    MailjetHttpClient(std::string apiKey, std::string apiSecret);
 
-    HttpResponse postJson(const string& url, const string& json);
+    HttpResponse postJson(const std::string& url, const std::string& json);
 };
 
-#endif
+#endif // MAILJETHTTPCLIENT_H

@@ -11,20 +11,25 @@ size_t writeCb(char* ptr, size_t size, size_t nmemb, void* userdata) {
 }
 }
 
-HttpResponse MailjetHttpClient::postJson(const string& url, const string& json){
+MailjetHttpClient::MailjetHttpClient(std::string apiKey, std::string apiSecret)
+    : apiKey_(std::move(apiKey)), 
+      apiSecret_(std::move(apiSecret)) {}
+
+HttpResponse MailjetHttpClient::postJson(const std::string& url, const std::string& json) {
     HttpResponse res; 
 
     CURL* curl = curl_easy_init(); 
 
-    if(!curl) {
-        res.error = "curl failed";
-        return res;
+    if (!curl) {
+        res.error = "curl init failed";
+        return res; 
     }
-}
 
 curl_slist* headers = curl_slist_append(nullptr, "Contnet-Type: application/json");
 
-const std::string userpwd = apiKey + ":" + apiSecret;
+
+
+const std::string userpwd = apiKey_ + ":" + apiSecret_;
 
     curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
     curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);

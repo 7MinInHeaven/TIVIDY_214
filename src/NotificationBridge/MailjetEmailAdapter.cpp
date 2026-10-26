@@ -3,6 +3,8 @@
 #include <nlohmann/json.hpp>
 #include <utility>
 
+using json = nlohmann::json;
+
 MailjetEmailAdapter::MailjetEmailAdapter(std::string key,
                                          std::string secret,
                                          std::string from,
