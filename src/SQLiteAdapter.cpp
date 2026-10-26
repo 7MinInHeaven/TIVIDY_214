@@ -26,19 +26,14 @@ bool SQLiteAdapter::saveRecord(int taskID, std::string taskName, std::string sta
     if (api == nullptr) {
         return false;
     }
-
-    std::string safeName = rmvQuotes(taskName);
-    std::string safeState = rmvQuotes(state);
-    std::string safePayload = rmvQuotes(payload);
-
     std::string sqlQuery =
-        "INSERT INTO " + tableName + " (task_id, task_name, state, payload) VALUES (" +
-        std::to_string(taskID) + ", '" +
-        safeName + "', '" +
-        safeState + "', '" +
-        safePayload + "');";
-
-    int status = api->runStatement(sqlQuery);
+        "INSERT INTO " + tableName + " (task_id, task_name, state, payload) VALUES (?, ?, ?, ?);";
+    std::vector<std::string> params;
+    params.push_back(std::to_string(taskID));
+    params.push_back(taskName);
+    params.push_back(state);
+    params.push_back(payload);
+    int status = api->runStatement(sqlQuery, params);
     return (status == 0);
 }
 
@@ -46,13 +41,13 @@ std::string SQLiteAdapter::getRecordState(std::string taskName) {
     if (api == nullptr) {
         return "";
     }
-
-    std::string safeName = rmvQuotes(taskName);
+    
     std::string sqlQuery =
         "SELECT state FROM " + tableName +
-        " WHERE task_name = '" + safeName + "' ORDER BY id DESC LIMIT 1;";
-
-    std::vector<std::string> rows = api->queryRows(sqlQuery);
+        " WHERE task_name = ? ORDER BY id DESC LIMIT 1;";
+    std::vector<std::string> params;
+    params.push_back(taskName);
+    std::vector<std::string> rows = api->queryRows(sqlQuery, params);
     if (rows.empty()) {
         return "";
     }
