@@ -5,9 +5,11 @@
 
 class PendingState : public WorkState {
 public: 
+    PendingState();
     void handleUpdate(WorkComponent* context);
     std::string getStatus() override;
     WorkState* clone() override;
+    virtual ~PendingState();
 };
 
 #endif

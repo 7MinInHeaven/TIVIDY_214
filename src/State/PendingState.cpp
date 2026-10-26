@@ -2,6 +2,8 @@
 #include "InProgressState.h"
 #include "Composite.h"
 
+PendingState::PendingState() {}
+
 void PendingState::handleUpdate(WorkComponent* context)
 {
     context->setState(new InProgressState());
@@ -13,3 +15,6 @@ std::string PendingState::getStatus()
 }
 
 WorkState* PendingState::clone() { return new PendingState(*this); }
+
+
+PendingState::~PendingState() {};

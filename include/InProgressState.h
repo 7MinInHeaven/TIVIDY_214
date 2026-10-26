@@ -5,9 +5,11 @@
 
 class InProgressState : public WorkState {
 public: 
+    InProgressState();
     void handleUpdate(WorkComponent* context);
     std::string getStatus() override;
     WorkState* clone() override;
+    virtual ~InProgressState();
 };
 
 #endif
