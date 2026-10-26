@@ -7,7 +7,9 @@
 #include <iostream>
 #include <memory>
 #include "WorkItem.h"
+#include "SMS.h"
 using namespace std; 
+
 //==============IMPLEMENTOR_DATA==========//
 struct NotificationData{
     string to; 
@@ -82,6 +84,21 @@ public:
         if(transport) transport->sendEmail(d.to,d.subject,d.body);
     }
     
+};
+
+class SmsChannel : public NotificationChannel {
+    SmsTransport* transport;
+public:
+    explicit SmsChannel(SmsTransport* t) : transport(t) {}
+
+    void deliver(const NotificationData& d) override {
+       
+        if (transport) {
+            if (!transport->sendSms(d.to, d.body)) {
+                std::cerr << "[SMS Error] Failed to send SMS to " << d.to << "\n";
+            }
+        }
+    }
 };
 
 class AppChannel : public NotificationChannel{
