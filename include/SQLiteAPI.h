@@ -15,8 +15,8 @@ public:
 
     virtual bool openConnection();
     virtual void closeConnection();
-    virtual int runStatement(std::string sqlQuery);
-    virtual std::vector<std::string> queryRows(std::string sqlQuery);
+    virtual int runStatement(std::string sqlQuery, const std::vector<std::string>& params = std::vector<std::string>());
+    virtual std::vector<std::string> queryRows(std::string sqlQuery, const std::vector<std::string>& params = std::vector<std::string>());
     virtual bool isOpen() const;
     std::string getDbFilePath() const;
 };
