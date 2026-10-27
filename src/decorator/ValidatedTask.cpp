@@ -34,8 +34,7 @@ bool ValidatedTask::validate(vector<string>& failureMessages) {
 }
 
 void ValidatedTask::nextState() {
-    WorkState* current = getState();
-    if (current != nullptr && !validationRules.empty() && current->getStatus() == guardedStatus) {
+    if (getState()->getStatus() == "In Progress") {
         vector<string> failures;
         if (!validate(failures)) {
             throw ValidationError(getName(), failures);

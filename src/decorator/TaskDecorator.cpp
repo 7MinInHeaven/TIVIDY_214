@@ -1,4 +1,5 @@
 #include "Decorator.h"
+#include <stdexcept>
 
 using namespace std;
 
@@ -29,6 +30,10 @@ string TaskDecorator::getData(const string& key) const { return wrappedTask->get
 
 // lowkey after the wrapped task changes state, tell THIS decorator's observers too for outer
 void TaskDecorator::nextState() {
+    if (wrappedTask->isComplete()) {
+        throw std::logic_error("Cannot advance a completed task");
+    }
+    
     wrappedTask->nextState();
     notify();
 }

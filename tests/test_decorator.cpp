@@ -190,8 +190,15 @@ TEST(DecoratorTest, AuditedTaskRecordsAnInvalidTransitionAndStillRethrowsIt) {
     task.nextState();
     task.nextState();
 
-    task.nextState();
-    EXPECT_TRUE(log.containsText("Completed -> FAILED"));
+    // mo changed: manually catch to avoid GoogleTest's strict behavior
+    bool threw = false;
+    try {
+        task.nextState();
+    } catch (const logic_error&) {
+        threw = true;
+    }
+    EXPECT_TRUE(threw);
+    EXPECT_TRUE(log.containsText("Completed -> FAILED:"));
 }
 
 TEST(DecoratorTest, AuditedTaskRecordsAValidationFailureRaisedByATaskItWraps) {
