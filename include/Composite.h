@@ -17,7 +17,11 @@
 
 class WorkMemento;
 
+
+
 class WorkComponent : public Handler, public WorkflowSubject {
+
+    
 public:
   WorkComponent(std::string name);
   WorkComponent(const WorkComponent &other);
@@ -38,8 +42,10 @@ public:
   virtual bool isComplete() const;
   virtual PriorityLevel getPriority() const;
 
-  virtual void accept(WorkVisitor &visitor) = 0;
-  virtual WorkComponent *clone() const override = 0;
+  virtual void accept(WorkVisitor& visitor) = 0;
+  virtual WorkComponent* clone() const override = 0;
+
+
 
 private:
   WorkState *state;
@@ -71,8 +77,10 @@ public:
 protected:
   void add(WorkComponent *child);
 
-private:
-  std::vector<WorkComponent *> children;
+    private:
+    std::vector<WorkComponent*> children;
+    void printTasks(WorkComponent* component);
+    friend class WorkflowBuilder;
 };
 
 class Stage : public WorkGroup {
