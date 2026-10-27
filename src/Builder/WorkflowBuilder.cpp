@@ -26,18 +26,6 @@ void WorkflowBuilder::attach(WorkGroup* group)
     {
         //attach nested processes to current Workgroup
         WorkGroup* parent = currentGroup();
-
-        // if (Stage* stageChild = dynamic_cast<Stage*>(group)) 
-        // {
-        //     parent->add(stageChild);
-        // } 
-        // else if (SubProcess* subChild = dynamic_cast<SubProcess*>(group)) 
-        // {
-        //     parent->add(subChild);
-        // } else 
-        // {
-        //     parent->add(reinterpret_cast<Stage*>(group));
-        // }
         parent->add(group);
     }
 
