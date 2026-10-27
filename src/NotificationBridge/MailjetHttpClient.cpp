@@ -25,7 +25,7 @@ HttpResponse MailjetHttpClient::postJson(const std::string& url, const std::stri
         return res; 
     }
 
-curl_slist* headers = curl_slist_append(nullptr, "Contnet-Type: application/json");
+curl_slist* headers = curl_slist_append(nullptr, "Content-Type: application/json");
 
 
 
