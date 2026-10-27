@@ -168,9 +168,12 @@ TEST(AdapterStrategyTest, HandlesNullPointersSafely) {
 }
 
 TEST(AdapterStrategyTest, LiveNeonPostgresInsertWhenEnvConfigured) {
+    // save a row to the local SQLite database file (tividy_local.db)
+    SQLiteAdapter localDb(new SQLiteAPI("tividy_local.db"), "workflow_audit_log", true);
+    EXPECT_TRUE(localDb.saveRecord(777, "Live SQLite Local Test", "Pending", "Saved locally"));
+   
     const char* envUrl = std::getenv("DATABASE_URL");
     if (envUrl == nullptr || std::string(envUrl).empty()) {
-        // On GitHub CI where .env is empty skip live network test
         SUCCEED();
         return;
     }
