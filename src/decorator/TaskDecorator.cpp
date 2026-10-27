@@ -25,7 +25,7 @@ string TaskDecorator::getName() const { return wrappedTask->getName(); }
 
 void TaskDecorator::setData(const string& key, const string& value) { wrappedTask->setData(key, value); }
 
-string TaskDecorator::getData(const string& key) { return wrappedTask->getData(key); }
+string TaskDecorator::getData(const string& key) const { return wrappedTask->getData(key); }
 
 // lowkey after the wrapped task changes state, tell THIS decorator's observers too for outer
 void TaskDecorator::nextState() {
