@@ -166,3 +166,23 @@ TEST(AdapterStrategyTest, HandlesNullPointersSafely) {
     EXPECT_EQ(nullSq.getRecordState("Task"), "");
     EXPECT_TRUE(nullSq.fetchAllRecords().empty());
 }
+
+TEST(AdapterStrategyTest, LiveNeonPostgresInsertWhenEnvConfigured) {
+    const char* envUrl = std::getenv("DATABASE_URL");
+    if (envUrl == nullptr || std::string(envUrl).empty()) {
+        // On GitHub CI where .env is empty skip live network test
+        SUCCEED();
+        return;
+    }
+    WorkUnit liveTask("Live Neon Cloud Test");
+    liveTask.setData("task_id", "777");
+    liveTask.setData("category", "AccidentalClaim");
+    liveTask.setData("amount", "R300000");
+    DatabaseObserver liveObserver(
+        &liveTask,
+        new PostgresAdapter(new PostgresAPI(envUrl), "workflow_audit_log", true),
+        new SQLiteAdapter(new SQLiteAPI("tividy_local.db"), "workflow_audit_log", true)
+    );
+    liveObserver.update();
+    EXPECT_EQ(liveObserver.getLastSyncedState(), "Pending");
+}
