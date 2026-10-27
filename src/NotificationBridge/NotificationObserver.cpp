@@ -1,7 +1,7 @@
 #include "NotificationObserver.h"
 #include <iostream>
 
-void NotificationObserver::update() override{
+void NotificationObserver::update(){
     if(!subject) return; 
 
     std::string currentState = subject->getState()->getStatus(); 

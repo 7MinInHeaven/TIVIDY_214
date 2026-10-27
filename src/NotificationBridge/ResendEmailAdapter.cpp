@@ -1,6 +1,16 @@
 #include "ResendEmailAdapter.h"
-#include "MailjetHttpClient.h" // Reuse your existing HTTP client
+#include "MailjetHttpClient.h" 
 #include <nlohmann/json.hpp>
+
+#include <curl/curl.h>
+
+namespace {
+size_t writeCb(char* ptr, size_t size, size_t nmemb, void* userdata) {
+    auto* out = static_cast<std::string*>(userdata);
+    out->append(ptr, size * nmemb);
+    return size * nmemb;
+}
+}
 
 using json = nlohmann::json;
 

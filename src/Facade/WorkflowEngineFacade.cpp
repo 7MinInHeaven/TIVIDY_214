@@ -37,10 +37,13 @@ void WorkflowEngineFacade::submitRequest(WorkItem item) {
                              : "your-personal-email@gmail.com";
   string supportAgentId =
       item.hasData("agent_id") ? item.getData("agent_id") : "AGENT-442";
+
+
+        string currentState = item.hasData("state") ? item.getData("state") : "Pending";
   // 4. Create Notifications passing the WorkItem context
-  ResultNotice emailResult(&emailChannel, &item, customerEmail);
-  ResultNotice appResult(&appChannel, &item, supportAgentId);
-  DeadlineNotice deadlineAlert(&appChannel, &item, supportAgentId);
+  ResultNotice emailResult(&emailChannel, &item, customerEmail, currentState);
+  ResultNotice appResult(&appChannel, &item, supportAgentId, currentState);
+  DeadlineNotice deadlineAlert(&appChannel, &item, supportAgentId, currentState);
   // 5. Send!
   emailResult.send();
   appResult.send();
