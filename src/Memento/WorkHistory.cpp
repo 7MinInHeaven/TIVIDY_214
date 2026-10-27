@@ -1,30 +1,27 @@
-#include "../include/Memento.h"
+#include "Memento.h"
 
 WorkHistory::~WorkHistory() {
-    for (WorkMemento* memento : mementos) {
-        delete memento;
-    }
+  for (WorkMemento *memento : mementos) {
+    delete memento;
+  }
 }
 
-void WorkHistory::addMemento(WorkMemento* memento) {
-    mementos.push_back(memento);
+void WorkHistory::addMemento(WorkMemento *memento) {
+  mementos.push_back(memento);
 }
 
+bool WorkHistory::isEmpty() const { return mementos.empty(); }
 
-bool WorkHistory::isEmpty() const {
-    return mementos.empty();
-}
-
-WorkMemento* WorkHistory::getLatestMemento() const {
-    if (mementos.empty()) {
-        return nullptr;
-    }
-   return mementos.back();
+WorkMemento *WorkHistory::getLatestMemento() const {
+  if (mementos.empty()) {
+    return nullptr;
+  }
+  return mementos.back();
 }
 
 void WorkHistory::popLatest() {
-    if (!mementos.empty()) {
-        delete mementos.back();
-        mementos.pop_back();
-    }
+  if (!mementos.empty()) {
+    delete mementos.back();
+    mementos.pop_back();
+  }
 }
