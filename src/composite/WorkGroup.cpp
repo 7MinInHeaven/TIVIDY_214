@@ -74,3 +74,12 @@ WorkGroup* WorkGroup::clone() const {
 std::vector<WorkComponent*> WorkGroup::getChildren() const{
     return children;
 }
+
+void WorkGroup::handleRequest(WorkItem item) {
+    std::cout << "stage: " << getName() << "\n";
+
+    for (WorkComponent* child : children) {
+        std::cout << "  sub task: " << child->getName() << "\n";
+    }
+    Handler::handleRequest(item);
+}

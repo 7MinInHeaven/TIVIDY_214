@@ -30,6 +30,7 @@ WorkItem* WorkComponent::getItem() const{
 
 void WorkComponent::setData(const std::string& key, const std::string& value){ //mo
     item->setData(key, value);
+    this->notify();
 }
 
 
@@ -56,6 +57,7 @@ PriorityLevel WorkComponent::getPriority() const {
 void WorkComponent::setState(WorkState* state){
     delete this->state;
     this->state = state;
+    this->notify();
 }
 
 

@@ -10,11 +10,6 @@ class WorkUnit;
 class SubProcess;
 class Stage;
 
-class Handler {
-public:
-    virtual ~Handler() = default;
-};
-
 class WorkMemento {};
 
 class WorkVisitor {
@@ -26,21 +21,6 @@ public:
     virtual void visit(WorkGroup&){}
 };
 
-class WorkState {
-public:
-    WorkState() = default;
-    WorkState(const WorkState&) = default;
-    virtual ~WorkState() = default;
-    virtual std::string getStatus() = 0;
-    virtual WorkState* clone() = 0;
-};
-
-class PendingState : public WorkState {
-public:
-    WorkState* clone() override { return new PendingState(*this); }
-    std::string getStatus() override {return "Pending";};
-    ~PendingState() override = default;
-};
 
 class WorkIterator {
     public:
