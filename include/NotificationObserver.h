@@ -12,13 +12,17 @@
 class NotificationObserver : public WorkflowObserver {
 private: 
     WorkflowSubject* subject; 
-    NotificationChannel* notification; 
+    NotificationChannel* emailChannel;
+    NotificationChannel* appChannel;
 
 public: 
-    NotificationObserver(WorkflowSubject* w, NotificationChannel* n) :
-    notification(n), subject(w){}
+    NotificationObserver(WorkflowSubject* w, NotificationChannel* e,
+    NotificationChannel* a) :
+    emailChannel(e), appChannel(a) , subject(w){}
 
     void update() override;
+
+    //getState.getStatus
 };
 
 
