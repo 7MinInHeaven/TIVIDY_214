@@ -37,7 +37,7 @@ public:
     virtual PriorityLevel getPriority() const;
 
     virtual void accept(WorkVisitor& visitor) = 0;
-    virtual WorkComponent* clone() const = 0;
+    virtual WorkComponent* clone() const override = 0;
 
 private:
     WorkState *state;

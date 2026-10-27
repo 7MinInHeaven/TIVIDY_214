@@ -14,6 +14,6 @@ void Stage::add(WorkUnit* child){
     WorkGroup::add(child);
 }
 
-Stage* Stage::clone() {
+Stage* Stage::clone() const {
     return new Stage(*this);
 }

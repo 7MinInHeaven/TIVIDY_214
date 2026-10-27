@@ -10,6 +10,6 @@ void SubProcess::add(WorkUnit* child){
     WorkGroup::add(child);
 }
 
-SubProcess* SubProcess::clone(){
+SubProcess* SubProcess::clone() const{
     return new SubProcess(*this);
 }
