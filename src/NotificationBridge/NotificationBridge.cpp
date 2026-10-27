@@ -7,7 +7,7 @@ NotificationData ResultNotice::compose(){
     return {
         recipient,
         "Your request has been completed",
-        "Request " + itemId + " (" + category + ") has been completed."
+       "Hello, the status of your " + category + " request (" + itemId + ") is now: " + currentStatus
     };
 }
 
@@ -19,7 +19,7 @@ NotificationData DeadlineNotice::compose(){
     return {
         recipient,
         "Deadline approaching for request " + itemId,
-        "The deadline for request " + itemId + " is approaching. Please act soon."
+        "The deadline for request " + itemId + " is approaching. Current status: " + currentStatus
     };
 }
 
