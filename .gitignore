@@ -15,3 +15,6 @@ compile_commands.json
 
 # Environment variables
 .env
+
+#temp local SQLite test files
+*.db
