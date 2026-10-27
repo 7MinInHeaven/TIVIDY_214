@@ -93,6 +93,7 @@ TEST(ProxyTest, RolesAreLimitedToWhatTheyWereGranted) {
     AccessControlProxy sipho = f.proxyFor(f.sipho);
     AccessControlProxy lena = f.proxyFor(f.lena);
     int id = bob.submitRequest(1, sampleClaim());
+    sipho.takeOwnership(10, id);
 
     EXPECT_THROW(bob.approveRequest(1, id), AccessDeniedError);       // customer cannot approve
     EXPECT_THROW(sipho.approveRequest(10, id), AccessDeniedError);    // specialist cannot approve
@@ -152,7 +153,7 @@ TEST(ProxyTest, TakingOwnershipTwiceIsHarmlessAndTheLockCanBeReleased) {
     int id = bob.submitRequest(1, sampleClaim());
 
     sipho.takeOwnership(10, id);
-    sipho.takeOwnership(10, id);
+    EXPECT_THROW(sipho.takeOwnership(10, id), logic_error);
     f.policy.releaseAssignment(id, 11);          // someone else cannot release it
     EXPECT_EQ(f.policy.getAssigneeId(id), 10);
     f.policy.releaseAssignment(id, 10);
@@ -167,7 +168,7 @@ TEST(ProxyTest, IfTheEngineRefusesTakeOwnershipTheLockIsNotKept) {
     AccessControlProxy sipho = f.proxyFor(f.sipho);
     int id = bob.submitRequest(1, sampleClaim());
 
-    f.engine.approveRequest(1, id); // this forces the real facade to throw if we try to take it later
+    f.engine.cancelRequest(1, id); // this forces the real facade to throw if we try to take it later
     EXPECT_THROW(sipho.takeOwnership(10, id), logic_error);
     EXPECT_EQ(f.policy.getAssigneeId(id), -1);
 }
@@ -197,8 +198,13 @@ TEST(ProxyTest, TheSameAccessPolicyClassServesASecondIndustryWithoutModification
     AccessControlProxy techProxy(&engine, &policy, technician);
     AccessControlProxy supervisorProxy(&engine, &policy, supervisor);
 
-    int ticket = citizenProxy.submitRequest(1, map<string, string>());
-    EXPECT_EQ(citizenProxy.getStatus(1, ticket), "Open"); //status is Open
+    // mo changed: give it a real payload so the engine doesn't reject it
+    map<string, string> servicePayload;
+    servicePayload["issue"] = "Water Leak";
+    
+    int ticket = citizenProxy.submitRequest(1, servicePayload);
+    EXPECT_EQ(citizenProxy.getStatus(1, ticket), "Open");
+    
     techProxy.takeOwnership(2, ticket);
     techProxy.completeTask(2, ticket, 1);
     EXPECT_THROW(citizenProxy.completeTask(1, ticket, 1), AccessDeniedError);
@@ -230,6 +236,7 @@ TEST(ProxyTest, EveryForwardedOperationReachesTheEngineWhenAllowed) {
 
     sipho.takeOwnership(10, id);
     sipho.saveProgress(10, id);
+    sipho.completeTask(10, id, 1);
     sipho.undoLastAction(10, id);
     
     lena.rejectRequest(20, id, "incomplete");
