@@ -28,9 +28,30 @@ WorkItem* WorkComponent::getItem() const{
     return item;
 }
 
-void WorkComponent::setData(std::string key, std::string value){
+void WorkComponent::setData(const std::string& key, const std::string& value){ //mo
     item->setData(key, value);
 }
+
+
+//mo default implemenations, for simplikity
+std::string WorkComponent::getData(const std::string& key) const {
+    return item->getData(key);
+}
+
+void WorkComponent::nextState() {
+}
+
+bool WorkComponent::isComplete() const {
+    return false; 
+}
+
+PriorityLevel WorkComponent::getPriority() const {
+    return PriorityLevel::Low; //fallback
+}
+
+
+
+
 
 void WorkComponent::setState(WorkState* state){
     delete this->state;

@@ -67,7 +67,7 @@ void WorkGroup::accept(WorkVisitor& visitor){
     visitor.visit(*this);
 }
 
-WorkGroup* WorkGroup::clone(){
+WorkGroup* WorkGroup::clone() const {
     return new WorkGroup(*this);
 }
 

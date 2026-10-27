@@ -14,6 +14,6 @@ void WorkUnit::accept(WorkVisitor& visitor) {
     visitor.visit(*this);
 }
 
-WorkUnit* WorkUnit::clone() {
+WorkUnit* WorkUnit::clone() const {
     return new WorkUnit(*this);
 }
