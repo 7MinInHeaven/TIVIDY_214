@@ -2,10 +2,22 @@
 #include "Command.h"
 #include "Memento.h"
 
-
-
 WorkUnit::WorkUnit(const std::string &taskId)
     : WorkComponent(taskId), taskId(taskId), currentState(nullptr), assignedWorkerId("") {}
+
+
+    WorkMemento* WorkUnit::createMemento() {
+  return new WorkMemento(taskId, currentState, assignedWorkerId);
+}
+
+void WorkUnit::setMemento(WorkMemento* memento) {
+  if (!memento)
+    return;
+  taskId = memento->taskId;
+  currentState = memento->currentState;
+  assignedWorkerId = memento->assignedWorkerId;
+}
+
 
 bool WorkUnit::startTask() {
   if (assignedWorkerId.empty())
@@ -28,17 +40,6 @@ bool WorkUnit::assignTask(const std::string &workerId) {
   return true;
 }
 
-WorkMemento* WorkUnit::createMemento() {
-  return new WorkMemento(taskId, currentState, assignedWorkerId);
-}
-
-void WorkUnit::setMemento(WorkMemento* memento) {
-  if (!memento)
-    return;
-  taskId = memento->taskId;
-  currentState = memento->currentState;
-  assignedWorkerId = memento->assignedWorkerId;
-}
 
 WorkState* WorkUnit::getState() { 
   return currentState; 
