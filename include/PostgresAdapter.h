@@ -10,7 +10,7 @@ class PostgresAdapter : public ExternalDatabase {
 private:
     PostgresAPI* pgApi;//
     std::string tableName;
-    bool ownsApi;
+    bool ownsAPI;
 
     std::string rmvQuotes(const std::string& input) const;
 
