@@ -3,17 +3,24 @@ FROM ubuntu:22.04
 # Stop Ubuntu from pausing for interactive timezone prompts
 ENV DEBIAN_FRONTEND=noninteractive
 
-# 1. Disable HTTP pipelining (prevents WSL/Docker packet stalls on large downloads)
-# 2. Route all package downloads to Microsoft Azure's South Africa mirror
-RUN echo 'Acquire::http::Pipeline-Depth "0";' > /etc/apt/apt.conf.d/99custom && \
+# Defaults to the South African servers for local building
+ARG USE_SA_MIRROR=true
+
+# 1. Select South African Azure mirror for local builds or fast cloud mirrors for CI
+RUN if [ "$USE_SA_MIRROR" = "true" ]; then \
+    echo "==> Using South African Azure Mirror for local build..." && \
+    echo 'Acquire::http::Pipeline-Depth "0";' > /etc/apt/apt.conf.d/99custom && \
     echo 'Acquire::http::No-Cache "true";' >> /etc/apt/apt.conf.d/99custom && \
     echo 'Acquire::BrokenProxy "true";' >> /etc/apt/apt.conf.d/99custom && \
     echo 'Acquire::Retries "3";' >> /etc/apt/apt.conf.d/99custom && \
     sed -i -e 's|http://archive.ubuntu.com/ubuntu/|http://azure.archive.ubuntu.com/ubuntu/|g' \
     -e 's|http://security.ubuntu.com/ubuntu/|http://azure.archive.ubuntu.com/ubuntu/|g' \
-    /etc/apt/sources.list && \
+    /etc/apt/sources.list; \
+    else \
+    echo "==> Using default high-speed cloud mirrors for GitHub Actions..."; \
+    fi && \
     apt-get update && \
-    apt-get install -y --no-install-recommends \
+    apt-get install -y --no-install-recommends --fix-missing \
     cmake \
     build-essential \
     valgrind \
@@ -21,6 +28,7 @@ RUN echo 'Acquire::http::Pipeline-Depth "0";' > /etc/apt/apt.conf.d/99custom && 
     libpq-dev \
     libpqxx-dev \
     ca-certificates \
+    libsqlite3-dev \
     libcurl4-openssl-dev \
     nlohmann-json3-dev \
     && rm -rf /var/lib/apt/lists/*
