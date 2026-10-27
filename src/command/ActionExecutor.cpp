@@ -1,5 +1,7 @@
 #include "Command.h"
 
+ActionExecutor::ActionExecutor() = default;
+
 ActionExecutor::~ActionExecutor() {
   for (size_t i = 0; i < actions.size(); ++i) {
     delete actions[i];

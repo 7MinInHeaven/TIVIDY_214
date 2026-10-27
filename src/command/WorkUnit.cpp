@@ -2,7 +2,7 @@
 #include "Memento.h"
 
 WorkUnit::WorkUnit(const std::string &taskId)
-    : taskId(taskId), currentState(nullptr), assignedWorkerId("") {}
+    : WorkComponent(taskId), taskId(taskId), currentState(nullptr), assignedWorkerId("") {}
 
 bool WorkUnit::startTask() {
   if (assignedWorkerId.empty())
@@ -25,11 +25,11 @@ bool WorkUnit::assignTask(const std::string &workerId) {
   return true;
 }
 
-WorkMemento *WorkUnit::createMemento() {
+WorkMemento* WorkUnit::createMemento() {
   return new WorkMemento(taskId, currentState, assignedWorkerId);
 }
 
-void WorkUnit::setMemento(const WorkMemento *memento) {
+void WorkUnit::setMemento(WorkMemento* memento) {
   if (!memento)
     return;
   taskId = memento->taskId;
@@ -37,8 +37,14 @@ void WorkUnit::setMemento(const WorkMemento *memento) {
   assignedWorkerId = memento->assignedWorkerId;
 }
 
-WorkState *WorkUnit::getState() { return currentState; }
+WorkState* WorkUnit::getState() { 
+  return currentState; 
+}
 
-std::string WorkUnit::getAssignedWorkerId() { return assignedWorkerId; }
+std::string WorkUnit::getAssignedWorkerId() { 
+  return assignedWorkerId; 
+}
 
-std::string WorkUnit::getTaskId() { return taskId; }
+std::string WorkUnit::getTaskId() { 
+  return taskId; 
+}

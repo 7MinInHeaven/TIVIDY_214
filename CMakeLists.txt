@@ -60,3 +60,4 @@ target_link_libraries(tividy_tests PRIVATE GTest::gtest_main ${PQXX_LIBRARIES})
 
 include(GoogleTest)
 gtest_discover_tests(tividy_tests)
+

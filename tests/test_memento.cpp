@@ -14,7 +14,7 @@ TEST(MementoTests, SaveAndRestoreWorkUnitState){
 
     //3.change data inside workunit obj(after snapshot)
     task.assignTask("Modified_Worker");
-    EXPECT_EQ(task.getAssignedwWorkerId(), "Modified_Worker");
+    EXPECT_EQ(task.getAssignedWorkerId(), "Modified_Worker");
 
     //4.restore state via memento and verify it reverted
     task.setMemento(memento);

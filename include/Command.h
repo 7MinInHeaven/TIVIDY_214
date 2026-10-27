@@ -5,7 +5,7 @@
 #include <string>
 #include "Memento.h"
 
-class Workunit;
+class WorkUnit;
 class WorkHistory;
 class WorkState;
 class WorkMemento;
@@ -42,7 +42,7 @@ class StartTaskCommand : public Action
 
     public:
         StartTaskCommand(WorkUnit* receiver);
-        ~StartTaskCommand();
+        ~StartTaskCommand() = default;
         bool execute() override;
         WorkUnit* getReceiver() const override;
         
@@ -55,7 +55,7 @@ class CompleteTaskCommand : public Action
 
     public:
         CompleteTaskCommand(WorkUnit* receiver);
-        ~CompleteTaskCommand();
+        ~CompleteTaskCommand() = default;
         bool execute() override;
         WorkUnit* getReceiver() const override;
         
@@ -70,7 +70,7 @@ class AssignTaskCommand : public Action
 
     public:
         AssignTaskCommand(WorkUnit* receiver, const std::string& workerId);
-        ~AssignTaskCommand();
+        ~AssignTaskCommand() = default;
         bool execute() override;
         WorkUnit* getReceiver() const override;
         
