@@ -1,10 +1,19 @@
+#ifndef COMPOSITE_H
+#define COMPOSITE_H
+
 #include <string>
 #include <vector>
 #include <iostream>
 #include "TEMP.h"
 #include "WorkItem.h"
+#include "Handler.h"
+#include "WorkState.h"
+#include "PendingState.h"
+#include "InProgressState.h"
+#include "CompletedState.h"
+#include "WorkflowSubject.h"
 
-class WorkComponent : public Handler
+class WorkComponent : public Handler, public WorkflowSubject
 {
 public:
     WorkComponent(std::string name);
@@ -47,6 +56,8 @@ class WorkGroup : public WorkComponent{
     virtual void accept(WorkVisitor& visitor);
     virtual WorkGroup* clone();
 
+    void handleRequest(WorkItem item);
+
     //ensure proper division of composite classes
     protected:
     void add(WorkComponent* child);
@@ -84,3 +95,5 @@ class WorkUnit : public WorkComponent {
     void accept(WorkVisitor& visitor);
     WorkUnit* clone() override;
 };
+
+#endif
