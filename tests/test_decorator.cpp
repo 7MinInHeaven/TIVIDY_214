@@ -324,7 +324,7 @@ public:
 class SilentUnit : public WorkUnit {
 public:
     explicit SilentUnit(const string& name) : WorkUnit(name) {}
-    string getData(const string&) override { throw runtime_error("no such key"); }
+    string getData(const string&) const override { throw runtime_error("no such key"); }
 };
 
 }
