@@ -107,7 +107,6 @@ public:
   bool startTask();
   bool completeTask();
   bool assignTask(const std::string &workerId);
-  WorkState *getState();
   std::string getTaskId();
   std::string getAssignedWorkerId();
   void accept(WorkVisitor &visitor) override;

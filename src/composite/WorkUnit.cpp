@@ -41,12 +41,9 @@ bool WorkUnit::assignTask(const std::string &workerId) {
 }
 
 
-WorkState* WorkUnit::getState() { 
-  return currentState; 
-}
 
-std::string WorkUnit::getAssignedWorkerId() { 
-  return assignedWorkerId; 
+std::string WorkUnit::getAssignedWorkerId() {
+  return assignedWorkerId;
 }
 
 std::string WorkUnit::getTaskId() { 
