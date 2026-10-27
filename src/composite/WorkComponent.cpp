@@ -30,11 +30,13 @@ WorkItem* WorkComponent::getItem() const{
 
 void WorkComponent::setData(std::string key, std::string value){
     item->setData(key, value);
+    this->notify();
 }
 
 void WorkComponent::setState(WorkState* state){
     delete this->state;
     this->state = state;
+    this->notify();
 }
 
 
