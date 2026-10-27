@@ -1,3 +1,6 @@
+#ifndef COMPOSITE_H
+#define COMPOSITE_H
+
 #include <string>
 #include <vector>
 #include <iostream>
@@ -8,8 +11,9 @@
 #include "PendingState.h"
 #include "InProgressState.h"
 #include "CompletedState.h"
+#include "WorkflowSubject.h"
 
-class WorkComponent : public Handler
+class WorkComponent : public Handler, public WorkflowSubject
 {
 public:
     WorkComponent(std::string name);
@@ -91,3 +95,5 @@ class WorkUnit : public WorkComponent {
     void accept(WorkVisitor& visitor);
     WorkUnit* clone() override;
 };
+
+#endif
