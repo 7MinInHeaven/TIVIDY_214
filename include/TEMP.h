@@ -21,23 +21,24 @@ public:
     virtual void visit(WorkGroup&){}
 };
 
-
-class WorkIterator {
-    public:
-    WorkIterator() = default;
-
-    void first();
-    void next();
-    bool isDone();
-    WorkComponent* getCurrent();
+enum class PriorityLevel{
+    low,
+    normal,
+    high,
+    urgent
 };
 
-class DepthFirstIterator : public WorkIterator {
-    private:
-    WorkComponent* root;
-
+class TaskDecorator {
     public:
-    DepthFirstIterator(WorkComponent* root);
+    virtual PriorityLevel getPriority() {return PriorityLevel::normal}
+};
+
+class PrioritisedTask : public TaskDecorator {
+    public:
+    PriorityLevel getPriority() {return level;}
+
+    private: 
+    PriorityLevel level = PriorityLevel::normal;
 };
 
 #endif /* TEMP_H */

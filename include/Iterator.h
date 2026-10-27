@@ -1,16 +1,17 @@
 #include <string>
 #include <stack>
 #include <functional>
+#include <algorithm>
 #include "Composite.h"
 #include "WorkState.h"
-#include "Decorator.h"
+#include "TEMP.h"
 
 class WorkIterator {
     public:
-    void virtual first() = 0;
-    void virtual next() = 0;
-    bool virtual isDone() = 0;
-    WorkComponent* virtual getCurrent() = 0;
+    virtual void first() = 0;
+    virtual void next() = 0;
+    virtual bool isDone() = 0;
+    virtual WorkComponent* getCurrent() = 0;
 };
 
 class DepthFirstIterator : public WorkIterator {
@@ -21,15 +22,16 @@ class DepthFirstIterator : public WorkIterator {
     virtual bool isDone() override;
     virtual WorkComponent* getCurrent() override;
     
-    private:
+    protected:
     WorkComponent* root;
     size_t index = 0;
     std::vector<WorkComponent*> elements;
 
-    void Recursive(WorkComponent* parent);
-}
+    private:
+    virtual void recursive(WorkComponent* node);
+};
 
-class FilterIterator() : public DepthFirstIterator{
+class FilterIterator : public DepthFirstIterator{
     public:
     FilterIterator(WorkComponent* root, std::function<bool(WorkComponent*)> filter);
     virtual void first() override;
@@ -46,12 +48,17 @@ class StateIterator : public FilterIterator {
 
     private:
     std::string state;
-}
+};
 
 class IncompleteIterator : public FilterIterator {
     public:
     IncompleteIterator(WorkComponent* root);
-}
+};
+
+class PriorityIterator : DepthFirstIterator{
+    public:
+    PriorityIterator(WorkComponent* root);
 
 
-
+    private:
+};

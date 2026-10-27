@@ -1,4 +1,4 @@
-#include "Composite.h"
+#include "Iterator.h"
 
 DepthFirstIterator::DepthFirstIterator(WorkComponent* root) : root(root){
     recursive(root);
@@ -16,7 +16,7 @@ void DepthFirstIterator::recursive(WorkComponent* node){
     elements.push_back(node);
 
     for(WorkComponent* c : node->getChildren()){
-        recursive(children[i]);
+        recursive(c);
     }
 }
 WorkComponent* DepthFirstIterator::getCurrent(){

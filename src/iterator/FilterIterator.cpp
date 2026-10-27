@@ -1,13 +1,13 @@
 #include "Iterator.h"
 
-FilterIterator::(WorkComponent* root, std::function<bool(WorkComponent*)> filter) : DepthFirstIterator(root), filter(filter){}
+FilterIterator::FilterIterator(WorkComponent* root, std::function<bool(WorkComponent*)> filter) : DepthFirstIterator(root), filter(filter){}
 
-void FilterIterator::first() override {
+void FilterIterator::first() {
     DepthFirstIterator::first();
     skipFilter();
 }
 
-void FilterIterator::next() override {
+void FilterIterator::next() {
     DepthFirstIterator::next(); 
     skipFilter;
 }
