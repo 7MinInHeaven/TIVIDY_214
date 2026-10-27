@@ -5,20 +5,20 @@
 #include "WorkflowSubject.h"
 #include "NotificationBridge.h"
 #include "WorkItem.h"
-//Component.h
+#include "Composite.h"
+#include <string>
 
 
 
 class NotificationObserver : public WorkflowObserver {
 private: 
-    WorkflowSubject* subject; 
+    WorkComponent* subject; 
     NotificationChannel* emailChannel;
     NotificationChannel* appChannel;
-
+    std::string lastState;
 public: 
-    NotificationObserver(WorkflowSubject* w, NotificationChannel* e,
-    NotificationChannel* a) :
-    emailChannel(e), appChannel(a) , subject(w){}
+    NotificationObserver(WorkComponent* w, NotificationChannel* e, NotificationChannel* a) 
+        : subject(w), emailChannel(e), appChannel(a), lastState("") {}
 
     void update() override;
 

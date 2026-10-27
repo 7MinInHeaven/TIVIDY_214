@@ -36,9 +36,11 @@ protected:
     NotificationChannel* channel; 
     string recipient;
     WorkItem* context;
+    string currentStatus;
 public: 
-     Notification(NotificationChannel* ch, WorkItem* ctx, string to)
-      : channel(ch), recipient(to), context(ctx) {}
+
+     Notification(NotificationChannel* ch, WorkItem* ctx, string to, string status)
+      : channel(ch), recipient(to), context(ctx), currentStatus(status) {}
 
     virtual void send(){
         if(channel) channel->deliver(compose());
@@ -54,19 +56,20 @@ public:
 
 class ResultNotice : public Notification {
 public: 
-    ResultNotice(NotificationChannel* ch, WorkItem* ctx, string to)
-     : Notification(ch, ctx, to) {}
+   ResultNotice(NotificationChannel* ch, WorkItem* ctx, string to, string status)
+     : Notification(ch, ctx, to, status) {}
     NotificationData compose() override;
-    
 };
+
+
 
 class DeadlineNotice : public Notification {
 public: 
-    DeadlineNotice(NotificationChannel* ch, WorkItem* ctx, string to)
-     : Notification(ch, ctx, to) {}
-    
+    DeadlineNotice(NotificationChannel* ch, WorkItem* ctx, string to, string status)
+     : Notification(ch, ctx, to, status) {}
     NotificationData compose() override; 
 };
+
 
 
 
