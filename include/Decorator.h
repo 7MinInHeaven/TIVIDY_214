@@ -87,7 +87,7 @@ class TaskDecorator : public WorkComponent {
         WorkState* getState() const override;
         std::string getName() const override;
         void setData(const std::string& key, const std::string& value) override;
-        std::string getData(const std::string& key) override;
+        std::string getData(const std::string& key) const override;
         void nextState() override;
         bool isComplete() const override;
         PriorityLevel getPriority() const override;
