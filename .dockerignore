@@ -1,3 +1,13 @@
 build/
 bin/
 .git/
+.gitignore
+*.log
+.env
+.env.*
+cmake-build-*/
+.idea/
+.vscode/
+*.o
+*.a
+*.so

@@ -21,9 +21,9 @@ jobs:
       - name: Ensure .env exists for Docker Compose
         run: touch .env
 
-      # Step 3: Build the Docker image (reads all dependencies from Dockerfile)
+      # Step 3: Build the Docker image (reads all dependencies from Dockerfile) and switches back to the default Docker servers
       - name: Build Docker Container
-        run: docker compose build
+        run: docker compose build --build-arg USE_SA_MIRROR=false
 
       # Step 4: Run all unit tests inside the container using the compiled test binary
       - name: Run Unit Tests in Docker
