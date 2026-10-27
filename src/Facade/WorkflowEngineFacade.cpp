@@ -34,11 +34,17 @@ void WorkflowEngineFacade::submitRequest(WorkItem item) {
   Director director(&builder, &item, false);
   director.construct(data);
   Handler* chainHead = builder.getResult();
-
+  std::vector<WorkGroup*> workGroups = builder.getWorkGroups();   // we own these
   std::cout << "\n=== Chain of Responsibility Execution (handleRequest across chained WorkGroups) ===\n";
   if (chainHead != nullptr) {
     chainHead->handleRequest(item);
   }
+
+  for (size_t i = 0; i < workGroups.size(); i++) {
+    delete workGroups[i];
+  }
+  workGroups.clear();
+  chainHead = nullptr;
 
   std::cout << "\n=== Work Item Payload ===\n";
   for (const auto& pair : item.getPayloadData()) {

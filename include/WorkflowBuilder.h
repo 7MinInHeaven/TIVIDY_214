@@ -28,7 +28,7 @@ public:
     // void addDecorator(const std::string& type,const std::vector<std::string>& requiredKeys = {}) override;
     // void addRule(const std::string& key, const std::string& op, const std::string& value) override;
     Handler* getResult() override;
-    //std::vector<WorkGroup*> getWorkGroups() const override;
+    std::vector<WorkGroup*> getWorkGroups() override;
 };
 
 #endif /* WORKFLOWBUILDER_H */

@@ -103,3 +103,8 @@ Handler* WorkflowBuilder::getResult()
 {
     return head;
 }
+
+std::vector<WorkGroup*> WorkflowBuilder::getWorkGroups()
+{
+    return workGroups;
+}

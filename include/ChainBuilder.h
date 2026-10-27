@@ -18,6 +18,7 @@ public:
     // virtual void addRule(const std::string& key,const std::string& op,const std::string& value) = 0;
     virtual void endGroup() = 0;
     virtual Handler* getResult() = 0;
+    virtual std::vector<WorkGroup*> getWorkGroups() = 0;
 };
 
 #endif /* CHAINBUILDER_H */

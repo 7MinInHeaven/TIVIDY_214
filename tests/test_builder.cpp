@@ -209,6 +209,10 @@ public:
     Handler* getResult() override {
         return nullptr;
     }
+
+    std::vector<WorkGroup*> getWorkGroups() override {
+        return std::vector<WorkGroup*>();   // the spy builds nothing, so there are no groups
+    }
 };
 } // namespace
 
