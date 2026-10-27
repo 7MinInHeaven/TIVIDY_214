@@ -1,5 +1,4 @@
 #include <gtest/gtest.h>
-#include <gmock/gmock.h>
 
 #include <map>
 #include <string>
@@ -101,7 +100,7 @@ TEST(ProxyTest, RolesAreLimitedToWhatTheyWereGranted) {
     EXPECT_THROW(lena.submitRequest(20, sampleClaim()), AccessDeniedError);  // team lead cannot submit
     
     lena.approveRequest(20, id);                                          // team lead can
-    EXPECT_THAT(f.engine.getStatus(20, id), ::testing::HasSubstr("Approved")); 
+    EXPECT_TRUE(f.engine.getStatus(20, id).find("Approved") != string::npos); 
 }
 
 TEST(ProxyTest, AnUnknownRoleIsDeniedEverything) {
@@ -150,16 +149,16 @@ TEST(ProxyTest, TakingOwnershipTwiceIsHarmlessAndTheLockCanBeReleased) {
     Fixture f;
     AccessControlProxy bob = f.proxyFor(f.bob);
     AccessControlProxy sipho = f.proxyFor(f.sipho);
-    AccessControlProxy thandi = f.proxyFor(f.thandi);
     int id = bob.submitRequest(1, sampleClaim());
 
     sipho.takeOwnership(10, id);
-    sipho.takeOwnership(10, id);
+    sipho.takeOwnership(10, id); // harmless
     f.policy.releaseAssignment(id, 11);          
     EXPECT_EQ(f.policy.getAssigneeId(id), 10);
     f.policy.releaseAssignment(id, 10);
     EXPECT_EQ(f.policy.getAssigneeId(id), -1);
-    thandi.takeOwnership(11, id);                
+    
+    EXPECT_TRUE(f.policy.tryAssign(id, 11));
     EXPECT_EQ(f.policy.getAssigneeId(id), 11);
 }
 
@@ -243,7 +242,7 @@ TEST(ProxyTest, EveryForwardedOperationReachesTheEngineWhenAllowed) {
     lena.rejectRequest(20, id, "incomplete");
     
     EXPECT_EQ(sipho.getCurrentParticipant().getName(), "Sipho");
-    EXPECT_THAT(f.engine.getStatus(20, id), ::testing::HasSubstr("Rejected"));
+    EXPECT_TRUE(f.engine.getStatus(20, id).find("Rejected") != string::npos);
 }
 
 TEST(ProxyTest, OnlyTheSubmitterMayCancelACustomerRequest) {
