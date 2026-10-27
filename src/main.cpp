@@ -34,6 +34,20 @@
 
 using json = nlohmann::json;
 
+std::string getComponentTypeTag(WorkComponent* comp) {
+    if (dynamic_cast<Stage*>(comp) != nullptr) {
+        return "[Stage]";
+    }
+    if (dynamic_cast<SubProcess*>(comp) != nullptr) {
+        return "[SubProcess]";
+    }
+    if (dynamic_cast<WorkGroup*>(comp) != nullptr) {
+        return "[WorkGroup]";
+    }
+    return "[WorkUnit]";
+}
+
+
 int main() {
     std::string path = "src/blueprint.json";
     std::ifstream file(path);
@@ -45,7 +59,7 @@ int main() {
     json data;
     file >> data;
 
-    //Create a WorkItem
+    // 0. Create a WorkItem
     WorkItem* item = new WorkItem();
 
     WorkflowBuilder builder;
