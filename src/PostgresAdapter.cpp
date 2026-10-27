@@ -3,7 +3,7 @@
 PostgresAdapter::PostgresAdapter(PostgresAPI* api, std::string table, bool takeOwnership) : pgApi(api), tableName(table), ownsAPI(takeOwnership) {}
 
 PostgresAdapter::~PostgresAdapter() {
-    if (ownsApi && pgApi != nullptr) {
+    if (ownsAPI && pgApi != nullptr) {
         delete pgApi;
         pgApi = nullptr;
     }
