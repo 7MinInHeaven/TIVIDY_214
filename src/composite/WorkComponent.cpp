@@ -40,14 +40,17 @@ std::string WorkComponent::getData(const std::string& key) const {
 }
 
 void WorkComponent::nextState() {
+    if (state != nullptr) {
+        state->handleUpdate(this);
+    }//mo
 }
 
 bool WorkComponent::isComplete() const {
-    return false; 
+    return (state != nullptr && state->getStatus() == "Completed");//mo 
 }
 
 PriorityLevel WorkComponent::getPriority() const {
-    return PriorityLevel::Low; //fallback
+    return PriorityLevel::Normal; // mo changed to Normal
 }
 
 
