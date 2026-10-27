@@ -13,6 +13,9 @@
 #include "CompletedState.h"
 #include "WorkflowSubject.h"
 #include "Common.h" // mo for PriorityLevel and Clock
+#include "Memento.h"
+
+class WorkMemento;
 
 class WorkComponent : public Handler, public WorkflowSubject
 {
