@@ -2,7 +2,7 @@
 #define COMPOSITE_H
 
 #include <string>
-#include "WorkFlowSubject.h"
+#include "WorkflowSubject.h"
 #include "WorkState.h"
 
 
