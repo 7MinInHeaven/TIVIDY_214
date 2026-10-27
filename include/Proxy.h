@@ -14,6 +14,7 @@
 #include <vector>
 
 #include "Common.h"
+#include "WorkflowEngineFacade.h"
 
 //==================== What can be done, and on which requests ====================
 
