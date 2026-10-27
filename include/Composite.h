@@ -3,7 +3,7 @@
 #include <iostream>
 #include "TEMP.h"
 #include "WorkItem.h"
-
+#include "Common.h" // mo for PriorityLevel and Clock
 
 class WorkComponent : public Handler
 {
