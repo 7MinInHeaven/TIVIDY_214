@@ -11,7 +11,7 @@ class Handler
         Handler* successor = nullptr;;
     public: 
         void setNext(Handler* nextPhase);
-        virtual Handler* clone() = 0;
+        virtual Handler* clone() const = 0;
         virtual void handleRequest(WorkItem item);
 };
 
