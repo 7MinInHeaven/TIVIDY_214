@@ -25,9 +25,13 @@ void WorkflowSubject::detach(WorkflowObserver* observer) {
 }
 
 void WorkflowSubject::notify() {
-    for (size_t i = 0; i < observerList.size(); ++i) {
-        if (observerList[i] != nullptr) {
-            observerList[i]->update();
+    WorkComponent* comp = dynamic_cast<WorkComponent*>(this);
+    for (size_t i = 0; i < observers.size(); ++i) {
+        if (observers[i] != nullptr) {
+            if (comp != nullptr) {
+                observers[i]->setSubject(comp);
+            }
+            observers[i]->update();
         }
     }
 }
