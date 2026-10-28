@@ -1,7 +1,20 @@
-#include "Composite.h"
-#include "Decorator.h"
 #include <fstream>
 #include <iomanip>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <memory>
+
+class WorkComponent;
+class WorkUnit;
+class WorkGroup;
+class PrioritisedTask;
+class AuditedTask;
+class ValidatedTask;
+class ValidationRule;
+#include "Common.h"
+
+
 
 class WorkVisitor {
 public:
@@ -34,9 +47,9 @@ class ProgressReportVisitor : public WorkVisitor{
     std::string writeProgressCircle(int done, int total);
     std::string writeDoneCheck(bool complete);
 
-    std::string writeChildren(std::vector<WorkComponent*>& children); 
-    std::string writeLog(AuditLog& log);
-    std::string writeRules(std::vector<std::shared_ptr<const ValidationRule>>& rules);
+    void writeChildren(std::vector<WorkComponent*>& children); 
+    std::string writeLog(const AuditLog* log);
+    std::string writeRules(const std::vector<std::shared_ptr<const ValidationRule>>& rules);
 
     //formats
     std::string getPriorityString(PriorityLevel priority);

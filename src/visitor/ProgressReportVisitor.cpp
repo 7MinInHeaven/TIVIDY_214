@@ -21,17 +21,23 @@ void ProgressReportVisitor::visit(WorkGroup& item){
     std::vector<WorkComponent*> children = item.getChildren();
 
     int total = static_cast<int>(children.size());
-    int done;
+    int done = 0;
     for(WorkComponent* child : children){
         if(child->isComplete()){
             ++done;
         }
     }
 
-    output  << "<details><summary> " << item.getName() << writeProgressCircle(progress) << " </summary>\n"
-            << writeChildren(children)
-            << "</details>\n";
+    output  << "<li class=\"group\">"
+            << "<details>\n"
+            << "<summary>"
+            << "\t<span class=\"name\">" << item.getName() << writeProgressCircle(done, total) << "</span>\n"
+            << "</summary>\n";
 
+    writeChildren(children);
+
+    output  << "</details>\n"
+            << "</li>\n";
 }
 
 void ProgressReportVisitor::visit(WorkUnit& item){
@@ -41,10 +47,11 @@ void ProgressReportVisitor::visit(WorkUnit& item){
 
 void ProgressReportVisitor::visit(PrioritisedTask& item){
     output  << item.getName() 
-            << "PRIORITY: " << getPriorityString(item.getPriority());
+            << "<span class=\"priority-color\" data-value=\"" << static_cast<int>(item.getPriority()) << "\">" << getPriorityString(item.getPriority())
+            << "</span>";
     if(item.hasDeadline()){
         if(item.isOverdue()){
-            output << "OVERDUE";
+            output << "<span class=\"overdue\">OVERDUE</span>";
         } else {
             output << formatSeconds(item.getSecondsRemaining());
         }
@@ -59,7 +66,7 @@ void ProgressReportVisitor::visit(AuditedTask& item){
 
 void ProgressReportVisitor::visit(ValidatedTask& item){
     output  << item.getName()
-            << writeRules(item.getRules()); // need function to getRules
+            << writeRules(item.getRules()); // nee  d function to getRules
 }
 
 std::string ProgressReportVisitor::writeProgressCircle(int done, int total){
@@ -81,40 +88,39 @@ std::string ProgressReportVisitor::writeDoneCheck(bool complete){
     return output.str();
 }
 
-std::string ProgressReportVisitor::writeChildren(std::vector<WorkComponent*>& children){
-    std::ostringstream output;
-    for(WorkComponent* child : children){
+void ProgressReportVisitor::writeChildren(std::vector<WorkComponent*>& children){
+    output << "<ul>";
 
+    for(WorkComponent* child : children){
         child->accept(*this);
     }
+
+    output << "</ul>\n";
 }
 
-std::string ProgressReportVisitor::writeLog(AuditLog& log){
+std::string ProgressReportVisitor::writeLog(const AuditLog* log){
     std::ostringstream output;
-    output << "<summary><details>Log</details>\n";
+    output << "<details><summary>Log</summary>\n";
 
-    const std::vector<AuditEntry>& entries = log.getEntries();
+    const std::vector<AuditEntry>& entries = log->getEntries();
     for(size_t i = 0; i < entries.size(); i++){
         const AuditEntry& entry = entries[i];
-        output  << "\t<ul>" << formatTime(entry.timestamp) << " | "
-                << std::to_string(entry.sequenceNumber) << " | "
-                << entry.message
-                << "</ul>\n";
+        output  << "\t<ul>" << log->formatEntry(entry) <<  "</ul>\n";
     }
 
-    output << "</summary>\n";
+    output << "</details>\n";
     return output.str();
 }
 
-std::string ProgressReportVisitor::writeRules(std::vector<std::shared_ptr<const ValidationRule>>& rules){
+std::string ProgressReportVisitor::writeRules(const std::vector<std::shared_ptr<const ValidationRule>>& rules){
     std::ostringstream output;
-    output << "<summary><details>Log</details>\n";
+    output << "<details><summary>Log</summary>\n";
 
     for(std::shared_ptr<const ValidationRule> rule : rules){ //need to make sure this works with shared pointers
         output << "\t<ul>" << rule->getMessage() << "</ul>\n";
     }
 
-    output << "</summary>\n";
+    output << "</details>\n";
     return output.str();
 }
 
@@ -132,7 +138,7 @@ std::string ProgressReportVisitor::getPriorityString(PriorityLevel priority){
         case PriorityLevel::Normal: return "Normal";
         case PriorityLevel::High: return "High";
         case PriorityLevel::Urgent: return "Urgent";
-        default: return "Unknown"
+        default: return "Unknown";
     }
 }
 

@@ -1,53 +1,60 @@
-/* Container for the progress circle */
 .progress-circle {
-  --size: 150px;
-  --thickness: 16px;
-  --bar-color: #3b82f6;
-  --track-color: #e5e7eb;
-  
-  width: var(--size);
-  height: var(--size);
-  border-radius: 50%;
-  display: grid;
-  place-content: center;
-  position: relative;
-  
-  /* The magic: Conic gradient creates the outer ring fill */
-  background: conic-gradient(
-    var(--bar-color) var(--progress), 
-    var(--track-color) 0
-  );
+    --size: 150px;                 /* override per use, e.g. style="--size:56px" */
+    --thickness: 12px;
+    --track: #e0e0e0;
+    --fill: #76e5b1;
+    --progress: 0%;                /* must include the % sign */
+
+    position: relative;
+    flex: none;
+    display: inline-flex;
+    flex-direction: column;        /* stack the percentage above the count */
+    align-items: center;
+    justify-content: center;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
 }
 
-/* Mask element to create the "hollow" inside circle */
+/* The ring is drawn on ::before. The mask cuts out the middle, so no
+   "hole colour" is needed and it works on any background / dark mode. */
 .progress-circle::before {
-  content: "";
-  position: absolute;
-  inset: var(--thickness);
-  border-radius: 50%;
-  background: #ffffff; /* Match this to your layout's background color */
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: conic-gradient(var(--fill) var(--progress), var(--track) 0);
+    mask: radial-gradient(farthest-side, transparent calc(100% - var(--thickness)), #000 calc(100% - var(--thickness) + 1px));
+} 
+
+.progress-value,
+.done-total {
+    position: relative;            /* keep text above the ring */
+    line-height: 1.1;
+    text-align: center;
 }
 
-/* Centered text styling */
-.progress-value {
-  position: relative;
-  font-family: sans-serif;
-  font-size: calc(var(--size) * 0.18);
-  font-weight: bold;
-  color: #1f2937;
+.progress-value { font-size: calc(var(--size) * 0.22); font-weight: 700; }
+.done-total     { font-size: calc(var(--size) * 0.12); font-weight: 600; color: #818386; margin: 0; }
+
+.priority-color[data-value="0"]{
+  color: greenyellow;
+}
+.priority-color[data-value="1"]{
+  color: green;
+}
+.priority-color[data-value="2"]{
+  color: yellow;
+}
+.priority-color[data-value="3"]{
+  color: red;
 }
 
-.done-total{
-position: relative;
-    display:flex;
-    font-family: sans-serif;
-    font-size: calc(var(--size) * 0.10);
-    font-weight: bold;
-    color: #818386;
-    align-self: center;
-    justify-self: center;
+.overdue{
+  color: darkred;
 }
+
 
 .task-complete{
-    colour: green;
+    color: green;
 }
