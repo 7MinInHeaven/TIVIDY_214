@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="200" viewBox="0 0 900 200" role="img"
+     aria-label="TIVIDY - Generic Workflow Management System, COS 214 Practical 6">
+  <title>TIVIDY - Generic Workflow Management System, COS 214 Practical 6</title>
+  <defs>
+    <pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#1c2b22"/>
+    </pattern>
+    <radialGradient id="glow" cx="50%" cy="45%" r="55%">
+      <stop offset="0" stop-color="#2ea043" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#2ea043" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect x="0.5" y="0.5" width="899" height="199" rx="4" fill="#0d1117" stroke="#1b4d2e"/>
+  <rect x="1" y="1" width="898" height="198" fill="url(#dots)"/>
+  <rect x="1" y="1" width="898" height="198" fill="url(#glow)"/>
+  <path d="M1 70 V1 H170" fill="none" stroke="#2ea043" stroke-width="4"/>
+  <path d="M899 130 V199 H730" fill="none" stroke="#2ea043" stroke-width="4"/>
+  <text x="450" y="104" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="76" font-weight="800"
+        letter-spacing="16" fill="#f0f6fc">TIVIDY</text>
+  <line x1="360" y1="126" x2="540" y2="126" stroke="#1c2b22" stroke-width="3"/>
+  <rect x="360" y="124.5" width="60" height="3" rx="1.5" fill="#3fb950">
+    <animate attributeName="x" values="360;480;360" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <text x="450" y="160" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="17" font-style="italic"
+        letter-spacing="1" fill="#8b949e">Generic Workflow Management System &#160;&#183;&#160; COS 214 Practical 6</text>
+  <circle cx="872" cy="28" r="3" fill="#2ea043">
+    <animate attributeName="opacity" values="1;0.25;1" dur="2.4s" repeatCount="indefinite"/>
+  </circle>
+</svg>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="8" viewBox="0 0 900 8" role="presentation">
+  <line x1="0" y1="4" x2="900" y2="4" stroke="#1b4d2e" stroke-width="1"/>
+  <rect x="0" y="2.5" width="170" height="3" rx="1.5" fill="#2ea043">
+    <animate attributeName="x" values="0;730;0" dur="9s" repeatCount="indefinite"/>
+  </rect>
+</svg>
