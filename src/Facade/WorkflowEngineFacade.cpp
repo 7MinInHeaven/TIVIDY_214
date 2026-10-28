@@ -15,7 +15,7 @@ WorkflowEngineFacade::WorkflowEngineFacade() : nextId(1) {
 WorkflowEngineFacade::~WorkflowEngineFacade() { curl_global_cleanup(); }
 
 void WorkflowEngineFacade::submitRequest(WorkItem item) {
-  std::string path = "src/blueprint.json";
+  std::string path = "src/service_blueprint.json";
   std::ifstream file(path);
   if (!file) 
   {
