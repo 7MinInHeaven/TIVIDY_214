@@ -25,6 +25,17 @@ bool PostgresAdapter::saveRecord(int taskID, std::string taskName, std::string s
     if (pgApi == nullptr) {
         return false;
     }
+
+     //automatically create the table in PostgreSQL if this is a new scenario/tableName
+    std::string createTableSql =
+        "CREATE TABLE IF NOT EXISTS " + tableName + " ("
+        "id SERIAL PRIMARY KEY, "
+        "task_id INT, "
+        "task_name VARCHAR(255), "
+        "state VARCHAR(100), "
+        "payload TEXT, "
+        "updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);";
+    pgApi->executeTransaction(createTableSql);
     
     std::string sqlQuery =
         "INSERT INTO " + tableName + " (task_id, task_name, state, payload) VALUES ($1, $2, $3, $4);";
