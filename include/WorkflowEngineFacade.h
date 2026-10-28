@@ -1,6 +1,12 @@
 #ifndef WORKFLOWENGINEFACADE_H
 #define WORKFLOWENGINEFACADE_H
 
+#include "Composite.h"
+#include "DatabaseObserver.h"
+#include "PostgresAdapter.h"
+#include "PostgresAPI.h"
+#include "SQLiteAdapter.h"
+#include "SQLiteAPI.h"
 #include "MailjetEmailAdapter.h"
 #include "NotificationBridge.h"
 #include "WorkItem.h"
