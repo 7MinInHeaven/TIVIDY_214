@@ -1,5 +1,13 @@
 #include "WorkflowEngineFacade.h"
+#include <fstream>
+#include <iostream>
 #include <stdexcept>
+#include <string>
+#include <nlohmann/json.hpp>
+#include "Composite.h"
+#include "ChainBuilder.h"
+#include "WorkflowBuilder.h"
+#include "Director.h"
 
 WorkflowEngineFacade::WorkflowEngineFacade() : nextId(1) {
   curl_global_init(CURL_GLOBAL_DEFAULT);
@@ -7,12 +15,41 @@ WorkflowEngineFacade::WorkflowEngineFacade() : nextId(1) {
 WorkflowEngineFacade::~WorkflowEngineFacade() { curl_global_cleanup(); }
 
 void WorkflowEngineFacade::submitRequest(WorkItem item) {
-  //(Future Chain of Responsibility && Builder integration)
-  // if (masterTemplate) {
-  //     Handler* chain = masterTemplate->clone();
-  //     chain->handleRequest(item);
-  //     delete chain;
-  // }
+  std::string path = "src/blueprint.json";
+  std::ifstream file(path);
+  if (!file) 
+  {
+    file.open("blueprint.json");
+  }
+
+  if (!file) {
+    std::cerr << "couldn't find json file: " << path << "\n";
+    return;
+  }
+
+  json data;
+  file >> data;
+
+  WorkflowBuilder builder;
+  Director director(&builder, &item, false);
+  director.construct(data);
+  Handler* chainHead = builder.getResult();
+  std::vector<WorkGroup*> workGroups = builder.getWorkGroups();   // we own these
+  std::cout << "\n=== Chain of Responsibility Execution (handleRequest across chained WorkGroups) ===\n";
+  if (chainHead != nullptr) {
+    chainHead->handleRequest(item);
+  }
+
+  for (size_t i = 0; i < workGroups.size(); i++) {
+    delete workGroups[i];
+  }
+  workGroups.clear();
+  chainHead = nullptr;
+
+  std::cout << "\n=== Work Item Payload ===\n";
+  for (const auto& pair : item.getPayloadData()) {
+    std::cout << pair.first << " -> " << pair.second << "\n";
+  }
 
   // 1. Setup Transport (Mailjet if credentials set, else Console)
   unique_ptr<EmailTransport> transport;
