@@ -10,7 +10,6 @@ class WorkUnit;
 class SubProcess;
 class Stage;
 
-class WorkMemento {};
 
 enum class PriorityLevel{
     low,

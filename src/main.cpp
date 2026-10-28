@@ -15,16 +15,8 @@ int main() {
   cout << "========================================\n\n";
 
   WorkflowEngineFacade facade;
-   WorkItem item;
-  item.setData("id", "REQ-001");
-  item.setData("category", "Plumbing");
-  item.setData("email", "u25@tuks.co.za"); 
-  item.setData("state", "Pending");
-  item.setData("agent_id", "AGENT-007");
-
-  // 3. Submit the request to the system
+  WorkItem item;
   facade.submitRequest(item);
-  
 
   return 0;
 }
