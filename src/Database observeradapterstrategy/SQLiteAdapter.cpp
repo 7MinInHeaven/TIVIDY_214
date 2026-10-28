@@ -1,7 +1,19 @@
 #include "SQLiteAdapter.h"
 
-SQLiteAdapter::SQLiteAdapter(SQLiteAPI* sqApi, std::string table, bool takeOwnership)
-    : api(sqApi), tableName(table), ownsAPI(takeOwnership) {}
+//creates a tbl with whatever name passed for local sql
+SQLiteAdapter::SQLiteAdapter(SQLiteAPI* sqApi, std::string table, bool takeOwnership): api(sqApi), tableName(table), ownsAPI(takeOwnership) {
+    if (api != nullptr) {
+        std::string createSql =
+            "CREATE TABLE IF NOT EXISTS " + tableName + " ("
+            "id INTEGER PRIMARY KEY AUTOINCREMENT, "
+            "task_id INTEGER NOT NULL, "
+            "task_name TEXT NOT NULL, "
+            "state TEXT NOT NULL, "
+            "payload TEXT, "
+            "updated_at DATETIME DEFAULT CURRENT_TIMESTAMP);";
+        api->runStatement(createSql);
+    }
+}
 
 SQLiteAdapter::~SQLiteAdapter() {
     if (ownsAPI && api != nullptr) {
