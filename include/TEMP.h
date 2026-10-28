@@ -10,7 +10,6 @@ class WorkUnit;
 class SubProcess;
 class Stage;
 
-class WorkMemento {};
 
 class WorkVisitor {
 public:

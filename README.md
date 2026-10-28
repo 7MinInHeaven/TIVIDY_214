@@ -32,23 +32,6 @@ sudo docker compose run --rm tividy_app valgrind --leak-check=full ./build/bin/t
 
 ---
 
-## 2. One-Time Git Setup (Run Once on Your Laptop)
-
-Before starting work, configure these three Git settings to prevent accidental merge overwrites and messy commit histories:
-
-```bash
-# Automatically save uncommitted work when rebasing or pulling
-git config --global rebase.autoStash true
-
-# Remember and auto-apply conflict resolutions
-git config --global rerere.enabled true
-
-# Keep git pull clean via rebase rather than creating extra merge commits
-git config --global pull.rebase true
-```
-
----
-
 ## 3. Team Git & Branching Strategy
 
 To ensure nobody breaks each other's code, we follow a strict **feature-branch workflow**:

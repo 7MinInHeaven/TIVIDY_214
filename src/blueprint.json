@@ -1,0 +1,191 @@
+{
+  "workflow_name": "Chained WorkGroups Composite & Decorator Test System",
+  "required_inputs": [
+    { "key": "policy_number", "prompt": "Enter Policy Number" },
+    { "key": "customer_email", "prompt": "Enter Customer Email" },
+    { "key": "category", "prompt": "Select Category (DeathBenefit / AccidentalClaim / CriticalIllness)" },
+    { "key": "amount", "prompt": "Enter Claimed Amount" },
+    { "key": "description", "prompt": "Enter Description" },
+    { "key": "priority_level", "prompt": "Enter Priority Level (Low / Normal / High / Urgent)" }
+  ],
+  "chain": [
+    {
+      "type": "WorkGroup",
+      "name": "WorkGroup 1: Intake & Validation Group",
+      "has_rule": false,
+      "decorators": [
+        {
+          "type": "ValidatedTask",
+          "required_keys": ["policy_number", "customer_email", "category", "amount", "description"]
+        },
+        {
+          "type": "PrioritizedTask"
+        }
+      ],
+      "children": [
+        { "type": "WorkUnit", "name": "Log initial claim triage timestamp" },
+        {
+          "type": "Stage",
+          "name": "Stage 1A: Policy & Identity Verification",
+          "has_rule": false,
+          "decorators": [
+            { "type": "NotifiedTask" }
+          ],
+          "children": [
+            { "type": "WorkUnit", "name": "Verify mandatory intake fields are present" },
+            { "type": "WorkUnit", "name": "Confirm policy is active and in good standing" },
+            {
+              "type": "SubProcess",
+              "name": "SubProcess 1A-1: Claimant Identity Check",
+              "has_rule": false,
+              "children": [
+                { "type": "WorkUnit", "name": "Validate government ID document" },
+                { "type": "WorkUnit", "name": "Match claimant email and phone record" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "WorkGroup",
+      "name": "WorkGroup 2: Multi-Track Investigation Group",
+      "has_rule": true,
+      "rule": { "key": "category", "op": "==", "value": "DeathBenefit" },
+      "decorators": [
+        { "type": "NotifiedTask" }
+      ],
+      "children": [
+        { "type": "WorkUnit", "name": "Assign senior claims adjuster" },
+        {
+          "type": "Stage",
+          "name": "Stage 2A: Medical & Clinical Investigation",
+          "has_rule": false,
+          "children": [
+            {
+              "type": "SubProcess",
+              "name": "SubProcess 2A-1: Cause of Death Verification",
+              "has_rule": false,
+              "decorators": [
+                {
+                  "type": "ValidatedTask",
+                  "required_keys": ["policy_number", "description"]
+                }
+              ],
+              "children": [
+                { "type": "WorkUnit", "name": "Verify certified death certificate" },
+                { "type": "WorkUnit", "name": "Review attending physician statement" },
+                { "type": "WorkUnit", "name": "Check two-year contestability period" }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Stage",
+          "name": "Stage 2B: Financial & Fraud Audit",
+          "has_rule": true,
+          "rule": { "key": "amount", "op": "==", "value": "500000" },
+          "decorators": [
+            { "type": "PrioritizedTask" },
+            { "type": "NotifiedTask" }
+          ],
+          "children": [
+            { "type": "WorkUnit", "name": "Run duplicate claim history check" },
+            {
+              "type": "SubProcess",
+              "name": "SubProcess 2B-1: Forensic Banking Audit",
+              "has_rule": false,
+              "children": [
+                { "type": "WorkUnit", "name": "Validate beneficiary identity and tax allocation" },
+                {
+                  "type": "SubProcess",
+                  "name": "SubProcess 2B-1a: Nested Sanctions & AML Trace",
+                  "has_rule": false,
+                  "decorators": [
+                    {
+                      "type": "ValidatedTask",
+                      "required_keys": ["policy_number", "amount"]
+                    }
+                  ],
+                  "children": [
+                    { "type": "WorkUnit", "name": "Verify claimant banking and routing details" },
+                    { "type": "WorkUnit", "name": "Cross-check OFAC sanctions and AML watchlist" }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        { "type": "WorkUnit", "name": "Compile consolidated investigation summary" }
+      ]
+    },
+    {
+      "type": "WorkGroup",
+      "name": "WorkGroup 3: Underwriting & Settlement Group",
+      "has_rule": false,
+      "decorators": [
+        {
+          "type": "ValidatedTask",
+          "required_keys": ["amount", "category"]
+        },
+        { "type": "NotifiedTask" },
+        { "type": "PrioritizedTask" }
+      ],
+      "children": [
+        {
+          "type": "Stage",
+          "name": "Stage 3A: Actuarial & Reinsurance Review",
+          "has_rule": false,
+          "children": [
+            {
+              "type": "SubProcess",
+              "name": "SubProcess 3A-1: Actuarial Reserve Calculation",
+              "has_rule": false,
+              "children": [
+                { "type": "WorkUnit", "name": "Calculate net benefit payout reserve" },
+                { "type": "WorkUnit", "name": "Apply policy rider adjustments" }
+              ]
+            },
+            {
+              "type": "SubProcess",
+              "name": "SubProcess 3A-2: Reinsurance Treaty Sign-Off",
+              "has_rule": true,
+              "rule": { "key": "amount", "op": ">=", "value": "250000" },
+              "decorators": [
+                { "type": "NotifiedTask" }
+              ],
+              "children": [
+                { "type": "WorkUnit", "name": "Submit cession notice to reinsurer" },
+                { "type": "WorkUnit", "name": "Record reinsurance co-pay approval" }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Stage",
+          "name": "Stage 3B: Final Disbursement",
+          "has_rule": true,
+          "rule": { "key": "policy_number", "op": "!=", "value": "" },
+          "children": [
+            {
+              "type": "SubProcess",
+              "name": "SubProcess 3B-1: Payment Execution",
+              "has_rule": false,
+              "decorators": [
+                {
+                  "type": "ValidatedTask",
+                  "required_keys": ["customer_email", "amount"]
+                }
+              ],
+              "children": [
+                { "type": "WorkUnit", "name": "Authorize EFT wire transfer" },
+                { "type": "WorkUnit", "name": "Issue payment confirmation receipt" }
+              ]
+            },
+            { "type": "WorkUnit", "name": "Close and archive claim dossier" }
+          ]
+        }
+      ]
+    }
+  ]
+}

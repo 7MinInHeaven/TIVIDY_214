@@ -63,7 +63,8 @@ void WorkGroup::remove(std::string name){
     }
 }
 
-void WorkGroup::accept(WorkVisitor& visitor){
+void WorkGroup::accept(WorkVisitor& visitor)
+{
     visitor.visit(*this);
 }
 
@@ -75,11 +76,22 @@ std::vector<WorkComponent*> WorkGroup::getChildren() const{
     return children;
 }
 
-void WorkGroup::handleRequest(WorkItem item) {
-    std::cout << "stage: " << getName() << "\n";
 
-    for (WorkComponent* child : children) {
-        std::cout << "  sub task: " << child->getName() << "\n";
+void WorkGroup::printTasks(WorkComponent* component)
+{
+    WorkGroup* group = dynamic_cast<WorkGroup*>(component);
+    if (group == nullptr) return;               
+
+    for (WorkComponent* child : group->getChildren())
+    {
+        std::cout << "sub task: " << child->getName() << "\n";
+        printTasks(child);           
     }
+}
+
+void WorkGroup::handleRequest(WorkItem item)
+{
+    std::cout << "stage: " << getName() << "\n";
+    printTasks(this);                         
     Handler::handleRequest(item);
 }
