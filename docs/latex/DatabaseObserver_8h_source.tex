@@ -1,0 +1,34 @@
+\doxysection{Database\+Observer.\+h}
+\hypertarget{DatabaseObserver_8h_source}{}\label{DatabaseObserver_8h_source}\index{include/DatabaseObserver.h@{include/DatabaseObserver.h}}
+\mbox{\hyperlink{DatabaseObserver_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ DATABASEOBSERVER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ DATABASEOBSERVER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{WorkflowObserver_8h}{WorkflowObserver.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ExternalDatabase_8h}{ExternalDatabase.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Composite_8h}{Composite.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classDatabaseObserver}{DatabaseObserver}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classWorkflowObserver}{WorkflowObserver}}\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00011\ \ \ \ \ \mbox{\hyperlink{classWorkComponent}{WorkComponent}}*\ subject;}
+\DoxyCodeLine{00012\ \ \ \ \ \mbox{\hyperlink{classExternalDatabase}{ExternalDatabase}}*\ database;}
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{classExternalDatabase}{ExternalDatabase}}*\ fallbackDatabase;}
+\DoxyCodeLine{00014\ \ \ \ \ std::string\ lastSyncedState;}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{classDatabaseObserver}{DatabaseObserver}}(\mbox{\hyperlink{classWorkComponent}{WorkComponent}}*\ subj,\ \mbox{\hyperlink{classExternalDatabase}{ExternalDatabase}}*\ db,\ \mbox{\hyperlink{classExternalDatabase}{ExternalDatabase}}*\ fallbackDb\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classDatabaseObserver_a022f29c8c2bc32d4861a625d9464f0d7}{\string~DatabaseObserver}}();}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classDatabaseObserver_acc02a3c97d65bb3504ddbdbe4e983841}{update}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00021\ \ \ \ \ std::string\ \mbox{\hyperlink{classDatabaseObserver_aef162a38a762b211f16cafbff7094deb}{getLastSyncedState}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classDatabaseObserver_a66f6cbcf6f2fc5f1672ab8badda344c9}{setSubject}}(\mbox{\hyperlink{classWorkComponent}{WorkComponent}}*\ s);}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classDatabaseObserver_aed576c88ac097ca2db75224e635490b8}{setDatabaseStrategy}}(\mbox{\hyperlink{classExternalDatabase}{ExternalDatabase}}*\ db);}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{classExternalDatabase}{ExternalDatabase}}*\ \mbox{\hyperlink{classDatabaseObserver_aea2c6dd5c74079a25cb0e5b5d02dceb0}{selectBestStrategy}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classDatabaseObserver_a16de7e63c9b7c7a163f81ef3cb1ef851}{syncDatabases}}(\mbox{\hyperlink{classExternalDatabase}{ExternalDatabase}}*\ fromDb,\ \mbox{\hyperlink{classExternalDatabase}{ExternalDatabase}}*\ toDb);}
+\DoxyCodeLine{00026\ \};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

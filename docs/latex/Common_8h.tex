@@ -1,0 +1,95 @@
+\doxysection{include/\+Common.h File Reference}
+\hypertarget{Common_8h}{}\label{Common_8h}\index{include/Common.h@{include/Common.h}}
+{\ttfamily \#include $<$cstddef$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+Include dependency graph for Common.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=323pt]{Common_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{Common_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classClock}{Clock}}
+\item 
+class \mbox{\hyperlink{classSystemClock}{System\+Clock}}
+\item 
+class \mbox{\hyperlink{classManualClock}{Manual\+Clock}}
+\item 
+class \mbox{\hyperlink{classParticipant}{Participant}}
+\item 
+struct \mbox{\hyperlink{structAuditEntry}{Audit\+Entry}}
+\item 
+class \mbox{\hyperlink{classAuditLog}{Audit\+Log}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{Common_8h_a58ef2aaf285eac5903ead43e801a4513}{Priority\+Level}} \{ \mbox{\hyperlink{Common_8h_a58ef2aaf285eac5903ead43e801a4513a28d0edd045e05cf5af64e35ae0c4c6ef}{Low}}
+, \mbox{\hyperlink{Common_8h_a58ef2aaf285eac5903ead43e801a4513a960b44c579bc2f6818d2daaf9e4c16f0}{Normal}}
+, \mbox{\hyperlink{Common_8h_a58ef2aaf285eac5903ead43e801a4513a655d20c1ca69519ca647684edbb2db35}{High}}
+, \mbox{\hyperlink{Common_8h_a58ef2aaf285eac5903ead43e801a4513a2708565083321423b1a3244979bade9b}{Urgent}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{Common_8h_ad220d87cb3a4763fbb6ebd02797625d4}{priority\+Level\+To\+String}} (\mbox{\hyperlink{Common_8h_a58ef2aaf285eac5903ead43e801a4513}{Priority\+Level}} level)
+\item 
+const \mbox{\hyperlink{classClock}{Clock}} \& \mbox{\hyperlink{Common_8h_ac0cce5fe955a6f8a43d7707e58a6675d}{default\+Clock}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{Common_8h_a58ef2aaf285eac5903ead43e801a4513}\label{Common_8h_a58ef2aaf285eac5903ead43e801a4513} 
+\index{Common.h@{Common.h}!PriorityLevel@{PriorityLevel}}
+\index{PriorityLevel@{PriorityLevel}!Common.h@{Common.h}}
+\doxysubsubsection{\texorpdfstring{PriorityLevel}{PriorityLevel}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{Common_8h_a58ef2aaf285eac5903ead43e801a4513}{Priority\+Level}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Low@{Low}!Common.h@{Common.h}}\index{Common.h@{Common.h}!Low@{Low}}}\Hypertarget{Common_8h_a58ef2aaf285eac5903ead43e801a4513a28d0edd045e05cf5af64e35ae0c4c6ef}\label{Common_8h_a58ef2aaf285eac5903ead43e801a4513a28d0edd045e05cf5af64e35ae0c4c6ef} 
+Low&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Normal@{Normal}!Common.h@{Common.h}}\index{Common.h@{Common.h}!Normal@{Normal}}}\Hypertarget{Common_8h_a58ef2aaf285eac5903ead43e801a4513a960b44c579bc2f6818d2daaf9e4c16f0}\label{Common_8h_a58ef2aaf285eac5903ead43e801a4513a960b44c579bc2f6818d2daaf9e4c16f0} 
+Normal&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{High@{High}!Common.h@{Common.h}}\index{Common.h@{Common.h}!High@{High}}}\Hypertarget{Common_8h_a58ef2aaf285eac5903ead43e801a4513a655d20c1ca69519ca647684edbb2db35}\label{Common_8h_a58ef2aaf285eac5903ead43e801a4513a655d20c1ca69519ca647684edbb2db35} 
+High&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Urgent@{Urgent}!Common.h@{Common.h}}\index{Common.h@{Common.h}!Urgent@{Urgent}}}\Hypertarget{Common_8h_a58ef2aaf285eac5903ead43e801a4513a2708565083321423b1a3244979bade9b}\label{Common_8h_a58ef2aaf285eac5903ead43e801a4513a2708565083321423b1a3244979bade9b} 
+Urgent&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{Common_8h_ac0cce5fe955a6f8a43d7707e58a6675d}\label{Common_8h_ac0cce5fe955a6f8a43d7707e58a6675d} 
+\index{Common.h@{Common.h}!defaultClock@{defaultClock}}
+\index{defaultClock@{defaultClock}!Common.h@{Common.h}}
+\doxysubsubsection{\texorpdfstring{defaultClock()}{defaultClock()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classClock}{Clock}} \& default\+Clock (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{Common_8h_ad220d87cb3a4763fbb6ebd02797625d4}\label{Common_8h_ad220d87cb3a4763fbb6ebd02797625d4} 
+\index{Common.h@{Common.h}!priorityLevelToString@{priorityLevelToString}}
+\index{priorityLevelToString@{priorityLevelToString}!Common.h@{Common.h}}
+\doxysubsubsection{\texorpdfstring{priorityLevelToString()}{priorityLevelToString()}}
+{\footnotesize\ttfamily std\+::string priority\+Level\+To\+String (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{Common_8h_a58ef2aaf285eac5903ead43e801a4513}{Priority\+Level}}}]{level }\end{DoxyParamCaption})}
+

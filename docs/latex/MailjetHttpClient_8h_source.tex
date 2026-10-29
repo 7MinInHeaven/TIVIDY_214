@@ -1,0 +1,30 @@
+\doxysection{Mailjet\+Http\+Client.\+h}
+\hypertarget{MailjetHttpClient_8h_source}{}\label{MailjetHttpClient_8h_source}\index{include/MailjetHttpClient.h@{include/MailjetHttpClient.h}}
+\mbox{\hyperlink{MailjetHttpClient_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MAILJETHTTPCLIENT\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MAILJETHTTPCLIENT\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structHttpResponse}{HttpResponse}}\ \{\ }
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{structHttpResponse_ad236f2a6fc1f8d3a10cd77a34fb7fb0b}{status}}\ =\ 0;\ }
+\DoxyCodeLine{00008\ \ \ \ \ std::string\ \mbox{\hyperlink{structHttpResponse_ab59b82bffe1ab9a8e2741d5f4f94d12a}{body}};\ }
+\DoxyCodeLine{00009\ \ \ \ \ std::string\ \mbox{\hyperlink{structHttpResponse_a51dd454a5a7b3ffdd984a9b8baf54e6e}{error}};\ }
+\DoxyCodeLine{00010\ \};\ }
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classMailjetHttpClient}{MailjetHttpClient}}\ \{\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{private}:\ }
+\DoxyCodeLine{00014\ \ \ \ \ std::string\ apiKey\_;\ }
+\DoxyCodeLine{00015\ \ \ \ \ std::string\ apiSecret\_;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:\ }
+\DoxyCodeLine{00018\ \ \ \ \ }
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{classMailjetHttpClient}{MailjetHttpClient}}(std::string\ apiKey,\ std::string\ apiSecret);}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{structHttpResponse}{HttpResponse}}\ \mbox{\hyperlink{classMailjetHttpClient_a39229d809db4b458712f2545086473d7}{postJson}}(\textcolor{keyword}{const}\ std::string\&\ url,\ \textcolor{keyword}{const}\ std::string\&\ \mbox{\hyperlink{Director_8h_ab701e3ac61a85b337ec5c1abaad6742d}{json}});}
+\DoxyCodeLine{00022\ \};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MAILJETHTTPCLIENT\_H}}
+
+\end{DoxyCode}

@@ -43,6 +43,10 @@ void ValidatedTask::nextState() {
     TaskDecorator::nextState();
 }
 
+void ValidatedTask::accept(WorkVisitor& visitor) const {
+    visitor.visit(*this);
+}
+
 WorkComponent* ValidatedTask::clone() const {
     ValidatedTask* copy = new ValidatedTask(getWrappedTask()->clone(), guardedStatus);
     copy->validationRules = validationRules;

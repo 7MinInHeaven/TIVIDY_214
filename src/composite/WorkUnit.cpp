@@ -50,7 +50,7 @@ std::string WorkUnit::getTaskId() {
   return taskId; 
 }
 
-void WorkUnit::accept(WorkVisitor& visitor) {
+void WorkUnit::accept(WorkVisitor& visitor) const{
     visitor.visit(*this);
 }
 

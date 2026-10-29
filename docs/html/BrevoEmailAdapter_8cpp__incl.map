@@ -1,0 +1,23 @@
+<map id="src/NotificationBridge/BrevoEmailAdapter.cpp" name="src/NotificationBridge/BrevoEmailAdapter.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="385,5,564,45"/>
+<area shape="rect" id="Node000002" href="$BrevoEmailAdapter_8h.html" title=" " alt="" coords="249,93,407,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="441,48,363,89,360,84,438,43"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="431,93,518,119"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="477,46,477,79,472,79,472,46"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="543,93,689,119"/>
+<area shape="poly" id="edge11_Node000001_Node000010" title=" " alt="" coords="510,43,584,84,582,89,507,48"/>
+<area shape="rect" id="Node000003" href="$NotificationBridge_8h.html" title=" " alt="" coords="185,167,335,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="319,121,283,158,279,155,315,117"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="317,313,376,339"/>
+<area shape="poly" id="edge9_Node000002_Node000004" title=" " alt="" coords="336,118,351,166,355,239,352,300,347,300,350,239,345,167,331,120"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="277,190,300,211,322,239,336,269,345,299,340,301,331,271,318,241,296,215,274,194"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="5,240,85,265"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="226,195,94,238,92,233,225,189"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="109,240,187,265"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="243,194,180,235,177,230,241,190"/>
+<area shape="rect" id="Node000007" href="$WorkItem_8h.html" title=" " alt="" coords="211,240,309,265"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="263,192,263,226,257,226,257,192"/>
+<area shape="poly" id="edge8_Node000007_Node000004" title=" " alt="" coords="276,263,324,302,320,307,272,267"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="235,313,285,339"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="263,266,263,300,257,300,257,266"/>
+</map>

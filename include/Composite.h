@@ -7,18 +7,15 @@
 #include "InProgressState.h"
 #include "Memento.h"
 #include "PendingState.h"
-#include "TEMP.h"
 #include "WorkItem.h"
 #include "WorkState.h"
 #include "WorkflowSubject.h"
+#include "WorkVisitor.h"
 #include <iostream>
 #include <string>
 #include <vector>
 
 class WorkMemento;
-
-
-
 class WorkComponent : public Handler, public WorkflowSubject {
 
     
@@ -42,9 +39,13 @@ public:
   virtual bool isComplete() const;
   virtual PriorityLevel getPriority() const;
 
-  virtual void accept(WorkVisitor& visitor) = 0;
+  virtual void accept(WorkVisitor& visitor) const = 0;
   virtual WorkComponent* clone() const override = 0;
 
+  virtual bool add(WorkComponent* child);
+  virtual void remove(WorkComponent* child);
+  virtual void remove(std::string name);
+  virtual std::vector<WorkComponent*> getChildren() const;
 
 
 private:
@@ -59,23 +60,20 @@ public:
   WorkGroup(const WorkGroup &other);
   ~WorkGroup() override;
 
-  void add(Stage *child);
-  void add(SubProcess *child);
-  void add(WorkUnit *child);
+  bool add(WorkComponent* child) override;
 
-  void remove(WorkComponent *child);
-  void remove(std::string name);
+  void remove(WorkComponent *child) override;
+  void remove(std::string name) override;
 
-  std::vector<WorkComponent *> getChildren() const;
+  std::vector<WorkComponent *> getChildren() const override;
 
-  virtual void accept(WorkVisitor &visitor);
+  virtual void accept(WorkVisitor &visitor) const override;
   virtual WorkGroup *clone() const;
 
   void handleRequest(WorkItem item);
 
   // ensure proper division of composite classes
 protected:
-  void add(WorkComponent *child);
 
     private:
     std::vector<WorkComponent*> children;
@@ -87,9 +85,7 @@ class Stage : public WorkGroup {
 public:
   Stage(std::string name);
 
-  void add(SubProcess *child);
-  void add(WorkUnit *child);
-  void accept(WorkVisitor &visitor) override;
+  void accept(WorkVisitor &visitor) const override;
   Stage *clone() const override;
 };
 
@@ -97,8 +93,7 @@ class SubProcess : public WorkGroup {
 public:
   SubProcess(std::string name);
 
-  void add(WorkUnit *child);
-  void accept(WorkVisitor &visitor) override;
+  void accept(WorkVisitor &visitor) const override;
   SubProcess *clone() const override;
 };
 
@@ -117,7 +112,7 @@ public:
   bool assignTask(const std::string &workerId);
   std::string getTaskId();
   std::string getAssignedWorkerId();
-  void accept(WorkVisitor &visitor) override;
+  void accept(WorkVisitor &visitor) const override;
   WorkUnit *clone() const override;
 };
 

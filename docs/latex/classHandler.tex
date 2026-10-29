@@ -1,0 +1,84 @@
+\doxysection{Handler Class Reference}
+\hypertarget{classHandler}{}\label{classHandler}\index{Handler@{Handler}}
+
+
+{\ttfamily \#include $<$Handler.\+h$>$}
+
+
+
+Inheritance diagram for Handler\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classHandler__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Handler\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=205pt]{classHandler__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classHandler_a0a95c470d04fdc9dff2e0f9a82cc24b5}{set\+Next}} (\mbox{\hyperlink{classHandler}{Handler}} \texorpdfstring{$\ast$}{*}next\+Phase)
+\item 
+virtual \mbox{\hyperlink{classHandler}{Handler}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classHandler_a7f2ff0d5815caefa9a96adc1837d2d5b}{clone}} () const =0
+\item 
+virtual void \mbox{\hyperlink{classHandler_a638867a60f4e60eb6e5152a03a9e5367}{handle\+Request}} (\mbox{\hyperlink{classWorkItem}{Work\+Item}} item)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classHandler}{Handler}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classHandler_ac648b2e586445186b89e54d07bca0d09}{successor}} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classHandler_a7f2ff0d5815caefa9a96adc1837d2d5b}\label{classHandler_a7f2ff0d5815caefa9a96adc1837d2d5b} 
+\index{Handler@{Handler}!clone@{clone}}
+\index{clone@{clone}!Handler@{Handler}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classHandler}{Handler}} \texorpdfstring{$\ast$}{*} Handler\+::clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classWorkGroup_a0117feac397297be0eee781777539179}{Work\+Group}}, \mbox{\hyperlink{classStage_af72ebb1a450f53f98813adbbbf5d2d63}{Stage}}, \mbox{\hyperlink{classSubProcess_a6f23cce42b415ab58c5b7175c744b2f5}{Sub\+Process}}, \mbox{\hyperlink{classWorkUnit_a7858a68ceed9a87944704a2bea671d48}{Work\+Unit}}, \mbox{\hyperlink{classValidatedTask_a741329f68dd4b5e5d68e4a350b659e77}{Validated\+Task}}, \mbox{\hyperlink{classAuditedTask_acdc27f1fcf893aaa9c4f560b61b602a7}{Audited\+Task}}, \mbox{\hyperlink{classPrioritisedTask_a8d40d4bc51a2659199fbd37c873c42ea}{Prioritised\+Task}}, \mbox{\hyperlink{classWorkComponent_a65d7be3c551ee979e2ae238322441075}{Work\+Component}}, and \mbox{\hyperlink{classTaskDecorator_aad9c7eaf04be9252a3eb3bb8d977df5a}{Task\+Decorator}}.
+
+\Hypertarget{classHandler_a638867a60f4e60eb6e5152a03a9e5367}\label{classHandler_a638867a60f4e60eb6e5152a03a9e5367} 
+\index{Handler@{Handler}!handleRequest@{handleRequest}}
+\index{handleRequest@{handleRequest}!Handler@{Handler}}
+\doxysubsubsection{\texorpdfstring{handleRequest()}{handleRequest()}}
+{\footnotesize\ttfamily void Handler\+::handle\+Request (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classWorkItem}{Work\+Item}}}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classWorkGroup_a01b69bbe93b90dc8eac9cfba09234c0a}{Work\+Group}}.
+
+\Hypertarget{classHandler_a0a95c470d04fdc9dff2e0f9a82cc24b5}\label{classHandler_a0a95c470d04fdc9dff2e0f9a82cc24b5} 
+\index{Handler@{Handler}!setNext@{setNext}}
+\index{setNext@{setNext}!Handler@{Handler}}
+\doxysubsubsection{\texorpdfstring{setNext()}{setNext()}}
+{\footnotesize\ttfamily void Handler\+::set\+Next (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classHandler}{Handler}} \texorpdfstring{$\ast$}{*}}]{next\+Phase }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classHandler_ac648b2e586445186b89e54d07bca0d09}\label{classHandler_ac648b2e586445186b89e54d07bca0d09} 
+\index{Handler@{Handler}!successor@{successor}}
+\index{successor@{successor}!Handler@{Handler}}
+\doxysubsubsection{\texorpdfstring{successor}{successor}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classHandler}{Handler}}\texorpdfstring{$\ast$}{*} Handler\+::successor = nullptr\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{Handler_8h}{Handler.\+h}}\item 
+src/\+Chain/\mbox{\hyperlink{Handler_8cpp}{Handler.\+cpp}}\end{DoxyCompactItemize}

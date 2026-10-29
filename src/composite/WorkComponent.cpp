@@ -33,7 +33,6 @@ void WorkComponent::setData(const std::string& key, const std::string& value){ /
     this->notify();
 }
 
-
 //mo default implemenations, for simplikity
 std::string WorkComponent::getData(const std::string& key) const {
     return item->getData(key);
@@ -53,14 +52,18 @@ PriorityLevel WorkComponent::getPriority() const {
     return PriorityLevel::Normal; // mo changed to Normal
 }
 
-
-
-
-
 void WorkComponent::setState(WorkState* state){
     delete this->state;
     this->state = state;
     this->notify();
 }
 
+bool WorkComponent::add(WorkComponent* child){
+    delete child;
+    return false;
+}
+
+void WorkComponent::remove(WorkComponent*){}
+void WorkComponent::remove(std::string){}
+std::vector<WorkComponent*> WorkComponent::getChildren() const {return {};}
 
