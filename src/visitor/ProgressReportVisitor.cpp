@@ -1,4 +1,7 @@
 #include "WorkVisitor.h"
+#include "Composite.h"
+#include "Decorator.h"
+#include <sstream>
 
 ProgressReportVisitor::ProgressReportVisitor() : output("report.html"){
     output  << "<!DOCTYPE html>\n"
@@ -7,7 +10,7 @@ ProgressReportVisitor::ProgressReportVisitor() : output("report.html"){
             << "\t<meta charset=\"UTF-8\">\n"
             << "\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n"
             << "\t<title>Progress Report</title>\n"
-            << "\t<link rel=\"stylesheet\ href=\"style.css\">\n"
+            << "\t<link rel=\"stylesheet\" href=\"style.css\">\n"
             << "</head>\n";
 }
 
@@ -17,7 +20,48 @@ ProgressReportVisitor::~ProgressReportVisitor(){
     }
 }
 
-void ProgressReportVisitor::visit(WorkGroup& item){
+void ProgressReportVisitor::visit(const WorkGroup& item){
+    visitGroup(item);
+}
+
+void ProgressReportVisitor::visit(const Stage& item){
+    visitGroup(item);
+}
+
+void ProgressReportVisitor::visit(const SubProcess& item){
+    visitGroup(item);
+}
+
+void ProgressReportVisitor::visit(const WorkUnit& item){
+    output << item.getName() << "\n";
+}
+
+
+void ProgressReportVisitor::visit(const PrioritisedTask& item){
+    output  << item.getName() 
+            << "<span class=\"priority-color\" data-value=\"" << static_cast<int>(item.getPriority()) << "\">" << getPriorityString(item.getPriority())
+            << "</span>";
+    if(item.hasDeadline()){
+        if(item.isOverdue()){
+            output << "<span class=\"overdue\">OVERDUE</span>";
+        } else {
+            output << formatSeconds(item.getSecondsRemaining());
+        }
+    }
+    output << "\n";
+}
+
+void ProgressReportVisitor::visit(const AuditedTask& item){
+    output  << item.getName()
+            << writeLog(item.getLog()); //need function to get log
+}
+
+void ProgressReportVisitor::visit(const ValidatedTask& item){
+    output  << item.getName()
+            << writeRules(item.getRules()); // nee  d function to getRules
+}
+
+void ProgressReportVisitor::visitGroup(const WorkGroup& item){
     std::vector<WorkComponent*> children = item.getChildren();
 
     int total = static_cast<int>(children.size());
@@ -38,35 +82,6 @@ void ProgressReportVisitor::visit(WorkGroup& item){
 
     output  << "</details>\n"
             << "</li>\n";
-}
-
-void ProgressReportVisitor::visit(WorkUnit& item){
-    output << item.getName() << "\n";
-}
-
-
-void ProgressReportVisitor::visit(PrioritisedTask& item){
-    output  << item.getName() 
-            << "<span class=\"priority-color\" data-value=\"" << static_cast<int>(item.getPriority()) << "\">" << getPriorityString(item.getPriority())
-            << "</span>";
-    if(item.hasDeadline()){
-        if(item.isOverdue()){
-            output << "<span class=\"overdue\">OVERDUE</span>";
-        } else {
-            output << formatSeconds(item.getSecondsRemaining());
-        }
-    }
-    output << "\n";
-}
-
-void ProgressReportVisitor::visit(AuditedTask& item){
-    output  << item.getName()
-            << writeLog(item.getLog()); //need function to get log
-}
-
-void ProgressReportVisitor::visit(ValidatedTask& item){
-    output  << item.getName()
-            << writeRules(item.getRules()); // nee  d function to getRules
 }
 
 std::string ProgressReportVisitor::writeProgressCircle(int done, int total){

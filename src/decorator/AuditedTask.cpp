@@ -36,6 +36,10 @@ void AuditedTask::nextState() {
     }
     auditLog->record("[" + getName() + "] " + before + " -> " + statusOf(inner()));
 }
+ 
+void AuditedTask::accept(WorkVisitor& visitor) const {
+    visitor.visit(*this);
+}
 
 //-------- prototype --------
 
