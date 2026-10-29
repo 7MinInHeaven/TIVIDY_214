@@ -120,6 +120,40 @@ TEST(WorkflowBlueprintTest, RejectsDuplicateInputKeys) {
 }
 
 /**
+ * @brief Verifies that supported action and capability metadata is accepted.
+ */
+TEST(WorkflowBlueprintTest, AcceptsSupportedActionMetadata) {
+    nlohmann::json blueprint = nlohmann::json::parse(validBlueprint());
+    blueprint["chain"][0]["children"][0]["action"] = "workflow.log";
+    blueprint["capabilities"] = {"sqlite_audit", "app_notification"};
+
+    EXPECT_NO_THROW(WorkflowBlueprint::validate(blueprint));
+}
+
+/**
+ * @brief Verifies that unsupported action metadata is rejected.
+ */
+TEST(WorkflowBlueprintTest, RejectsUnsupportedActionMetadata) {
+    nlohmann::json blueprint = nlohmann::json::parse(validBlueprint());
+    blueprint["chain"][0]["children"][0]["action"] =
+        "job_application.run_code";
+
+    EXPECT_THROW(WorkflowBlueprint::validate(blueprint),
+                 BlueprintValidationError);
+}
+
+/**
+ * @brief Verifies that unsupported capability metadata is rejected.
+ */
+TEST(WorkflowBlueprintTest, RejectsUnsupportedCapabilityMetadata) {
+    nlohmann::json blueprint = nlohmann::json::parse(validBlueprint());
+    blueprint["capabilities"] = {"unknown_service"};
+
+    EXPECT_THROW(WorkflowBlueprint::validate(blueprint),
+                 BlueprintValidationError);
+}
+
+/**
  * @brief Verifies that the existing blueprints are loadable.
  */
 TEST(WorkflowBlueprintTest, LoadsAndValidatesExistingBlueprint) {

@@ -1,4 +1,5 @@
 #include "WorkflowBlueprint.h"
+#include "WorkflowActionRegistry.h"
 
 #include <fstream>
 #include <set>
@@ -59,6 +60,20 @@ void validateNode(const nlohmann::json& node,
 
     if (node["name"].get<std::string>().size() > limits.maxNameLength) {
         throw BlueprintValidationError(path + ".name exceeds maximum length");
+    }
+
+    if (node.contains("action") && type != "WorkUnit") {
+        throw BlueprintValidationError(
+            path + ".action is only allowed on WorkUnit");
+    }
+
+    if (node.contains("action")) {
+        if (!node["action"].is_string() ||
+            !WorkflowActionRegistry::isSupportedAction(
+                node["action"].get<std::string>())) {
+            throw BlueprintValidationError(
+                path + ".action is not supported");
+        }
     }
 
     if (isRoot && type == "WorkUnit") {
@@ -137,6 +152,40 @@ void validateInputs(const nlohmann::json& blueprint,
     }
 }
 
+/**
+ * @brief Validates optional blueprint capability declarations.
+ */
+void validateCapabilities(const nlohmann::json& blueprint,
+                          const BlueprintLimits& limits) {
+    if (!blueprint.contains("capabilities")) {
+        return;
+    }
+    if (!blueprint["capabilities"].is_array()) {
+        throw BlueprintValidationError("capabilities must be an array");
+    }
+    if (blueprint["capabilities"].size() > limits.maxCapabilities) {
+        throw BlueprintValidationError(
+            "blueprint exceeds maximum capability count");
+    }
+
+    std::set<std::string> capabilities;
+    std::size_t index = 0;
+    for (const nlohmann::json& capability : blueprint["capabilities"]) {
+        const std::string path =
+            "capabilities[" + std::to_string(index) + "]";
+        if (!capability.is_string() ||
+            !WorkflowActionRegistry::isSupportedCapability(
+                capability.get<std::string>())) {
+            throw BlueprintValidationError(path + " is not supported");
+        }
+        if (!capabilities.insert(capability.get<std::string>()).second) {
+            throw BlueprintValidationError(
+                "duplicate capability: " + capability.get<std::string>());
+        }
+        ++index;
+    }
+}
+
 } // namespace
 
 /**
@@ -153,6 +202,7 @@ BlueprintLimits::BlueprintLimits()
       maxDepth(32),
       maxNodes(1000),
       maxInputs(100),
+      maxCapabilities(20),
       maxNameLength(512) {}
 
 /**
@@ -218,6 +268,7 @@ void WorkflowBlueprint::validate(const nlohmann::json& blueprint,
     }
 
     validateInputs(blueprint, limits);
+    validateCapabilities(blueprint, limits);
 
     std::size_t nodeCount = 0;
     std::set<std::string> rootNames;

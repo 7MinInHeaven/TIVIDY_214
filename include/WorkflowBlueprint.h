@@ -23,6 +23,7 @@ struct BlueprintLimits {
     std::size_t maxDepth;
     std::size_t maxNodes;
     std::size_t maxInputs;
+    std::size_t maxCapabilities;
     std::size_t maxNameLength;
 
     BlueprintLimits();
