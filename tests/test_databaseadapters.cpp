@@ -168,24 +168,73 @@ TEST(AdapterStrategyTest, HandlesNullPointersSafely) {
 }
 
 TEST(AdapterStrategyTest, LiveNeonPostgresInsertWhenEnvConfigured) {
-    // save a row to the local SQLite database file (tividy_local.db)
-    SQLiteAdapter localDb(new SQLiteAPI("tividy_local.db"), "workflow_audit_log", true);
-    EXPECT_TRUE(localDb.saveRecord(777, "Live SQLite Local Test", "Pending", "Saved locally"));
-   
+    // 1. Save workflow tasks locally into SQLite (tividy_local.db)
+    SQLiteAdapter* localSq = new SQLiteAdapter(new SQLiteAPI("tividy_local.db"), "workflow_audit_log", true);
+    DatabaseObserver localObserver(nullptr, localSq);
+
+    WorkUnit localTaskA("Verify Policy");
+    WorkUnit localTaskB("Approve Payout");
+    localTaskA.setData("task_id", "777");
+    localTaskB.setData("task_id", "778");
+    localTaskA.attach(&localObserver);
+    localTaskB.attach(&localObserver);
+
+    localTaskA.setState(new InProgressState()); // Saves "Verify Policy | In Progress" to SQLite
+    localTaskB.setState(new CompletedState());  // Saves "Approve Payout | Completed" to SQLite
+
+    // 2. If DATABASE_URL is configured (.env), test Cloud Postgres AND bidirectional sync!
     const char* envUrl = std::getenv("DATABASE_URL");
     if (envUrl == nullptr || std::string(envUrl).empty()) {
         SUCCEED();
         return;
     }
+
+    PostgresAdapter* cloudPg = new PostgresAdapter(new PostgresAPI(envUrl), "workflow_audit_log", true);
     WorkUnit liveTask("Live Neon Cloud Test");
     liveTask.setData("task_id", "777");
     liveTask.setData("category", "AccidentalClaim");
     liveTask.setData("amount", "R300000");
-    DatabaseObserver liveObserver(
-        &liveTask,
-        new PostgresAdapter(new PostgresAPI(envUrl), "workflow_audit_log", true),
-        new SQLiteAdapter(new SQLiteAPI("tividy_local.db"), "workflow_audit_log", true)
-    );
-    liveObserver.update();
-    EXPECT_EQ(liveObserver.getLastSyncedState(), "Pending");
+
+    DatabaseObserver liveObserver(nullptr, cloudPg);
+    liveTask.attach(&liveObserver);
+
+    liveTask.setState(new InProgressState()); // Saves "In Progress" directly to Neon
+    EXPECT_EQ(liveObserver.getLastSyncedState(), "In Progress");
+
+    liveTask.setState(new CompletedState());  // Saves "Completed" directly to Neon
+    EXPECT_EQ(liveObserver.getLastSyncedState(), "Completed");
+
+   
+    //    - Upload missing local SQLite rows -> Neon Cloud
+    //    - Download missing Neon Cloud rows -> local SQLite
+    liveObserver.syncDatabases(localSq, cloudPg);
+    liveObserver.syncDatabases(cloudPg, localSq);
+
+    EXPECT_GE(localSq->fetchAllRecords().size(), 4u);
+    EXPECT_GE(cloudPg->fetchAllRecords().size(), 4u);
+}
+
+TEST(AdapterStrategyTest, SingleObserverWatchesMultipleWorkComponentsAutomatically) {
+    const std::string testFile = "test_multi_subject.db";
+    std::remove(testFile.c_str());
+
+    // 1. Create ONE DatabaseObserver (starts with subject = nullptr)
+    SQLiteAdapter* localSq = new SQLiteAdapter(new SQLiteAPI(testFile), "workflow_audit_log", true);
+    DatabaseObserver singleObserver(nullptr, localSq);
+
+    // 2. Create two separate WorkUnits and attach the SAME singleObserver to both!
+    WorkUnit taskA("Verify Policy");
+    WorkUnit taskB("Approve Payout");
+    taskA.attach(&singleObserver);
+    taskB.attach(&singleObserver);
+
+    // 3. Change state on taskA and taskB (we never manually call setSubject or update!)
+    taskA.setState(new InProgressState());
+    taskB.setState(new CompletedState());
+
+    // 4. Both tasks were automatically saved to the database by that ONE observer!
+    EXPECT_EQ(localSq->getRecordState("Verify Policy"), "In Progress");
+    EXPECT_EQ(localSq->getRecordState("Approve Payout"), "Completed");
+
+    std::remove(testFile.c_str());
 }

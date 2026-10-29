@@ -34,10 +34,12 @@ bool BrevoEmailAdapter::sendEmail(std::string to, std::string subject, std::stri
     headers = curl_slist_append(headers, ("api-key: " + apiKey_).c_str());
     headers = curl_slist_append(headers, "Content-Type: application/json");
     headers = curl_slist_append(headers, "Accept: application/json");
+    // Save the dump to a variable
+    std::string jsonPayload = payload.dump();
 
     curl_easy_setopt(curl, CURLOPT_URL, "https://api.brevo.com/v3/smtp/email");
     curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
-    curl_easy_setopt(curl, CURLOPT_POSTFIELDS, payload.dump().c_str());
+    curl_easy_setopt(curl, CURLOPT_POSTFIELDS, jsonPayload.c_str()); // Use the variable here!
     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writeCb);
     curl_easy_setopt(curl, CURLOPT_WRITEDATA, &readBuffer);
 

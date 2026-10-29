@@ -24,7 +24,7 @@ void WorkflowBuilder::attach(WorkGroup* group)
     } 
     else 
     {
-        //attach nested processes to current Workgroup
+        //attach nested processes to current group
         WorkGroup* parent = currentGroup();
         parent->add(group);
     }

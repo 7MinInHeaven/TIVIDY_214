@@ -42,8 +42,6 @@ bool TaskDecorator::isComplete() const { return wrappedTask->isComplete(); }
 
 PriorityLevel TaskDecorator::getPriority() const { return wrappedTask->getPriority(); }
 
-void TaskDecorator::accept(WorkVisitor& visitor) { wrappedTask->accept(visitor); }
-
 //acces for subclasses
 WorkComponent* TaskDecorator::getWrappedTask() const { return wrappedTask.get(); }
 WorkComponent& TaskDecorator::inner() const { return *wrappedTask; }
