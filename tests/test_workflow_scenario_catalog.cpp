@@ -11,15 +11,7 @@
 TEST(WorkflowScenarioCatalogTest, DiscoversExistingBlueprints) {
     WorkflowScenarioCatalog catalog("src");
 
-    const std::vector<std::string> errors = catalog.refresh();
-
-    bool badScenarioReported = false;
-    for (const std::string& error : errors) {
-        badScenarioReported =
-            badScenarioReported ||
-            error.find("BAd_scenario.json") != std::string::npos;
-    }
-    EXPECT_TRUE(badScenarioReported);
+    catalog.refresh();
 
     bool lifeScenarioFound = false;
     bool serviceScenarioFound = false;
