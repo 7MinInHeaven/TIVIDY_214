@@ -37,7 +37,7 @@ void WorkflowEngineFacade::attachObserverToTree(WorkComponent* component) {
 //------------------------------------------
 
 void WorkflowEngineFacade::submitRequest(WorkItem item) {
-  std::string path = "src/blueprint.json";
+  std::string path = "src/service_blueprint.json";
   std::ifstream file(path);
   if (!file) 
   {

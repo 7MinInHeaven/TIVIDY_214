@@ -16,20 +16,20 @@ void Director::construct(const json& data) {
     builder->reset();
 
     if (item != nullptr && data.contains("required_inputs"))
-{
-    for (const auto& req : data["required_inputs"])
     {
-        if (!req.contains("key")) continue;
+        for (const auto& req : data["required_inputs"])
+        {
+            if (!req.contains("key")) continue;
 
-        std::string key = req["key"];
-        std::string prompt = req.value("prompt", key);
+            std::string key = req["key"];
+            std::string prompt = req.value("prompt", key);
 
-        std::cout << prompt << " (" << key << "): " << std::flush;
-        std::string value;
-        std::getline(std::cin, value);
-        item->setData(key, value);
+            std::cout << prompt << " (" << key << "): " << std::endl;
+            std::string value;
+            std::getline(std::cin, value);
+            item->setData(key, value);
+        }
     }
-}
 
     //move through chain
     if (!data.contains("chain")) 
