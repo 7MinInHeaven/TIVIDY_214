@@ -1,0 +1,80 @@
+\doxysection{Audit\+Log Class Reference}
+\hypertarget{classAuditLog}{}\label{classAuditLog}\index{AuditLog@{AuditLog}}
+
+
+{\ttfamily \#include $<$Common.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classAuditLog_a64c05f2f0b6f7005e5f79dab03389259}{Audit\+Log}} (const \mbox{\hyperlink{classClock}{Clock}} \texorpdfstring{$\ast$}{*}clock=nullptr)
+\item 
+virtual \mbox{\hyperlink{classAuditLog_a21bad7ba5899cec33fa320a5ded799a1}{\texorpdfstring{$\sim$}{\string~}\+Audit\+Log}} ()
+\item 
+virtual void \mbox{\hyperlink{classAuditLog_a4899ed6ed39d0216c7dd686ab663f923}{record}} (const std\+::string \&message)
+\item 
+std\+::size\+\_\+t \mbox{\hyperlink{classAuditLog_abdb76b55fcb249bba564e0973a2b85d3}{size}} () const
+\item 
+const std\+::vector$<$ \mbox{\hyperlink{structAuditEntry}{Audit\+Entry}} $>$ \& \mbox{\hyperlink{classAuditLog_a3f00ed4e67db2897220332b32f86fcb5}{get\+Entries}} () const
+\item 
+bool \mbox{\hyperlink{classAuditLog_ac17d1a20ab656c42518135baa08c3e2f}{contains\+Text}} (const std\+::string \&text) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::string \mbox{\hyperlink{classAuditLog_ac6c068f921162f2a1255aa3ba3c979ce}{format\+Entry}} (const \mbox{\hyperlink{structAuditEntry}{Audit\+Entry}} \&entry)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classAuditLog_a64c05f2f0b6f7005e5f79dab03389259}\label{classAuditLog_a64c05f2f0b6f7005e5f79dab03389259} 
+\index{AuditLog@{AuditLog}!AuditLog@{AuditLog}}
+\index{AuditLog@{AuditLog}!AuditLog@{AuditLog}}
+\doxysubsubsection{\texorpdfstring{AuditLog()}{AuditLog()}}
+{\footnotesize\ttfamily Audit\+Log\+::\+Audit\+Log (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classClock}{Clock}} \texorpdfstring{$\ast$}{*}}]{clock = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+\Hypertarget{classAuditLog_a21bad7ba5899cec33fa320a5ded799a1}\label{classAuditLog_a21bad7ba5899cec33fa320a5ded799a1} 
+\index{AuditLog@{AuditLog}!````~AuditLog@{\texorpdfstring{$\sim$}{\string~}AuditLog}}
+\index{````~AuditLog@{\texorpdfstring{$\sim$}{\string~}AuditLog}!AuditLog@{AuditLog}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}AuditLog()}{\string~AuditLog()}}
+{\footnotesize\ttfamily Audit\+Log\+::\texorpdfstring{$\sim$}{\string~}\+Audit\+Log (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classAuditLog_ac17d1a20ab656c42518135baa08c3e2f}\label{classAuditLog_ac17d1a20ab656c42518135baa08c3e2f} 
+\index{AuditLog@{AuditLog}!containsText@{containsText}}
+\index{containsText@{containsText}!AuditLog@{AuditLog}}
+\doxysubsubsection{\texorpdfstring{containsText()}{containsText()}}
+{\footnotesize\ttfamily bool Audit\+Log\+::contains\+Text (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{text }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classAuditLog_ac6c068f921162f2a1255aa3ba3c979ce}\label{classAuditLog_ac6c068f921162f2a1255aa3ba3c979ce} 
+\index{AuditLog@{AuditLog}!formatEntry@{formatEntry}}
+\index{formatEntry@{formatEntry}!AuditLog@{AuditLog}}
+\doxysubsubsection{\texorpdfstring{formatEntry()}{formatEntry()}}
+{\footnotesize\ttfamily string Audit\+Log\+::format\+Entry (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structAuditEntry}{Audit\+Entry}} \&}]{entry }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classAuditLog_a3f00ed4e67db2897220332b32f86fcb5}\label{classAuditLog_a3f00ed4e67db2897220332b32f86fcb5} 
+\index{AuditLog@{AuditLog}!getEntries@{getEntries}}
+\index{getEntries@{getEntries}!AuditLog@{AuditLog}}
+\doxysubsubsection{\texorpdfstring{getEntries()}{getEntries()}}
+{\footnotesize\ttfamily const vector$<$ \mbox{\hyperlink{structAuditEntry}{Audit\+Entry}} $>$ \& Audit\+Log\+::get\+Entries (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classAuditLog_a4899ed6ed39d0216c7dd686ab663f923}\label{classAuditLog_a4899ed6ed39d0216c7dd686ab663f923} 
+\index{AuditLog@{AuditLog}!record@{record}}
+\index{record@{record}!AuditLog@{AuditLog}}
+\doxysubsubsection{\texorpdfstring{record()}{record()}}
+{\footnotesize\ttfamily void Audit\+Log\+::record (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\Hypertarget{classAuditLog_abdb76b55fcb249bba564e0973a2b85d3}\label{classAuditLog_abdb76b55fcb249bba564e0973a2b85d3} 
+\index{AuditLog@{AuditLog}!size@{size}}
+\index{size@{size}!AuditLog@{AuditLog}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily size\+\_\+t Audit\+Log\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{Common_8h}{Common.\+h}}\item 
+src/common/\mbox{\hyperlink{AuditLog_8cpp}{Audit\+Log.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,11 @@
+<map id="EmailTransport" name="EmailTransport">
+<area shape="rect" id="Node000001" title=" " alt="" coords="291,5,409,31"/>
+<area shape="rect" id="Node000002" href="$classBrevoEmailAdapter.html" title=" " alt="" coords="5,79,153,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="294,37,124,81,122,76,293,32"/>
+<area shape="rect" id="Node000003" href="$classConsoleEmailAdapter.html" title=" " alt="" coords="178,79,341,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="326,41,276,81,273,76,323,37"/>
+<area shape="rect" id="Node000004" href="$classMailjetEmailAdapter.html" title=" " alt="" coords="365,79,519,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="377,37,429,76,425,81,374,41"/>
+<area shape="rect" id="Node000005" href="$classResendEmailAdapter.html" title=" " alt="" coords="544,79,703,104"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="408,32,580,76,578,81,406,37"/>
+</map>

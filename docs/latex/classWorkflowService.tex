@@ -1,0 +1,170 @@
+\doxysection{Workflow\+Service Class Reference}
+\hypertarget{classWorkflowService}{}\label{classWorkflowService}\index{WorkflowService@{WorkflowService}}
+
+
+{\ttfamily \#include $<$Workflow\+Engine\+Facade.\+h$>$}
+
+
+
+Inheritance diagram for Workflow\+Service\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{classWorkflowService__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classWorkflowService_a4990573415dffdffe0a28e4e55bfb28b}{\texorpdfstring{$\sim$}{\string~}\+Workflow\+Service}} ()
+\item 
+virtual int \mbox{\hyperlink{classWorkflowService_af4d9b3a0e2f56ad6b1f1a78a9ee8e603}{submit\+Request}} (int actor\+Id, const std\+::map$<$ std\+::string, std\+::string $>$ \&payload)=0
+\item 
+virtual void \mbox{\hyperlink{classWorkflowService_a7302fb59931df65abc7b9b6680d0cf3b}{take\+Ownership}} (int actor\+Id, int instance\+Id)=0
+\item 
+virtual void \mbox{\hyperlink{classWorkflowService_a1722469cd523fd14b6cd679ff9684b7b}{complete\+Task}} (int actor\+Id, int instance\+Id, int task\+Id)=0
+\item 
+virtual void \mbox{\hyperlink{classWorkflowService_a7f61bc8bb04b677dce04c2122beb126b}{approve\+Request}} (int actor\+Id, int instance\+Id)=0
+\item 
+virtual void \mbox{\hyperlink{classWorkflowService_a8eae7e9048e15af2193588ab5e42cd90}{reject\+Request}} (int actor\+Id, int instance\+Id, const std\+::string \&reason)=0
+\item 
+virtual void \mbox{\hyperlink{classWorkflowService_a0f4d1b41c96f93748ba49ca4729b8ee0}{cancel\+Request}} (int actor\+Id, int instance\+Id)=0
+\item 
+virtual void \mbox{\hyperlink{classWorkflowService_a8ade09df379b62917b806c9d784d3830}{undo\+Last\+Action}} (int actor\+Id, int instance\+Id)=0
+\item 
+virtual void \mbox{\hyperlink{classWorkflowService_a98968c4cbb62a795af853001f84eeb72}{save\+Progress}} (int actor\+Id, int instance\+Id)=0
+\item 
+virtual std\+::string \mbox{\hyperlink{classWorkflowService_a9756be2131bb190c4e756bef5d91bd89}{get\+Status}} (int actor\+Id, int instance\+Id) const =0
+\item 
+virtual std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classWorkflowService_aef9ef88bd60283c5b0a28db122a13c9f}{get\+History}} (int actor\+Id, int instance\+Id) const =0
+\item 
+virtual std\+::vector$<$ int $>$ \mbox{\hyperlink{classWorkflowService_a7ee421714cd991c17b16ca4789f34688}{list\+Instance\+Ids}} (int actor\+Id) const =0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classWorkflowService_a4990573415dffdffe0a28e4e55bfb28b}\label{classWorkflowService_a4990573415dffdffe0a28e4e55bfb28b} 
+\index{WorkflowService@{WorkflowService}!````~WorkflowService@{\texorpdfstring{$\sim$}{\string~}WorkflowService}}
+\index{````~WorkflowService@{\texorpdfstring{$\sim$}{\string~}WorkflowService}!WorkflowService@{WorkflowService}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}WorkflowService()}{\string~WorkflowService()}}
+{\footnotesize\ttfamily virtual Workflow\+Service\+::\texorpdfstring{$\sim$}{\string~}\+Workflow\+Service (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classWorkflowService_a7f61bc8bb04b677dce04c2122beb126b}\label{classWorkflowService_a7f61bc8bb04b677dce04c2122beb126b} 
+\index{WorkflowService@{WorkflowService}!approveRequest@{approveRequest}}
+\index{approveRequest@{approveRequest}!WorkflowService@{WorkflowService}}
+\doxysubsubsection{\texorpdfstring{approveRequest()}{approveRequest()}}
+{\footnotesize\ttfamily virtual void Workflow\+Service\+::approve\+Request (\begin{DoxyParamCaption}\item[{int}]{actor\+Id,  }\item[{int}]{instance\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classAccessControlProxy_a81436914645a5e5172ff9913f5cd8e1e}{Access\+Control\+Proxy}}, and \mbox{\hyperlink{classWorkflowEngineFacade_a557c08f84b0ce4a26005ba031dbae147}{Workflow\+Engine\+Facade}}.
+
+\Hypertarget{classWorkflowService_a0f4d1b41c96f93748ba49ca4729b8ee0}\label{classWorkflowService_a0f4d1b41c96f93748ba49ca4729b8ee0} 
+\index{WorkflowService@{WorkflowService}!cancelRequest@{cancelRequest}}
+\index{cancelRequest@{cancelRequest}!WorkflowService@{WorkflowService}}
+\doxysubsubsection{\texorpdfstring{cancelRequest()}{cancelRequest()}}
+{\footnotesize\ttfamily virtual void Workflow\+Service\+::cancel\+Request (\begin{DoxyParamCaption}\item[{int}]{actor\+Id,  }\item[{int}]{instance\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classAccessControlProxy_ab4af7663bcfa9c12f372d212c92ebfec}{Access\+Control\+Proxy}}, and \mbox{\hyperlink{classWorkflowEngineFacade_a45819327b1d561c1c01831a6828c669d}{Workflow\+Engine\+Facade}}.
+
+\Hypertarget{classWorkflowService_a1722469cd523fd14b6cd679ff9684b7b}\label{classWorkflowService_a1722469cd523fd14b6cd679ff9684b7b} 
+\index{WorkflowService@{WorkflowService}!completeTask@{completeTask}}
+\index{completeTask@{completeTask}!WorkflowService@{WorkflowService}}
+\doxysubsubsection{\texorpdfstring{completeTask()}{completeTask()}}
+{\footnotesize\ttfamily virtual void Workflow\+Service\+::complete\+Task (\begin{DoxyParamCaption}\item[{int}]{actor\+Id,  }\item[{int}]{instance\+Id,  }\item[{int}]{task\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classAccessControlProxy_a199aa43990a5b34680081823af4b29a8}{Access\+Control\+Proxy}}, and \mbox{\hyperlink{classWorkflowEngineFacade_aea8ae49268eaea0bab74f76916ad3256}{Workflow\+Engine\+Facade}}.
+
+\Hypertarget{classWorkflowService_aef9ef88bd60283c5b0a28db122a13c9f}\label{classWorkflowService_aef9ef88bd60283c5b0a28db122a13c9f} 
+\index{WorkflowService@{WorkflowService}!getHistory@{getHistory}}
+\index{getHistory@{getHistory}!WorkflowService@{WorkflowService}}
+\doxysubsubsection{\texorpdfstring{getHistory()}{getHistory()}}
+{\footnotesize\ttfamily virtual std\+::vector$<$ std\+::string $>$ Workflow\+Service\+::get\+History (\begin{DoxyParamCaption}\item[{int}]{actor\+Id,  }\item[{int}]{instance\+Id }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classAccessControlProxy_a9fcb1c401cf33aa16bea4c1cc02f3995}{Access\+Control\+Proxy}}, and \mbox{\hyperlink{classWorkflowEngineFacade_ac0427cc49fed55ced21d080d1396b671}{Workflow\+Engine\+Facade}}.
+
+\Hypertarget{classWorkflowService_a9756be2131bb190c4e756bef5d91bd89}\label{classWorkflowService_a9756be2131bb190c4e756bef5d91bd89} 
+\index{WorkflowService@{WorkflowService}!getStatus@{getStatus}}
+\index{getStatus@{getStatus}!WorkflowService@{WorkflowService}}
+\doxysubsubsection{\texorpdfstring{getStatus()}{getStatus()}}
+{\footnotesize\ttfamily virtual std\+::string Workflow\+Service\+::get\+Status (\begin{DoxyParamCaption}\item[{int}]{actor\+Id,  }\item[{int}]{instance\+Id }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classAccessControlProxy_a2c0c5eadd0bb2d392801d5a2a151e21b}{Access\+Control\+Proxy}}, and \mbox{\hyperlink{classWorkflowEngineFacade_ad27f24d8c7ba25f2bcb82aeb6b1096f5}{Workflow\+Engine\+Facade}}.
+
+\Hypertarget{classWorkflowService_a7ee421714cd991c17b16ca4789f34688}\label{classWorkflowService_a7ee421714cd991c17b16ca4789f34688} 
+\index{WorkflowService@{WorkflowService}!listInstanceIds@{listInstanceIds}}
+\index{listInstanceIds@{listInstanceIds}!WorkflowService@{WorkflowService}}
+\doxysubsubsection{\texorpdfstring{listInstanceIds()}{listInstanceIds()}}
+{\footnotesize\ttfamily virtual std\+::vector$<$ int $>$ Workflow\+Service\+::list\+Instance\+Ids (\begin{DoxyParamCaption}\item[{int}]{actor\+Id }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classAccessControlProxy_ae706b8efd74949e18f6b41a21cba4cc3}{Access\+Control\+Proxy}}, and \mbox{\hyperlink{classWorkflowEngineFacade_a815ae22365425f46b21d5a52721a5c4f}{Workflow\+Engine\+Facade}}.
+
+\Hypertarget{classWorkflowService_a8eae7e9048e15af2193588ab5e42cd90}\label{classWorkflowService_a8eae7e9048e15af2193588ab5e42cd90} 
+\index{WorkflowService@{WorkflowService}!rejectRequest@{rejectRequest}}
+\index{rejectRequest@{rejectRequest}!WorkflowService@{WorkflowService}}
+\doxysubsubsection{\texorpdfstring{rejectRequest()}{rejectRequest()}}
+{\footnotesize\ttfamily virtual void Workflow\+Service\+::reject\+Request (\begin{DoxyParamCaption}\item[{int}]{actor\+Id,  }\item[{int}]{instance\+Id,  }\item[{const std\+::string \&}]{reason }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classAccessControlProxy_a7cd51896a6d9536ae719461c90cd1eaa}{Access\+Control\+Proxy}}, and \mbox{\hyperlink{classWorkflowEngineFacade_a612d32a96ce6dac8dad0f2364d72fe0e}{Workflow\+Engine\+Facade}}.
+
+\Hypertarget{classWorkflowService_a98968c4cbb62a795af853001f84eeb72}\label{classWorkflowService_a98968c4cbb62a795af853001f84eeb72} 
+\index{WorkflowService@{WorkflowService}!saveProgress@{saveProgress}}
+\index{saveProgress@{saveProgress}!WorkflowService@{WorkflowService}}
+\doxysubsubsection{\texorpdfstring{saveProgress()}{saveProgress()}}
+{\footnotesize\ttfamily virtual void Workflow\+Service\+::save\+Progress (\begin{DoxyParamCaption}\item[{int}]{actor\+Id,  }\item[{int}]{instance\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classAccessControlProxy_afaf4b84288c8f6550ac0c4606e8d1f90}{Access\+Control\+Proxy}}, and \mbox{\hyperlink{classWorkflowEngineFacade_a3400ee951edf78552d91499a586cd19b}{Workflow\+Engine\+Facade}}.
+
+\Hypertarget{classWorkflowService_af4d9b3a0e2f56ad6b1f1a78a9ee8e603}\label{classWorkflowService_af4d9b3a0e2f56ad6b1f1a78a9ee8e603} 
+\index{WorkflowService@{WorkflowService}!submitRequest@{submitRequest}}
+\index{submitRequest@{submitRequest}!WorkflowService@{WorkflowService}}
+\doxysubsubsection{\texorpdfstring{submitRequest()}{submitRequest()}}
+{\footnotesize\ttfamily virtual int Workflow\+Service\+::submit\+Request (\begin{DoxyParamCaption}\item[{int}]{actor\+Id,  }\item[{const std\+::map$<$ std\+::string, std\+::string $>$ \&}]{payload }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classAccessControlProxy_abb0764777e558207c6f6a3a4fc0ea0cd}{Access\+Control\+Proxy}}, and \mbox{\hyperlink{classWorkflowEngineFacade_af162502120f1dd1ae79fe34bb7874890}{Workflow\+Engine\+Facade}}.
+
+\Hypertarget{classWorkflowService_a7302fb59931df65abc7b9b6680d0cf3b}\label{classWorkflowService_a7302fb59931df65abc7b9b6680d0cf3b} 
+\index{WorkflowService@{WorkflowService}!takeOwnership@{takeOwnership}}
+\index{takeOwnership@{takeOwnership}!WorkflowService@{WorkflowService}}
+\doxysubsubsection{\texorpdfstring{takeOwnership()}{takeOwnership()}}
+{\footnotesize\ttfamily virtual void Workflow\+Service\+::take\+Ownership (\begin{DoxyParamCaption}\item[{int}]{actor\+Id,  }\item[{int}]{instance\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classAccessControlProxy_a85b4f0cdf8c33f0fb52a879c7805112b}{Access\+Control\+Proxy}}, and \mbox{\hyperlink{classWorkflowEngineFacade_abafea36b20010f8751c82a8f97b1da88}{Workflow\+Engine\+Facade}}.
+
+\Hypertarget{classWorkflowService_a8ade09df379b62917b806c9d784d3830}\label{classWorkflowService_a8ade09df379b62917b806c9d784d3830} 
+\index{WorkflowService@{WorkflowService}!undoLastAction@{undoLastAction}}
+\index{undoLastAction@{undoLastAction}!WorkflowService@{WorkflowService}}
+\doxysubsubsection{\texorpdfstring{undoLastAction()}{undoLastAction()}}
+{\footnotesize\ttfamily virtual void Workflow\+Service\+::undo\+Last\+Action (\begin{DoxyParamCaption}\item[{int}]{actor\+Id,  }\item[{int}]{instance\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classAccessControlProxy_a678fb83e4351d0a135ce63eac893a135}{Access\+Control\+Proxy}}, and \mbox{\hyperlink{classWorkflowEngineFacade_a5fa933d48e53eed8a599efe9811919c0}{Workflow\+Engine\+Facade}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{WorkflowEngineFacade_8h}{Workflow\+Engine\+Facade.\+h}}\end{DoxyCompactItemize}

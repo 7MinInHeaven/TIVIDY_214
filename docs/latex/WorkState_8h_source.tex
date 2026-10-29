@@ -1,0 +1,22 @@
+\doxysection{Work\+State.\+h}
+\hypertarget{WorkState_8h_source}{}\label{WorkState_8h_source}\index{include/WorkState.h@{include/WorkState.h}}
+\mbox{\hyperlink{WorkState_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ WORKSTATE\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ WORKSTATE\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classWorkComponent}{WorkComponent}};}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classWorkState}{WorkState}}\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{public}:\ }
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classWorkState_a4ef078c5253a7c799df3609c90febadc}{\string~WorkState}}()\ \{\}\ \ \ \ }
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkState_af897f4deba4f3b3baffc889b4524513f}{handleUpdate}}(\mbox{\hyperlink{classWorkComponent}{WorkComponent}}*\ context)\ =\ 0;}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ \mbox{\hyperlink{classWorkState_ad04418dc4d70f16427c5e84815b642cf}{getStatus}}()\ =\ 0;}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classWorkState}{WorkState}}*\ \mbox{\hyperlink{classWorkState_afc1791f02620fbbc2db8f025df7a07ba}{clone}}()\ =\ 0;}
+\DoxyCodeLine{00014\ \};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
