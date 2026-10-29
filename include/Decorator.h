@@ -14,6 +14,7 @@
 #include <string>
 #include <vector>
 
+#include "WorkVisitor.h"
 #include "Common.h"
 #include "Composite.h"
 
@@ -91,9 +92,9 @@ class TaskDecorator : public WorkComponent {
         void nextState() override;
         bool isComplete() const override;
         PriorityLevel getPriority() const override;
-        void accept(WorkVisitor& visitor) override;
+        virtual void accept(WorkVisitor& visitor) const override = 0;
 
-        WorkComponent* clone() const override = 0;
+        virtual WorkComponent* clone() const override = 0;
 
         WorkComponent* getWrappedTask() const;
 
@@ -120,7 +121,10 @@ class ValidatedTask : public TaskDecorator {
         bool validate(std::vector<std::string>& failureMessages);
         void nextState() override;
 
+        void accept(WorkVisitor& visitor) const override;
         WorkComponent* clone() const override;
+
+        const std::vector<std::shared_ptr<const ValidationRule>> getRules() const {return validationRules;} //gabriel
 
         const std::string& getGuardedStatus() const;
         std::size_t getRuleCount() const;
@@ -137,8 +141,10 @@ class AuditedTask : public TaskDecorator {
 
         AuditedTask(WorkComponent* taskToWrap, AuditLog* log);
         void nextState() override;
+        void accept(WorkVisitor& visitor) const override;
         WorkComponent* clone() const override;
 
+        const AuditLog* getLog() const {return auditLog;} //gabriel
     private:
         AuditLog* auditLog;
 };
@@ -161,6 +167,7 @@ class PrioritisedTask : public TaskDecorator {
         bool isOverdue() const;
         long getSecondsRemaining() const;
 
+        void accept(WorkVisitor& visitor) const override;
         WorkComponent* clone() const override;
 
     private:

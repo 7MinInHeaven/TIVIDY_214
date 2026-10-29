@@ -2,16 +2,8 @@
 
 Stage::Stage(std::string name) : WorkGroup(name){}
 
-void Stage::accept(WorkVisitor& visitor){
+void Stage::accept(WorkVisitor& visitor) const{
     visitor.visit(*this);
-}
-
-void Stage::add(SubProcess* child){
-    WorkGroup::add(child);
-}
-
-void Stage::add(WorkUnit* child){
-    WorkGroup::add(child);
 }
 
 Stage* Stage::clone() const {
