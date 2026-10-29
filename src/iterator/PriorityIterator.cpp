@@ -1,14 +1,37 @@
 #include "Iterator.h"
 
-PriorityIterator::PriorityIterator(WorkComponent* root) : DepthFirstIterator(root){
-    PriorityCollectorVisitor collector;
+PriorityIterator::PriorityIterator(WorkComponent* root){
     for(DepthFirstIterator it(root); !it.isDone(); it.next()){
-        it.getCurrent()->accept(collector);
+        WorkComponent* node = it.getCurrent();
+
+        checker.reset();
+        node->accept(checker);
+        if(checker.found){
+            elements.emplace_back(checker.level, node);
+        }
     }
 
-    elements = std::move(collector.found);
     std::stable_sort(elements.begin(), elements.end(), 
-        [](PrioritisedTask* a, PrioritisedTask* b){
-            return a->getPriority() > b->getPriority();
-        });
+    [](const std::pair<int, WorkComponent*>&a, const std::pair<int, WorkComponent*>& b){
+        return a.first > b.first;
+    });
+}
+
+void PriorityIterator::first(){
+    index = 0;
+}
+
+void PriorityIterator::next(){
+    if(!isDone()){
+        ++index;
+    }
+}
+
+bool PriorityIterator::isDone(){
+    return index >= elements.size();
+
+}
+
+WorkComponent* PriorityIterator::getCurrent(){
+    return isDone() ? nullptr : elements[index].second;
 }

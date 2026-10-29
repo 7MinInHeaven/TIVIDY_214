@@ -4,7 +4,8 @@
 #include <algorithm>
 #include "Composite.h"
 #include "WorkState.h"
-#include "TEMP.h"
+#include "WorkVisitor.h"
+#include "Decorator.h"
 
 class WorkIterator {
     public:
@@ -28,7 +29,7 @@ class DepthFirstIterator : public WorkIterator {
     std::vector<WorkComponent*> elements;
 
     private:
-    virtual void recursive(WorkComponent* node);
+    void recursive(WorkComponent* node);
 };
 
 class FilterIterator : public DepthFirstIterator{
@@ -55,10 +56,16 @@ class IncompleteIterator : public FilterIterator {
     IncompleteIterator(WorkComponent* root);
 };
 
-class PriorityIterator : DepthFirstIterator{
+class PriorityIterator : WorkIterator{
     public:
     PriorityIterator(WorkComponent* root);
-
+    void first() override;
+    void next() override;
+    bool isDone() override;
+    WorkComponent* getCurrent() override;
 
     private:
+    PriorityCheckerVisitor checker;
+    size_t index = 0;
+    std::vector<std::pair<int, WorkComponent*>> elements;
 };

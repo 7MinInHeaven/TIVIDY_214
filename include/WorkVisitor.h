@@ -19,8 +19,6 @@ class ValidatedTask;
 class AuditedTask;
 #include "Common.h"
 
-
-
 class WorkVisitor {
 public:
     virtual ~WorkVisitor() = default;
@@ -71,7 +69,6 @@ class ProgressReportVisitor : public WorkVisitor{
 
 class PriorityCheckerVisitor : public WorkVisitor{
     public:
-    ~PriorityCheckerVisitor() override;
     void visit(const WorkUnit& item) override;
     void visit(const WorkGroup& item) override;
     void visit(const Stage& item) override;
@@ -80,7 +77,14 @@ class PriorityCheckerVisitor : public WorkVisitor{
     void visit(const AuditedTask& item) override;
     void visit(const ValidatedTask& item) override;
 
-    std::vector<const PrioritisedTask*> found;
+    void reset();
+
+    bool found = false;
+    int level = 0;
+
+    private:
+    static const int overduePenalty = 10;
+    int computeRank(const PrioritisedTask& item);
 };
 
 class WorkComponentValidator {

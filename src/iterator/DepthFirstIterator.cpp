@@ -13,11 +13,11 @@ bool DepthFirstIterator::isDone(){
     return index >= elements.size();
 }
 void DepthFirstIterator::recursive(WorkComponent* node){
-    elements.push_back(node);
-
     for(WorkComponent* c : node->getChildren()){
         recursive(c);
     }
+
+    elements.push_back(node);
 }
 WorkComponent* DepthFirstIterator::getCurrent(){
     return isDone() ? nullptr : elements[index];

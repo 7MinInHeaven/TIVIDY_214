@@ -1,6 +1,8 @@
 #include "Iterator.h"
 
-FilterIterator::FilterIterator(WorkComponent* root, std::function<bool(WorkComponent*)> filter) : DepthFirstIterator(root), filter(filter){}
+FilterIterator::FilterIterator(WorkComponent* root, std::function<bool(WorkComponent*)> filter) : DepthFirstIterator(root), filter(filter){
+    skipFilter();
+}
 
 void FilterIterator::first() {
     DepthFirstIterator::first();
@@ -9,7 +11,7 @@ void FilterIterator::first() {
 
 void FilterIterator::next() {
     DepthFirstIterator::next(); 
-    skipFilter;
+    skipFilter();
 }
 
 void FilterIterator::skipFilter() {
