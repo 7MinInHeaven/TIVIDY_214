@@ -2,12 +2,8 @@
 
 SubProcess::SubProcess(std::string name) : WorkGroup(name) {}
 
-void SubProcess::accept(WorkVisitor& visitor){
+void SubProcess::accept(WorkVisitor& visitor) const {
     visitor.visit(*this);
-}
-
-void SubProcess::add(WorkUnit* child){
-    WorkGroup::add(child);
 }
 
 SubProcess* SubProcess::clone() const{

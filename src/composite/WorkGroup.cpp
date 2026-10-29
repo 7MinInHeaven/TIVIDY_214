@@ -15,34 +15,24 @@ WorkGroup::~WorkGroup(){
     children.clear();
 }
 
-//not sure if this is correct
-void WorkGroup::add(Stage* child){
-    add(static_cast<WorkComponent*>(child));
-}
-
-void WorkGroup::add(SubProcess* child){
-    add(static_cast<WorkComponent*>(child));
-}
-
-void WorkGroup::add(WorkUnit* child){
-    add(static_cast<WorkComponent*>(child));
-}
-
-void WorkGroup::add(WorkComponent* child) {
+bool WorkGroup::add(WorkComponent* child) {
+    if(!WorkComponentValidator::validate(this, child)) {
+        delete child;
+        return false;
+    }
     for(size_t i = 0; i < children.size(); i++){
-        if(children[i] == child){
-            std::cout << "Cannot add the same child twice" << std::endl;
-            return;
-        }
-
-        if(children[i]->getName() == child->getName()){
-            std::cout << "There already exists a child with name: " << child->getName() << std::endl;
+        if(children[i] == child) {
             delete child;
-            return;
+            return false;
+        }
+        if(children[i]->getName() == child->getName()) {
+            delete child;
+            return false;
         }
     }
 
     children.push_back(child);
+    return true;
 }
 
 void WorkGroup::remove(WorkComponent* child){
@@ -63,7 +53,7 @@ void WorkGroup::remove(std::string name){
     }
 }
 
-void WorkGroup::accept(WorkVisitor& visitor)
+void WorkGroup::accept(WorkVisitor& visitor) const
 {
     visitor.visit(*this);
 }
