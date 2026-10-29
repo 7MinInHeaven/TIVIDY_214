@@ -85,8 +85,9 @@ void WorkflowEngineFacade::submitRequest(
   WorkflowBuilder builder;
   Director director(&builder, &item, false);
   director.construct(data);
-  Handler* chainHead = builder.getResult();
-  std::vector<WorkGroup*> workGroups = builder.getWorkGroups();   // we own these
+  std::vector<WorkGroup*> templateGroups = builder.getWorkGroups();
+  std::vector<WorkGroup*> workGroups = builder.cloneWorkGroups();
+  Handler* chainHead = workGroups.empty() ? nullptr : workGroups.front();
   
   for (size_t i = 0; i < workGroups.size(); i++) {
     attachObserverToTree(workGroups[i]);
@@ -100,7 +101,11 @@ void WorkflowEngineFacade::submitRequest(
   for (size_t i = 0; i < workGroups.size(); i++) {
     delete workGroups[i];
   }
+  for (size_t i = 0; i < templateGroups.size(); i++) {
+    delete templateGroups[i];
+  }
   workGroups.clear();
+  templateGroups.clear();
   chainHead = nullptr;
 
   std::cout << "\n=== Work Item Payload ===\n";

@@ -89,6 +89,35 @@ TEST(BuilderTest, WorkflowBuilderResetClearsResult) {
     delete firstGroup;
 }
 
+/**
+ * @brief Verifies that Builder clones roots and restores their chain links.
+ */
+TEST(BuilderTest, WorkflowBuilderClonesIndependentWorkflowChain) {
+    WorkflowBuilder builder;
+    builder.buildWorkGroup("First Group");
+    builder.endGroup();
+    builder.buildWorkGroup("Second Group");
+    builder.endGroup();
+
+    std::vector<WorkGroup*> clones = builder.cloneWorkGroups();
+
+    ASSERT_EQ(clones.size(), 2u);
+    EXPECT_NE(clones[0], builder.getWorkGroups()[0]);
+    EXPECT_NE(clones[1], builder.getWorkGroups()[1]);
+    EXPECT_EQ(clones[0]->getName(), "First Group");
+    EXPECT_EQ(clones[1]->getName(), "Second Group");
+
+    WorkItem item;
+    EXPECT_NO_THROW(clones[0]->handleRequest(item));
+
+    for (WorkGroup* clone : clones) {
+        delete clone;
+    }
+    for (WorkGroup* group : builder.getWorkGroups()) {
+        delete group;
+    }
+}
+
 // 3. Test Director constructing a workflow from JSON via WorkflowBuilder
 TEST(BuilderTest, DirectorConstructsCompositeTreeFromJson) {
     json blueprint = json::parse(R"({
