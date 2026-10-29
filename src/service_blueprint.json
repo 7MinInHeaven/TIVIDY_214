@@ -1,0 +1,213 @@
+{
+  "workflow_name": "Student Residence Maintenance Service Request: Broken Tap Repair",
+  "required_inputs": [
+    {
+      "key": "student_number",
+      "prompt": "Enter Student Number (e.g. u23456789)"
+    },
+    {
+      "key": "email",
+      "prompt": "Enter Student Email Address"
+    },
+    {
+      "key": "residence_room",
+      "prompt": "Enter Residence Name, Block, and Room/Bathroom Location"
+    },
+    {
+      "key": "urgency_level",
+      "prompt": "Enter Water Leak Severity (Dripping / SteadyStream / Flooding)"
+    },
+    {
+      "key": "issue_description",
+      "prompt": "Describe the Broken Tap Issue"
+    }
+  ],
+  "chain": [
+    {
+      "type": "WorkGroup",
+      "name": "WorkGroup 1: Residence Helpdesk Intake & Leak Triage",
+      "children": [
+        {
+          "type": "WorkUnit",
+          "name": "Log student maintenance ticket and timestamp in facilities queue"
+        },
+        {
+          "type": "Stage",
+          "name": "Stage 1A: Student & Location Verification",
+          "children": [
+            {
+              "type": "WorkUnit",
+              "name": "Verify student_number is registered to the reported residence building"
+            },
+            {
+              "type": "WorkUnit",
+              "name": "Confirm exact room or communal bathroom location from residence_room"
+            }
+          ]
+        },
+        {
+          "type": "Stage",
+          "name": "Stage 1B: Water Damage Risk Assessment",
+          "children": [
+            {
+              "type": "SubProcess",
+              "name": "SubProcess 1B-1: Emergency Isolation Check",
+              "children": [
+                {
+                  "type": "WorkUnit",
+                  "name": "Assess urgency_level to determine if main block stopcock must be shut off"
+                },
+                {
+                  "type": "WorkUnit",
+                  "name": "Notify Residence House Parent if active flooding is reported"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "WorkGroup",
+      "name": "WorkGroup 2: Facilities Dispatch & Parts Requisition",
+      "children": [
+        {
+          "type": "Stage",
+          "name": "Stage 2A: Plumber Assignment & Scheduling",
+          "children": [
+            {
+              "type": "WorkUnit",
+              "name": "Assign ticket to on-duty campus maintenance plumber"
+            },
+            {
+              "type": "WorkUnit",
+              "name": "Coordinate room access window with student and residence reception"
+            }
+          ]
+        },
+        {
+          "type": "Stage",
+          "name": "Stage 2B: Plumbing Parts & Tool Preparation",
+          "children": [
+            {
+              "type": "SubProcess",
+              "name": "SubProcess 2B-1: Central Stores Requisition",
+              "children": [
+                {
+                  "type": "WorkUnit",
+                  "name": "Check out replacement ceramic disc cartridge, washers, and O-rings"
+                },
+                {
+                  "type": "WorkUnit",
+                  "name": "Check out complete mixer tap assembly as backup replacement"
+                },
+                {
+                  "type": "WorkUnit",
+                  "name": "Collect pipe wrench, PTFE thread seal tape, and basin spanner"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "WorkGroup",
+      "name": "WorkGroup 3: On-Site Plumbing Repair & Pressure Testing",
+      "children": [
+        {
+          "type": "Stage",
+          "name": "Stage 3A: Isolation & Disassembly",
+          "children": [
+            {
+              "type": "WorkUnit",
+              "name": "Turn off under-basin angle valve and drain residual line pressure"
+            },
+            {
+              "type": "WorkUnit",
+              "name": "Remove tap handle, shroud, and worn internal valve stem"
+            }
+          ]
+        },
+        {
+          "type": "Stage",
+          "name": "Stage 3B: Component Replacement & Reassembly",
+          "children": [
+            {
+              "type": "SubProcess",
+              "name": "SubProcess 3B-1: Valve Seat & Cartridge Refit",
+              "children": [
+                {
+                  "type": "WorkUnit",
+                  "name": "Clean brass valve seat and inspect for scaling or hairline cracks"
+                },
+                {
+                  "type": "WorkUnit",
+                  "name": "Install new washer/cartridge with PTFE tape and torque bonnet nut"
+                },
+                {
+                  "type": "WorkUnit",
+                  "name": "Reattach tap handle and clean aerator mesh screen"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Stage",
+          "name": "Stage 3C: Live Water Flow & Leak Test",
+          "children": [
+            {
+              "type": "SubProcess",
+              "name": "SubProcess 3C-1: Pressure & Seal Verification",
+              "children": [
+                {
+                  "type": "WorkUnit",
+                  "name": "Restore water supply at angle valve and purge air from pipe"
+                },
+                {
+                  "type": "WorkUnit",
+                  "name": "Test full hot and cold flow and verify zero dripping when closed"
+                },
+                {
+                  "type": "WorkUnit",
+                  "name": "Dry surrounding basin and cabinet and check trap for secondary leaks"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "WorkGroup",
+      "name": "WorkGroup 4: Student Inspection Sign-Off & Ticket Closure",
+      "children": [
+        {
+          "type": "Stage",
+          "name": "Stage 4A: Quality Handover & Cost Logging",
+          "children": [
+            {
+              "type": "WorkUnit",
+              "name": "Record parts used and plumber labour time against residence maintenance budget"
+            },
+            {
+              "type": "SubProcess",
+              "name": "SubProcess 4A-1: Resident Confirmation & Notification",
+              "children": [
+                {
+                  "type": "WorkUnit",
+                  "name": "Obtain student or residence warden sign-off on completed tap repair"
+                },
+                {
+                  "type": "WorkUnit",
+                  "name": "Update ticket status to Completed and send completion email to student"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
