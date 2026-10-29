@@ -84,7 +84,12 @@ void WorkflowEngineFacade::submitRequest(
 
   WorkflowBuilder builder;
   Director director(&builder, &item, false);
-  director.construct(data);
+  try {
+    director.construct(data);
+  } catch (const std::exception& error) {
+    std::cerr << "[Workflow input error] " << error.what() << "\n";
+    return;
+  }
   std::vector<WorkGroup*> templateGroups = builder.getWorkGroups();
   std::vector<WorkGroup*> workGroups = builder.cloneWorkGroups();
   Handler* chainHead = workGroups.empty() ? nullptr : workGroups.front();

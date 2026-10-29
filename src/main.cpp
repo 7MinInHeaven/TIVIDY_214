@@ -11,6 +11,15 @@
 
 using namespace std;
 
+namespace {
+
+/**
+ * @brief Limits retries for invalid console scenario selections.
+ */
+const int kMaxSelectionAttempts = 3;
+
+} // namespace
+
 /**
  * @brief Runs the console-based runtime workflow selector.
  */
@@ -40,16 +49,26 @@ int main() {
          << ", 0 to exit): ";
 
     size_t selection = 0;
-    if (!(cin >> selection)) {
-      cerr << "Invalid scenario selection.\n";
+    bool validSelection = false;
+    for (int attempt = 1; attempt <= kMaxSelectionAttempts; ++attempt) {
+      if (cin >> selection && selection <= scenarios.size()) {
+        validSelection = true;
+        break;
+      }
+
+      cin.clear();
+      cin.ignore(numeric_limits<streamsize>::max(), '\n');
+      cerr << "Invalid scenario selection. Attempt " << attempt << " of "
+           << kMaxSelectionAttempts << ".\n";
+    }
+
+    if (!validSelection) {
+      cerr << "Too many invalid scenario selections. Exiting.\n";
       return 1;
     }
+
     if (selection == 0) {
       break;
-    }
-    if (selection > scenarios.size()) {
-      cerr << "Invalid scenario selection.\n";
-      continue;
     }
 
     /**

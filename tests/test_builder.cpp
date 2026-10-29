@@ -205,6 +205,51 @@ TEST(BuilderTest, DirectorPopulatesRequiredInputsOnWorkItem) {
     EXPECT_EQ(builder.getResult(), nullptr);
 }
 
+/**
+ * @brief Verifies that empty required input is retried before acceptance.
+ */
+TEST(BuilderTest, DirectorRetriesEmptyRequiredInput) {
+    json blueprint = json::parse(R"({
+        "required_inputs": [
+            { "key": "policy_number", "prompt": "Enter Policy Number" }
+        ],
+        "chain": []
+    })");
+
+    std::istringstream simulatedInput("\nPOL-777\n");
+    std::streambuf* oldCin = std::cin.rdbuf(simulatedInput.rdbuf());
+
+    WorkItem item;
+    WorkflowBuilder builder;
+    Director director(&builder, &item, true);
+    EXPECT_NO_THROW(director.construct(blueprint));
+
+    std::cin.rdbuf(oldCin);
+    EXPECT_EQ(item.getData("policy_number"), "POL-777");
+}
+
+/**
+ * @brief Verifies that repeated empty required input fails clearly.
+ */
+TEST(BuilderTest, DirectorRejectsRepeatedEmptyRequiredInput) {
+    json blueprint = json::parse(R"({
+        "required_inputs": [
+            { "key": "policy_number", "prompt": "Enter Policy Number" }
+        ],
+        "chain": []
+    })");
+
+    std::istringstream simulatedInput("\n\n\n");
+    std::streambuf* oldCin = std::cin.rdbuf(simulatedInput.rdbuf());
+
+    WorkItem item;
+    WorkflowBuilder builder;
+    Director director(&builder, &item, true);
+    EXPECT_THROW(director.construct(blueprint), std::invalid_argument);
+
+    std::cin.rdbuf(oldCin);
+}
+
 // 5. Test Director with null builder and multi-WorkGroup chain traversal using a spy ChainBuilder
 namespace {
 class RecordingChainBuilder : public ChainBuilder {
