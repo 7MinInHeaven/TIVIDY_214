@@ -1,0 +1,85 @@
+\doxysection{Postgres\+API Class Reference}
+\hypertarget{classPostgresAPI}{}\label{classPostgresAPI}\index{PostgresAPI@{PostgresAPI}}
+
+
+{\ttfamily \#include $<$Postgres\+API.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPostgresAPI_af3e6bb8369f9368339a3c22f6286ff7d}{Postgres\+API}} (std\+::string conn\+Str="{}"{})
+\item 
+virtual \mbox{\hyperlink{classPostgresAPI_a8091954f9296e2fbea61a83a71ca51a9}{\texorpdfstring{$\sim$}{\string~}\+Postgres\+API}} ()
+\item 
+virtual bool \mbox{\hyperlink{classPostgresAPI_a345163e496154addb9f9890f45b54b2c}{connect}} ()
+\item 
+virtual void \mbox{\hyperlink{classPostgresAPI_a2cbe9f37f7b8b23b8dcf817f53c92f48}{disconnect}} ()
+\item 
+virtual int \mbox{\hyperlink{classPostgresAPI_a1038cb6a978c3ff606ce33b8622e4288}{execute\+Transaction}} (std\+::string sql\+Query, const std\+::vector$<$ std\+::string $>$ \&params=std\+::vector$<$ std\+::string $>$())
+\item 
+virtual std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classPostgresAPI_ab08111e9bfd2b923b8ea1f20622a6b35}{execute\+Select}} (std\+::string sql\+Query, const std\+::vector$<$ std\+::string $>$ \&params=std\+::vector$<$ std\+::string $>$())
+\item 
+virtual bool \mbox{\hyperlink{classPostgresAPI_a81beb069781a404b50b99e8f6e4ff316}{get\+Connection\+Status}} () const
+\item 
+std\+::string \mbox{\hyperlink{classPostgresAPI_a8193e9350459a3a8b81a0e55fdd3e5cd}{get\+Conn\+String}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classPostgresAPI_af3e6bb8369f9368339a3c22f6286ff7d}\label{classPostgresAPI_af3e6bb8369f9368339a3c22f6286ff7d} 
+\index{PostgresAPI@{PostgresAPI}!PostgresAPI@{PostgresAPI}}
+\index{PostgresAPI@{PostgresAPI}!PostgresAPI@{PostgresAPI}}
+\doxysubsubsection{\texorpdfstring{PostgresAPI()}{PostgresAPI()}}
+{\footnotesize\ttfamily Postgres\+API\+::\+Postgres\+API (\begin{DoxyParamCaption}\item[{std\+::string}]{conn\+Str = {\ttfamily "{}"{}} }\end{DoxyParamCaption})}
+
+\Hypertarget{classPostgresAPI_a8091954f9296e2fbea61a83a71ca51a9}\label{classPostgresAPI_a8091954f9296e2fbea61a83a71ca51a9} 
+\index{PostgresAPI@{PostgresAPI}!````~PostgresAPI@{\texorpdfstring{$\sim$}{\string~}PostgresAPI}}
+\index{````~PostgresAPI@{\texorpdfstring{$\sim$}{\string~}PostgresAPI}!PostgresAPI@{PostgresAPI}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}PostgresAPI()}{\string~PostgresAPI()}}
+{\footnotesize\ttfamily Postgres\+API\+::\texorpdfstring{$\sim$}{\string~}\+Postgres\+API (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classPostgresAPI_a345163e496154addb9f9890f45b54b2c}\label{classPostgresAPI_a345163e496154addb9f9890f45b54b2c} 
+\index{PostgresAPI@{PostgresAPI}!connect@{connect}}
+\index{connect@{connect}!PostgresAPI@{PostgresAPI}}
+\doxysubsubsection{\texorpdfstring{connect()}{connect()}}
+{\footnotesize\ttfamily bool Postgres\+API\+::connect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\Hypertarget{classPostgresAPI_a2cbe9f37f7b8b23b8dcf817f53c92f48}\label{classPostgresAPI_a2cbe9f37f7b8b23b8dcf817f53c92f48} 
+\index{PostgresAPI@{PostgresAPI}!disconnect@{disconnect}}
+\index{disconnect@{disconnect}!PostgresAPI@{PostgresAPI}}
+\doxysubsubsection{\texorpdfstring{disconnect()}{disconnect()}}
+{\footnotesize\ttfamily void Postgres\+API\+::disconnect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\Hypertarget{classPostgresAPI_ab08111e9bfd2b923b8ea1f20622a6b35}\label{classPostgresAPI_ab08111e9bfd2b923b8ea1f20622a6b35} 
+\index{PostgresAPI@{PostgresAPI}!executeSelect@{executeSelect}}
+\index{executeSelect@{executeSelect}!PostgresAPI@{PostgresAPI}}
+\doxysubsubsection{\texorpdfstring{executeSelect()}{executeSelect()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ Postgres\+API\+::execute\+Select (\begin{DoxyParamCaption}\item[{std\+::string}]{sql\+Query,  }\item[{const std\+::vector$<$ std\+::string $>$ \&}]{params = {\ttfamily std\+:\+:vector$<$std\+:\+:string$>$()} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\Hypertarget{classPostgresAPI_a1038cb6a978c3ff606ce33b8622e4288}\label{classPostgresAPI_a1038cb6a978c3ff606ce33b8622e4288} 
+\index{PostgresAPI@{PostgresAPI}!executeTransaction@{executeTransaction}}
+\index{executeTransaction@{executeTransaction}!PostgresAPI@{PostgresAPI}}
+\doxysubsubsection{\texorpdfstring{executeTransaction()}{executeTransaction()}}
+{\footnotesize\ttfamily int Postgres\+API\+::execute\+Transaction (\begin{DoxyParamCaption}\item[{std\+::string}]{sql\+Query,  }\item[{const std\+::vector$<$ std\+::string $>$ \&}]{params = {\ttfamily std\+:\+:vector$<$std\+:\+:string$>$()} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\Hypertarget{classPostgresAPI_a81beb069781a404b50b99e8f6e4ff316}\label{classPostgresAPI_a81beb069781a404b50b99e8f6e4ff316} 
+\index{PostgresAPI@{PostgresAPI}!getConnectionStatus@{getConnectionStatus}}
+\index{getConnectionStatus@{getConnectionStatus}!PostgresAPI@{PostgresAPI}}
+\doxysubsubsection{\texorpdfstring{getConnectionStatus()}{getConnectionStatus()}}
+{\footnotesize\ttfamily bool Postgres\+API\+::get\+Connection\+Status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\Hypertarget{classPostgresAPI_a8193e9350459a3a8b81a0e55fdd3e5cd}\label{classPostgresAPI_a8193e9350459a3a8b81a0e55fdd3e5cd} 
+\index{PostgresAPI@{PostgresAPI}!getConnString@{getConnString}}
+\index{getConnString@{getConnString}!PostgresAPI@{PostgresAPI}}
+\doxysubsubsection{\texorpdfstring{getConnString()}{getConnString()}}
+{\footnotesize\ttfamily std\+::string Postgres\+API\+::get\+Conn\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{PostgresAPI_8h}{Postgres\+API.\+h}}\item 
+src/\+Database observeradapterstrategy/\mbox{\hyperlink{PostgresAPI_8cpp}{Postgres\+API.\+cpp}}\end{DoxyCompactItemize}

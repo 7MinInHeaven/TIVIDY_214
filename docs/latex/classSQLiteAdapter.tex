@@ -1,0 +1,110 @@
+\doxysection{SQLite\+Adapter Class Reference}
+\hypertarget{classSQLiteAdapter}{}\label{classSQLiteAdapter}\index{SQLiteAdapter@{SQLiteAdapter}}
+
+
+{\ttfamily \#include $<$SQLite\+Adapter.\+h$>$}
+
+
+
+Inheritance diagram for SQLite\+Adapter\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{classSQLiteAdapter__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for SQLite\+Adapter\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{classSQLiteAdapter__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSQLiteAdapter_a8cc1ba3bdaee9f07561e7c07f893073b}{SQLite\+Adapter}} (\mbox{\hyperlink{classSQLiteAPI}{SQLite\+API}} \texorpdfstring{$\ast$}{*}sq\+Api, std\+::string table="{}workflow\+\_\+audit\+\_\+log"{}, bool take\+Ownership=true)
+\item 
+virtual \mbox{\hyperlink{classSQLiteAdapter_a83d8fccf46fb515c4c324735e3f570c7}{\texorpdfstring{$\sim$}{\string~}\+SQLite\+Adapter}} ()
+\item 
+virtual bool \mbox{\hyperlink{classSQLiteAdapter_a1f8801ee4ccc6a896c2f86deab27dbb9}{save\+Record}} (int task\+ID, std\+::string task\+Name, std\+::string state, std\+::string payload) override
+\item 
+virtual std\+::string \mbox{\hyperlink{classSQLiteAdapter_a4204cc811d072979ca94e38a5606ad6b}{get\+Record\+State}} (std\+::string task\+Name) override
+\item 
+virtual std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classSQLiteAdapter_aaf7eaca5e72613fcd4b255bc357f9e3c}{fetch\+All\+Records}} () override
+\item 
+virtual bool \mbox{\hyperlink{classSQLiteAdapter_a9a8acc420611a8ad88d83743c9f8d9aa}{is\+Connected}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classExternalDatabase}{External\+Database}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classExternalDatabase_ad663a6ebcbdf01ad2933448119b392d6}{\texorpdfstring{$\sim$}{\string~}\+External\+Database}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classSQLiteAdapter_a8cc1ba3bdaee9f07561e7c07f893073b}\label{classSQLiteAdapter_a8cc1ba3bdaee9f07561e7c07f893073b} 
+\index{SQLiteAdapter@{SQLiteAdapter}!SQLiteAdapter@{SQLiteAdapter}}
+\index{SQLiteAdapter@{SQLiteAdapter}!SQLiteAdapter@{SQLiteAdapter}}
+\doxysubsubsection{\texorpdfstring{SQLiteAdapter()}{SQLiteAdapter()}}
+{\footnotesize\ttfamily SQLite\+Adapter\+::\+SQLite\+Adapter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classSQLiteAPI}{SQLite\+API}} \texorpdfstring{$\ast$}{*}}]{sq\+Api,  }\item[{std\+::string}]{table = {\ttfamily "{}workflow\+\_\+audit\+\_\+log"{}},  }\item[{bool}]{take\+Ownership = {\ttfamily true} }\end{DoxyParamCaption})}
+
+\Hypertarget{classSQLiteAdapter_a83d8fccf46fb515c4c324735e3f570c7}\label{classSQLiteAdapter_a83d8fccf46fb515c4c324735e3f570c7} 
+\index{SQLiteAdapter@{SQLiteAdapter}!````~SQLiteAdapter@{\texorpdfstring{$\sim$}{\string~}SQLiteAdapter}}
+\index{````~SQLiteAdapter@{\texorpdfstring{$\sim$}{\string~}SQLiteAdapter}!SQLiteAdapter@{SQLiteAdapter}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}SQLiteAdapter()}{\string~SQLiteAdapter()}}
+{\footnotesize\ttfamily SQLite\+Adapter\+::\texorpdfstring{$\sim$}{\string~}\+SQLite\+Adapter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classSQLiteAdapter_aaf7eaca5e72613fcd4b255bc357f9e3c}\label{classSQLiteAdapter_aaf7eaca5e72613fcd4b255bc357f9e3c} 
+\index{SQLiteAdapter@{SQLiteAdapter}!fetchAllRecords@{fetchAllRecords}}
+\index{fetchAllRecords@{fetchAllRecords}!SQLiteAdapter@{SQLiteAdapter}}
+\doxysubsubsection{\texorpdfstring{fetchAllRecords()}{fetchAllRecords()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ SQLite\+Adapter\+::fetch\+All\+Records (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classExternalDatabase_ac9eca650196f19cea2223a9192c334a6}{External\+Database}}.
+
+\Hypertarget{classSQLiteAdapter_a4204cc811d072979ca94e38a5606ad6b}\label{classSQLiteAdapter_a4204cc811d072979ca94e38a5606ad6b} 
+\index{SQLiteAdapter@{SQLiteAdapter}!getRecordState@{getRecordState}}
+\index{getRecordState@{getRecordState}!SQLiteAdapter@{SQLiteAdapter}}
+\doxysubsubsection{\texorpdfstring{getRecordState()}{getRecordState()}}
+{\footnotesize\ttfamily std\+::string SQLite\+Adapter\+::get\+Record\+State (\begin{DoxyParamCaption}\item[{std\+::string}]{task\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classExternalDatabase_aa7da8d9258dd91709c29c0c419cfd2aa}{External\+Database}}.
+
+\Hypertarget{classSQLiteAdapter_a9a8acc420611a8ad88d83743c9f8d9aa}\label{classSQLiteAdapter_a9a8acc420611a8ad88d83743c9f8d9aa} 
+\index{SQLiteAdapter@{SQLiteAdapter}!isConnected@{isConnected}}
+\index{isConnected@{isConnected}!SQLiteAdapter@{SQLiteAdapter}}
+\doxysubsubsection{\texorpdfstring{isConnected()}{isConnected()}}
+{\footnotesize\ttfamily bool SQLite\+Adapter\+::is\+Connected (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classExternalDatabase_aa69857fcae2139c91428953695395c5e}{External\+Database}}.
+
+\Hypertarget{classSQLiteAdapter_a1f8801ee4ccc6a896c2f86deab27dbb9}\label{classSQLiteAdapter_a1f8801ee4ccc6a896c2f86deab27dbb9} 
+\index{SQLiteAdapter@{SQLiteAdapter}!saveRecord@{saveRecord}}
+\index{saveRecord@{saveRecord}!SQLiteAdapter@{SQLiteAdapter}}
+\doxysubsubsection{\texorpdfstring{saveRecord()}{saveRecord()}}
+{\footnotesize\ttfamily bool SQLite\+Adapter\+::save\+Record (\begin{DoxyParamCaption}\item[{int}]{task\+ID,  }\item[{std\+::string}]{task\+Name,  }\item[{std\+::string}]{state,  }\item[{std\+::string}]{payload }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classExternalDatabase_a5642ad378a433f79737c52beb7116296}{External\+Database}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{SQLiteAdapter_8h}{SQLite\+Adapter.\+h}}\item 
+src/\+Database observeradapterstrategy/\mbox{\hyperlink{SQLiteAdapter_8cpp}{SQLite\+Adapter.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,33 @@
+\doxysection{SQLite\+Adapter.\+h}
+\hypertarget{SQLiteAdapter_8h_source}{}\label{SQLiteAdapter_8h_source}\index{include/SQLiteAdapter.h@{include/SQLiteAdapter.h}}
+\mbox{\hyperlink{SQLiteAdapter_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ SQLITEADAPTER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ SQLITEADAPTER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ExternalDatabase_8h}{ExternalDatabase.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{SQLiteAPI_8h}{SQLiteAPI.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classSQLiteAdapter}{SQLiteAdapter}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classExternalDatabase}{ExternalDatabase}}\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00011\ \ \ \ \ \mbox{\hyperlink{classSQLiteAPI}{SQLiteAPI}}*\ api;}
+\DoxyCodeLine{00012\ \ \ \ \ std::string\ tableName;}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{bool}\ ownsAPI;}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ std::string\ rmvQuotes(\textcolor{keyword}{const}\ std::string\&\ input)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{classSQLiteAdapter}{SQLiteAdapter}}(\mbox{\hyperlink{classSQLiteAPI}{SQLiteAPI}}*\ sqApi,\ std::string\ table\ =\ \textcolor{stringliteral}{"{}workflow\_audit\_log"{}},\ \textcolor{keywordtype}{bool}\ takeOwnership\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classSQLiteAdapter_a83d8fccf46fb515c4c324735e3f570c7}{\string~SQLiteAdapter}}();}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classSQLiteAdapter_a1f8801ee4ccc6a896c2f86deab27dbb9}{saveRecord}}(\textcolor{keywordtype}{int}\ taskID,\ std::string\ taskName,\ std::string\ state,\ std::string\ payload)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ \mbox{\hyperlink{classSQLiteAdapter_a4204cc811d072979ca94e38a5606ad6b}{getRecordState}}(std::string\ taskName)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{virtual}\ std::vector<std::string>\ \mbox{\hyperlink{classSQLiteAdapter_aaf7eaca5e72613fcd4b255bc357f9e3c}{fetchAllRecords}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classSQLiteAdapter_a9a8acc420611a8ad88d83743c9f8d9aa}{isConnected}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00025\ \};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

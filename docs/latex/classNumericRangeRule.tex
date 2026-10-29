@@ -1,0 +1,86 @@
+\doxysection{Numeric\+Range\+Rule Class Reference}
+\hypertarget{classNumericRangeRule}{}\label{classNumericRangeRule}\index{NumericRangeRule@{NumericRangeRule}}
+
+
+{\ttfamily \#include $<$Decorator.\+h$>$}
+
+
+
+Inheritance diagram for Numeric\+Range\+Rule\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=190pt]{classNumericRangeRule__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Numeric\+Range\+Rule\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=190pt]{classNumericRangeRule__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classNumericRangeRule_a6d3f0455b40860b188d44ebd700df57c}{Numeric\+Range\+Rule}} (const std\+::string \&data\+Key, double minimum, double maximum)
+\item 
+bool \mbox{\hyperlink{classNumericRangeRule_a2958e463065f574f5aad9a6591a1e3a8}{check}} (\mbox{\hyperlink{classWorkComponent}{Work\+Component}} \&task) const override
+\item 
+std\+::string \mbox{\hyperlink{classNumericRangeRule_a633526bf81806a2ad42346838cecc6a1}{get\+Message}} () const override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classValidationRule}{Validation\+Rule}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classValidationRule_a052ee685bde37d3fdec162723d3cce30}{\texorpdfstring{$\sim$}{\string~}\+Validation\+Rule}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Static Protected Member Functions inherited from \mbox{\hyperlink{classValidationRule}{Validation\+Rule}}}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::string \mbox{\hyperlink{classValidationRule_a3e01f29e67fa312e31e2852a942d0a3b}{read\+Value}} (\mbox{\hyperlink{classWorkComponent}{Work\+Component}} \&task, const std\+::string \&key)
+\item 
+static std\+::string \mbox{\hyperlink{classValidationRule_a21a250bbaf271495b9dbe13ab1e15651}{trim}} (const std\+::string \&text)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classNumericRangeRule_a6d3f0455b40860b188d44ebd700df57c}\label{classNumericRangeRule_a6d3f0455b40860b188d44ebd700df57c} 
+\index{NumericRangeRule@{NumericRangeRule}!NumericRangeRule@{NumericRangeRule}}
+\index{NumericRangeRule@{NumericRangeRule}!NumericRangeRule@{NumericRangeRule}}
+\doxysubsubsection{\texorpdfstring{NumericRangeRule()}{NumericRangeRule()}}
+{\footnotesize\ttfamily Numeric\+Range\+Rule\+::\+Numeric\+Range\+Rule (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{data\+Key,  }\item[{double}]{minimum,  }\item[{double}]{maximum }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classNumericRangeRule_a2958e463065f574f5aad9a6591a1e3a8}\label{classNumericRangeRule_a2958e463065f574f5aad9a6591a1e3a8} 
+\index{NumericRangeRule@{NumericRangeRule}!check@{check}}
+\index{check@{check}!NumericRangeRule@{NumericRangeRule}}
+\doxysubsubsection{\texorpdfstring{check()}{check()}}
+{\footnotesize\ttfamily bool Numeric\+Range\+Rule\+::check (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classWorkComponent}{Work\+Component}} \&}]{task }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classValidationRule_a5f205e937949eb6393f8092217fb9f79}{Validation\+Rule}}.
+
+\Hypertarget{classNumericRangeRule_a633526bf81806a2ad42346838cecc6a1}\label{classNumericRangeRule_a633526bf81806a2ad42346838cecc6a1} 
+\index{NumericRangeRule@{NumericRangeRule}!getMessage@{getMessage}}
+\index{getMessage@{getMessage}!NumericRangeRule@{NumericRangeRule}}
+\doxysubsubsection{\texorpdfstring{getMessage()}{getMessage()}}
+{\footnotesize\ttfamily string Numeric\+Range\+Rule\+::get\+Message (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classValidationRule_a97f323d1eed390e21e5c1e981650b79f}{Validation\+Rule}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{Decorator_8h}{Decorator.\+h}}\item 
+src/decorator/\mbox{\hyperlink{StandardRules_8cpp}{Standard\+Rules.\+cpp}}\end{DoxyCompactItemize}

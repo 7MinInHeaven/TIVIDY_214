@@ -1,0 +1,30 @@
+\doxysection{Work\+Item.\+h}
+\hypertarget{WorkItem_8h_source}{}\label{WorkItem_8h_source}\index{include/WorkItem.h@{include/WorkItem.h}}
+\mbox{\hyperlink{WorkItem_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ WORKITEM\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ WORKITEM\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classWorkItem}{WorkItem}}\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00013\ \ \ std::map<std::string,\ std::string>\ payloadData;}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \mbox{\hyperlink{classWorkItem_acb8930a1aae62e47cfc441879a2a05e8}{WorkItem}}();}
+\DoxyCodeLine{00017\ \ \ \mbox{\hyperlink{classWorkItem_acb8930a1aae62e47cfc441879a2a05e8}{WorkItem}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classWorkItem}{WorkItem}}\ \&other);}
+\DoxyCodeLine{00018\ \ \ \mbox{\hyperlink{classWorkItem_acb8930a1aae62e47cfc441879a2a05e8}{WorkItem}}(\textcolor{keyword}{const}\ std::map<std::string,\ std::string>\ \&initialData);}
+\DoxyCodeLine{00019\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classWorkItem_ab272c2a08ef319252451591c6dbfc700}{\string~WorkItem}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkItem_aebd5e2e10ccc3b0e677773f2d0fdddf5}{setData}}(\textcolor{keyword}{const}\ std::string\ \&key,\ \textcolor{keyword}{const}\ std::string\ \&value);}
+\DoxyCodeLine{00022\ \ \ std::string\ \mbox{\hyperlink{classWorkItem_a07f90d9342cb3413103703da2f64f3a8}{getData}}(\textcolor{keyword}{const}\ std::string\ \&key)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00023\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classWorkItem_a832fccc6b34774701672028c884cd70e}{hasData}}(\textcolor{keyword}{const}\ std::string\ \&key)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \textcolor{keyword}{const}\ std::map<std::string,\ std::string>\ \&\mbox{\hyperlink{classWorkItem_afdfe97b1df0639a60cb51d043877ceb3}{getPayloadData}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00026\ \};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ WORKITEM\_H}}
+
+\end{DoxyCode}

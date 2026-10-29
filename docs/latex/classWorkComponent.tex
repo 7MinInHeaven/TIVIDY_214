@@ -1,0 +1,224 @@
+\doxysection{Work\+Component Class Reference}
+\hypertarget{classWorkComponent}{}\label{classWorkComponent}\index{WorkComponent@{WorkComponent}}
+
+
+{\ttfamily \#include $<$Composite.\+h$>$}
+
+
+
+Inheritance diagram for Work\+Component\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classWorkComponent__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Work\+Component\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=322pt]{classWorkComponent__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classWorkComponent_aa89512171fd1ef2445ad306225b11596}{Work\+Component}} (std\+::string name)
+\item 
+\mbox{\hyperlink{classWorkComponent_adcb3560830552508ca1a6b96006e8b36}{Work\+Component}} (const \mbox{\hyperlink{classWorkComponent}{Work\+Component}} \&other)
+\item 
+virtual \mbox{\hyperlink{classWorkComponent_aeade7a1951170edf2add8f11bc755c8f}{\texorpdfstring{$\sim$}{\string~}\+Work\+Component}} ()
+\item 
+virtual \mbox{\hyperlink{classWorkState}{Work\+State}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classWorkComponent_ae0896d1dba4221e00c8451c6bdd110ab}{get\+State}} () const
+\item 
+virtual std\+::string \mbox{\hyperlink{classWorkComponent_a091e902b6d3675ffb0ccf547363c6a60}{get\+Name}} () const
+\item 
+\mbox{\hyperlink{classWorkItem}{Work\+Item}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classWorkComponent_ae60abfce5aff4c38d68655ef31754ad6}{get\+Item}} () const
+\item 
+void \mbox{\hyperlink{classWorkComponent_a8b144dc90c4078115afd732f3e5829d7}{set\+State}} (\mbox{\hyperlink{classWorkState}{Work\+State}} \texorpdfstring{$\ast$}{*}state)
+\item 
+virtual void \mbox{\hyperlink{classWorkComponent_a50c38dbeb610a0192f5bf07ab8dc8502}{set\+Data}} (const std\+::string \&key, const std\+::string \&value)
+\item 
+virtual std\+::string \mbox{\hyperlink{classWorkComponent_a8d66b5505e54c12d17f525a7b4389df0}{get\+Data}} (const std\+::string \&key) const
+\item 
+virtual void \mbox{\hyperlink{classWorkComponent_a65163ad6e1863a35cab683a22d17a7b0}{next\+State}} ()
+\item 
+virtual bool \mbox{\hyperlink{classWorkComponent_aaf6d22756f9efceb5263d0454c7290b5}{is\+Complete}} () const
+\item 
+virtual \mbox{\hyperlink{Common_8h_a58ef2aaf285eac5903ead43e801a4513}{Priority\+Level}} \mbox{\hyperlink{classWorkComponent_a82802785ac3c3187cf83af4d7d31cf81}{get\+Priority}} () const
+\item 
+virtual void \mbox{\hyperlink{classWorkComponent_a3c178bf1da6d1c7026fcdbea7b02f72d}{accept}} (\mbox{\hyperlink{classWorkVisitor}{Work\+Visitor}} \&visitor) const =0
+\item 
+virtual \mbox{\hyperlink{classWorkComponent}{Work\+Component}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classWorkComponent_a65d7be3c551ee979e2ae238322441075}{clone}} () const override=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classHandler}{Handler}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classHandler_a0a95c470d04fdc9dff2e0f9a82cc24b5}{set\+Next}} (\mbox{\hyperlink{classHandler}{Handler}} \texorpdfstring{$\ast$}{*}next\+Phase)
+\item 
+virtual void \mbox{\hyperlink{classHandler_a638867a60f4e60eb6e5152a03a9e5367}{handle\+Request}} (\mbox{\hyperlink{classWorkItem}{Work\+Item}} item)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classWorkflowSubject}{Workflow\+Subject}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classWorkflowSubject_a7b9a281a5bbeac3b2bfd891c9b26363e}{Workflow\+Subject}} ()
+\item 
+virtual \mbox{\hyperlink{classWorkflowSubject_a11fcb2de2f242d654212e0b63e8e9824}{\texorpdfstring{$\sim$}{\string~}\+Workflow\+Subject}} ()
+\item 
+void \mbox{\hyperlink{classWorkflowSubject_ab23bd0f715a4608f77d099b298aabeb2}{attach}} (\mbox{\hyperlink{classWorkflowObserver}{Workflow\+Observer}} \texorpdfstring{$\ast$}{*}observer)
+\item 
+void \mbox{\hyperlink{classWorkflowSubject_a3b1f2fa7e8340297f781701f3d5c00af}{detach}} (\mbox{\hyperlink{classWorkflowObserver}{Workflow\+Observer}} \texorpdfstring{$\ast$}{*}observer)
+\item 
+void \mbox{\hyperlink{classWorkflowSubject_a4b7c602ead35d9ceebcef7a3e467e5a4}{notify}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classHandler}{Handler}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classHandler}{Handler}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classHandler_ac648b2e586445186b89e54d07bca0d09}{successor}} = nullptr
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classWorkflowSubject}{Workflow\+Subject}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classWorkflowObserver}{Workflow\+Observer}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classWorkflowSubject_aba1985d4025ed138de76912022b3b9fc}{observer\+List}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classWorkComponent_aa89512171fd1ef2445ad306225b11596}\label{classWorkComponent_aa89512171fd1ef2445ad306225b11596} 
+\index{WorkComponent@{WorkComponent}!WorkComponent@{WorkComponent}}
+\index{WorkComponent@{WorkComponent}!WorkComponent@{WorkComponent}}
+\doxysubsubsection{\texorpdfstring{WorkComponent()}{WorkComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Work\+Component\+::\+Work\+Component (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+\Hypertarget{classWorkComponent_adcb3560830552508ca1a6b96006e8b36}\label{classWorkComponent_adcb3560830552508ca1a6b96006e8b36} 
+\index{WorkComponent@{WorkComponent}!WorkComponent@{WorkComponent}}
+\index{WorkComponent@{WorkComponent}!WorkComponent@{WorkComponent}}
+\doxysubsubsection{\texorpdfstring{WorkComponent()}{WorkComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Work\+Component\+::\+Work\+Component (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classWorkComponent}{Work\+Component}} \&}]{other }\end{DoxyParamCaption})}
+
+\Hypertarget{classWorkComponent_aeade7a1951170edf2add8f11bc755c8f}\label{classWorkComponent_aeade7a1951170edf2add8f11bc755c8f} 
+\index{WorkComponent@{WorkComponent}!````~WorkComponent@{\texorpdfstring{$\sim$}{\string~}WorkComponent}}
+\index{````~WorkComponent@{\texorpdfstring{$\sim$}{\string~}WorkComponent}!WorkComponent@{WorkComponent}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}WorkComponent()}{\string~WorkComponent()}}
+{\footnotesize\ttfamily Work\+Component\+::\texorpdfstring{$\sim$}{\string~}\+Work\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classWorkComponent_a3c178bf1da6d1c7026fcdbea7b02f72d}\label{classWorkComponent_a3c178bf1da6d1c7026fcdbea7b02f72d} 
+\index{WorkComponent@{WorkComponent}!accept@{accept}}
+\index{accept@{accept}!WorkComponent@{WorkComponent}}
+\doxysubsubsection{\texorpdfstring{accept()}{accept()}}
+{\footnotesize\ttfamily virtual void Work\+Component\+::accept (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classWorkVisitor}{Work\+Visitor}} \&}]{visitor }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classWorkGroup_ac369015e95acd2bc401d13e3b43b5600}{Work\+Group}}, \mbox{\hyperlink{classStage_a8da0e38c2c5bee0bd48e73817c97594b}{Stage}}, \mbox{\hyperlink{classSubProcess_ad53ea8839d61996ea4d48a232c4eac80}{Sub\+Process}}, \mbox{\hyperlink{classWorkUnit_a695c9d3af59e2408dd3c1f452edbab35}{Work\+Unit}}, \mbox{\hyperlink{classValidatedTask_af2695b6587a78ed86888644c9045281c}{Validated\+Task}}, \mbox{\hyperlink{classAuditedTask_a16b5cabb0f77005e574b101b33dba3e8}{Audited\+Task}}, \mbox{\hyperlink{classPrioritisedTask_aae342927ab950caac5b75c9d1a39481f}{Prioritised\+Task}}, and \mbox{\hyperlink{classTaskDecorator_ac12aa23fca458b0f46e8da6c032f1515}{Task\+Decorator}}.
+
+\Hypertarget{classWorkComponent_a65d7be3c551ee979e2ae238322441075}\label{classWorkComponent_a65d7be3c551ee979e2ae238322441075} 
+\index{WorkComponent@{WorkComponent}!clone@{clone}}
+\index{clone@{clone}!WorkComponent@{WorkComponent}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classWorkComponent}{Work\+Component}} \texorpdfstring{$\ast$}{*} Work\+Component\+::clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [pure virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classHandler_a7f2ff0d5815caefa9a96adc1837d2d5b}{Handler}}.
+
+
+
+Implemented in \mbox{\hyperlink{classWorkGroup_a0117feac397297be0eee781777539179}{Work\+Group}}, \mbox{\hyperlink{classStage_af72ebb1a450f53f98813adbbbf5d2d63}{Stage}}, \mbox{\hyperlink{classSubProcess_a6f23cce42b415ab58c5b7175c744b2f5}{Sub\+Process}}, \mbox{\hyperlink{classWorkUnit_a7858a68ceed9a87944704a2bea671d48}{Work\+Unit}}, \mbox{\hyperlink{classValidatedTask_a741329f68dd4b5e5d68e4a350b659e77}{Validated\+Task}}, \mbox{\hyperlink{classAuditedTask_acdc27f1fcf893aaa9c4f560b61b602a7}{Audited\+Task}}, \mbox{\hyperlink{classPrioritisedTask_a8d40d4bc51a2659199fbd37c873c42ea}{Prioritised\+Task}}, and \mbox{\hyperlink{classTaskDecorator_aad9c7eaf04be9252a3eb3bb8d977df5a}{Task\+Decorator}}.
+
+\Hypertarget{classWorkComponent_a8d66b5505e54c12d17f525a7b4389df0}\label{classWorkComponent_a8d66b5505e54c12d17f525a7b4389df0} 
+\index{WorkComponent@{WorkComponent}!getData@{getData}}
+\index{getData@{getData}!WorkComponent@{WorkComponent}}
+\doxysubsubsection{\texorpdfstring{getData()}{getData()}}
+{\footnotesize\ttfamily std\+::string Work\+Component\+::get\+Data (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classTaskDecorator_afedbe3fdc43ec0c4a58efebe7490c662}{Task\+Decorator}}.
+
+\Hypertarget{classWorkComponent_ae60abfce5aff4c38d68655ef31754ad6}\label{classWorkComponent_ae60abfce5aff4c38d68655ef31754ad6} 
+\index{WorkComponent@{WorkComponent}!getItem@{getItem}}
+\index{getItem@{getItem}!WorkComponent@{WorkComponent}}
+\doxysubsubsection{\texorpdfstring{getItem()}{getItem()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classWorkItem}{Work\+Item}} \texorpdfstring{$\ast$}{*} Work\+Component\+::get\+Item (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classWorkComponent_a091e902b6d3675ffb0ccf547363c6a60}\label{classWorkComponent_a091e902b6d3675ffb0ccf547363c6a60} 
+\index{WorkComponent@{WorkComponent}!getName@{getName}}
+\index{getName@{getName}!WorkComponent@{WorkComponent}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily std\+::string Work\+Component\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classTaskDecorator_a9c3105b7d36ebad04848e8afdf4a28b3}{Task\+Decorator}}.
+
+\Hypertarget{classWorkComponent_a82802785ac3c3187cf83af4d7d31cf81}\label{classWorkComponent_a82802785ac3c3187cf83af4d7d31cf81} 
+\index{WorkComponent@{WorkComponent}!getPriority@{getPriority}}
+\index{getPriority@{getPriority}!WorkComponent@{WorkComponent}}
+\doxysubsubsection{\texorpdfstring{getPriority()}{getPriority()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{Common_8h_a58ef2aaf285eac5903ead43e801a4513}{Priority\+Level}} Work\+Component\+::get\+Priority (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classTaskDecorator_ad9a4c65605c0e31c433dbde9f7f3eb14}{Task\+Decorator}}, and \mbox{\hyperlink{classPrioritisedTask_a4e4d27bf444ea83f3701c5e2b6bd5c9e}{Prioritised\+Task}}.
+
+\Hypertarget{classWorkComponent_ae0896d1dba4221e00c8451c6bdd110ab}\label{classWorkComponent_ae0896d1dba4221e00c8451c6bdd110ab} 
+\index{WorkComponent@{WorkComponent}!getState@{getState}}
+\index{getState@{getState}!WorkComponent@{WorkComponent}}
+\doxysubsubsection{\texorpdfstring{getState()}{getState()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classWorkState}{Work\+State}} \texorpdfstring{$\ast$}{*} Work\+Component\+::get\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classTaskDecorator_a8c762e3f3e789e78af7518767e5efb57}{Task\+Decorator}}.
+
+\Hypertarget{classWorkComponent_aaf6d22756f9efceb5263d0454c7290b5}\label{classWorkComponent_aaf6d22756f9efceb5263d0454c7290b5} 
+\index{WorkComponent@{WorkComponent}!isComplete@{isComplete}}
+\index{isComplete@{isComplete}!WorkComponent@{WorkComponent}}
+\doxysubsubsection{\texorpdfstring{isComplete()}{isComplete()}}
+{\footnotesize\ttfamily bool Work\+Component\+::is\+Complete (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classTaskDecorator_a2fbb8e66b3c39950432a10f08195320f}{Task\+Decorator}}.
+
+\Hypertarget{classWorkComponent_a65163ad6e1863a35cab683a22d17a7b0}\label{classWorkComponent_a65163ad6e1863a35cab683a22d17a7b0} 
+\index{WorkComponent@{WorkComponent}!nextState@{nextState}}
+\index{nextState@{nextState}!WorkComponent@{WorkComponent}}
+\doxysubsubsection{\texorpdfstring{nextState()}{nextState()}}
+{\footnotesize\ttfamily void Work\+Component\+::next\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classTaskDecorator_a0c640ba0c12a3ce14457dd61f0c290e2}{Task\+Decorator}}, \mbox{\hyperlink{classValidatedTask_a5ed7d0d67ad7a04de6e816f3a7721c7d}{Validated\+Task}}, \mbox{\hyperlink{classAuditedTask_ab77df3d5e5c289d8e5f2fbfd5f4bba9e}{Audited\+Task}}, and \mbox{\hyperlink{classPrioritisedTask_ab153c9e307ab87b1f8d51d12fb6a9115}{Prioritised\+Task}}.
+
+\Hypertarget{classWorkComponent_a50c38dbeb610a0192f5bf07ab8dc8502}\label{classWorkComponent_a50c38dbeb610a0192f5bf07ab8dc8502} 
+\index{WorkComponent@{WorkComponent}!setData@{setData}}
+\index{setData@{setData}!WorkComponent@{WorkComponent}}
+\doxysubsubsection{\texorpdfstring{setData()}{setData()}}
+{\footnotesize\ttfamily void Work\+Component\+::set\+Data (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key,  }\item[{const std\+::string \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classTaskDecorator_a864df1d2ad86dc094b7e6b66428dddb6}{Task\+Decorator}}.
+
+\Hypertarget{classWorkComponent_a8b144dc90c4078115afd732f3e5829d7}\label{classWorkComponent_a8b144dc90c4078115afd732f3e5829d7} 
+\index{WorkComponent@{WorkComponent}!setState@{setState}}
+\index{setState@{setState}!WorkComponent@{WorkComponent}}
+\doxysubsubsection{\texorpdfstring{setState()}{setState()}}
+{\footnotesize\ttfamily void Work\+Component\+::set\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classWorkState}{Work\+State}} \texorpdfstring{$\ast$}{*}}]{state }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{Composite_8h}{Composite.\+h}}\item 
+src/composite/\mbox{\hyperlink{WorkComponent_8cpp}{Work\+Component.\+cpp}}\end{DoxyCompactItemize}
