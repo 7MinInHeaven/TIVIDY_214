@@ -99,6 +99,12 @@ sudo docker compose run --rm tividy_app ./build/bin/tividy_tests
 sudo docker compose run --rm tividy_app valgrind --leak-check=full ./build/bin/tividy_tests
 ```
 
+While the console application is running, add a valid `.json` blueprint directly
+to the host `src/` directory and enter `r` at the scenario menu. The menu
+rescans `src/` without restarting the application. Docker mounts the host
+directory at `/app/src`, so the new file is immediately available inside the
+running container. Invalid files are reported as warnings and are not listed.
+
 </details>
 
 <img src="docs/assets/divider.svg" alt="" width="100%"/>

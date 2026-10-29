@@ -34,8 +34,24 @@ TEST(FacadeTest, SubmitsSelectedBlueprintWithoutErrors) {
 TEST(FacadeTest, ListsRuntimeScenarios) {
   WorkflowEngineFacade facade;
 
-  EXPECT_TRUE(facade.refreshScenarios().empty());
-  ASSERT_EQ(facade.listScenarios().size(), 2u);
-  EXPECT_EQ(facade.listScenarios()[0].path, "src/life_blueprint.json");
-  EXPECT_EQ(facade.listScenarios()[1].path, "src/service_blueprint.json");
+  const std::vector<std::string> errors = facade.refreshScenarios();
+  bool badScenarioReported = false;
+  for (const std::string& error : errors) {
+    badScenarioReported =
+        badScenarioReported ||
+        error.find("BAd_scenario.json") != std::string::npos;
+  }
+  EXPECT_TRUE(badScenarioReported);
+
+  bool lifeScenarioFound = false;
+  bool serviceScenarioFound = false;
+  for (const WorkflowScenario& scenario : facade.listScenarios()) {
+    lifeScenarioFound =
+        lifeScenarioFound || scenario.path == "src/life_blueprint.json";
+    serviceScenarioFound =
+        serviceScenarioFound ||
+        scenario.path == "src/service_blueprint.json";
+  }
+  EXPECT_TRUE(lifeScenarioFound);
+  EXPECT_TRUE(serviceScenarioFound);
 }

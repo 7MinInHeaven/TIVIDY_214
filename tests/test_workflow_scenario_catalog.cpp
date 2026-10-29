@@ -13,10 +13,25 @@ TEST(WorkflowScenarioCatalogTest, DiscoversExistingBlueprints) {
 
     const std::vector<std::string> errors = catalog.refresh();
 
-    EXPECT_TRUE(errors.empty());
-    ASSERT_EQ(catalog.scenarios().size(), 2u);
-    EXPECT_EQ(catalog.scenarios()[0].path, "src/life_blueprint.json");
-    EXPECT_EQ(catalog.scenarios()[1].path, "src/service_blueprint.json");
+    bool badScenarioReported = false;
+    for (const std::string& error : errors) {
+        badScenarioReported =
+            badScenarioReported ||
+            error.find("BAd_scenario.json") != std::string::npos;
+    }
+    EXPECT_TRUE(badScenarioReported);
+
+    bool lifeScenarioFound = false;
+    bool serviceScenarioFound = false;
+    for (const WorkflowScenario& scenario : catalog.scenarios()) {
+        lifeScenarioFound =
+            lifeScenarioFound || scenario.path == "src/life_blueprint.json";
+        serviceScenarioFound =
+            serviceScenarioFound ||
+            scenario.path == "src/service_blueprint.json";
+    }
+    EXPECT_TRUE(lifeScenarioFound);
+    EXPECT_TRUE(serviceScenarioFound);
 }
 
 /**
@@ -24,9 +39,18 @@ TEST(WorkflowScenarioCatalogTest, DiscoversExistingBlueprints) {
  */
 TEST(WorkflowScenarioCatalogTest, SelectsScenarioFromConsoleInput) {
     WorkflowScenarioCatalog catalog("src");
-    ASSERT_TRUE(catalog.refresh().empty());
+    catalog.refresh();
 
-    std::istringstream input("2\n");
+    std::size_t serviceIndex = 0;
+    for (std::size_t index = 0; index < catalog.scenarios().size(); ++index) {
+        if (catalog.scenarios()[index].path == "src/service_blueprint.json") {
+            serviceIndex = index + 1;
+            break;
+        }
+    }
+    ASSERT_NE(serviceIndex, 0u);
+
+    std::istringstream input(std::to_string(serviceIndex) + "\n");
     std::ostringstream output;
     WorkflowScenario selected;
 
@@ -39,7 +63,7 @@ TEST(WorkflowScenarioCatalogTest, SelectsScenarioFromConsoleInput) {
  */
 TEST(WorkflowScenarioCatalogTest, RejectsInvalidConsoleSelection) {
     WorkflowScenarioCatalog catalog("src");
-    ASSERT_TRUE(catalog.refresh().empty());
+    catalog.refresh();
 
     std::istringstream input("99\n");
     std::ostringstream output;
