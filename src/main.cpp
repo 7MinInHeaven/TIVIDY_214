@@ -7,6 +7,7 @@
 #include <iostream>
 #include <limits>
 #include <memory>
+#include <sstream>
 #include <string>
 
 using namespace std;
@@ -36,30 +37,53 @@ int main() {
     }
 
     const vector<WorkflowScenario>& scenarios = facade.listScenarios();
-    if (scenarios.empty()) {
-      cerr << "No valid workflow scenarios are available.\n";
-      return 1;
-    }
 
-    cout << "\nAvailable workflow scenarios:\n";
-    for (size_t index = 0; index < scenarios.size(); ++index) {
-      cout << index + 1 << ". " << scenarios[index].label << "\n";
+    if (scenarios.empty()) {
+      cout << "\nNo valid workflow scenarios are available.\n";
+    } else {
+      cout << "\nAvailable workflow scenarios:\n";
+      for (size_t index = 0; index < scenarios.size(); ++index) {
+        cout << index + 1 << ". " << scenarios[index].label << "\n";
+      }
     }
     cout << "Select a scenario (1-" << scenarios.size()
-         << ", 0 to exit): ";
+         << ", r to refresh, 0 to exit): ";
 
     size_t selection = 0;
     bool validSelection = false;
+    bool refreshRequested = false;
     for (int attempt = 1; attempt <= kMaxSelectionAttempts; ++attempt) {
-      if (cin >> selection && selection <= scenarios.size()) {
+      string command;
+      if (!(cin >> command)) {
+        return 1;
+      }
+
+      /**
+       * @brief Rescans src/ without restarting the running application.
+       */
+      if (command == "r" || command == "R") {
+        refreshRequested = true;
+        break;
+      }
+
+      char trailingCharacter = '\0';
+      istringstream parser(command);
+      if (parser >> selection && !(parser >> trailingCharacter) &&
+          selection <= scenarios.size()) {
         validSelection = true;
         break;
       }
 
-      cin.clear();
-      cin.ignore(numeric_limits<streamsize>::max(), '\n');
       cerr << "Invalid scenario selection. Attempt " << attempt << " of "
            << kMaxSelectionAttempts << ".\n";
+    }
+
+    if (refreshRequested) {
+      continue;
+    }
+
+    if (!cin) {
+      return 1;
     }
 
     if (!validSelection) {
