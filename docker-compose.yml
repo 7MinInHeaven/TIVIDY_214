@@ -4,5 +4,7 @@ services:
     container_name: tividy_app
     env_file:
       - .env   #so connection string can be accessed
+    #volumes:
+      #- ./tividy_local.db:/app/tividy_local.db  remember to add volumes for local updates(demo)
     stdin_open: true
     tty: true
