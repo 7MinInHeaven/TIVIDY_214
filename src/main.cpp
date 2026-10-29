@@ -5,6 +5,7 @@
 #include <cstdlib>
 #include <curl/curl.h>
 #include <iostream>
+#include <limits>
 #include <memory>
 #include <string>
 
@@ -50,6 +51,11 @@ int main() {
       cerr << "Invalid scenario selection.\n";
       continue;
     }
+
+    /**
+     * @brief Removes the menu choice newline before Director reads line input.
+     */
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
     WorkItem item;
     facade.submitRequest(item, scenarios[selection - 1].path);
