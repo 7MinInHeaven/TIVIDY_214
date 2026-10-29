@@ -1,0 +1,7 @@
+<map id="Notification" name="Notification">
+<area shape="rect" id="Node000001" title=" " alt="" coords="103,93,200,119"/>
+<area shape="rect" id="Node000002" href="$classNotificationChannel.html" title=" " alt="" coords="5,5,156,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="101,39,144,91,139,94,97,43"/>
+<area shape="rect" id="Node000003" href="$classWorkItem.html" title="Represents a generic payload data container moving through the workflow." alt="" coords="181,5,266,31"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="207,43,184,71,164,95,160,91,180,68,203,40"/>
+</map>

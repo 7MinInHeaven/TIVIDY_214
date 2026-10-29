@@ -1,0 +1,110 @@
+\doxysection{Postgres\+Adapter Class Reference}
+\hypertarget{classPostgresAdapter}{}\label{classPostgresAdapter}\index{PostgresAdapter@{PostgresAdapter}}
+
+
+{\ttfamily \#include $<$Postgres\+Adapter.\+h$>$}
+
+
+
+Inheritance diagram for Postgres\+Adapter\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{classPostgresAdapter__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Postgres\+Adapter\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{classPostgresAdapter__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPostgresAdapter_a72aaf631d85ece3f53593ab396b25a16}{Postgres\+Adapter}} (\mbox{\hyperlink{classPostgresAPI}{Postgres\+API}} \texorpdfstring{$\ast$}{*}pg\+Api, std\+::string table="{}workflow\+\_\+audit\+\_\+log"{}, bool take\+Ownership=true)
+\item 
+virtual \mbox{\hyperlink{classPostgresAdapter_ade8e24028899fa0f54333aa6fa8ce510}{\texorpdfstring{$\sim$}{\string~}\+Postgres\+Adapter}} ()
+\item 
+virtual bool \mbox{\hyperlink{classPostgresAdapter_af080462101e29451e7f99fde41736293}{save\+Record}} (int task\+ID, std\+::string task\+Name, std\+::string state, std\+::string payload) override
+\item 
+virtual std\+::string \mbox{\hyperlink{classPostgresAdapter_a152cf664e65b1e64c6107d1cdde0739b}{get\+Record\+State}} (std\+::string task\+Name) override
+\item 
+virtual std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classPostgresAdapter_ac93e310b76b3c92d6b79e5925a956fba}{fetch\+All\+Records}} () override
+\item 
+virtual bool \mbox{\hyperlink{classPostgresAdapter_ae7677db7ca14c8bbb3ae0e1b48379c49}{is\+Connected}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classExternalDatabase}{External\+Database}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classExternalDatabase_ad663a6ebcbdf01ad2933448119b392d6}{\texorpdfstring{$\sim$}{\string~}\+External\+Database}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classPostgresAdapter_a72aaf631d85ece3f53593ab396b25a16}\label{classPostgresAdapter_a72aaf631d85ece3f53593ab396b25a16} 
+\index{PostgresAdapter@{PostgresAdapter}!PostgresAdapter@{PostgresAdapter}}
+\index{PostgresAdapter@{PostgresAdapter}!PostgresAdapter@{PostgresAdapter}}
+\doxysubsubsection{\texorpdfstring{PostgresAdapter()}{PostgresAdapter()}}
+{\footnotesize\ttfamily Postgres\+Adapter\+::\+Postgres\+Adapter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPostgresAPI}{Postgres\+API}} \texorpdfstring{$\ast$}{*}}]{pg\+Api,  }\item[{std\+::string}]{table = {\ttfamily "{}workflow\+\_\+audit\+\_\+log"{}},  }\item[{bool}]{take\+Ownership = {\ttfamily true} }\end{DoxyParamCaption})}
+
+\Hypertarget{classPostgresAdapter_ade8e24028899fa0f54333aa6fa8ce510}\label{classPostgresAdapter_ade8e24028899fa0f54333aa6fa8ce510} 
+\index{PostgresAdapter@{PostgresAdapter}!````~PostgresAdapter@{\texorpdfstring{$\sim$}{\string~}PostgresAdapter}}
+\index{````~PostgresAdapter@{\texorpdfstring{$\sim$}{\string~}PostgresAdapter}!PostgresAdapter@{PostgresAdapter}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}PostgresAdapter()}{\string~PostgresAdapter()}}
+{\footnotesize\ttfamily Postgres\+Adapter\+::\texorpdfstring{$\sim$}{\string~}\+Postgres\+Adapter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classPostgresAdapter_ac93e310b76b3c92d6b79e5925a956fba}\label{classPostgresAdapter_ac93e310b76b3c92d6b79e5925a956fba} 
+\index{PostgresAdapter@{PostgresAdapter}!fetchAllRecords@{fetchAllRecords}}
+\index{fetchAllRecords@{fetchAllRecords}!PostgresAdapter@{PostgresAdapter}}
+\doxysubsubsection{\texorpdfstring{fetchAllRecords()}{fetchAllRecords()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ Postgres\+Adapter\+::fetch\+All\+Records (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classExternalDatabase_ac9eca650196f19cea2223a9192c334a6}{External\+Database}}.
+
+\Hypertarget{classPostgresAdapter_a152cf664e65b1e64c6107d1cdde0739b}\label{classPostgresAdapter_a152cf664e65b1e64c6107d1cdde0739b} 
+\index{PostgresAdapter@{PostgresAdapter}!getRecordState@{getRecordState}}
+\index{getRecordState@{getRecordState}!PostgresAdapter@{PostgresAdapter}}
+\doxysubsubsection{\texorpdfstring{getRecordState()}{getRecordState()}}
+{\footnotesize\ttfamily std\+::string Postgres\+Adapter\+::get\+Record\+State (\begin{DoxyParamCaption}\item[{std\+::string}]{task\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classExternalDatabase_aa7da8d9258dd91709c29c0c419cfd2aa}{External\+Database}}.
+
+\Hypertarget{classPostgresAdapter_ae7677db7ca14c8bbb3ae0e1b48379c49}\label{classPostgresAdapter_ae7677db7ca14c8bbb3ae0e1b48379c49} 
+\index{PostgresAdapter@{PostgresAdapter}!isConnected@{isConnected}}
+\index{isConnected@{isConnected}!PostgresAdapter@{PostgresAdapter}}
+\doxysubsubsection{\texorpdfstring{isConnected()}{isConnected()}}
+{\footnotesize\ttfamily bool Postgres\+Adapter\+::is\+Connected (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classExternalDatabase_aa69857fcae2139c91428953695395c5e}{External\+Database}}.
+
+\Hypertarget{classPostgresAdapter_af080462101e29451e7f99fde41736293}\label{classPostgresAdapter_af080462101e29451e7f99fde41736293} 
+\index{PostgresAdapter@{PostgresAdapter}!saveRecord@{saveRecord}}
+\index{saveRecord@{saveRecord}!PostgresAdapter@{PostgresAdapter}}
+\doxysubsubsection{\texorpdfstring{saveRecord()}{saveRecord()}}
+{\footnotesize\ttfamily bool Postgres\+Adapter\+::save\+Record (\begin{DoxyParamCaption}\item[{int}]{task\+ID,  }\item[{std\+::string}]{task\+Name,  }\item[{std\+::string}]{state,  }\item[{std\+::string}]{payload }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classExternalDatabase_a5642ad378a433f79737c52beb7116296}{External\+Database}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{PostgresAdapter_8h}{Postgres\+Adapter.\+h}}\item 
+src/\+Database observeradapterstrategy/\mbox{\hyperlink{PostgresAdapter_8cpp}{Postgres\+Adapter.\+cpp}}\end{DoxyCompactItemize}

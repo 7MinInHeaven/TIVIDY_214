@@ -1,0 +1,40 @@
+\doxysection{Workflow\+Builder.\+h}
+\hypertarget{WorkflowBuilder_8h_source}{}\label{WorkflowBuilder_8h_source}\index{include/WorkflowBuilder.h@{include/WorkflowBuilder.h}}
+\mbox{\hyperlink{WorkflowBuilder_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ WORKFLOWBUILDER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ WORKFLOWBUILDER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ChainBuilder_8h}{ChainBuilder.h}}"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classWorkflowBuilder}{WorkflowBuilder}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classChainBuilder}{ChainBuilder}}\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00010\ \ \ \ \ \mbox{\hyperlink{classHandler}{Handler}}*\ head\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00011\ \ \ \ \ \mbox{\hyperlink{classHandler}{Handler}}*\ tail\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ std::vector<WorkGroup*>\ workGroups;\ }
+\DoxyCodeLine{00014\ \ \ \ \ std::vector<WorkGroup*>\ stack;\ \textcolor{comment}{//stack\ used\ to\ determine\ linking\ order}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{classWorkGroup}{WorkGroup}}*\ currentGroup()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ attach(\mbox{\hyperlink{classWorkGroup}{WorkGroup}}*\ group);}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{classWorkflowBuilder_aa0da4fba4f4b731e253bf5b0bc91af65}{WorkflowBuilder}}();}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{classWorkflowBuilder_a2ffe85936f602d7e0ff2dbafec4fae61}{\string~WorkflowBuilder}}();}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkflowBuilder_a18f91256edb9d2d2987e0af12270efde}{reset}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkflowBuilder_ab0e8c2846be52291aef7bd092aac8909}{buildWorkGroup}}(\textcolor{keyword}{const}\ std::string\&\ name)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkflowBuilder_a47a94a49915ef3f3671d26cb203af773}{buildStage}}(\textcolor{keyword}{const}\ std::string\&\ name)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkflowBuilder_a6d9706d9b1f1bf42d17b61e2175f3b25}{buildSubProcess}}(\textcolor{keyword}{const}\ std::string\&\ name)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkflowBuilder_a6a1b51b9c7a1595674c78617bc561346}{endGroup}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkflowBuilder_a3bb4768844ad4dec18151c7bd2cbdc50}{buildWorkUnit}}(\textcolor{keyword}{const}\ std::string\&\ name)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{comment}{//\ void\ addDecorator(const\ std::string\&\ type,const\ std::vector<std::string>\&\ requiredKeys\ =\ \{\})\ override;}}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{comment}{//\ void\ addRule(const\ std::string\&\ key,\ const\ std::string\&\ op,\ const\ std::string\&\ value)\ override;}}
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{classHandler}{Handler}}*\ \mbox{\hyperlink{classWorkflowBuilder_a6b74afa15da553a9d29b9dbecade42ed}{getResult}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00031\ \ \ \ \ std::vector<WorkGroup*>\ \mbox{\hyperlink{classWorkflowBuilder_a7666b9fce4618eb38e6627b74268c336}{getWorkGroups}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00032\ \};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ WORKFLOWBUILDER\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

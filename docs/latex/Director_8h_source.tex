@@ -1,0 +1,34 @@
+\doxysection{Director.\+h}
+\hypertarget{Director_8h_source}{}\label{Director_8h_source}\index{include/Director.h@{include/Director.h}}
+\mbox{\hyperlink{Director_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ DIRECTOR\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ DIRECTOR\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <nlohmann/json.hpp>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ChainBuilder_8h}{ChainBuilder.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{WorkItem_8h}{WorkItem.h}}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{using\ }\mbox{\hyperlink{Director_8h_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\ =\ nlohmann::json;}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classDirector}{Director}}\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{classChainBuilder}{ChainBuilder}}*\ builder;}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{classWorkItem}{WorkItem}}*\ item;}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{bool}\ input;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ parseNode(\textcolor{keyword}{const}\ \mbox{\hyperlink{Director_8h_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\&\ node);}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ parseChildren(\textcolor{keyword}{const}\ \mbox{\hyperlink{Director_8h_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\&\ parentNode);}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{comment}{//\ void\ parseDecorators(const\ json\&\ node);}}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{comment}{//\ void\ parseRule(const\ json\&\ node);}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{classDirector}{Director}}(\mbox{\hyperlink{classChainBuilder}{ChainBuilder}}*\ b,\ \mbox{\hyperlink{classWorkItem}{WorkItem}}*\ i\ =\ \textcolor{keyword}{nullptr},\ \textcolor{keywordtype}{bool}\ input\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{classDirector_a59d7a588bfd4edd22948a9e7fd8c854a}{\string~Director}}();}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classDirector_a58d19b286422e1ab61ef9b671648af00}{construct}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{Director_8h_ab701e3ac61a85b337ec5c1abaad6742d}{json}}\&\ data);}
+\DoxyCodeLine{00026\ \};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ DIRECTOR\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

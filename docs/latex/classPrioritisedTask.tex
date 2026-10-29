@@ -1,0 +1,217 @@
+\doxysection{Prioritised\+Task Class Reference}
+\hypertarget{classPrioritisedTask}{}\label{classPrioritisedTask}\index{PrioritisedTask@{PrioritisedTask}}
+
+
+{\ttfamily \#include $<$Decorator.\+h$>$}
+
+
+
+Inheritance diagram for Prioritised\+Task\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{classPrioritisedTask__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Prioritised\+Task\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=322pt]{classPrioritisedTask__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPrioritisedTask_aa83e996766f06926269d3a9c52fd4ff0}{Prioritised\+Task}} (\mbox{\hyperlink{classWorkComponent}{Work\+Component}} \texorpdfstring{$\ast$}{*}task\+To\+Wrap, \mbox{\hyperlink{Common_8h_a58ef2aaf285eac5903ead43e801a4513}{Priority\+Level}} level, int sla\+Days=0, const \mbox{\hyperlink{classClock}{Clock}} \texorpdfstring{$\ast$}{*}time\+Source=nullptr)
+\item 
+\mbox{\hyperlink{Common_8h_a58ef2aaf285eac5903ead43e801a4513}{Priority\+Level}} \mbox{\hyperlink{classPrioritisedTask_a4e4d27bf444ea83f3701c5e2b6bd5c9e}{get\+Priority}} () const override
+\item 
+void \mbox{\hyperlink{classPrioritisedTask_a511965da6e9e44ee80b030f77504b009}{set\+Priority}} (\mbox{\hyperlink{Common_8h_a58ef2aaf285eac5903ead43e801a4513}{Priority\+Level}} new\+Priority)
+\item 
+void \mbox{\hyperlink{classPrioritisedTask_ab153c9e307ab87b1f8d51d12fb6a9115}{next\+State}} () override
+\item 
+int \mbox{\hyperlink{classPrioritisedTask_a13ccaceb6615de2bd6e7cc3754e58e72}{get\+Sla\+Days}} () const
+\item 
+bool \mbox{\hyperlink{classPrioritisedTask_ae0f1b83f631e5155dc2b9d6f4506f274}{has\+Deadline}} () const
+\item 
+std\+::time\+\_\+t \mbox{\hyperlink{classPrioritisedTask_a6adde7a5bf816543da9c98335a25c167}{get\+Deadline}} () const
+\item 
+bool \mbox{\hyperlink{classPrioritisedTask_a5ef253129bbc40686e966ffa8fae39f4}{is\+Overdue}} () const
+\item 
+long \mbox{\hyperlink{classPrioritisedTask_a9c349d154a265e94842377b10a368713}{get\+Seconds\+Remaining}} () const
+\item 
+void \mbox{\hyperlink{classPrioritisedTask_aae342927ab950caac5b75c9d1a39481f}{accept}} (\mbox{\hyperlink{classWorkVisitor}{Work\+Visitor}} \&visitor) const override
+\item 
+\mbox{\hyperlink{classWorkComponent}{Work\+Component}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classPrioritisedTask_a8d40d4bc51a2659199fbd37c873c42ea}{clone}} () const override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classTaskDecorator}{Task\+Decorator}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classTaskDecorator_aa6c4b83c96fec55abb65d1a69cdd1eea}{Task\+Decorator}} (\mbox{\hyperlink{classWorkComponent}{Work\+Component}} \texorpdfstring{$\ast$}{*}task\+To\+Wrap)
+\item 
+virtual \mbox{\hyperlink{classTaskDecorator_a2a8f2a0f289af5d1b2647651c4d5e586}{\texorpdfstring{$\sim$}{\string~}\+Task\+Decorator}} ()
+\item 
+\mbox{\hyperlink{classWorkState}{Work\+State}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classTaskDecorator_a8c762e3f3e789e78af7518767e5efb57}{get\+State}} () const override
+\item 
+std\+::string \mbox{\hyperlink{classTaskDecorator_a9c3105b7d36ebad04848e8afdf4a28b3}{get\+Name}} () const override
+\item 
+void \mbox{\hyperlink{classTaskDecorator_a864df1d2ad86dc094b7e6b66428dddb6}{set\+Data}} (const std\+::string \&key, const std\+::string \&value) override
+\item 
+std\+::string \mbox{\hyperlink{classTaskDecorator_afedbe3fdc43ec0c4a58efebe7490c662}{get\+Data}} (const std\+::string \&key) const override
+\item 
+void \mbox{\hyperlink{classTaskDecorator_a0c640ba0c12a3ce14457dd61f0c290e2}{next\+State}} () override
+\item 
+bool \mbox{\hyperlink{classTaskDecorator_a2fbb8e66b3c39950432a10f08195320f}{is\+Complete}} () const override
+\item 
+\mbox{\hyperlink{Common_8h_a58ef2aaf285eac5903ead43e801a4513}{Priority\+Level}} \mbox{\hyperlink{classTaskDecorator_ad9a4c65605c0e31c433dbde9f7f3eb14}{get\+Priority}} () const override
+\item 
+\mbox{\hyperlink{classWorkComponent}{Work\+Component}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classTaskDecorator_a3d9715b721f16b53191e7264432d1d03}{get\+Wrapped\+Task}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classWorkComponent}{Work\+Component}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classWorkComponent_aa89512171fd1ef2445ad306225b11596}{Work\+Component}} (std\+::string name)
+\item 
+\mbox{\hyperlink{classWorkComponent_adcb3560830552508ca1a6b96006e8b36}{Work\+Component}} (const \mbox{\hyperlink{classWorkComponent}{Work\+Component}} \&other)
+\item 
+virtual \mbox{\hyperlink{classWorkComponent_aeade7a1951170edf2add8f11bc755c8f}{\texorpdfstring{$\sim$}{\string~}\+Work\+Component}} ()
+\item 
+\mbox{\hyperlink{classWorkItem}{Work\+Item}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classWorkComponent_ae60abfce5aff4c38d68655ef31754ad6}{get\+Item}} () const
+\item 
+void \mbox{\hyperlink{classWorkComponent_a8b144dc90c4078115afd732f3e5829d7}{set\+State}} (\mbox{\hyperlink{classWorkState}{Work\+State}} \texorpdfstring{$\ast$}{*}state)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classHandler}{Handler}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classHandler_a0a95c470d04fdc9dff2e0f9a82cc24b5}{set\+Next}} (\mbox{\hyperlink{classHandler}{Handler}} \texorpdfstring{$\ast$}{*}next\+Phase)
+\item 
+virtual void \mbox{\hyperlink{classHandler_a638867a60f4e60eb6e5152a03a9e5367}{handle\+Request}} (\mbox{\hyperlink{classWorkItem}{Work\+Item}} item)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classWorkflowSubject}{Workflow\+Subject}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classWorkflowSubject_a7b9a281a5bbeac3b2bfd891c9b26363e}{Workflow\+Subject}} ()
+\item 
+virtual \mbox{\hyperlink{classWorkflowSubject_a11fcb2de2f242d654212e0b63e8e9824}{\texorpdfstring{$\sim$}{\string~}\+Workflow\+Subject}} ()
+\item 
+void \mbox{\hyperlink{classWorkflowSubject_ab23bd0f715a4608f77d099b298aabeb2}{attach}} (\mbox{\hyperlink{classWorkflowObserver}{Workflow\+Observer}} \texorpdfstring{$\ast$}{*}observer)
+\item 
+void \mbox{\hyperlink{classWorkflowSubject_a3b1f2fa7e8340297f781701f3d5c00af}{detach}} (\mbox{\hyperlink{classWorkflowObserver}{Workflow\+Observer}} \texorpdfstring{$\ast$}{*}observer)
+\item 
+void \mbox{\hyperlink{classWorkflowSubject_a4b7c602ead35d9ceebcef7a3e467e5a4}{notify}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classTaskDecorator}{Task\+Decorator}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classWorkComponent}{Work\+Component}} \& \mbox{\hyperlink{classTaskDecorator_a646b2a8736c2b4d758ab825130873fbb}{inner}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classHandler}{Handler}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classHandler}{Handler}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classHandler_ac648b2e586445186b89e54d07bca0d09}{successor}} = nullptr
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classWorkflowSubject}{Workflow\+Subject}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classWorkflowObserver}{Workflow\+Observer}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classWorkflowSubject_aba1985d4025ed138de76912022b3b9fc}{observer\+List}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classPrioritisedTask_aa83e996766f06926269d3a9c52fd4ff0}\label{classPrioritisedTask_aa83e996766f06926269d3a9c52fd4ff0} 
+\index{PrioritisedTask@{PrioritisedTask}!PrioritisedTask@{PrioritisedTask}}
+\index{PrioritisedTask@{PrioritisedTask}!PrioritisedTask@{PrioritisedTask}}
+\doxysubsubsection{\texorpdfstring{PrioritisedTask()}{PrioritisedTask()}}
+{\footnotesize\ttfamily Prioritised\+Task\+::\+Prioritised\+Task (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classWorkComponent}{Work\+Component}} \texorpdfstring{$\ast$}{*}}]{task\+To\+Wrap,  }\item[{\mbox{\hyperlink{Common_8h_a58ef2aaf285eac5903ead43e801a4513}{Priority\+Level}}}]{level,  }\item[{int}]{sla\+Days = {\ttfamily 0},  }\item[{const \mbox{\hyperlink{classClock}{Clock}} \texorpdfstring{$\ast$}{*}}]{time\+Source = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classPrioritisedTask_aae342927ab950caac5b75c9d1a39481f}\label{classPrioritisedTask_aae342927ab950caac5b75c9d1a39481f} 
+\index{PrioritisedTask@{PrioritisedTask}!accept@{accept}}
+\index{accept@{accept}!PrioritisedTask@{PrioritisedTask}}
+\doxysubsubsection{\texorpdfstring{accept()}{accept()}}
+{\footnotesize\ttfamily void Prioritised\+Task\+::accept (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classWorkVisitor}{Work\+Visitor}} \&}]{visitor }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classTaskDecorator_ac12aa23fca458b0f46e8da6c032f1515}{Task\+Decorator}}.
+
+\Hypertarget{classPrioritisedTask_a8d40d4bc51a2659199fbd37c873c42ea}\label{classPrioritisedTask_a8d40d4bc51a2659199fbd37c873c42ea} 
+\index{PrioritisedTask@{PrioritisedTask}!clone@{clone}}
+\index{clone@{clone}!PrioritisedTask@{PrioritisedTask}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classWorkComponent}{Work\+Component}} \texorpdfstring{$\ast$}{*} Prioritised\+Task\+::clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classTaskDecorator_aad9c7eaf04be9252a3eb3bb8d977df5a}{Task\+Decorator}}.
+
+\Hypertarget{classPrioritisedTask_a6adde7a5bf816543da9c98335a25c167}\label{classPrioritisedTask_a6adde7a5bf816543da9c98335a25c167} 
+\index{PrioritisedTask@{PrioritisedTask}!getDeadline@{getDeadline}}
+\index{getDeadline@{getDeadline}!PrioritisedTask@{PrioritisedTask}}
+\doxysubsubsection{\texorpdfstring{getDeadline()}{getDeadline()}}
+{\footnotesize\ttfamily time\+\_\+t Prioritised\+Task\+::get\+Deadline (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classPrioritisedTask_a4e4d27bf444ea83f3701c5e2b6bd5c9e}\label{classPrioritisedTask_a4e4d27bf444ea83f3701c5e2b6bd5c9e} 
+\index{PrioritisedTask@{PrioritisedTask}!getPriority@{getPriority}}
+\index{getPriority@{getPriority}!PrioritisedTask@{PrioritisedTask}}
+\doxysubsubsection{\texorpdfstring{getPriority()}{getPriority()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{Common_8h_a58ef2aaf285eac5903ead43e801a4513}{Priority\+Level}} Prioritised\+Task\+::get\+Priority (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classWorkComponent_a82802785ac3c3187cf83af4d7d31cf81}{Work\+Component}}.
+
+\Hypertarget{classPrioritisedTask_a9c349d154a265e94842377b10a368713}\label{classPrioritisedTask_a9c349d154a265e94842377b10a368713} 
+\index{PrioritisedTask@{PrioritisedTask}!getSecondsRemaining@{getSecondsRemaining}}
+\index{getSecondsRemaining@{getSecondsRemaining}!PrioritisedTask@{PrioritisedTask}}
+\doxysubsubsection{\texorpdfstring{getSecondsRemaining()}{getSecondsRemaining()}}
+{\footnotesize\ttfamily long Prioritised\+Task\+::get\+Seconds\+Remaining (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classPrioritisedTask_a13ccaceb6615de2bd6e7cc3754e58e72}\label{classPrioritisedTask_a13ccaceb6615de2bd6e7cc3754e58e72} 
+\index{PrioritisedTask@{PrioritisedTask}!getSlaDays@{getSlaDays}}
+\index{getSlaDays@{getSlaDays}!PrioritisedTask@{PrioritisedTask}}
+\doxysubsubsection{\texorpdfstring{getSlaDays()}{getSlaDays()}}
+{\footnotesize\ttfamily int Prioritised\+Task\+::get\+Sla\+Days (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classPrioritisedTask_ae0f1b83f631e5155dc2b9d6f4506f274}\label{classPrioritisedTask_ae0f1b83f631e5155dc2b9d6f4506f274} 
+\index{PrioritisedTask@{PrioritisedTask}!hasDeadline@{hasDeadline}}
+\index{hasDeadline@{hasDeadline}!PrioritisedTask@{PrioritisedTask}}
+\doxysubsubsection{\texorpdfstring{hasDeadline()}{hasDeadline()}}
+{\footnotesize\ttfamily bool Prioritised\+Task\+::has\+Deadline (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classPrioritisedTask_a5ef253129bbc40686e966ffa8fae39f4}\label{classPrioritisedTask_a5ef253129bbc40686e966ffa8fae39f4} 
+\index{PrioritisedTask@{PrioritisedTask}!isOverdue@{isOverdue}}
+\index{isOverdue@{isOverdue}!PrioritisedTask@{PrioritisedTask}}
+\doxysubsubsection{\texorpdfstring{isOverdue()}{isOverdue()}}
+{\footnotesize\ttfamily bool Prioritised\+Task\+::is\+Overdue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classPrioritisedTask_ab153c9e307ab87b1f8d51d12fb6a9115}\label{classPrioritisedTask_ab153c9e307ab87b1f8d51d12fb6a9115} 
+\index{PrioritisedTask@{PrioritisedTask}!nextState@{nextState}}
+\index{nextState@{nextState}!PrioritisedTask@{PrioritisedTask}}
+\doxysubsubsection{\texorpdfstring{nextState()}{nextState()}}
+{\footnotesize\ttfamily void Prioritised\+Task\+::next\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classWorkComponent_a65163ad6e1863a35cab683a22d17a7b0}{Work\+Component}}.
+
+\Hypertarget{classPrioritisedTask_a511965da6e9e44ee80b030f77504b009}\label{classPrioritisedTask_a511965da6e9e44ee80b030f77504b009} 
+\index{PrioritisedTask@{PrioritisedTask}!setPriority@{setPriority}}
+\index{setPriority@{setPriority}!PrioritisedTask@{PrioritisedTask}}
+\doxysubsubsection{\texorpdfstring{setPriority()}{setPriority()}}
+{\footnotesize\ttfamily void Prioritised\+Task\+::set\+Priority (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{Common_8h_a58ef2aaf285eac5903ead43e801a4513}{Priority\+Level}}}]{new\+Priority }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{Decorator_8h}{Decorator.\+h}}\item 
+src/decorator/\mbox{\hyperlink{PrioritisedTask_8cpp}{Prioritised\+Task.\+cpp}}\end{DoxyCompactItemize}

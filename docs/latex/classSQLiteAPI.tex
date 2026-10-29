@@ -1,0 +1,85 @@
+\doxysection{SQLite\+API Class Reference}
+\hypertarget{classSQLiteAPI}{}\label{classSQLiteAPI}\index{SQLiteAPI@{SQLiteAPI}}
+
+
+{\ttfamily \#include $<$SQLite\+API.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSQLiteAPI_a62a4c6cfc638f12b0204bbf161a21f07}{SQLite\+API}} (std\+::string file\+Path="{}tividy\+\_\+local.\+db"{})
+\item 
+virtual \mbox{\hyperlink{classSQLiteAPI_a58ee652aecc5c38b6fbb47382da511f5}{\texorpdfstring{$\sim$}{\string~}\+SQLite\+API}} ()
+\item 
+virtual bool \mbox{\hyperlink{classSQLiteAPI_ae30736a0151e14789b7d5fac9505cb0b}{open\+Connection}} ()
+\item 
+virtual void \mbox{\hyperlink{classSQLiteAPI_ac1b0c65be605e2ffc8cb34c49efc5099}{close\+Connection}} ()
+\item 
+virtual int \mbox{\hyperlink{classSQLiteAPI_a15fad2921824253b6fa0686387ae219e}{run\+Statement}} (std\+::string sql\+Query, const std\+::vector$<$ std\+::string $>$ \&params=std\+::vector$<$ std\+::string $>$())
+\item 
+virtual std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classSQLiteAPI_a25321e562674fc8e11fd25308d87fc0b}{query\+Rows}} (std\+::string sql\+Query, const std\+::vector$<$ std\+::string $>$ \&params=std\+::vector$<$ std\+::string $>$())
+\item 
+virtual bool \mbox{\hyperlink{classSQLiteAPI_a8577ac390ba8ef96d6fb3a6d8dd0fb8e}{is\+Open}} () const
+\item 
+std\+::string \mbox{\hyperlink{classSQLiteAPI_afcf831f86c26a40ef48b9cd2b09eedb2}{get\+Db\+File\+Path}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classSQLiteAPI_a62a4c6cfc638f12b0204bbf161a21f07}\label{classSQLiteAPI_a62a4c6cfc638f12b0204bbf161a21f07} 
+\index{SQLiteAPI@{SQLiteAPI}!SQLiteAPI@{SQLiteAPI}}
+\index{SQLiteAPI@{SQLiteAPI}!SQLiteAPI@{SQLiteAPI}}
+\doxysubsubsection{\texorpdfstring{SQLiteAPI()}{SQLiteAPI()}}
+{\footnotesize\ttfamily SQLite\+API\+::\+SQLite\+API (\begin{DoxyParamCaption}\item[{std\+::string}]{file\+Path = {\ttfamily "{}tividy\+\_\+local.db"{}} }\end{DoxyParamCaption})}
+
+\Hypertarget{classSQLiteAPI_a58ee652aecc5c38b6fbb47382da511f5}\label{classSQLiteAPI_a58ee652aecc5c38b6fbb47382da511f5} 
+\index{SQLiteAPI@{SQLiteAPI}!````~SQLiteAPI@{\texorpdfstring{$\sim$}{\string~}SQLiteAPI}}
+\index{````~SQLiteAPI@{\texorpdfstring{$\sim$}{\string~}SQLiteAPI}!SQLiteAPI@{SQLiteAPI}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}SQLiteAPI()}{\string~SQLiteAPI()}}
+{\footnotesize\ttfamily SQLite\+API\+::\texorpdfstring{$\sim$}{\string~}\+SQLite\+API (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classSQLiteAPI_ac1b0c65be605e2ffc8cb34c49efc5099}\label{classSQLiteAPI_ac1b0c65be605e2ffc8cb34c49efc5099} 
+\index{SQLiteAPI@{SQLiteAPI}!closeConnection@{closeConnection}}
+\index{closeConnection@{closeConnection}!SQLiteAPI@{SQLiteAPI}}
+\doxysubsubsection{\texorpdfstring{closeConnection()}{closeConnection()}}
+{\footnotesize\ttfamily void SQLite\+API\+::close\+Connection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\Hypertarget{classSQLiteAPI_afcf831f86c26a40ef48b9cd2b09eedb2}\label{classSQLiteAPI_afcf831f86c26a40ef48b9cd2b09eedb2} 
+\index{SQLiteAPI@{SQLiteAPI}!getDbFilePath@{getDbFilePath}}
+\index{getDbFilePath@{getDbFilePath}!SQLiteAPI@{SQLiteAPI}}
+\doxysubsubsection{\texorpdfstring{getDbFilePath()}{getDbFilePath()}}
+{\footnotesize\ttfamily std\+::string SQLite\+API\+::get\+Db\+File\+Path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classSQLiteAPI_a8577ac390ba8ef96d6fb3a6d8dd0fb8e}\label{classSQLiteAPI_a8577ac390ba8ef96d6fb3a6d8dd0fb8e} 
+\index{SQLiteAPI@{SQLiteAPI}!isOpen@{isOpen}}
+\index{isOpen@{isOpen}!SQLiteAPI@{SQLiteAPI}}
+\doxysubsubsection{\texorpdfstring{isOpen()}{isOpen()}}
+{\footnotesize\ttfamily bool SQLite\+API\+::is\+Open (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\Hypertarget{classSQLiteAPI_ae30736a0151e14789b7d5fac9505cb0b}\label{classSQLiteAPI_ae30736a0151e14789b7d5fac9505cb0b} 
+\index{SQLiteAPI@{SQLiteAPI}!openConnection@{openConnection}}
+\index{openConnection@{openConnection}!SQLiteAPI@{SQLiteAPI}}
+\doxysubsubsection{\texorpdfstring{openConnection()}{openConnection()}}
+{\footnotesize\ttfamily bool SQLite\+API\+::open\+Connection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\Hypertarget{classSQLiteAPI_a25321e562674fc8e11fd25308d87fc0b}\label{classSQLiteAPI_a25321e562674fc8e11fd25308d87fc0b} 
+\index{SQLiteAPI@{SQLiteAPI}!queryRows@{queryRows}}
+\index{queryRows@{queryRows}!SQLiteAPI@{SQLiteAPI}}
+\doxysubsubsection{\texorpdfstring{queryRows()}{queryRows()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ SQLite\+API\+::query\+Rows (\begin{DoxyParamCaption}\item[{std\+::string}]{sql\+Query,  }\item[{const std\+::vector$<$ std\+::string $>$ \&}]{params = {\ttfamily std\+:\+:vector$<$std\+:\+:string$>$()} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\Hypertarget{classSQLiteAPI_a15fad2921824253b6fa0686387ae219e}\label{classSQLiteAPI_a15fad2921824253b6fa0686387ae219e} 
+\index{SQLiteAPI@{SQLiteAPI}!runStatement@{runStatement}}
+\index{runStatement@{runStatement}!SQLiteAPI@{SQLiteAPI}}
+\doxysubsubsection{\texorpdfstring{runStatement()}{runStatement()}}
+{\footnotesize\ttfamily int SQLite\+API\+::run\+Statement (\begin{DoxyParamCaption}\item[{std\+::string}]{sql\+Query,  }\item[{const std\+::vector$<$ std\+::string $>$ \&}]{params = {\ttfamily std\+:\+:vector$<$std\+:\+:string$>$()} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{SQLiteAPI_8h}{SQLite\+API.\+h}}\item 
+src/\+Database observeradapterstrategy/\mbox{\hyperlink{SQLiteAPI_8cpp}{SQLite\+API.\+cpp}}\end{DoxyCompactItemize}
