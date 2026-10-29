@@ -1,0 +1,93 @@
+\doxysection{Work\+Item Class Reference}
+\hypertarget{classWorkItem}{}\label{classWorkItem}\index{WorkItem@{WorkItem}}
+
+
+Represents a generic payload data container moving through the workflow.  
+
+
+
+
+{\ttfamily \#include $<$Work\+Item.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classWorkItem_acb8930a1aae62e47cfc441879a2a05e8}{Work\+Item}} ()
+\item 
+\mbox{\hyperlink{classWorkItem_a9348889bae7cc5af00b6df970332f000}{Work\+Item}} (const \mbox{\hyperlink{classWorkItem}{Work\+Item}} \&other)
+\item 
+\mbox{\hyperlink{classWorkItem_afd0d6379ec0d2ef02156d24b68696a0b}{Work\+Item}} (const std\+::map$<$ std\+::string, std\+::string $>$ \&initial\+Data)
+\item 
+virtual \mbox{\hyperlink{classWorkItem_ab272c2a08ef319252451591c6dbfc700}{\texorpdfstring{$\sim$}{\string~}\+Work\+Item}} ()=default
+\item 
+void \mbox{\hyperlink{classWorkItem_aebd5e2e10ccc3b0e677773f2d0fdddf5}{set\+Data}} (const std\+::string \&key, const std\+::string \&value)
+\item 
+std\+::string \mbox{\hyperlink{classWorkItem_a07f90d9342cb3413103703da2f64f3a8}{get\+Data}} (const std\+::string \&key) const
+\item 
+bool \mbox{\hyperlink{classWorkItem_a832fccc6b34774701672028c884cd70e}{has\+Data}} (const std\+::string \&key) const
+\item 
+const std\+::map$<$ std\+::string, std\+::string $>$ \& \mbox{\hyperlink{classWorkItem_afdfe97b1df0639a60cb51d043877ceb3}{get\+Payload\+Data}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a generic payload data container moving through the workflow. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classWorkItem_acb8930a1aae62e47cfc441879a2a05e8}\label{classWorkItem_acb8930a1aae62e47cfc441879a2a05e8} 
+\index{WorkItem@{WorkItem}!WorkItem@{WorkItem}}
+\index{WorkItem@{WorkItem}!WorkItem@{WorkItem}}
+\doxysubsubsection{\texorpdfstring{WorkItem()}{WorkItem()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Work\+Item\+::\+Work\+Item (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classWorkItem_a9348889bae7cc5af00b6df970332f000}\label{classWorkItem_a9348889bae7cc5af00b6df970332f000} 
+\index{WorkItem@{WorkItem}!WorkItem@{WorkItem}}
+\index{WorkItem@{WorkItem}!WorkItem@{WorkItem}}
+\doxysubsubsection{\texorpdfstring{WorkItem()}{WorkItem()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Work\+Item\+::\+Work\+Item (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classWorkItem}{Work\+Item}} \&}]{other }\end{DoxyParamCaption})}
+
+\Hypertarget{classWorkItem_afd0d6379ec0d2ef02156d24b68696a0b}\label{classWorkItem_afd0d6379ec0d2ef02156d24b68696a0b} 
+\index{WorkItem@{WorkItem}!WorkItem@{WorkItem}}
+\index{WorkItem@{WorkItem}!WorkItem@{WorkItem}}
+\doxysubsubsection{\texorpdfstring{WorkItem()}{WorkItem()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Work\+Item\+::\+Work\+Item (\begin{DoxyParamCaption}\item[{const std\+::map$<$ std\+::string, std\+::string $>$ \&}]{initial\+Data }\end{DoxyParamCaption})}
+
+\Hypertarget{classWorkItem_ab272c2a08ef319252451591c6dbfc700}\label{classWorkItem_ab272c2a08ef319252451591c6dbfc700} 
+\index{WorkItem@{WorkItem}!````~WorkItem@{\texorpdfstring{$\sim$}{\string~}WorkItem}}
+\index{````~WorkItem@{\texorpdfstring{$\sim$}{\string~}WorkItem}!WorkItem@{WorkItem}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}WorkItem()}{\string~WorkItem()}}
+{\footnotesize\ttfamily virtual Work\+Item\+::\texorpdfstring{$\sim$}{\string~}\+Work\+Item (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classWorkItem_a07f90d9342cb3413103703da2f64f3a8}\label{classWorkItem_a07f90d9342cb3413103703da2f64f3a8} 
+\index{WorkItem@{WorkItem}!getData@{getData}}
+\index{getData@{getData}!WorkItem@{WorkItem}}
+\doxysubsubsection{\texorpdfstring{getData()}{getData()}}
+{\footnotesize\ttfamily std\+::string Work\+Item\+::get\+Data (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classWorkItem_afdfe97b1df0639a60cb51d043877ceb3}\label{classWorkItem_afdfe97b1df0639a60cb51d043877ceb3} 
+\index{WorkItem@{WorkItem}!getPayloadData@{getPayloadData}}
+\index{getPayloadData@{getPayloadData}!WorkItem@{WorkItem}}
+\doxysubsubsection{\texorpdfstring{getPayloadData()}{getPayloadData()}}
+{\footnotesize\ttfamily const std\+::map$<$ std\+::string, std\+::string $>$ \& Work\+Item\+::get\+Payload\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classWorkItem_a832fccc6b34774701672028c884cd70e}\label{classWorkItem_a832fccc6b34774701672028c884cd70e} 
+\index{WorkItem@{WorkItem}!hasData@{hasData}}
+\index{hasData@{hasData}!WorkItem@{WorkItem}}
+\doxysubsubsection{\texorpdfstring{hasData()}{hasData()}}
+{\footnotesize\ttfamily bool Work\+Item\+::has\+Data (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classWorkItem_aebd5e2e10ccc3b0e677773f2d0fdddf5}\label{classWorkItem_aebd5e2e10ccc3b0e677773f2d0fdddf5} 
+\index{WorkItem@{WorkItem}!setData@{setData}}
+\index{setData@{setData}!WorkItem@{WorkItem}}
+\doxysubsubsection{\texorpdfstring{setData()}{setData()}}
+{\footnotesize\ttfamily void Work\+Item\+::set\+Data (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key,  }\item[{const std\+::string \&}]{value }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{WorkItem_8h}{Work\+Item.\+h}}\item 
+src/\mbox{\hyperlink{WorkItem_8cpp}{Work\+Item.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,82 @@
+\doxysection{Deadline\+Notice Class Reference}
+\hypertarget{classDeadlineNotice}{}\label{classDeadlineNotice}\index{DeadlineNotice@{DeadlineNotice}}
+
+
+{\ttfamily \#include $<$Notification\+Bridge.\+h$>$}
+
+
+
+Inheritance diagram for Deadline\+Notice\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=172pt]{classDeadlineNotice__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Deadline\+Notice\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{classDeadlineNotice__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classDeadlineNotice_a32c9e20e66512ed1aa8a6dc0b6f1fded}{Deadline\+Notice}} (\mbox{\hyperlink{classNotificationChannel}{Notification\+Channel}} \texorpdfstring{$\ast$}{*}ch, \mbox{\hyperlink{classWorkItem}{Work\+Item}} \texorpdfstring{$\ast$}{*}ctx, string to, string status)
+\item 
+\mbox{\hyperlink{structNotificationData}{Notification\+Data}} \mbox{\hyperlink{classDeadlineNotice_abe7ce1646d4ab6b43deb5bf0809d6ec6}{compose}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classNotification}{Notification}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classNotification_a90ed22f58b45947261b2709771cc4070}{Notification}} (\mbox{\hyperlink{classNotificationChannel}{Notification\+Channel}} \texorpdfstring{$\ast$}{*}ch, \mbox{\hyperlink{classWorkItem}{Work\+Item}} \texorpdfstring{$\ast$}{*}ctx, string to, string status)
+\item 
+virtual void \mbox{\hyperlink{classNotification_a93e00029080d8f656b2e57a9439d616b}{send}} ()
+\item 
+virtual \mbox{\hyperlink{classNotification_aea36b394897206968baa256fb95d3f59}{\texorpdfstring{$\sim$}{\string~}\+Notification}} ()=default
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classNotification}{Notification}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classNotificationChannel}{Notification\+Channel}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classNotification_aa3e4a0f34d206b39e0d57e51e1a86372}{channel}}
+\item 
+string \mbox{\hyperlink{classNotification_a6f2ea418a6fc6b812e315ee703d9ca33}{recipient}}
+\item 
+\mbox{\hyperlink{classWorkItem}{Work\+Item}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classNotification_a1b5463c381c30d883c72771cd965a08f}{context}}
+\item 
+string \mbox{\hyperlink{classNotification_a74cd4187391559f6e43e53817c81e7f3}{current\+Status}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classDeadlineNotice_a32c9e20e66512ed1aa8a6dc0b6f1fded}\label{classDeadlineNotice_a32c9e20e66512ed1aa8a6dc0b6f1fded} 
+\index{DeadlineNotice@{DeadlineNotice}!DeadlineNotice@{DeadlineNotice}}
+\index{DeadlineNotice@{DeadlineNotice}!DeadlineNotice@{DeadlineNotice}}
+\doxysubsubsection{\texorpdfstring{DeadlineNotice()}{DeadlineNotice()}}
+{\footnotesize\ttfamily Deadline\+Notice\+::\+Deadline\+Notice (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classNotificationChannel}{Notification\+Channel}} \texorpdfstring{$\ast$}{*}}]{ch,  }\item[{\mbox{\hyperlink{classWorkItem}{Work\+Item}} \texorpdfstring{$\ast$}{*}}]{ctx,  }\item[{string}]{to,  }\item[{string}]{status }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classDeadlineNotice_abe7ce1646d4ab6b43deb5bf0809d6ec6}\label{classDeadlineNotice_abe7ce1646d4ab6b43deb5bf0809d6ec6} 
+\index{DeadlineNotice@{DeadlineNotice}!compose@{compose}}
+\index{compose@{compose}!DeadlineNotice@{DeadlineNotice}}
+\doxysubsubsection{\texorpdfstring{compose()}{compose()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structNotificationData}{Notification\+Data}} Deadline\+Notice\+::compose (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classNotification_a8da571fa1b0f54aea047818e9fc49951}{Notification}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{NotificationBridge_8h}{Notification\+Bridge.\+h}}\item 
+src/\+Notification\+Bridge/\mbox{\hyperlink{NotificationBridge_8cpp}{Notification\+Bridge.\+cpp}}\end{DoxyCompactItemize}

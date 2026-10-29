@@ -1,0 +1,134 @@
+\doxysection{Chain\+Builder Class Reference}
+\hypertarget{classChainBuilder}{}\label{classChainBuilder}\index{ChainBuilder@{ChainBuilder}}
+
+
+{\ttfamily \#include $<$Chain\+Builder.\+h$>$}
+
+
+
+Inheritance diagram for Chain\+Builder\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=176pt]{classChainBuilder__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classChainBuilder_af4674b8f54787aed1bb9311c2a363dde}{\texorpdfstring{$\sim$}{\string~}\+Chain\+Builder}} ()=default
+\item 
+virtual void \mbox{\hyperlink{classChainBuilder_ac229485a6d2504ef3469872d39dcc3a0}{reset}} ()=0
+\item 
+virtual void \mbox{\hyperlink{classChainBuilder_ac926106c40eeb92e3b2aa8b6128a6162}{build\+Work\+Group}} (const std\+::string \&workflow\+Name)=0
+\item 
+virtual void \mbox{\hyperlink{classChainBuilder_a5327136ddfe03489464184f72a745cbc}{build\+Stage}} (const std\+::string \&name)=0
+\item 
+virtual void \mbox{\hyperlink{classChainBuilder_a8dffb6f83c8dd1ead67fd0cfe2717ebd}{build\+Sub\+Process}} (const std\+::string \&name)=0
+\item 
+virtual void \mbox{\hyperlink{classChainBuilder_ad4be1b4fab22ccde4e4080e5827310d7}{build\+Work\+Unit}} (const std\+::string \&name)=0
+\item 
+virtual void \mbox{\hyperlink{classChainBuilder_a1f9a26536b9548b780d2ede703570359}{end\+Group}} ()=0
+\item 
+virtual \mbox{\hyperlink{classHandler}{Handler}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classChainBuilder_adb7b486352029dca3631deabed3a223e}{get\+Result}} ()=0
+\item 
+virtual std\+::vector$<$ \mbox{\hyperlink{classWorkGroup}{Work\+Group}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classChainBuilder_af3b9af93521364228819235b5c1e423c}{get\+Work\+Groups}} ()=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classChainBuilder_af4674b8f54787aed1bb9311c2a363dde}\label{classChainBuilder_af4674b8f54787aed1bb9311c2a363dde} 
+\index{ChainBuilder@{ChainBuilder}!````~ChainBuilder@{\texorpdfstring{$\sim$}{\string~}ChainBuilder}}
+\index{````~ChainBuilder@{\texorpdfstring{$\sim$}{\string~}ChainBuilder}!ChainBuilder@{ChainBuilder}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ChainBuilder()}{\string~ChainBuilder()}}
+{\footnotesize\ttfamily virtual Chain\+Builder\+::\texorpdfstring{$\sim$}{\string~}\+Chain\+Builder (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classChainBuilder_a5327136ddfe03489464184f72a745cbc}\label{classChainBuilder_a5327136ddfe03489464184f72a745cbc} 
+\index{ChainBuilder@{ChainBuilder}!buildStage@{buildStage}}
+\index{buildStage@{buildStage}!ChainBuilder@{ChainBuilder}}
+\doxysubsubsection{\texorpdfstring{buildStage()}{buildStage()}}
+{\footnotesize\ttfamily virtual void Chain\+Builder\+::build\+Stage (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classWorkflowBuilder_a47a94a49915ef3f3671d26cb203af773}{Workflow\+Builder}}.
+
+\Hypertarget{classChainBuilder_a8dffb6f83c8dd1ead67fd0cfe2717ebd}\label{classChainBuilder_a8dffb6f83c8dd1ead67fd0cfe2717ebd} 
+\index{ChainBuilder@{ChainBuilder}!buildSubProcess@{buildSubProcess}}
+\index{buildSubProcess@{buildSubProcess}!ChainBuilder@{ChainBuilder}}
+\doxysubsubsection{\texorpdfstring{buildSubProcess()}{buildSubProcess()}}
+{\footnotesize\ttfamily virtual void Chain\+Builder\+::build\+Sub\+Process (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classWorkflowBuilder_a6d9706d9b1f1bf42d17b61e2175f3b25}{Workflow\+Builder}}.
+
+\Hypertarget{classChainBuilder_ac926106c40eeb92e3b2aa8b6128a6162}\label{classChainBuilder_ac926106c40eeb92e3b2aa8b6128a6162} 
+\index{ChainBuilder@{ChainBuilder}!buildWorkGroup@{buildWorkGroup}}
+\index{buildWorkGroup@{buildWorkGroup}!ChainBuilder@{ChainBuilder}}
+\doxysubsubsection{\texorpdfstring{buildWorkGroup()}{buildWorkGroup()}}
+{\footnotesize\ttfamily virtual void Chain\+Builder\+::build\+Work\+Group (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{workflow\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classWorkflowBuilder_ab0e8c2846be52291aef7bd092aac8909}{Workflow\+Builder}}.
+
+\Hypertarget{classChainBuilder_ad4be1b4fab22ccde4e4080e5827310d7}\label{classChainBuilder_ad4be1b4fab22ccde4e4080e5827310d7} 
+\index{ChainBuilder@{ChainBuilder}!buildWorkUnit@{buildWorkUnit}}
+\index{buildWorkUnit@{buildWorkUnit}!ChainBuilder@{ChainBuilder}}
+\doxysubsubsection{\texorpdfstring{buildWorkUnit()}{buildWorkUnit()}}
+{\footnotesize\ttfamily virtual void Chain\+Builder\+::build\+Work\+Unit (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classWorkflowBuilder_a3bb4768844ad4dec18151c7bd2cbdc50}{Workflow\+Builder}}.
+
+\Hypertarget{classChainBuilder_a1f9a26536b9548b780d2ede703570359}\label{classChainBuilder_a1f9a26536b9548b780d2ede703570359} 
+\index{ChainBuilder@{ChainBuilder}!endGroup@{endGroup}}
+\index{endGroup@{endGroup}!ChainBuilder@{ChainBuilder}}
+\doxysubsubsection{\texorpdfstring{endGroup()}{endGroup()}}
+{\footnotesize\ttfamily virtual void Chain\+Builder\+::end\+Group (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classWorkflowBuilder_a6a1b51b9c7a1595674c78617bc561346}{Workflow\+Builder}}.
+
+\Hypertarget{classChainBuilder_adb7b486352029dca3631deabed3a223e}\label{classChainBuilder_adb7b486352029dca3631deabed3a223e} 
+\index{ChainBuilder@{ChainBuilder}!getResult@{getResult}}
+\index{getResult@{getResult}!ChainBuilder@{ChainBuilder}}
+\doxysubsubsection{\texorpdfstring{getResult()}{getResult()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classHandler}{Handler}} \texorpdfstring{$\ast$}{*} Chain\+Builder\+::get\+Result (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classWorkflowBuilder_a6b74afa15da553a9d29b9dbecade42ed}{Workflow\+Builder}}.
+
+\Hypertarget{classChainBuilder_af3b9af93521364228819235b5c1e423c}\label{classChainBuilder_af3b9af93521364228819235b5c1e423c} 
+\index{ChainBuilder@{ChainBuilder}!getWorkGroups@{getWorkGroups}}
+\index{getWorkGroups@{getWorkGroups}!ChainBuilder@{ChainBuilder}}
+\doxysubsubsection{\texorpdfstring{getWorkGroups()}{getWorkGroups()}}
+{\footnotesize\ttfamily virtual std\+::vector$<$ \mbox{\hyperlink{classWorkGroup}{Work\+Group}} \texorpdfstring{$\ast$}{*} $>$ Chain\+Builder\+::get\+Work\+Groups (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classWorkflowBuilder_a7666b9fce4618eb38e6627b74268c336}{Workflow\+Builder}}.
+
+\Hypertarget{classChainBuilder_ac229485a6d2504ef3469872d39dcc3a0}\label{classChainBuilder_ac229485a6d2504ef3469872d39dcc3a0} 
+\index{ChainBuilder@{ChainBuilder}!reset@{reset}}
+\index{reset@{reset}!ChainBuilder@{ChainBuilder}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily virtual void Chain\+Builder\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classWorkflowBuilder_a18f91256edb9d2d2987e0af12270efde}{Workflow\+Builder}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{ChainBuilder_8h}{Chain\+Builder.\+h}}\end{DoxyCompactItemize}

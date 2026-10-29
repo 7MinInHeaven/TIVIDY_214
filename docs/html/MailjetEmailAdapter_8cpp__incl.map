@@ -1,0 +1,26 @@
+<map id="src/NotificationBridge/MailjetEmailAdapter.cpp" name="src/NotificationBridge/MailjetEmailAdapter.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="469,5,655,45"/>
+<area shape="rect" id="Node000002" href="$MailjetEmailAdapter_8h.html" title=" " alt="" coords="303,93,469,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="521,48,426,90,423,85,519,43"/>
+<area shape="rect" id="Node000009" href="$MailjetHttpClient_8h.html" title=" " alt="" coords="435,167,580,192"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="555,47,535,94,516,154,511,152,530,92,550,45"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="545,93,691,119"/>
+<area shape="poly" id="edge12_Node000001_Node000010" title=" " alt="" coords="578,44,604,80,600,84,573,47"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="716,93,776,119"/>
+<area shape="poly" id="edge13_Node000001_Node000011" title=" " alt="" coords="607,43,708,85,705,90,605,48"/>
+<area shape="rect" id="Node000003" href="$NotificationBridge_8h.html" title=" " alt="" coords="167,167,317,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="364,121,279,163,277,158,362,116"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="290,313,349,339"/>
+<area shape="poly" id="edge9_Node000002_Node000004" title=" " alt="" coords="390,119,391,183,386,225,374,266,361,288,345,306,341,302,357,285,369,264,381,224,386,183,385,119"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="246,192,254,225,270,264,299,302,295,305,265,267,249,227,241,193"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="279,240,359,265"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="256,190,298,229,295,232,253,194"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="127,240,205,265"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="232,194,190,232,187,229,228,190"/>
+<area shape="rect" id="Node000007" href="$WorkItem_8h.html" title=" " alt="" coords="5,240,103,265"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="213,195,98,237,97,232,211,190"/>
+<area shape="poly" id="edge8_Node000007_Node000004" title=" " alt="" coords="97,263,278,311,276,316,96,268"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="29,313,79,339"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="57,266,57,300,51,300,51,266"/>
+<area shape="poly" id="edge11_Node000009_Node000004" title=" " alt="" coords="498,194,463,228,417,267,353,309,351,304,414,263,459,224,494,190"/>
+</map>

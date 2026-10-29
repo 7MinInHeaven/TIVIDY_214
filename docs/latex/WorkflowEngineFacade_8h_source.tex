@@ -1,0 +1,86 @@
+\doxysection{Workflow\+Engine\+Facade.\+h}
+\hypertarget{WorkflowEngineFacade_8h_source}{}\label{WorkflowEngineFacade_8h_source}\index{include/WorkflowEngineFacade.h@{include/WorkflowEngineFacade.h}}
+\mbox{\hyperlink{WorkflowEngineFacade_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ WORKFLOWENGINEFACADE\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ WORKFLOWENGINEFACADE\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Composite_8h}{Composite.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{DatabaseObserver_8h}{DatabaseObserver.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{PostgresAdapter_8h}{PostgresAdapter.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{PostgresAPI_8h}{PostgresAPI.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{SQLiteAdapter_8h}{SQLiteAdapter.h}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{SQLiteAPI_8h}{SQLiteAPI.h}}"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{MailjetEmailAdapter_8h}{MailjetEmailAdapter.h}}"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{NotificationBridge_8h}{NotificationBridge.h}}"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{WorkItem_8h}{WorkItem.h}}"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <cstdlib>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <curl/curl.h>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00020\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classWorkflowService}{WorkflowService}}\ \{}
+\DoxyCodeLine{00023\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classWorkflowService_a4990573415dffdffe0a28e4e55bfb28b}{\string~WorkflowService}}()\ \{\}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classWorkflowService_af4d9b3a0e2f56ad6b1f1a78a9ee8e603}{submitRequest}}(\textcolor{keywordtype}{int}\ actorId,\ \textcolor{keyword}{const}\ std::map<std::string,\ std::string>\&\ payload)\ =\ 0;}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkflowService_a7302fb59931df65abc7b9b6680d0cf3b}{takeOwnership}}(\textcolor{keywordtype}{int}\ actorId,\ \textcolor{keywordtype}{int}\ instanceId)\ =\ 0;}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkflowService_a1722469cd523fd14b6cd679ff9684b7b}{completeTask}}(\textcolor{keywordtype}{int}\ actorId,\ \textcolor{keywordtype}{int}\ instanceId,\ \textcolor{keywordtype}{int}\ taskId)\ =\ 0;}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkflowService_a7f61bc8bb04b677dce04c2122beb126b}{approveRequest}}(\textcolor{keywordtype}{int}\ actorId,\ \textcolor{keywordtype}{int}\ instanceId)\ =\ 0;}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkflowService_a8eae7e9048e15af2193588ab5e42cd90}{rejectRequest}}(\textcolor{keywordtype}{int}\ actorId,\ \textcolor{keywordtype}{int}\ instanceId,\ \textcolor{keyword}{const}\ std::string\&\ reason)\ =\ 0;}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkflowService_a0f4d1b41c96f93748ba49ca4729b8ee0}{cancelRequest}}(\textcolor{keywordtype}{int}\ actorId,\ \textcolor{keywordtype}{int}\ instanceId)\ =\ 0;}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkflowService_a8ade09df379b62917b806c9d784d3830}{undoLastAction}}(\textcolor{keywordtype}{int}\ actorId,\ \textcolor{keywordtype}{int}\ instanceId)\ =\ 0;}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkflowService_a98968c4cbb62a795af853001f84eeb72}{saveProgress}}(\textcolor{keywordtype}{int}\ actorId,\ \textcolor{keywordtype}{int}\ instanceId)\ =\ 0;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ \mbox{\hyperlink{classWorkflowService_a9756be2131bb190c4e756bef5d91bd89}{getStatus}}(\textcolor{keywordtype}{int}\ actorId,\ \textcolor{keywordtype}{int}\ instanceId)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::vector<std::string>\ \mbox{\hyperlink{classWorkflowService_aef9ef88bd60283c5b0a28db122a13c9f}{getHistory}}(\textcolor{keywordtype}{int}\ actorId,\ \textcolor{keywordtype}{int}\ instanceId)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ std::vector<int>\ \mbox{\hyperlink{classWorkflowService_a7ee421714cd991c17b16ca4789f34688}{listInstanceIds}}(\textcolor{keywordtype}{int}\ actorId)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00038\ \ \ \};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classWorkflowEngineFacade}{WorkflowEngineFacade}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classWorkflowService}{WorkflowService}}\ \{}
+\DoxyCodeLine{00041\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{comment}{//\ Handler*\ masterTemplate}}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{comment}{//\ mo}}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{struct\ }Request\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ Request()\ :\ requester(0),\ owner(0)\ \{\}}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ requester;\ \ \textcolor{comment}{//\ who\ submitted\ it}}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ owner;\ \textcolor{comment}{//\ who\ took\ it\ (0\ =\ nobody\ yet)}}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ status;\ \textcolor{comment}{//\ Open,\ Approved,\ Rejected\ or\ Cancelled}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ vector<string>\ history;}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ vector<int>\ completedTasks;\ \textcolor{comment}{//\ task\ ids,\ in\ the\ order\ they\ were\ completed}}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ map<string,\ string>\ payload;}
+\DoxyCodeLine{00052\ \ \ \ \ \};}
+\DoxyCodeLine{00053\ \ \ \ \ Request\ \&find(\textcolor{keywordtype}{int}\ instanceId);}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{const}\ Request\ \&find(\textcolor{keywordtype}{int}\ instanceId)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{int}\ nextId;\ \textcolor{comment}{//\ mo,\ next\ request\ id\ to\ hand\ out}}
+\DoxyCodeLine{00056\ \ \ \ \ map<int,\ Request>\ requests;\ \textcolor{comment}{//mo\ ,\ all\ requests\ by\ id}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{comment}{//Robert's\ stuff}}
+\DoxyCodeLine{00059\ \ \ \ \ \mbox{\hyperlink{classDatabaseObserver}{DatabaseObserver}}*\ dbObserver;}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{void}\ attachObserverToTree(\mbox{\hyperlink{classWorkComponent}{WorkComponent}}*\ component);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{classWorkflowEngineFacade_a7974d3d2396c1f86ae6f373b177d3c65}{WorkflowEngineFacade}}();}
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{classWorkflowEngineFacade_add29460804890f198077004898192433}{\string~WorkflowEngineFacade}}();}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkflowEngineFacade_a06a35d28ab72d2dbc80da0189e47234f}{submitRequest}}(\mbox{\hyperlink{classWorkItem}{WorkItem}}\ item);\ \ \ \textcolor{comment}{//\ mo\ -\/\ old\ notification\ entry\ point\ kept\ so\ test\_facade.cpp\ still\ works}}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classWorkflowEngineFacade_af162502120f1dd1ae79fe34bb7874890}{submitRequest}}(\textcolor{keywordtype}{int}\ actorId,\ \textcolor{keyword}{const}\ std::map<std::string,\ std::string>\&\ payload)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkflowEngineFacade_abafea36b20010f8751c82a8f97b1da88}{takeOwnership}}(\textcolor{keywordtype}{int}\ actorId,\ \textcolor{keywordtype}{int}\ instanceId)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkflowEngineFacade_aea8ae49268eaea0bab74f76916ad3256}{completeTask}}(\textcolor{keywordtype}{int}\ actorId,\ \textcolor{keywordtype}{int}\ instanceId,\ \textcolor{keywordtype}{int}\ taskId)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkflowEngineFacade_a557c08f84b0ce4a26005ba031dbae147}{approveRequest}}(\textcolor{keywordtype}{int}\ actorId,\ \textcolor{keywordtype}{int}\ instanceId)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkflowEngineFacade_a612d32a96ce6dac8dad0f2364d72fe0e}{rejectRequest}}(\textcolor{keywordtype}{int}\ actorId,\ \textcolor{keywordtype}{int}\ instanceId,\ \textcolor{keyword}{const}\ std::string\&\ reason)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkflowEngineFacade_a45819327b1d561c1c01831a6828c669d}{cancelRequest}}(\textcolor{keywordtype}{int}\ actorId,\ \textcolor{keywordtype}{int}\ instanceId)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkflowEngineFacade_a5fa933d48e53eed8a599efe9811919c0}{undoLastAction}}(\textcolor{keywordtype}{int}\ actorId,\ \textcolor{keywordtype}{int}\ instanceId)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkflowEngineFacade_a3400ee951edf78552d91499a586cd19b}{saveProgress}}(\textcolor{keywordtype}{int}\ actorId,\ \textcolor{keywordtype}{int}\ instanceId)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ std::string\ \mbox{\hyperlink{classWorkflowEngineFacade_ad27f24d8c7ba25f2bcb82aeb6b1096f5}{getStatus}}(\textcolor{keywordtype}{int}\ actorId,\ \textcolor{keywordtype}{int}\ instanceId)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00076\ \ \ \ \ std::vector<std::string>\ \mbox{\hyperlink{classWorkflowEngineFacade_ac0427cc49fed55ced21d080d1396b671}{getHistory}}(\textcolor{keywordtype}{int}\ actorId,\ \textcolor{keywordtype}{int}\ instanceId)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00077\ \ \ \ \ std::vector<int>\ \mbox{\hyperlink{classWorkflowEngineFacade_a815ae22365425f46b21d5a52721a5c4f}{listInstanceIds}}(\textcolor{keywordtype}{int}\ actorId)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00078\ \};}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

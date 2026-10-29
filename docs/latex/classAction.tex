@@ -1,0 +1,78 @@
+\doxysection{Action Class Reference}
+\hypertarget{classAction}{}\label{classAction}\index{Action@{Action}}
+
+
+{\ttfamily \#include $<$Command.\+h$>$}
+
+
+
+Inheritance diagram for Action\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAction__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \mbox{\hyperlink{classAction_a018c91fe89cff73911c5862df0cd8f63}{execute}} ()=0
+\item 
+virtual void \mbox{\hyperlink{classAction_aa0d33a2fd0627a43327df4af9fc4e665}{undo}} ()
+\item 
+virtual bool \mbox{\hyperlink{classAction_ac2ca70901bb52d0d9d01fdd70b6397e1}{is\+Undoable}} () const
+\item 
+virtual \mbox{\hyperlink{classWorkUnit}{Work\+Unit}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classAction_a28cf6e0db41339093ce6084b2ec059e4}{get\+Receiver}} () const =0
+\item 
+virtual \mbox{\hyperlink{classAction_abcf4c6358f53a666631ace11b325a7cd}{\texorpdfstring{$\sim$}{\string~}\+Action}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classAction_abcf4c6358f53a666631ace11b325a7cd}\label{classAction_abcf4c6358f53a666631ace11b325a7cd} 
+\index{Action@{Action}!````~Action@{\texorpdfstring{$\sim$}{\string~}Action}}
+\index{````~Action@{\texorpdfstring{$\sim$}{\string~}Action}!Action@{Action}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Action()}{\string~Action()}}
+{\footnotesize\ttfamily virtual Action\+::\texorpdfstring{$\sim$}{\string~}\+Action (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classAction_a018c91fe89cff73911c5862df0cd8f63}\label{classAction_a018c91fe89cff73911c5862df0cd8f63} 
+\index{Action@{Action}!execute@{execute}}
+\index{execute@{execute}!Action@{Action}}
+\doxysubsubsection{\texorpdfstring{execute()}{execute()}}
+{\footnotesize\ttfamily virtual bool Action\+::execute (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classStartTaskCommand_aaeb1985d11a24bfcb62addc6ad6c965f}{Start\+Task\+Command}}, \mbox{\hyperlink{classCompleteTaskCommand_a47eecbf615d8e8b198f4fe84d337fd60}{Complete\+Task\+Command}}, and \mbox{\hyperlink{classAssignTaskCommand_a3df49b7b7d37b34a331fe47b4238a350}{Assign\+Task\+Command}}.
+
+\Hypertarget{classAction_a28cf6e0db41339093ce6084b2ec059e4}\label{classAction_a28cf6e0db41339093ce6084b2ec059e4} 
+\index{Action@{Action}!getReceiver@{getReceiver}}
+\index{getReceiver@{getReceiver}!Action@{Action}}
+\doxysubsubsection{\texorpdfstring{getReceiver()}{getReceiver()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classWorkUnit}{Work\+Unit}} \texorpdfstring{$\ast$}{*} Action\+::get\+Receiver (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classStartTaskCommand_a3cae22d66f7e5fa67053a395162806ef}{Start\+Task\+Command}}, \mbox{\hyperlink{classCompleteTaskCommand_ac892b5b084c8a6d9b96fb436a90c5936}{Complete\+Task\+Command}}, and \mbox{\hyperlink{classAssignTaskCommand_a52cd067f6bb3c675001bf0cfcf054f6e}{Assign\+Task\+Command}}.
+
+\Hypertarget{classAction_ac2ca70901bb52d0d9d01fdd70b6397e1}\label{classAction_ac2ca70901bb52d0d9d01fdd70b6397e1} 
+\index{Action@{Action}!isUndoable@{isUndoable}}
+\index{isUndoable@{isUndoable}!Action@{Action}}
+\doxysubsubsection{\texorpdfstring{isUndoable()}{isUndoable()}}
+{\footnotesize\ttfamily virtual bool Action\+::is\+Undoable (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{classAction_aa0d33a2fd0627a43327df4af9fc4e665}\label{classAction_aa0d33a2fd0627a43327df4af9fc4e665} 
+\index{Action@{Action}!undo@{undo}}
+\index{undo@{undo}!Action@{Action}}
+\doxysubsubsection{\texorpdfstring{undo()}{undo()}}
+{\footnotesize\ttfamily virtual void Action\+::undo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{Command_8h}{Command.\+h}}\end{DoxyCompactItemize}

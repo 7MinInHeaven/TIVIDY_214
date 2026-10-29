@@ -1,0 +1,154 @@
+\doxysection{Progress\+Report\+Visitor Class Reference}
+\hypertarget{classProgressReportVisitor}{}\label{classProgressReportVisitor}\index{ProgressReportVisitor@{ProgressReportVisitor}}
+
+
+{\ttfamily \#include $<$Work\+Visitor.\+h$>$}
+
+
+
+Inheritance diagram for Progress\+Report\+Visitor\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=202pt]{classProgressReportVisitor__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Progress\+Report\+Visitor\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=202pt]{classProgressReportVisitor__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classProgressReportVisitor_a5e82425e058f7205cf2a4c5537e5889a}{Progress\+Report\+Visitor}} ()
+\item 
+\mbox{\hyperlink{classProgressReportVisitor_a49dc9ac426e9f397918364e6015b99c3}{\texorpdfstring{$\sim$}{\string~}\+Progress\+Report\+Visitor}} () override
+\item 
+void \mbox{\hyperlink{classProgressReportVisitor_a26384c14facf02a3e27229a617e830a4}{visit}} (const \mbox{\hyperlink{classWorkUnit}{Work\+Unit}} \&item) override
+\item 
+void \mbox{\hyperlink{classProgressReportVisitor_aea64df968a0ed342d09aa3842fb8fdbc}{visit}} (const \mbox{\hyperlink{classWorkGroup}{Work\+Group}} \&item) override
+\item 
+void \mbox{\hyperlink{classProgressReportVisitor_a3c791745864a5dd6d8ba27593c73f979}{visit}} (const \mbox{\hyperlink{classStage}{Stage}} \&item) override
+\item 
+void \mbox{\hyperlink{classProgressReportVisitor_a232ede72001da838b2f6af58e6f3c3ce}{visit}} (const \mbox{\hyperlink{classSubProcess}{Sub\+Process}} \&item) override
+\item 
+void \mbox{\hyperlink{classProgressReportVisitor_ac26f5de61f8ad55345c1e41bc72119e8}{visit}} (const \mbox{\hyperlink{classPrioritisedTask}{Prioritised\+Task}} \&item) override
+\item 
+void \mbox{\hyperlink{classProgressReportVisitor_abc708e1fba7768bd063fd787ccdf3bd8}{visit}} (const \mbox{\hyperlink{classAuditedTask}{Audited\+Task}} \&item) override
+\item 
+void \mbox{\hyperlink{classProgressReportVisitor_aa33e4d934531f0bbe66cf4390b4b5586}{visit}} (const \mbox{\hyperlink{classValidatedTask}{Validated\+Task}} \&item) override
+\item 
+void \mbox{\hyperlink{classProgressReportVisitor_a1d7544db7e901de271882a7625d7468a}{create\+Report}} (\mbox{\hyperlink{classWorkComponent}{Work\+Component}} \texorpdfstring{$\ast$}{*}root)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classWorkVisitor}{Work\+Visitor}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classWorkVisitor_a5aeb1b6f5834787ef3f03560dd9e866d}{\texorpdfstring{$\sim$}{\string~}\+Work\+Visitor}} ()=default
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classProgressReportVisitor_a5e82425e058f7205cf2a4c5537e5889a}\label{classProgressReportVisitor_a5e82425e058f7205cf2a4c5537e5889a} 
+\index{ProgressReportVisitor@{ProgressReportVisitor}!ProgressReportVisitor@{ProgressReportVisitor}}
+\index{ProgressReportVisitor@{ProgressReportVisitor}!ProgressReportVisitor@{ProgressReportVisitor}}
+\doxysubsubsection{\texorpdfstring{ProgressReportVisitor()}{ProgressReportVisitor()}}
+{\footnotesize\ttfamily Progress\+Report\+Visitor\+::\+Progress\+Report\+Visitor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classProgressReportVisitor_a49dc9ac426e9f397918364e6015b99c3}\label{classProgressReportVisitor_a49dc9ac426e9f397918364e6015b99c3} 
+\index{ProgressReportVisitor@{ProgressReportVisitor}!````~ProgressReportVisitor@{\texorpdfstring{$\sim$}{\string~}ProgressReportVisitor}}
+\index{````~ProgressReportVisitor@{\texorpdfstring{$\sim$}{\string~}ProgressReportVisitor}!ProgressReportVisitor@{ProgressReportVisitor}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ProgressReportVisitor()}{\string~ProgressReportVisitor()}}
+{\footnotesize\ttfamily Progress\+Report\+Visitor\+::\texorpdfstring{$\sim$}{\string~}\+Progress\+Report\+Visitor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classProgressReportVisitor_a1d7544db7e901de271882a7625d7468a}\label{classProgressReportVisitor_a1d7544db7e901de271882a7625d7468a} 
+\index{ProgressReportVisitor@{ProgressReportVisitor}!createReport@{createReport}}
+\index{createReport@{createReport}!ProgressReportVisitor@{ProgressReportVisitor}}
+\doxysubsubsection{\texorpdfstring{createReport()}{createReport()}}
+{\footnotesize\ttfamily void Progress\+Report\+Visitor\+::create\+Report (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classWorkComponent}{Work\+Component}} \texorpdfstring{$\ast$}{*}}]{root }\end{DoxyParamCaption})}
+
+\Hypertarget{classProgressReportVisitor_abc708e1fba7768bd063fd787ccdf3bd8}\label{classProgressReportVisitor_abc708e1fba7768bd063fd787ccdf3bd8} 
+\index{ProgressReportVisitor@{ProgressReportVisitor}!visit@{visit}}
+\index{visit@{visit}!ProgressReportVisitor@{ProgressReportVisitor}}
+\doxysubsubsection{\texorpdfstring{visit()}{visit()}\hspace{0.1cm}{\footnotesize\ttfamily [1/7]}}
+{\footnotesize\ttfamily void Progress\+Report\+Visitor\+::visit (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classAuditedTask}{Audited\+Task}} \&}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classWorkVisitor_a3da837c431292429032f1c36b7bdb39b}{Work\+Visitor}}.
+
+\Hypertarget{classProgressReportVisitor_ac26f5de61f8ad55345c1e41bc72119e8}\label{classProgressReportVisitor_ac26f5de61f8ad55345c1e41bc72119e8} 
+\index{ProgressReportVisitor@{ProgressReportVisitor}!visit@{visit}}
+\index{visit@{visit}!ProgressReportVisitor@{ProgressReportVisitor}}
+\doxysubsubsection{\texorpdfstring{visit()}{visit()}\hspace{0.1cm}{\footnotesize\ttfamily [2/7]}}
+{\footnotesize\ttfamily void Progress\+Report\+Visitor\+::visit (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classPrioritisedTask}{Prioritised\+Task}} \&}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classWorkVisitor_a004f022ddf5bf9dc7fa40a4b157ff3e0}{Work\+Visitor}}.
+
+\Hypertarget{classProgressReportVisitor_a3c791745864a5dd6d8ba27593c73f979}\label{classProgressReportVisitor_a3c791745864a5dd6d8ba27593c73f979} 
+\index{ProgressReportVisitor@{ProgressReportVisitor}!visit@{visit}}
+\index{visit@{visit}!ProgressReportVisitor@{ProgressReportVisitor}}
+\doxysubsubsection{\texorpdfstring{visit()}{visit()}\hspace{0.1cm}{\footnotesize\ttfamily [3/7]}}
+{\footnotesize\ttfamily void Progress\+Report\+Visitor\+::visit (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classStage}{Stage}} \&}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classWorkVisitor_aa3ab41248503b7c8438b46272603cc28}{Work\+Visitor}}.
+
+\Hypertarget{classProgressReportVisitor_a232ede72001da838b2f6af58e6f3c3ce}\label{classProgressReportVisitor_a232ede72001da838b2f6af58e6f3c3ce} 
+\index{ProgressReportVisitor@{ProgressReportVisitor}!visit@{visit}}
+\index{visit@{visit}!ProgressReportVisitor@{ProgressReportVisitor}}
+\doxysubsubsection{\texorpdfstring{visit()}{visit()}\hspace{0.1cm}{\footnotesize\ttfamily [4/7]}}
+{\footnotesize\ttfamily void Progress\+Report\+Visitor\+::visit (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classSubProcess}{Sub\+Process}} \&}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classWorkVisitor_acac6a80d134f520161ce04c2b622de89}{Work\+Visitor}}.
+
+\Hypertarget{classProgressReportVisitor_aa33e4d934531f0bbe66cf4390b4b5586}\label{classProgressReportVisitor_aa33e4d934531f0bbe66cf4390b4b5586} 
+\index{ProgressReportVisitor@{ProgressReportVisitor}!visit@{visit}}
+\index{visit@{visit}!ProgressReportVisitor@{ProgressReportVisitor}}
+\doxysubsubsection{\texorpdfstring{visit()}{visit()}\hspace{0.1cm}{\footnotesize\ttfamily [5/7]}}
+{\footnotesize\ttfamily void Progress\+Report\+Visitor\+::visit (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classValidatedTask}{Validated\+Task}} \&}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classWorkVisitor_a755f09bf3c866ea32af9e6c68dcfd151}{Work\+Visitor}}.
+
+\Hypertarget{classProgressReportVisitor_aea64df968a0ed342d09aa3842fb8fdbc}\label{classProgressReportVisitor_aea64df968a0ed342d09aa3842fb8fdbc} 
+\index{ProgressReportVisitor@{ProgressReportVisitor}!visit@{visit}}
+\index{visit@{visit}!ProgressReportVisitor@{ProgressReportVisitor}}
+\doxysubsubsection{\texorpdfstring{visit()}{visit()}\hspace{0.1cm}{\footnotesize\ttfamily [6/7]}}
+{\footnotesize\ttfamily void Progress\+Report\+Visitor\+::visit (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classWorkGroup}{Work\+Group}} \&}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classWorkVisitor_a372e7344d82d08e2b5ba32e05360eb75}{Work\+Visitor}}.
+
+\Hypertarget{classProgressReportVisitor_a26384c14facf02a3e27229a617e830a4}\label{classProgressReportVisitor_a26384c14facf02a3e27229a617e830a4} 
+\index{ProgressReportVisitor@{ProgressReportVisitor}!visit@{visit}}
+\index{visit@{visit}!ProgressReportVisitor@{ProgressReportVisitor}}
+\doxysubsubsection{\texorpdfstring{visit()}{visit()}\hspace{0.1cm}{\footnotesize\ttfamily [7/7]}}
+{\footnotesize\ttfamily void Progress\+Report\+Visitor\+::visit (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classWorkUnit}{Work\+Unit}} \&}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classWorkVisitor_a038ac268b2b9d36872edf7a05698a593}{Work\+Visitor}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{WorkVisitor_8h}{Work\+Visitor.\+h}}\item 
+src/visitor/\mbox{\hyperlink{ProgressReportVisitor_8cpp}{Progress\+Report\+Visitor.\+cpp}}\end{DoxyCompactItemize}

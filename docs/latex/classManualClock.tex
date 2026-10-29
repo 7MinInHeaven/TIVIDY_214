@@ -1,0 +1,90 @@
+\doxysection{Manual\+Clock Class Reference}
+\hypertarget{classManualClock}{}\label{classManualClock}\index{ManualClock@{ManualClock}}
+
+
+{\ttfamily \#include $<$Common.\+h$>$}
+
+
+
+Inheritance diagram for Manual\+Clock\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=160pt]{classManualClock__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Manual\+Clock\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=160pt]{classManualClock__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classManualClock_aa52932a4108e37d485d040485baac47c}{Manual\+Clock}} (std\+::time\+\_\+t start\+Time=0)
+\item 
+std\+::time\+\_\+t \mbox{\hyperlink{classManualClock_ad536050e8f9ac62fcd902f4e72ca8c61}{now}} () const override
+\item 
+void \mbox{\hyperlink{classManualClock_ae9d36168033d0021a210d254f41bb483}{set\+Time}} (std\+::time\+\_\+t new\+Time)
+\item 
+void \mbox{\hyperlink{classManualClock_a5d9b0d8796572529aacd40684bf62ad0}{advance\+Seconds}} (long seconds)
+\item 
+void \mbox{\hyperlink{classManualClock_aa2f3a3298d06f402722d345b0a1c2ca8}{advance\+Days}} (int days)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classClock}{Clock}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classClock_ac1ddbca9092c61e98668473209f36b19}{\texorpdfstring{$\sim$}{\string~}\+Clock}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classManualClock_aa52932a4108e37d485d040485baac47c}\label{classManualClock_aa52932a4108e37d485d040485baac47c} 
+\index{ManualClock@{ManualClock}!ManualClock@{ManualClock}}
+\index{ManualClock@{ManualClock}!ManualClock@{ManualClock}}
+\doxysubsubsection{\texorpdfstring{ManualClock()}{ManualClock()}}
+{\footnotesize\ttfamily Manual\+Clock\+::\+Manual\+Clock (\begin{DoxyParamCaption}\item[{std\+::time\+\_\+t}]{start\+Time = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classManualClock_aa2f3a3298d06f402722d345b0a1c2ca8}\label{classManualClock_aa2f3a3298d06f402722d345b0a1c2ca8} 
+\index{ManualClock@{ManualClock}!advanceDays@{advanceDays}}
+\index{advanceDays@{advanceDays}!ManualClock@{ManualClock}}
+\doxysubsubsection{\texorpdfstring{advanceDays()}{advanceDays()}}
+{\footnotesize\ttfamily void Manual\+Clock\+::advance\+Days (\begin{DoxyParamCaption}\item[{int}]{days }\end{DoxyParamCaption})}
+
+\Hypertarget{classManualClock_a5d9b0d8796572529aacd40684bf62ad0}\label{classManualClock_a5d9b0d8796572529aacd40684bf62ad0} 
+\index{ManualClock@{ManualClock}!advanceSeconds@{advanceSeconds}}
+\index{advanceSeconds@{advanceSeconds}!ManualClock@{ManualClock}}
+\doxysubsubsection{\texorpdfstring{advanceSeconds()}{advanceSeconds()}}
+{\footnotesize\ttfamily void Manual\+Clock\+::advance\+Seconds (\begin{DoxyParamCaption}\item[{long}]{seconds }\end{DoxyParamCaption})}
+
+\Hypertarget{classManualClock_ad536050e8f9ac62fcd902f4e72ca8c61}\label{classManualClock_ad536050e8f9ac62fcd902f4e72ca8c61} 
+\index{ManualClock@{ManualClock}!now@{now}}
+\index{now@{now}!ManualClock@{ManualClock}}
+\doxysubsubsection{\texorpdfstring{now()}{now()}}
+{\footnotesize\ttfamily std\+::time\+\_\+t Manual\+Clock\+::now (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classClock_a516a7d3f4eb8a5248471a5a91c6e44a3}{Clock}}.
+
+\Hypertarget{classManualClock_ae9d36168033d0021a210d254f41bb483}\label{classManualClock_ae9d36168033d0021a210d254f41bb483} 
+\index{ManualClock@{ManualClock}!setTime@{setTime}}
+\index{setTime@{setTime}!ManualClock@{ManualClock}}
+\doxysubsubsection{\texorpdfstring{setTime()}{setTime()}}
+{\footnotesize\ttfamily void Manual\+Clock\+::set\+Time (\begin{DoxyParamCaption}\item[{std\+::time\+\_\+t}]{new\+Time }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{Common_8h}{Common.\+h}}\item 
+src/common/\mbox{\hyperlink{Clock_8cpp}{Clock.\+cpp}}\end{DoxyCompactItemize}
