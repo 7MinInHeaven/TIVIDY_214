@@ -8,11 +8,12 @@
 #include "ChainBuilder.h"
 #include "WorkflowBuilder.h"
 #include "Director.h"
+#include "WorkflowBlueprint.h"
 
 #include "ResendEmailAdapter.h"
 #include "BrevoEmailAdapter.h"
 
-WorkflowEngineFacade::WorkflowEngineFacade() : nextId(1) {
+WorkflowEngineFacade::WorkflowEngineFacade() : nextId(1), scenarioCatalog("src") {
   curl_global_init(CURL_GLOBAL_DEFAULT);
   dbObserver = new DatabaseObserver(nullptr, new PostgresAdapter(new PostgresAPI(), "workflow_audit_log", true),new SQLiteAdapter(new SQLiteAPI("tividy_local.db"), "workflow_audit_log", true));
 
@@ -39,6 +40,20 @@ void WorkflowEngineFacade::attachObserverToTree(WorkComponent* component) {
 
 //------------------------------------------
 
+/**
+ * @brief Refreshes the facade's runtime scenario catalog.
+ */
+std::vector<std::string> WorkflowEngineFacade::refreshScenarios() {
+  return scenarioCatalog.refresh();
+}
+
+/**
+ * @brief Returns the facade's currently discovered scenarios.
+ */
+const std::vector<WorkflowScenario>& WorkflowEngineFacade::listScenarios() const {
+  return scenarioCatalog.scenarios();
+}
+
 void WorkflowEngineFacade::submitRequest(WorkItem item) {
   std::string path = "src/service_blueprint.json";
   std::ifstream file(path);
@@ -48,12 +63,24 @@ void WorkflowEngineFacade::submitRequest(WorkItem item) {
   }
 
   if (!file) {
-    std::cerr << "couldn't find json file: " << path << "\n";
-    return;
+    path = "blueprint.json";
   }
 
+  submitRequest(item, path);
+}
+
+/**
+ * @brief Loads and executes one selected workflow blueprint.
+ */
+void WorkflowEngineFacade::submitRequest(
+    WorkItem item, const std::string& blueprintPath) {
   json data;
-  file >> data;
+  try {
+    data = WorkflowBlueprint::loadAndValidate(blueprintPath);
+  } catch (const BlueprintValidationError& error) {
+    std::cerr << "[Workflow error] " << error.what() << "\n";
+    return;
+  }
 
   WorkflowBuilder builder;
   Director director(&builder, &item, false);
