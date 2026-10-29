@@ -16,9 +16,6 @@
 #include <vector>
 
 class WorkMemento;
-
-
-
 class WorkComponent : public Handler, public WorkflowSubject {
 
     
@@ -45,6 +42,10 @@ public:
   virtual void accept(WorkVisitor& visitor) const = 0;
   virtual WorkComponent* clone() const override = 0;
 
+  virtual bool add(WorkComponent* child);
+  virtual void remove(WorkComponent* child);
+  virtual void remove(std::string name);
+  virtual std::vector<WorkComponent*> getChildren() const;
 
 
 private:
@@ -59,12 +60,12 @@ public:
   WorkGroup(const WorkGroup &other);
   ~WorkGroup() override;
 
-  bool add(WorkComponent* child);
+  bool add(WorkComponent* child) override;
 
-  void remove(WorkComponent *child);
-  void remove(std::string name);
+  void remove(WorkComponent *child) override;
+  void remove(std::string name) override;
 
-  std::vector<WorkComponent *> getChildren() const;
+  std::vector<WorkComponent *> getChildren() const override;
 
   virtual void accept(WorkVisitor &visitor) const override;
   virtual WorkGroup *clone() const;
