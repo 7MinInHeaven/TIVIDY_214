@@ -9,6 +9,9 @@
 #include "WorkflowBuilder.h"
 #include "Director.h"
 
+#include "ResendEmailAdapter.h"
+#include "BrevoEmailAdapter.h"
+
 WorkflowEngineFacade::WorkflowEngineFacade() : nextId(1) {
   curl_global_init(CURL_GLOBAL_DEFAULT);
   dbObserver = new DatabaseObserver(nullptr, new PostgresAdapter(new PostgresAPI(), "workflow_audit_log", true),new SQLiteAdapter(new SQLiteAPI("tividy_local.db"), "workflow_audit_log", true));
@@ -57,9 +60,11 @@ void WorkflowEngineFacade::submitRequest(WorkItem item) {
   director.construct(data);
   Handler* chainHead = builder.getResult();
   std::vector<WorkGroup*> workGroups = builder.getWorkGroups();   // we own these
+  
   for (size_t i = 0; i < workGroups.size(); i++) {
-  attachObserverToTree(workGroups[i]);
+    attachObserverToTree(workGroups[i]);
   }
+  
   std::cout << "\n=== Chain of Responsibility Execution (handleRequest across chained WorkGroups) ===\n";
   if (chainHead != nullptr) {
     chainHead->handleRequest(item);
@@ -76,52 +81,69 @@ void WorkflowEngineFacade::submitRequest(WorkItem item) {
     std::cout << pair.first << " -> " << pair.second << "\n";
   }
 
-  // 1. Setup Transport (Mailjet if credentials set, else Console)
+  // =========================================================
+  // 1. STRATEGY PATTERN: Setup Transport based on .env variables
+  // =========================================================
   unique_ptr<EmailTransport> transport;
-  const char *key = getenv("MJ_APIKEY_PUBLIC");
-  const char *secret = getenv("MJ_APIKEY_PRIVATE");
-  const char *from = getenv("MJ_FROM_EMAIL");
-  if (key && secret && from) {
-    bool sandbox = (getenv("MJ_SANDBOX") != nullptr);
-    cout << "[Init] Using Mailjet Adapter "
-         << (sandbox ? "(SANDBOX)" : "(LIVE)") << "\n";
-    transport.reset(
-        new MailjetEmailAdapter(key, secret, from, "TIVIDY Support", sandbox));
-  } else {
-    cout << "[Init] Missing Mailjet credentials. Using Console Adapter.\n";
-    transport.reset(new ConsoleEmailAdapter(cout));
+  
+  const char* resendKey = getenv("RESEND_API_KEY");
+  const char* brevoKey  = getenv("BREVO_API_KEY");
+  const char* mjKey     = getenv("MJ_APIKEY_PUBLIC");
+
+  if (resendKey) {
+      cout << "[Init] Strategy: Using Resend Adapter\n";
+      transport.reset(new ResendEmailAdapter(resendKey, getenv("RESEND_FROM_EMAIL")));
+  } 
+  else if (brevoKey) {
+      cout << "[Init] Strategy: Using Brevo Adapter\n";
+      transport.reset(new BrevoEmailAdapter(brevoKey, getenv("BREVO_FROM_EMAIL")));
+  } 
+  else if (mjKey) {
+      bool sandbox = (getenv("MJ_SANDBOX") != nullptr);
+      cout << "[Init] Strategy: Using Mailjet Adapter " << (sandbox ? "(SANDBOX)" : "(LIVE)") << "\n";
+      transport.reset(new MailjetEmailAdapter(mjKey, getenv("MJ_APIKEY_PRIVATE"), getenv("MJ_FROM_EMAIL"), "TIVIDY Support", sandbox));
+  } 
+  else {
+      cout << "[Init] Missing API credentials. Using Console Adapter.\n";
+      transport.reset(new ConsoleEmailAdapter(cout));
   }
+
   // 2. Setup Channels
   EmailChannel emailChannel(transport.get());
   AppChannel appChannel;
-  // 3. Fallback defaults matching teammate's original main
-  string customerEmail = item.hasData("email")
-                             ? item.getData("email")
-                             : "your-personal-email@gmail.com";
-  string supportAgentId =
-      item.hasData("agent_id") ? item.getData("agent_id") : "AGENT-442";
 
+  // 3. Extract data from the WorkItem
+  string customerEmail = item.hasData("customer_email") ? item.getData("customer_email") : 
+                         (item.hasData("email") ? item.getData("email") : "your-personal-email@gmail.com");
+                         
+  string supportAgentId = item.hasData("agent_id") ? item.getData("agent_id") : "AGENT-442";
+  string currentState = item.hasData("state") ? item.getData("state") : "Pending";
 
-        string currentState = item.hasData("state") ? item.getData("state") : "Pending";
   // 4. Create Notifications passing the WorkItem context
   ResultNotice emailResult(&emailChannel, &item, customerEmail, currentState);
   ResultNotice appResult(&appChannel, &item, supportAgentId, currentState);
   DeadlineNotice deadlineAlert(&appChannel, &item, supportAgentId, currentState);
+
   // 5. Send!
   emailResult.send();
   appResult.send();
   deadlineAlert.send();
-  // 6. Check for Mailjet Errors
+
+  // 6. Check for Errors from ANY of the adapters
   if (auto *mj = dynamic_cast<MailjetEmailAdapter *>(transport.get())) {
-    if (!mj->lastError().empty()) {
-      cerr << "\n[MAILJET ERROR] " << mj->lastError() << "\n";
-    }
+    if (!mj->lastError().empty()) cerr << "\n[MAILJET ERROR] " << mj->lastError() << "\n";
   }
+  else if (auto *rs = dynamic_cast<ResendEmailAdapter *>(transport.get())) {
+    if (!rs->lastError().empty()) cerr << "\n[RESEND ERROR] " << rs->lastError() << "\n";
+  }
+  else if (auto *br = dynamic_cast<BrevoEmailAdapter *>(transport.get())) {
+    if (!br->lastError().empty()) cerr << "\n[BREVO ERROR] " << br->lastError() << "\n";
+  }
+
   cout << "\n========================================\n";
   cout << "   All Notifications Processed          \n";
   cout << "========================================\n";
 }
-
 //----------------mo added-------------------------------------------------------------
 
 //finds a request or reports that it does not exist
