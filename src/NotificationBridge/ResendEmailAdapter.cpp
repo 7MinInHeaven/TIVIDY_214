@@ -29,7 +29,7 @@ bool ResendEmailAdapter::sendEmail(std::string to, std::string subject, std::str
     };
 
     // Resend uses Bearer token auth, not Basic Auth
-    MailjetHttpClient client("", ""); 
+    
     
     // Note: You may need to adapt your MailjetHttpClient to accept custom headers
     // for the Bearer token. For now, let's assume it supports it or we use a raw curl call.
@@ -40,10 +40,12 @@ bool ResendEmailAdapter::sendEmail(std::string to, std::string subject, std::str
     struct curl_slist* headers = nullptr;
     headers = curl_slist_append(headers, ("Authorization: Bearer " + apiKey_).c_str());
     headers = curl_slist_append(headers, "Content-Type: application/json");
+    // Save the dump to a variable so it doesn't get destroyed instantly
+    std::string jsonPayload = payload.dump();
 
     curl_easy_setopt(curl, CURLOPT_URL, "https://api.resend.com/emails");
     curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
-    curl_easy_setopt(curl, CURLOPT_POSTFIELDS, payload.dump().c_str());
+    curl_easy_setopt(curl, CURLOPT_POSTFIELDS, jsonPayload.c_str()); // Use the variable here!
     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writeCb);
     curl_easy_setopt(curl, CURLOPT_WRITEDATA, &readBuffer);
 
