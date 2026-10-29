@@ -81,12 +81,23 @@ int DatabaseObserver::syncDatabases(ExternalDatabase* fromDb, ExternalDatabase* 
         return 0;
     }
 
-    std::vector<std::string> records = fromDb->fetchAllRecords();
+    std::vector<std::string> sourceRecords = fromDb->fetchAllRecords();
+    std::vector<std::string> existingTargetRecords = toDb->fetchAllRecords();
     int syncedCount = 0;
 
-    for (size_t i = 0; i < records.size(); ++i) {
-        // each row from fetchAllRecords() is formatted: "task_id | task_name | state | payload"
-        const std::string& row = records[i];
+    for (size_t i = 0; i < sourceRecords.size(); ++i) {
+        const std::string& row = sourceRecords[i];
+
+        // skip if this exact record already exists in the target database
+        bool alreadyExists = false;
+        for (size_t j = 0; j < existingTargetRecords.size(); ++j) {
+            if (existingTargetRecords[j] == row) {
+                alreadyExists = true;
+                break;
+            }
+        }
+        if (alreadyExists) continue;
+
         size_t p1 = row.find(" | ");
         if (p1 == std::string::npos) continue;
         size_t p2 = row.find(" | ", p1 + 3);
@@ -100,6 +111,7 @@ int DatabaseObserver::syncDatabases(ExternalDatabase* fromDb, ExternalDatabase* 
         std::string payload = row.substr(p3 + 3);
 
         if (toDb->saveRecord(taskID, taskName, state, payload)) {
+            existingTargetRecords.push_back(row);
             syncedCount++;
         }
     }

@@ -1,4 +1,5 @@
 #include "WorkflowSubject.h"
+#include "Composite.h"
 #include <algorithm>
 
 WorkflowSubject::WorkflowSubject() {}
@@ -26,12 +27,12 @@ void WorkflowSubject::detach(WorkflowObserver* observer) {
 
 void WorkflowSubject::notify() {
     WorkComponent* comp = dynamic_cast<WorkComponent*>(this);
-    for (size_t i = 0; i < observers.size(); ++i) {
-        if (observers[i] != nullptr) {
+    for (size_t i = 0; i < observerList.size(); ++i) {
+        if (observerList[i] != nullptr) {
             if (comp != nullptr) {
-                observers[i]->setSubject(comp);
+                observerList[i]->setSubject(comp);
             }
-            observers[i]->update();
+            observerList[i]->update();
         }
     }
 }

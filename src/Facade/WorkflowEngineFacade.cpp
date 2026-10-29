@@ -11,8 +11,30 @@
 
 WorkflowEngineFacade::WorkflowEngineFacade() : nextId(1) {
   curl_global_init(CURL_GLOBAL_DEFAULT);
+  dbObserver = new DatabaseObserver(nullptr, new PostgresAdapter(new PostgresAPI(), "workflow_audit_log", true),new SQLiteAdapter(new SQLiteAPI("tividy_local.db"), "workflow_audit_log", true));
+
 }
-WorkflowEngineFacade::~WorkflowEngineFacade() { curl_global_cleanup(); }
+WorkflowEngineFacade::~WorkflowEngineFacade() {
+  curl_global_cleanup(); 
+  delete dbObserver;
+}
+
+
+//---------Robert added------------------
+void WorkflowEngineFacade::attachObserverToTree(WorkComponent* component) {
+  if (component == nullptr || dbObserver == nullptr) return;
+
+  component->attach(dbObserver); // attach to WorkGroup/Stage/SubProcess/WorkUnit
+
+  WorkGroup* group = dynamic_cast<WorkGroup*>(component);
+  if (group != nullptr) {
+    for (WorkComponent* child : group->getChildren()) {
+      attachObserverToTree(child); //attach to all children if exist
+    }
+  }
+}
+
+//------------------------------------------
 
 void WorkflowEngineFacade::submitRequest(WorkItem item) {
   std::string path = "src/blueprint.json";
@@ -35,6 +57,9 @@ void WorkflowEngineFacade::submitRequest(WorkItem item) {
   director.construct(data);
   Handler* chainHead = builder.getResult();
   std::vector<WorkGroup*> workGroups = builder.getWorkGroups();   // we own these
+  for (size_t i = 0; i < workGroups.size(); i++) {
+  attachObserverToTree(workGroups[i]);
+  }
   std::cout << "\n=== Chain of Responsibility Execution (handleRequest across chained WorkGroups) ===\n";
   if (chainHead != nullptr) {
     chainHead->handleRequest(item);

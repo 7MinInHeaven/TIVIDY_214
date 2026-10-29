@@ -6,7 +6,8 @@ class WorkComponent;
 class WorkflowObserver {
 public:
     virtual ~WorkflowObserver() {}
-     virtual void setSubject(WorkComponent*) {}
+    virtual void setSubject(WorkComponent*) {}
+    virtual void update() = 0;
 };
 
 #endif

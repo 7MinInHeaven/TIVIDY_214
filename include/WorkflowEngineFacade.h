@@ -54,6 +54,11 @@ class WorkflowService {
     const Request &find(int instanceId) const;
     int nextId; // mo, next request id to hand out
     map<int, Request> requests; //mo , all requests by id
+
+    //Robert's stuff
+    DatabaseObserver* dbObserver;
+    void attachObserverToTree(WorkComponent* component);
+
   public:
     WorkflowEngineFacade();
     ~WorkflowEngineFacade();
