@@ -83,11 +83,14 @@ valgrind --leak-check=full --show-leak-kinds=all --error-exitcode=1 ./build/bin/
 </details>
 
 <details>
-<summary><b> Docker (click to expand)</b></summary>
+<summary><b>Build and run with Docker (click to expand)</b></summary>
 
 ```bash
-# Build and run the application
+# Build the application
 sudo docker compose up --build
+
+#Run the application
+sudo docker compose run --rm --build tividy_app
 
 # Run unit tests inside the container
 sudo docker compose run --rm tividy_app ./build/bin/tividy_tests
