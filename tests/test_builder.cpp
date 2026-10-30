@@ -10,6 +10,7 @@
 #include "Handler.h"
 #include "WorkItem.h"
 #include "WorkflowBuilder.h"
+#include "Decorator.h"
 
 using json = nlohmann::json;
 
@@ -113,6 +114,56 @@ TEST(BuilderTest, WorkflowBuilderClonesIndependentWorkflowChain) {
     for (WorkGroup* clone : clones) {
         delete clone;
     }
+
+    for (WorkGroup* group : builder.getWorkGroups()) {
+        delete group;
+    }
+}
+
+/**
+ * @brief Verifies that Builder wraps the latest child with each decorator type.
+ */
+TEST(BuilderTest, WorkflowBuilderAddsDecoratorsToLatestChild) {
+    WorkflowBuilder builder;
+    builder.buildWorkGroup("Decorated Group");
+    builder.buildWorkUnit("Decorated Unit");
+
+    std::vector<std::string> requiredKeys;
+    requiredKeys.push_back("request_id");
+    builder.addDecorator("ValidatedTask", requiredKeys);
+    WorkComponent* validated = builder.getWorkGroups()[0]->getChildren()[0];
+    ValidatedTask* validatedTask = dynamic_cast<ValidatedTask*>(validated);
+    ASSERT_NE(validatedTask, nullptr);
+    EXPECT_EQ(validatedTask->getRuleCount(), 1u);
+
+    builder.addDecorator("AuditedTask");
+    WorkComponent* audited = builder.getWorkGroups()[0]->getChildren()[0];
+    EXPECT_NE(dynamic_cast<AuditedTask*>(audited), nullptr);
+
+    builder.addDecorator("PrioritisedTask");
+    WorkComponent* prioritised = builder.getWorkGroups()[0]->getChildren()[0];
+    EXPECT_NE(dynamic_cast<PrioritisedTask*>(prioritised), nullptr);
+
+    builder.endGroup();
+    for (WorkGroup* group : builder.getWorkGroups()) {
+        delete group;
+    }
+}
+
+/**
+ * @brief Verifies that invalid decorator requests fail explicitly.
+ */
+TEST(BuilderTest, WorkflowBuilderRejectsInvalidDecoratorRequests) {
+    WorkflowBuilder builder;
+    builder.buildWorkGroup("Decorator Group");
+
+    EXPECT_THROW(builder.addDecorator("AuditedTask"), std::logic_error);
+    EXPECT_THROW(builder.addDecorator("UnknownTask"), std::logic_error);
+
+    builder.buildWorkUnit("Decorated Unit");
+    EXPECT_THROW(builder.addDecorator("UnknownTask"), std::invalid_argument);
+
+    builder.endGroup();
     for (WorkGroup* group : builder.getWorkGroups()) {
         delete group;
     }
