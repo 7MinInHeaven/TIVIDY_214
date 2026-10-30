@@ -34,7 +34,7 @@ public:
 
 class ProgressReportVisitor : public WorkVisitor{
     public:
-    ProgressReportVisitor();
+    ProgressReportVisitor(std::string filename = "report");
     ~ProgressReportVisitor() override;
     void visit(const WorkUnit& item) override;
     void visit(const WorkGroup& item) override;

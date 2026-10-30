@@ -3,7 +3,7 @@
 #include "Decorator.h"
 #include <sstream>
 
-ProgressReportVisitor::ProgressReportVisitor() : output("report.html"){
+ProgressReportVisitor::ProgressReportVisitor(std::string filename) : output(filename + ".html"){
     output  << "<!DOCTYPE html>\n"
             << "<html lang=\"en\">\n"
             << "<head>\n"
@@ -23,11 +23,9 @@ ProgressReportVisitor::~ProgressReportVisitor(){
 void ProgressReportVisitor::visit(const WorkGroup& item){
     visitGroup(item);
 }
-
 void ProgressReportVisitor::visit(const Stage& item){
     visitGroup(item);
 }
-
 void ProgressReportVisitor::visit(const SubProcess& item){
     visitGroup(item);
 }
@@ -39,11 +37,11 @@ void ProgressReportVisitor::visit(const WorkUnit& item){
 
 void ProgressReportVisitor::visit(const PrioritisedTask& item){
     output  << item.getName() 
-            << "<span class=\"priority-color\" data-value=\"" << static_cast<int>(item.getPriority()) << "\">" << getPriorityString(item.getPriority())
-            << "</span>";
+            << "<div class=\"priority-color\" data-value=\"" << static_cast<int>(item.getPriority()) << "\">" << getPriorityString(item.getPriority())
+            << "</div>";
     if(item.hasDeadline()){
         if(item.isOverdue()){
-            output << "<span class=\"overdue\">OVERDUE</span>";
+            output << "<div class=\"overdue\">OVERDUE</div>";
         } else {
             output << formatSeconds(item.getSecondsRemaining());
         }
@@ -104,38 +102,53 @@ std::string ProgressReportVisitor::writeDoneCheck(bool complete){
 }
 
 void ProgressReportVisitor::writeChildren(std::vector<WorkComponent*>& children){
-    output << "<ul>";
 
     for(WorkComponent* child : children){
+        output << "<ul>";
         child->accept(*this);
+        output << "</ul>\n";
     }
-
-    output << "</ul>\n";
 }
 
 std::string ProgressReportVisitor::writeLog(const AuditLog* log){
     std::ostringstream output;
-    output << "<details><summary>Log</summary>\n";
 
+    output << "<details><summary>Log</summary>\n";
+    output  << "<table class=\"log-table\"\n>"
+            <<  "\t<thead>\n"
+            << "\t\t<tr>\n"
+            << "\t\t\t<th>ID</th>\n"
+            << "\t\t\t<th>Timestamp</th>\n"
+            << "\t\t\t<th>Message</th>\n"
+            << "\t\t</tr>\n"
+            << "\t</thead>\n";
+    
+    output << "\t<tbody>\n";
+    
     const std::vector<AuditEntry>& entries = log->getEntries();
     for(size_t i = 0; i < entries.size(); i++){
         const AuditEntry& entry = entries[i];
-        output  << "\t<ul>" << log->formatEntry(entry) <<  "</ul>\n";
+        output  << "\t\t<tr>\n"
+                <<  "<td>" << std::to_string(entry.sequenceNumber) << "</td>\n"
+                <<  "<td>" << formatTime(entry.timestamp) << "</td\n>"
+                <<  "<td>" << entry.message << "</td\n>"
+                << "\t\t</tr>\n";
     }
-
-    output << "</details>\n";
+    output  << "\t</tbody>\n"
+            << "</table>\n"
+            << "</details>\n";
     return output.str();
 }
 
 std::string ProgressReportVisitor::writeRules(const std::vector<std::shared_ptr<const ValidationRule>>& rules){
     std::ostringstream output;
-    output << "<details><summary>Log</summary>\n";
-
+    output  << "<details><summary>Log</summary>\n" 
+            << "\t<li>\n";
     for(std::shared_ptr<const ValidationRule> rule : rules){ //need to make sure this works with shared pointers
-        output << "\t<ul>" << rule->getMessage() << "</ul>\n";
+        output << "\t\t<ul>" << rule->getMessage() << "</ul>\n";
     }
-
-    output << "</details>\n";
+    output  << "\t</li>\n"
+            << "</details>\n";
     return output.str();
 }
 

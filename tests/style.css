@@ -1,6 +1,10 @@
+body{
+  font-family: 'Courier New', Courier, monospace;
+}
+
 .progress-circle {
-    --size: 150px;                 /* override per use, e.g. style="--size:56px" */
-    --thickness: 12px;
+    --size: 40px;                 /* override per use, e.g. style="--size:56px" */
+    --thickness: 4px;
     --track: #e0e0e0;
     --fill: #76e5b1;
     --progress: 0%;                /* must include the % sign */
@@ -34,24 +38,29 @@
     text-align: center;
 }
 
-.progress-value { font-size: calc(var(--size) * 0.22); font-weight: 700; }
-.done-total     { font-size: calc(var(--size) * 0.12); font-weight: 600; color: #818386; margin: 0; }
+.progress-value { font-size: calc(var(--size) * 0.30); font-weight: 700; }
+.done-total     { font-size: calc(var(--size) * 0.25); font-weight: 600; color: #818386; margin: 0; }
 
 .priority-color[data-value="0"]{
-  color: greenyellow;
+  background-color: greenyellow;
 }
 .priority-color[data-value="1"]{
-  color: green;
+  background-color: green;
 }
 .priority-color[data-value="2"]{
-  color: yellow;
+  background-color: yellow;
 }
 .priority-color[data-value="3"]{
-  color: red;
+  background-color: red;
 }
 
 .overdue{
-  color: darkred;
+  background-color: darkred;
+}
+
+.priority-color
+.overdue{
+  color: white;
 }
 
 

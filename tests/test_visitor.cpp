@@ -4,10 +4,10 @@
 #include "Decorator.h"
 
 TEST(VisitorTest, CreateVisitorButDontGenerateReport){
-    ProgressReportVisitor visitor;
+    ProgressReportVisitor visitor("tests/CreateButDontGenerateReport");
 }
 
-TEST(VisitorTest, CreateReportBasicReport){
+TEST(VisitorTest, CreateBasicReport){
     WorkGroup group("Test Group");
     Stage* stageProcesses = new Stage("Test Stage One");
     Stage* stageNoProcess = new Stage("Test Stage Two");
@@ -27,12 +27,12 @@ TEST(VisitorTest, CreateReportBasicReport){
     group.add(stageProcesses);
     group.add(stageNoProcess);
 
-    ProgressReportVisitor visitor;
+    ProgressReportVisitor visitor("tests/CreateBasicReport");
     visitor.createReport(&group);
 }
 
 TEST(VisitorTest, AllPriorityPrioritisedTask){
-    ProgressReportVisitor visitor;
+    ProgressReportVisitor visitor("tests/AllPriorityPrioritisedTask");
 
     SystemClock* clock = new SystemClock();
     WorkComponent* lowPrioritisedUnit = new PrioritisedTask(new WorkUnit("Test Unit Priority Low"), PriorityLevel::Low, 7, clock);
@@ -66,7 +66,7 @@ TEST(VisitorTest, AllRulesValidatedTask){
     validatedUnit->addRule(rangeRule);
     validatedUnit->addRule(emailRule);
 
-    ProgressReportVisitor visitor;
+    ProgressReportVisitor visitor("tests/AllRulesValidatedTask");
     WorkGroup group("Test Group");
 
     group.add(validatedUnit);
@@ -85,7 +85,7 @@ TEST(VisitorTest, LargeAuditAuditedTask){
 
     WorkComponent* auditedUnit = new AuditedTask(new WorkUnit("Test Unit Audit"), testLog);\
 
-    ProgressReportVisitor visitor;
+    ProgressReportVisitor visitor("tests/LargeAuditAuditedTask");
     WorkGroup group("Test Group");
 
     group.add(auditedUnit);
@@ -110,7 +110,7 @@ TEST(VisitorTest, AllDecoratedCombinationsUnit){
     TaskDecorator* priorityAuditValidateUnit = new PrioritisedTask(new AuditedTask(new ValidatedTask(new WorkUnit("Prioritised Audited Validated Test Unit"), status), log), level, days, clock);
     TaskDecorator* priorityValidateAuditUnit = new PrioritisedTask(new ValidatedTask(new AuditedTask(new WorkUnit("Prioritised Validated Audited Test Unit"), log), status), level, days, clock);
 
-    ProgressReportVisitor visitor;
+    ProgressReportVisitor visitor("tests/AllDecoratedCombinationsUnit");
     WorkGroup group("Test Group");
 
     group.add(auditValidatePriorityUnit);
@@ -133,7 +133,7 @@ TEST(VisitorTest, WorkGroupDecorated){
     TaskDecorator* auditedStage = new AuditedTask(new Stage("Audited Test Stage"), log);
     TaskDecorator* prioritisedStage = new PrioritisedTask(new Stage("Prioritised Test Stage"), PriorityLevel::Normal, 7, clock);
 
-    ProgressReportVisitor visitor;
+    ProgressReportVisitor visitor("tests/WorkGroupDecorated");
     WorkGroup group("Test Group");
 
     group.add(validatedStage);
