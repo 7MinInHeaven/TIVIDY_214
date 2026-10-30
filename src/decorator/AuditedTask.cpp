@@ -7,7 +7,7 @@ using namespace std;
 namespace {
 
 string statusOf(WorkComponent& task) {
-    WorkState* state = task.getState();
+    const WorkState* state = task.getState();
     return state != nullptr ? state->getStatus() : string("Unknown");
 }
 
@@ -35,6 +35,10 @@ void AuditedTask::nextState() {
         throw;
     }
     auditLog->record("[" + getName() + "] " + before + " -> " + statusOf(inner()));
+}
+ 
+void AuditedTask::accept(WorkVisitor& visitor) const {
+    visitor.visit(*this);
 }
 
 //-------- prototype --------

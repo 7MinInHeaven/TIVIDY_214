@@ -7,18 +7,15 @@
 #include "InProgressState.h"
 #include "Memento.h"
 #include "PendingState.h"
-#include "TEMP.h"
 #include "WorkItem.h"
 #include "WorkState.h"
 #include "WorkflowSubject.h"
+#include "WorkVisitor.h"
 #include <iostream>
 #include <string>
 #include <vector>
 
 class WorkMemento;
-
-
-
 class WorkComponent : public Handler, public WorkflowSubject {
 
     
@@ -28,29 +25,43 @@ public:
   virtual ~WorkComponent();
 
   // getters
-  virtual WorkState *getState() const; // mo
+  virtual const WorkState* getState() const; // mo
   virtual std::string getName() const; // mo
-  WorkItem *getItem() const;
+  virtual WorkItem* getItem() const;
+  virtual std::string getID() const;
+  virtual std::string getAssignedWorkerId() const;
+  virtual std::string getData(const std::string &key) const;
+  virtual PriorityLevel getPriority() const;
 
   // setters
   void setState(WorkState *state);
   virtual void setData(const std::string &key, const std::string &value); // mo
+  virtual bool assignTask(const std::string& workerID);
 
   // mo added virtual functions for decorator
-  virtual std::string getData(const std::string &key) const;
   virtual void nextState();
   virtual bool isComplete() const;
-  virtual PriorityLevel getPriority() const;
+  virtual bool startTask();
+  virtual bool completeTask();
 
-  virtual void accept(WorkVisitor& visitor) = 0;
+  virtual void accept(WorkVisitor& visitor) const = 0;
   virtual WorkComponent* clone() const override = 0;
 
+  virtual bool add(WorkComponent* child);
+  virtual void remove(WorkComponent* child);
+  virtual void remove(std::string name);
+  virtual const std::vector<WorkComponent*> getChildren() const;
 
 
-private:
+
+protected:
   WorkState *state;
   WorkItem *item;
   std::string name;
+  std::string taskID;
+  std::string assignedWorkerID;
+
+  std::string generateRandomID() const;
 };
 
 class WorkGroup : public WorkComponent {
@@ -59,25 +70,16 @@ public:
   WorkGroup(const WorkGroup &other);
   ~WorkGroup() override;
 
-  void add(Stage *child);
-  void add(SubProcess *child);
-  void add(WorkUnit *child);
+  bool add(WorkComponent* child) override;
+  void remove(WorkComponent *child) override;
+  void remove(std::string name) override;
+  const std::vector<WorkComponent *> getChildren() const override;
 
-  void remove(WorkComponent *child);
-  void remove(std::string name);
-
-  std::vector<WorkComponent *> getChildren() const;
-
-  virtual void accept(WorkVisitor &visitor);
+  virtual void accept(WorkVisitor &visitor) const override;
   virtual WorkGroup *clone() const;
 
   void handleRequest(WorkItem item);
-
-  // ensure proper division of composite classes
-protected:
-  void add(WorkComponent *child);
-
-    private:
+private:
     std::vector<WorkComponent*> children;
     void printTasks(WorkComponent* component);
     friend class WorkflowBuilder;
@@ -87,9 +89,7 @@ class Stage : public WorkGroup {
 public:
   Stage(std::string name);
 
-  void add(SubProcess *child);
-  void add(WorkUnit *child);
-  void accept(WorkVisitor &visitor) override;
+  void accept(WorkVisitor &visitor) const override;
   Stage *clone() const override;
 };
 
@@ -97,27 +97,16 @@ class SubProcess : public WorkGroup {
 public:
   SubProcess(std::string name);
 
-  void add(WorkUnit *child);
-  void accept(WorkVisitor &visitor) override;
+  void accept(WorkVisitor &visitor) const override;
   SubProcess *clone() const override;
 };
 
 class WorkUnit : public WorkComponent {
-private:
-  std::string taskId;
-  WorkState *currentState;
-  std::string assignedWorkerId;
-
 public:
-  WorkUnit(const std::string &taskId);
+  WorkUnit(std::string name);
   WorkMemento *createMemento();
   void setMemento(WorkMemento *memento);
-  bool startTask();
-  bool completeTask();
-  bool assignTask(const std::string &workerId);
-  std::string getTaskId();
-  std::string getAssignedWorkerId();
-  void accept(WorkVisitor &visitor) override;
+  void accept(WorkVisitor &visitor) const override;
   WorkUnit *clone() const override;
 };
 

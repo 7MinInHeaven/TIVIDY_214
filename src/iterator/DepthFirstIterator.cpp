@@ -1,0 +1,24 @@
+#include "Iterator.h"
+
+DepthFirstIterator::DepthFirstIterator(WorkComponent* root) : root(root){
+    recursive(root);
+}
+void DepthFirstIterator::first(){index = 0;}
+void DepthFirstIterator::next(){
+    if(!isDone()){
+        ++index;
+    }
+}
+bool DepthFirstIterator::isDone(){
+    return index >= elements.size();
+}
+void DepthFirstIterator::recursive(WorkComponent* node){
+    for(WorkComponent* c : node->getChildren()){
+        recursive(c);
+    }
+
+    elements.push_back(node);
+}
+WorkComponent* DepthFirstIterator::getCurrent(){
+    return isDone() ? nullptr : elements[index];
+} 

@@ -1,8 +1,15 @@
 #ifndef WORKFLOWENGINEFACADE_H
 #define WORKFLOWENGINEFACADE_H
 
+#include "Composite.h"
+#include "DatabaseObserver.h"
+#include "PostgresAdapter.h"
+#include "PostgresAPI.h"
+#include "SQLiteAdapter.h"
+#include "SQLiteAPI.h"
 #include "MailjetEmailAdapter.h"
 #include "NotificationBridge.h"
+#include "WorkflowScenarioCatalog.h"
 #include "WorkItem.h"
 #include <cstdlib>
 #include <curl/curl.h>
@@ -48,10 +55,39 @@ class WorkflowService {
     const Request &find(int instanceId) const;
     int nextId; // mo, next request id to hand out
     map<int, Request> requests; //mo , all requests by id
+
+    //Robert's stuff
+    DatabaseObserver* dbObserver;
+    WorkflowScenarioCatalog scenarioCatalog;
+    void attachObserverToTree(WorkComponent* component);
+
   public:
     WorkflowEngineFacade();
     ~WorkflowEngineFacade();
-    void submitRequest(WorkItem item);   // mo - old notification entry point kept so test_facade.cpp still works
+
+    /**
+     * @brief Refreshes the available JSON workflow scenarios.
+     * @return Errors encountered while skipping invalid scenario files.
+     */
+    std::vector<std::string> refreshScenarios();
+
+    /**
+     * @brief Returns the scenarios discovered by the last refresh.
+     */
+    const std::vector<WorkflowScenario>& listScenarios() const;
+
+    /**
+     * @brief Executes the default workflow blueprint.
+     */
+    void submitRequest(WorkItem item);
+
+    /**
+     * @brief Executes a selected workflow blueprint without changing the engine patterns.
+     * @param item Work item passed through the workflow.
+     * @param blueprintPath Validated scenario file to execute.
+     */
+    void submitRequest(WorkItem item, const std::string& blueprintPath);
+
     int submitRequest(int actorId, const std::map<std::string, std::string>& payload) override;
     void takeOwnership(int actorId, int instanceId) override;
     void completeTask(int actorId, int instanceId, int taskId) override;

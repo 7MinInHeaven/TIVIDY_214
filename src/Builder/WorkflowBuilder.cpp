@@ -24,7 +24,7 @@ void WorkflowBuilder::attach(WorkGroup* group)
     } 
     else 
     {
-        //attach nested processes to current Workgroup
+        //attach nested processes to current group
         WorkGroup* parent = currentGroup();
         parent->add(group);
     }
@@ -107,4 +107,25 @@ Handler* WorkflowBuilder::getResult()
 std::vector<WorkGroup*> WorkflowBuilder::getWorkGroups()
 {
     return workGroups;
+}
+
+/**
+ * @brief Clones workflow roots and reconnects their Chain of Responsibility.
+ */
+std::vector<WorkGroup*> WorkflowBuilder::cloneWorkGroups() const
+{
+    std::vector<WorkGroup*> clones;
+
+    for (WorkGroup* group : workGroups) {
+        WorkGroup* clone = dynamic_cast<WorkGroup*>(group->clone());
+        if (clone != nullptr) {
+            clones.push_back(clone);
+        }
+    }
+
+    for (size_t index = 1; index < clones.size(); ++index) {
+        clones[index - 1]->setNext(clones[index]);
+    }
+
+    return clones;
 }

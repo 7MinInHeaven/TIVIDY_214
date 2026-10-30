@@ -14,6 +14,7 @@
 #include <string>
 #include <vector>
 
+#include "WorkVisitor.h"
 #include "Common.h"
 #include "Composite.h"
 
@@ -84,16 +85,28 @@ class TaskDecorator : public WorkComponent {
         explicit TaskDecorator(WorkComponent* taskToWrap);
         virtual ~TaskDecorator();
 
-        WorkState* getState() const override;
+        const WorkState* getState() const override; //gabriel added const
         std::string getName() const override;
         void setData(const std::string& key, const std::string& value) override;
         std::string getData(const std::string& key) const override;
         void nextState() override;
         bool isComplete() const override;
         PriorityLevel getPriority() const override;
-        void accept(WorkVisitor& visitor) override;
+        virtual void accept(WorkVisitor& visitor) const override = 0;
 
-        WorkComponent* clone() const override = 0;
+        //gabriel added getters
+        WorkItem* getItem() const;
+        std::string getID() const;
+        std::string getAssignedWorkerId() const;
+        const std::vector<WorkComponent*> getChildren() const override;
+
+        //gabriel added task functions
+        virtual bool assignTask(const std::string& workerID);
+        virtual bool startTask();
+        virtual bool completeTask();
+
+
+        virtual WorkComponent* clone() const override = 0;
 
         WorkComponent* getWrappedTask() const;
 
@@ -120,7 +133,10 @@ class ValidatedTask : public TaskDecorator {
         bool validate(std::vector<std::string>& failureMessages);
         void nextState() override;
 
+        void accept(WorkVisitor& visitor) const override;
         WorkComponent* clone() const override;
+
+        const std::vector<std::shared_ptr<const ValidationRule>> getRules() const {return validationRules;} //gabriel
 
         const std::string& getGuardedStatus() const;
         std::size_t getRuleCount() const;
@@ -137,8 +153,10 @@ class AuditedTask : public TaskDecorator {
 
         AuditedTask(WorkComponent* taskToWrap, AuditLog* log);
         void nextState() override;
+        void accept(WorkVisitor& visitor) const override;
         WorkComponent* clone() const override;
 
+        const AuditLog* getLog() const {return auditLog;} //gabriel
     private:
         AuditLog* auditLog;
 };
@@ -161,6 +179,7 @@ class PrioritisedTask : public TaskDecorator {
         bool isOverdue() const;
         long getSecondsRemaining() const;
 
+        void accept(WorkVisitor& visitor) const override;
         WorkComponent* clone() const override;
 
     private:

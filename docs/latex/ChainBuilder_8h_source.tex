@@ -1,0 +1,30 @@
+\doxysection{Chain\+Builder.\+h}
+\hypertarget{ChainBuilder_8h_source}{}\label{ChainBuilder_8h_source}\index{include/ChainBuilder.h@{include/ChainBuilder.h}}
+\mbox{\hyperlink{ChainBuilder_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CHAINBUILDER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ CHAINBUILDER\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Composite_8h}{Composite.h}}"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classChainBuilder}{ChainBuilder}}\ \{}
+\DoxyCodeLine{00008\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classChainBuilder_af4674b8f54787aed1bb9311c2a363dde}{\string~ChainBuilder}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classChainBuilder_ac229485a6d2504ef3469872d39dcc3a0}{reset}}()\ =\ 0;}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classChainBuilder_ac926106c40eeb92e3b2aa8b6128a6162}{buildWorkGroup}}(\textcolor{keyword}{const}\ std::string\&\ workflowName)\ =\ 0;}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classChainBuilder_a5327136ddfe03489464184f72a745cbc}{buildStage}}(\textcolor{keyword}{const}\ std::string\&\ name)\ =\ 0;}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classChainBuilder_a8dffb6f83c8dd1ead67fd0cfe2717ebd}{buildSubProcess}}(\textcolor{keyword}{const}\ std::string\&\ name)\ =\ 0;}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classChainBuilder_ad4be1b4fab22ccde4e4080e5827310d7}{buildWorkUnit}}(\textcolor{keyword}{const}\ std::string\&\ name)\ =\ 0;}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{comment}{//\ virtual\ void\ addDecorator(const\ std::string\&\ type,const\ std::vector<std::string>\&\ requiredKeys\ =\ \{\})\ =\ 0;}}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{comment}{//\ virtual\ void\ addRule(const\ std::string\&\ key,const\ std::string\&\ op,const\ std::string\&\ value)\ =\ 0;}}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classChainBuilder_a1f9a26536b9548b780d2ede703570359}{endGroup}}()\ =\ 0;}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classHandler}{Handler}}*\ \mbox{\hyperlink{classChainBuilder_adb7b486352029dca3631deabed3a223e}{getResult}}()\ =\ 0;}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{virtual}\ std::vector<WorkGroup*>\ \mbox{\hyperlink{classChainBuilder_af3b9af93521364228819235b5c1e423c}{getWorkGroups}}()\ =\ 0;}
+\DoxyCodeLine{00022\ \};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ CHAINBUILDER\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

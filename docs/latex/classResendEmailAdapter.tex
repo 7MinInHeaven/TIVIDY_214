@@ -1,0 +1,72 @@
+\doxysection{Resend\+Email\+Adapter Class Reference}
+\hypertarget{classResendEmailAdapter}{}\label{classResendEmailAdapter}\index{ResendEmailAdapter@{ResendEmailAdapter}}
+
+
+{\ttfamily \#include $<$Resend\+Email\+Adapter.\+h$>$}
+
+
+
+Inheritance diagram for Resend\+Email\+Adapter\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=199pt]{classResendEmailAdapter__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Resend\+Email\+Adapter\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=199pt]{classResendEmailAdapter__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classResendEmailAdapter_a663aaa3b1f0aa64a3fe6f04893bb11c5}{Resend\+Email\+Adapter}} (std\+::string api\+Key, std\+::string from\+Email)
+\item 
+bool \mbox{\hyperlink{classResendEmailAdapter_abdf2d9dd7c5d65d44092cb9bd665edff}{send\+Email}} (std\+::string to, std\+::string subject, std\+::string body) override
+\item 
+std\+::string \mbox{\hyperlink{classResendEmailAdapter_adfbc2c3bc780d1d746dd05e8fbec23ba}{last\+Error}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classEmailTransport}{Email\+Transport}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classEmailTransport_a77962c395fbfd8e72cf3530d2611731c}{\texorpdfstring{$\sim$}{\string~}\+Email\+Transport}} ()=default
+\item 
+virtual bool \mbox{\hyperlink{classEmailTransport_a733cdcb5000839b5dd8d46d92e6a0590}{send\+Email}} (string to, string subject, string body)=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classResendEmailAdapter_a663aaa3b1f0aa64a3fe6f04893bb11c5}\label{classResendEmailAdapter_a663aaa3b1f0aa64a3fe6f04893bb11c5} 
+\index{ResendEmailAdapter@{ResendEmailAdapter}!ResendEmailAdapter@{ResendEmailAdapter}}
+\index{ResendEmailAdapter@{ResendEmailAdapter}!ResendEmailAdapter@{ResendEmailAdapter}}
+\doxysubsubsection{\texorpdfstring{ResendEmailAdapter()}{ResendEmailAdapter()}}
+{\footnotesize\ttfamily Resend\+Email\+Adapter\+::\+Resend\+Email\+Adapter (\begin{DoxyParamCaption}\item[{std\+::string}]{api\+Key,  }\item[{std\+::string}]{from\+Email }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classResendEmailAdapter_adfbc2c3bc780d1d746dd05e8fbec23ba}\label{classResendEmailAdapter_adfbc2c3bc780d1d746dd05e8fbec23ba} 
+\index{ResendEmailAdapter@{ResendEmailAdapter}!lastError@{lastError}}
+\index{lastError@{lastError}!ResendEmailAdapter@{ResendEmailAdapter}}
+\doxysubsubsection{\texorpdfstring{lastError()}{lastError()}}
+{\footnotesize\ttfamily std\+::string Resend\+Email\+Adapter\+::last\+Error (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classResendEmailAdapter_abdf2d9dd7c5d65d44092cb9bd665edff}\label{classResendEmailAdapter_abdf2d9dd7c5d65d44092cb9bd665edff} 
+\index{ResendEmailAdapter@{ResendEmailAdapter}!sendEmail@{sendEmail}}
+\index{sendEmail@{sendEmail}!ResendEmailAdapter@{ResendEmailAdapter}}
+\doxysubsubsection{\texorpdfstring{sendEmail()}{sendEmail()}}
+{\footnotesize\ttfamily bool Resend\+Email\+Adapter\+::send\+Email (\begin{DoxyParamCaption}\item[{std\+::string}]{to,  }\item[{std\+::string}]{subject,  }\item[{std\+::string}]{body }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{ResendEmailAdapter_8h}{Resend\+Email\+Adapter.\+h}}\item 
+src/\+Notification\+Bridge/\mbox{\hyperlink{ResendEmailAdapter_8cpp}{Resend\+Email\+Adapter.\+cpp}}\end{DoxyCompactItemize}

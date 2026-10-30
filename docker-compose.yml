@@ -4,5 +4,10 @@ services:
     container_name: tividy_app
     env_file:
       - .env   #so connection string can be accessed
+    # Keep runtime scenario files synchronized with the host during the demo.
+    volumes:
+      - ./src:/app/src
+    #volumes:
+      #- ./tividy_local.db:/app/tividy_local.db  remember to add volumes for local updates(demo)
     stdin_open: true
     tty: true

@@ -42,7 +42,10 @@ long PrioritisedTask::getSecondsRemaining() const {
     }
     return static_cast<long>(deadline - clock->now());
 }
-
+ 
+void PrioritisedTask::accept(WorkVisitor& visitor) const {
+    visitor.visit(*this);
+}
 
 WorkComponent* PrioritisedTask::clone() const {
     return new PrioritisedTask(getWrappedTask()->clone(), priorityLevel, slaDays, clock);

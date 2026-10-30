@@ -1,0 +1,158 @@
+\doxysection{Workflow\+Builder Class Reference}
+\hypertarget{classWorkflowBuilder}{}\label{classWorkflowBuilder}\index{WorkflowBuilder@{WorkflowBuilder}}
+
+
+{\ttfamily \#include $<$Workflow\+Builder.\+h$>$}
+
+
+
+Inheritance diagram for Workflow\+Builder\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=176pt]{classWorkflowBuilder__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Workflow\+Builder\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=176pt]{classWorkflowBuilder__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classWorkflowBuilder_aa0da4fba4f4b731e253bf5b0bc91af65}{Workflow\+Builder}} ()
+\item 
+\mbox{\hyperlink{classWorkflowBuilder_a2ffe85936f602d7e0ff2dbafec4fae61}{\texorpdfstring{$\sim$}{\string~}\+Workflow\+Builder}} ()
+\item 
+void \mbox{\hyperlink{classWorkflowBuilder_a18f91256edb9d2d2987e0af12270efde}{reset}} () override
+\item 
+void \mbox{\hyperlink{classWorkflowBuilder_ab0e8c2846be52291aef7bd092aac8909}{build\+Work\+Group}} (const std\+::string \&name) override
+\item 
+void \mbox{\hyperlink{classWorkflowBuilder_a47a94a49915ef3f3671d26cb203af773}{build\+Stage}} (const std\+::string \&name) override
+\item 
+void \mbox{\hyperlink{classWorkflowBuilder_a6d9706d9b1f1bf42d17b61e2175f3b25}{build\+Sub\+Process}} (const std\+::string \&name) override
+\item 
+void \mbox{\hyperlink{classWorkflowBuilder_a6a1b51b9c7a1595674c78617bc561346}{end\+Group}} () override
+\item 
+void \mbox{\hyperlink{classWorkflowBuilder_a3bb4768844ad4dec18151c7bd2cbdc50}{build\+Work\+Unit}} (const std\+::string \&name) override
+\item 
+\mbox{\hyperlink{classHandler}{Handler}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classWorkflowBuilder_a6b74afa15da553a9d29b9dbecade42ed}{get\+Result}} () override
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classWorkGroup}{Work\+Group}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classWorkflowBuilder_a7666b9fce4618eb38e6627b74268c336}{get\+Work\+Groups}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classChainBuilder}{Chain\+Builder}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classChainBuilder_af4674b8f54787aed1bb9311c2a363dde}{\texorpdfstring{$\sim$}{\string~}\+Chain\+Builder}} ()=default
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classWorkflowBuilder_aa0da4fba4f4b731e253bf5b0bc91af65}\label{classWorkflowBuilder_aa0da4fba4f4b731e253bf5b0bc91af65} 
+\index{WorkflowBuilder@{WorkflowBuilder}!WorkflowBuilder@{WorkflowBuilder}}
+\index{WorkflowBuilder@{WorkflowBuilder}!WorkflowBuilder@{WorkflowBuilder}}
+\doxysubsubsection{\texorpdfstring{WorkflowBuilder()}{WorkflowBuilder()}}
+{\footnotesize\ttfamily Workflow\+Builder\+::\+Workflow\+Builder (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classWorkflowBuilder_a2ffe85936f602d7e0ff2dbafec4fae61}\label{classWorkflowBuilder_a2ffe85936f602d7e0ff2dbafec4fae61} 
+\index{WorkflowBuilder@{WorkflowBuilder}!````~WorkflowBuilder@{\texorpdfstring{$\sim$}{\string~}WorkflowBuilder}}
+\index{````~WorkflowBuilder@{\texorpdfstring{$\sim$}{\string~}WorkflowBuilder}!WorkflowBuilder@{WorkflowBuilder}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}WorkflowBuilder()}{\string~WorkflowBuilder()}}
+{\footnotesize\ttfamily Workflow\+Builder\+::\texorpdfstring{$\sim$}{\string~}\+Workflow\+Builder (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classWorkflowBuilder_a47a94a49915ef3f3671d26cb203af773}\label{classWorkflowBuilder_a47a94a49915ef3f3671d26cb203af773} 
+\index{WorkflowBuilder@{WorkflowBuilder}!buildStage@{buildStage}}
+\index{buildStage@{buildStage}!WorkflowBuilder@{WorkflowBuilder}}
+\doxysubsubsection{\texorpdfstring{buildStage()}{buildStage()}}
+{\footnotesize\ttfamily void Workflow\+Builder\+::build\+Stage (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classChainBuilder_a5327136ddfe03489464184f72a745cbc}{Chain\+Builder}}.
+
+\Hypertarget{classWorkflowBuilder_a6d9706d9b1f1bf42d17b61e2175f3b25}\label{classWorkflowBuilder_a6d9706d9b1f1bf42d17b61e2175f3b25} 
+\index{WorkflowBuilder@{WorkflowBuilder}!buildSubProcess@{buildSubProcess}}
+\index{buildSubProcess@{buildSubProcess}!WorkflowBuilder@{WorkflowBuilder}}
+\doxysubsubsection{\texorpdfstring{buildSubProcess()}{buildSubProcess()}}
+{\footnotesize\ttfamily void Workflow\+Builder\+::build\+Sub\+Process (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classChainBuilder_a8dffb6f83c8dd1ead67fd0cfe2717ebd}{Chain\+Builder}}.
+
+\Hypertarget{classWorkflowBuilder_ab0e8c2846be52291aef7bd092aac8909}\label{classWorkflowBuilder_ab0e8c2846be52291aef7bd092aac8909} 
+\index{WorkflowBuilder@{WorkflowBuilder}!buildWorkGroup@{buildWorkGroup}}
+\index{buildWorkGroup@{buildWorkGroup}!WorkflowBuilder@{WorkflowBuilder}}
+\doxysubsubsection{\texorpdfstring{buildWorkGroup()}{buildWorkGroup()}}
+{\footnotesize\ttfamily void Workflow\+Builder\+::build\+Work\+Group (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classChainBuilder_ac926106c40eeb92e3b2aa8b6128a6162}{Chain\+Builder}}.
+
+\Hypertarget{classWorkflowBuilder_a3bb4768844ad4dec18151c7bd2cbdc50}\label{classWorkflowBuilder_a3bb4768844ad4dec18151c7bd2cbdc50} 
+\index{WorkflowBuilder@{WorkflowBuilder}!buildWorkUnit@{buildWorkUnit}}
+\index{buildWorkUnit@{buildWorkUnit}!WorkflowBuilder@{WorkflowBuilder}}
+\doxysubsubsection{\texorpdfstring{buildWorkUnit()}{buildWorkUnit()}}
+{\footnotesize\ttfamily void Workflow\+Builder\+::build\+Work\+Unit (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classChainBuilder_ad4be1b4fab22ccde4e4080e5827310d7}{Chain\+Builder}}.
+
+\Hypertarget{classWorkflowBuilder_a6a1b51b9c7a1595674c78617bc561346}\label{classWorkflowBuilder_a6a1b51b9c7a1595674c78617bc561346} 
+\index{WorkflowBuilder@{WorkflowBuilder}!endGroup@{endGroup}}
+\index{endGroup@{endGroup}!WorkflowBuilder@{WorkflowBuilder}}
+\doxysubsubsection{\texorpdfstring{endGroup()}{endGroup()}}
+{\footnotesize\ttfamily void Workflow\+Builder\+::end\+Group (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classChainBuilder_a1f9a26536b9548b780d2ede703570359}{Chain\+Builder}}.
+
+\Hypertarget{classWorkflowBuilder_a6b74afa15da553a9d29b9dbecade42ed}\label{classWorkflowBuilder_a6b74afa15da553a9d29b9dbecade42ed} 
+\index{WorkflowBuilder@{WorkflowBuilder}!getResult@{getResult}}
+\index{getResult@{getResult}!WorkflowBuilder@{WorkflowBuilder}}
+\doxysubsubsection{\texorpdfstring{getResult()}{getResult()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classHandler}{Handler}} \texorpdfstring{$\ast$}{*} Workflow\+Builder\+::get\+Result (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classChainBuilder_adb7b486352029dca3631deabed3a223e}{Chain\+Builder}}.
+
+\Hypertarget{classWorkflowBuilder_a7666b9fce4618eb38e6627b74268c336}\label{classWorkflowBuilder_a7666b9fce4618eb38e6627b74268c336} 
+\index{WorkflowBuilder@{WorkflowBuilder}!getWorkGroups@{getWorkGroups}}
+\index{getWorkGroups@{getWorkGroups}!WorkflowBuilder@{WorkflowBuilder}}
+\doxysubsubsection{\texorpdfstring{getWorkGroups()}{getWorkGroups()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classWorkGroup}{Work\+Group}} \texorpdfstring{$\ast$}{*} $>$ Workflow\+Builder\+::get\+Work\+Groups (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classChainBuilder_af3b9af93521364228819235b5c1e423c}{Chain\+Builder}}.
+
+\Hypertarget{classWorkflowBuilder_a18f91256edb9d2d2987e0af12270efde}\label{classWorkflowBuilder_a18f91256edb9d2d2987e0af12270efde} 
+\index{WorkflowBuilder@{WorkflowBuilder}!reset@{reset}}
+\index{reset@{reset}!WorkflowBuilder@{WorkflowBuilder}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void Workflow\+Builder\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classChainBuilder_ac229485a6d2504ef3469872d39dcc3a0}{Chain\+Builder}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{WorkflowBuilder_8h}{Workflow\+Builder.\+h}}\item 
+src/\+Builder/\mbox{\hyperlink{WorkflowBuilder_8cpp}{Workflow\+Builder.\+cpp}}\end{DoxyCompactItemize}

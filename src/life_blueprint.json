@@ -1,0 +1,227 @@
+{
+  "workflow_name": "TIVIDY Life Insurance Claims Workflow",
+  "required_inputs": [
+    {
+      "key": "policy_number",
+      "prompt": "Enter Policy Number (e.g. POL-99182)"
+    },
+    {
+      "key": "customer_email",
+      "prompt": "Enter Customer Email"
+    },
+    {
+      "key": "category",
+      "prompt": "Select Claim Sub-Category (DeathBenefit / AccidentalClaim / CriticalIllness)"
+    },
+    {
+      "key": "amount",
+      "prompt": "Enter Claimed Payout Amount in Rand (e.g. 300000)"
+    },
+    {
+      "key": "description",
+      "prompt": "Enter Claim Description and Reference Details"
+    }
+  ],
+  "chain": [
+    {
+      "type": "WorkGroup",
+      "name": "Step 1: IntakeHandler (Text Field Validation & Claim Registration)",
+      "children": [
+        {
+          "type": "WorkUnit",
+          "name": "Log incoming claim submission and initialize payload map"
+        },
+        {
+          "type": "Stage",
+          "name": "Stage 1A: Mandatory Payload Field Validation",
+          "children": [
+            {
+              "type": "WorkUnit",
+              "name": "Verify policy_number and customer_email are present and non-empty"
+            },
+            {
+              "type": "WorkUnit",
+              "name": "Verify category, amount, and description fields are present and non-empty"
+            },
+            {
+              "type": "SubProcess",
+              "name": "SubProcess 1A-1: Policy Standing & Initial Triage",
+              "children": [
+                {
+                  "type": "WorkUnit",
+                  "name": "Verify policy number and active status in policy registry"
+                },
+                {
+                  "type": "WorkUnit",
+                  "name": "Send intake validation confirmation or rejection notice to customer"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "WorkGroup",
+      "name": "Step 2: AssessmentHandler (Category-Based Team Routing & Checklist Execution)",
+      "children": [
+        {
+          "type": "WorkUnit",
+          "name": "Read category key and route claim to matching Life Insurance specialist queue"
+        },
+        {
+          "type": "Stage",
+          "name": "Stage 2A: Standard Death Benefit Checklist (DeathBenefit)",
+          "children": [
+            {
+              "type": "WorkUnit",
+              "name": "Verify policy number and active status"
+            },
+            {
+              "type": "WorkUnit",
+              "name": "Review chronology of events"
+            },
+            {
+              "type": "WorkUnit",
+              "name": "Check beneficiary reference details"
+            },
+            {
+              "type": "WorkUnit",
+              "name": "Confirm standard death benefit payout calculation"
+            }
+          ]
+        },
+        {
+          "type": "Stage",
+          "name": "Stage 2B: Accidental Death & Dismemberment Checklist (AccidentalClaim)",
+          "children": [
+            {
+              "type": "WorkUnit",
+              "name": "Complete standard policy review"
+            },
+            {
+              "type": "SubProcess",
+              "name": "SubProcess 2B-1: Incident & Contestability Investigation",
+              "children": [
+                {
+                  "type": "WorkUnit",
+                  "name": "Verify incident report and police reference number"
+                },
+                {
+                  "type": "WorkUnit",
+                  "name": "Check policy contestability and exclusion clauses"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Stage",
+          "name": "Stage 2C: Critical Illness & Disability Checklist (CriticalIllness)",
+          "children": [
+            {
+              "type": "WorkUnit",
+              "name": "Complete standard policy review"
+            },
+            {
+              "type": "SubProcess",
+              "name": "SubProcess 2C-1: Parallel Medical Diagnosis Code Check",
+              "children": [
+                {
+                  "type": "WorkUnit",
+                  "name": "Verify attending specialist medical diagnosis code"
+                },
+                {
+                  "type": "WorkUnit",
+                  "name": "Confirm severity meets critical illness or permanent disability criteria"
+                }
+              ]
+            },
+            {
+              "type": "SubProcess",
+              "name": "SubProcess 2C-2: Parallel Hospital & Living Benefit Calculation",
+              "children": [
+                {
+                  "type": "WorkUnit",
+                  "name": "Calculate hospital benefit and living payout amount"
+                },
+                {
+                  "type": "WorkUnit",
+                  "name": "Verify benefit cap and waiting period compliance"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "WorkUnit",
+          "name": "Record specialist response_email outcome message in payload map"
+        }
+      ]
+    },
+    {
+      "type": "WorkGroup",
+      "name": "Step 3: ApprovalHandler (Amount-Based Sign-Off & Final Settlement)",
+      "children": [
+        {
+          "type": "Stage",
+          "name": "Stage 3A: TeamLeadApprovalHandler (Claims Up to R250,000)",
+          "children": [
+            {
+              "type": "WorkUnit",
+              "name": "Check claimed amount against R250,000 first-level approval threshold"
+            },
+            {
+              "type": "SubProcess",
+              "name": "SubProcess 3A-1: Life Team Lead Sign-Off",
+              "children": [
+                {
+                  "type": "WorkUnit",
+                  "name": "Confirm all assigned specialist checklist tasks are completed"
+                },
+                {
+                  "type": "WorkUnit",
+                  "name": "Sign off claim up to R250,000 or escalate higher amounts to Senior Claims Manager"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Stage",
+          "name": "Stage 3B: SeniorManagerApprovalHandler (Claims Above R250,000)",
+          "children": [
+            {
+              "type": "SubProcess",
+              "name": "SubProcess 3B-1: Senior Claims Manager High-Value Review",
+              "children": [
+                {
+                  "type": "WorkUnit",
+                  "name": "Audit high-value payout calculation and regulatory compliance logs"
+                },
+                {
+                  "type": "WorkUnit",
+                  "name": "Record Senior Claims Manager final executive approval"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Stage",
+          "name": "Stage 3C: Database Persistence & Customer Notification",
+          "children": [
+            {
+              "type": "WorkUnit",
+              "name": "Persist final claim state and audit history to cloud PostgreSQL database"
+            },
+            {
+              "type": "WorkUnit",
+              "name": "Dispatch final ResultNotice outcome email and in-app alert"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

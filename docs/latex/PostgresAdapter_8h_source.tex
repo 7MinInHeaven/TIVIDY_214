@@ -1,0 +1,33 @@
+\doxysection{Postgres\+Adapter.\+h}
+\hypertarget{PostgresAdapter_8h_source}{}\label{PostgresAdapter_8h_source}\index{include/PostgresAdapter.h@{include/PostgresAdapter.h}}
+\mbox{\hyperlink{PostgresAdapter_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ POSTGRESADAPTER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ POSTGRESADAPTER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ExternalDatabase_8h}{ExternalDatabase.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{PostgresAPI_8h}{PostgresAPI.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classPostgresAdapter}{PostgresAdapter}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classExternalDatabase}{ExternalDatabase}}\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00011\ \ \ \ \ \mbox{\hyperlink{classPostgresAPI}{PostgresAPI}}*\ pgApi;\textcolor{comment}{//}}
+\DoxyCodeLine{00012\ \ \ \ \ std::string\ tableName;}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{bool}\ ownsAPI;}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ std::string\ rmvQuotes(\textcolor{keyword}{const}\ std::string\&\ input)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{classPostgresAdapter}{PostgresAdapter}}(\mbox{\hyperlink{classPostgresAPI}{PostgresAPI}}*\ pgApi,\ std::string\ table\ =\ \textcolor{stringliteral}{"{}workflow\_audit\_log"{}},\ \textcolor{keywordtype}{bool}\ takeOwnership\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classPostgresAdapter_ade8e24028899fa0f54333aa6fa8ce510}{\string~PostgresAdapter}}();}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classPostgresAdapter_af080462101e29451e7f99fde41736293}{saveRecord}}(\textcolor{keywordtype}{int}\ taskID,\ std::string\ taskName,\ std::string\ state,\ std::string\ payload)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ \mbox{\hyperlink{classPostgresAdapter_a152cf664e65b1e64c6107d1cdde0739b}{getRecordState}}(std::string\ taskName)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{virtual}\ std::vector<std::string>\ \mbox{\hyperlink{classPostgresAdapter_ac93e310b76b3c92d6b79e5925a956fba}{fetchAllRecords}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classPostgresAdapter_ae7677db7ca14c8bbb3ae0e1b48379c49}{isConnected}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00025\ \};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

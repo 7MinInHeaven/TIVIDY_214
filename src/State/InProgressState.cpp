@@ -9,7 +9,7 @@ void InProgressState::handleUpdate(WorkComponent* context)
     context->setState(new CompletedState());
 }
 
-std::string InProgressState::getStatus()
+std::string InProgressState::getStatus() const
 {
     return "In Progress";
 }

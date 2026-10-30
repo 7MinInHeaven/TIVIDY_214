@@ -1,0 +1,118 @@
+\doxysection{Database\+Observer Class Reference}
+\hypertarget{classDatabaseObserver}{}\label{classDatabaseObserver}\index{DatabaseObserver@{DatabaseObserver}}
+
+
+{\ttfamily \#include $<$Database\+Observer.\+h$>$}
+
+
+
+Inheritance diagram for Database\+Observer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=187pt]{classDatabaseObserver__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Database\+Observer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=187pt]{classDatabaseObserver__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classDatabaseObserver_a4749650d8a08bdea68e4f75a80f3d32a}{Database\+Observer}} (\mbox{\hyperlink{classWorkComponent}{Work\+Component}} \texorpdfstring{$\ast$}{*}subj, \mbox{\hyperlink{classExternalDatabase}{External\+Database}} \texorpdfstring{$\ast$}{*}db, \mbox{\hyperlink{classExternalDatabase}{External\+Database}} \texorpdfstring{$\ast$}{*}fallback\+Db=nullptr)
+\item 
+virtual \mbox{\hyperlink{classDatabaseObserver_a022f29c8c2bc32d4861a625d9464f0d7}{\texorpdfstring{$\sim$}{\string~}\+Database\+Observer}} ()
+\item 
+virtual void \mbox{\hyperlink{classDatabaseObserver_acc02a3c97d65bb3504ddbdbe4e983841}{update}} () override
+\item 
+std\+::string \mbox{\hyperlink{classDatabaseObserver_aef162a38a762b211f16cafbff7094deb}{get\+Last\+Synced\+State}} () const
+\item 
+void \mbox{\hyperlink{classDatabaseObserver_a66f6cbcf6f2fc5f1672ab8badda344c9}{set\+Subject}} (\mbox{\hyperlink{classWorkComponent}{Work\+Component}} \texorpdfstring{$\ast$}{*}s)
+\item 
+void \mbox{\hyperlink{classDatabaseObserver_aed576c88ac097ca2db75224e635490b8}{set\+Database\+Strategy}} (\mbox{\hyperlink{classExternalDatabase}{External\+Database}} \texorpdfstring{$\ast$}{*}db)
+\item 
+\mbox{\hyperlink{classExternalDatabase}{External\+Database}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classDatabaseObserver_aea2c6dd5c74079a25cb0e5b5d02dceb0}{select\+Best\+Strategy}} () const
+\item 
+int \mbox{\hyperlink{classDatabaseObserver_a16de7e63c9b7c7a163f81ef3cb1ef851}{sync\+Databases}} (\mbox{\hyperlink{classExternalDatabase}{External\+Database}} \texorpdfstring{$\ast$}{*}from\+Db, \mbox{\hyperlink{classExternalDatabase}{External\+Database}} \texorpdfstring{$\ast$}{*}to\+Db)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classWorkflowObserver}{Workflow\+Observer}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classWorkflowObserver_a83aa588eedad3137543bc9fd8c7e507e}{\texorpdfstring{$\sim$}{\string~}\+Workflow\+Observer}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classDatabaseObserver_a4749650d8a08bdea68e4f75a80f3d32a}\label{classDatabaseObserver_a4749650d8a08bdea68e4f75a80f3d32a} 
+\index{DatabaseObserver@{DatabaseObserver}!DatabaseObserver@{DatabaseObserver}}
+\index{DatabaseObserver@{DatabaseObserver}!DatabaseObserver@{DatabaseObserver}}
+\doxysubsubsection{\texorpdfstring{DatabaseObserver()}{DatabaseObserver()}}
+{\footnotesize\ttfamily Database\+Observer\+::\+Database\+Observer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classWorkComponent}{Work\+Component}} \texorpdfstring{$\ast$}{*}}]{subj,  }\item[{\mbox{\hyperlink{classExternalDatabase}{External\+Database}} \texorpdfstring{$\ast$}{*}}]{db,  }\item[{\mbox{\hyperlink{classExternalDatabase}{External\+Database}} \texorpdfstring{$\ast$}{*}}]{fallback\+Db = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+\Hypertarget{classDatabaseObserver_a022f29c8c2bc32d4861a625d9464f0d7}\label{classDatabaseObserver_a022f29c8c2bc32d4861a625d9464f0d7} 
+\index{DatabaseObserver@{DatabaseObserver}!````~DatabaseObserver@{\texorpdfstring{$\sim$}{\string~}DatabaseObserver}}
+\index{````~DatabaseObserver@{\texorpdfstring{$\sim$}{\string~}DatabaseObserver}!DatabaseObserver@{DatabaseObserver}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}DatabaseObserver()}{\string~DatabaseObserver()}}
+{\footnotesize\ttfamily Database\+Observer\+::\texorpdfstring{$\sim$}{\string~}\+Database\+Observer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classDatabaseObserver_aef162a38a762b211f16cafbff7094deb}\label{classDatabaseObserver_aef162a38a762b211f16cafbff7094deb} 
+\index{DatabaseObserver@{DatabaseObserver}!getLastSyncedState@{getLastSyncedState}}
+\index{getLastSyncedState@{getLastSyncedState}!DatabaseObserver@{DatabaseObserver}}
+\doxysubsubsection{\texorpdfstring{getLastSyncedState()}{getLastSyncedState()}}
+{\footnotesize\ttfamily std\+::string Database\+Observer\+::get\+Last\+Synced\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classDatabaseObserver_aea2c6dd5c74079a25cb0e5b5d02dceb0}\label{classDatabaseObserver_aea2c6dd5c74079a25cb0e5b5d02dceb0} 
+\index{DatabaseObserver@{DatabaseObserver}!selectBestStrategy@{selectBestStrategy}}
+\index{selectBestStrategy@{selectBestStrategy}!DatabaseObserver@{DatabaseObserver}}
+\doxysubsubsection{\texorpdfstring{selectBestStrategy()}{selectBestStrategy()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classExternalDatabase}{External\+Database}} \texorpdfstring{$\ast$}{*} Database\+Observer\+::select\+Best\+Strategy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classDatabaseObserver_aed576c88ac097ca2db75224e635490b8}\label{classDatabaseObserver_aed576c88ac097ca2db75224e635490b8} 
+\index{DatabaseObserver@{DatabaseObserver}!setDatabaseStrategy@{setDatabaseStrategy}}
+\index{setDatabaseStrategy@{setDatabaseStrategy}!DatabaseObserver@{DatabaseObserver}}
+\doxysubsubsection{\texorpdfstring{setDatabaseStrategy()}{setDatabaseStrategy()}}
+{\footnotesize\ttfamily void Database\+Observer\+::set\+Database\+Strategy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classExternalDatabase}{External\+Database}} \texorpdfstring{$\ast$}{*}}]{db }\end{DoxyParamCaption})}
+
+\Hypertarget{classDatabaseObserver_a66f6cbcf6f2fc5f1672ab8badda344c9}\label{classDatabaseObserver_a66f6cbcf6f2fc5f1672ab8badda344c9} 
+\index{DatabaseObserver@{DatabaseObserver}!setSubject@{setSubject}}
+\index{setSubject@{setSubject}!DatabaseObserver@{DatabaseObserver}}
+\doxysubsubsection{\texorpdfstring{setSubject()}{setSubject()}}
+{\footnotesize\ttfamily void Database\+Observer\+::set\+Subject (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classWorkComponent}{Work\+Component}} \texorpdfstring{$\ast$}{*}}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classWorkflowObserver_a719a26df6c681b7224e73827ffb488bd}{Workflow\+Observer}}.
+
+\Hypertarget{classDatabaseObserver_a16de7e63c9b7c7a163f81ef3cb1ef851}\label{classDatabaseObserver_a16de7e63c9b7c7a163f81ef3cb1ef851} 
+\index{DatabaseObserver@{DatabaseObserver}!syncDatabases@{syncDatabases}}
+\index{syncDatabases@{syncDatabases}!DatabaseObserver@{DatabaseObserver}}
+\doxysubsubsection{\texorpdfstring{syncDatabases()}{syncDatabases()}}
+{\footnotesize\ttfamily int Database\+Observer\+::sync\+Databases (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classExternalDatabase}{External\+Database}} \texorpdfstring{$\ast$}{*}}]{from\+Db,  }\item[{\mbox{\hyperlink{classExternalDatabase}{External\+Database}} \texorpdfstring{$\ast$}{*}}]{to\+Db }\end{DoxyParamCaption})}
+
+\Hypertarget{classDatabaseObserver_acc02a3c97d65bb3504ddbdbe4e983841}\label{classDatabaseObserver_acc02a3c97d65bb3504ddbdbe4e983841} 
+\index{DatabaseObserver@{DatabaseObserver}!update@{update}}
+\index{update@{update}!DatabaseObserver@{DatabaseObserver}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Database\+Observer\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classWorkflowObserver_accbefdab0fdea492f27d3dcd6bf3ebee}{Workflow\+Observer}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{DatabaseObserver_8h}{Database\+Observer.\+h}}\item 
+src/\+Database observeradapterstrategy/\mbox{\hyperlink{DatabaseObserver_8cpp}{Database\+Observer.\+cpp}}\end{DoxyCompactItemize}

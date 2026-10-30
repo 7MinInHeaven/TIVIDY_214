@@ -7,7 +7,7 @@ class CompletedState : public WorkState {
 public: 
     CompletedState();    
     void handleUpdate(WorkComponent* context);
-    std::string getStatus() override;
+    std::string getStatus() const override;
     WorkState* clone() override;
     virtual ~CompletedState();
 };
