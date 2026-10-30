@@ -1,4 +1,5 @@
 #include "Composite.h"
+#include "Command.h"
 
 WorkGroup::WorkGroup(std::string name) : WorkComponent(name) {}
 WorkGroup::WorkGroup(const WorkGroup& other) : WorkComponent(other){
@@ -81,7 +82,56 @@ void WorkGroup::printTasks(WorkComponent* component)
 
 void WorkGroup::handleRequest(WorkItem item)
 {
-    std::cout << "stage: " << getName() << "\n";
-    printTasks(this);                         
+    std::cout << "Work Group: " + getName() + " is starting\n";
+    ActionExecutor ae;
+
+
+    ae.executeCommand(new StartTaskCommand(this));
+
+    std::cout << "Have you completed " + getName() +"?\n";
+    std::string input;
+    std::cin >> input;
+    if (input == "Y")
+    {
+        ae.executeCommand(new CompleteTaskCommand(this));
+        printTasks(this);                         
+       
+    }
     Handler::handleRequest(item);
+        
 }
+
+
+// WorkMemento* WorkGroup::createMemento() {
+//   return new WorkMemento(0, state, 0);
+// }
+
+// void WorkGroup::setMemento(WorkMemento* memento) {
+//   if (!memento)
+//     return;
+//   taskId = memento->taskId;
+//   currentState = memento->currentState;
+//   assignedWorkerId = memento->assignedWorkerId;
+// }
+
+
+bool WorkGroup::startTask() {
+  if (state) {
+    state->handleUpdate(this);
+  }
+  return true;
+}
+
+bool WorkGroup::completeTask() {
+  if (state) {
+    state->handleUpdate(this);
+  }
+  return true;
+}
+
+bool WorkGroup::assignTask(const std::string &task) {
+  name = task;
+  return true;
+}
+
+

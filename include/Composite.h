@@ -52,6 +52,12 @@ public:
   virtual void remove(std::string name);
   virtual const std::vector<WorkComponent*> getChildren() const;
 
+  //changed commands to be connected to each task
+  virtual WorkMemento *createMemento() =0;
+  virtual void setMemento(WorkMemento *memento) =0;
+  virtual bool startTask() =0;
+  virtual bool completeTask() =0;
+  virtual bool assignTask(const std::string &workerId) =0;
 
 
 protected:
@@ -80,9 +86,20 @@ public:
 
   void handleRequest(WorkItem item);
 private:
-    std::vector<WorkComponent*> children;
+
+  //WorkMemento *createMemento() override;
+  //void setMemento(WorkMemento *memento) override;
+  bool startTask() override;
+  bool completeTask() override;
+  bool assignTask(const std::string &workerId) override;
+  std::vector<WorkComponent*> children;
     void printTasks(WorkComponent* component);
     friend class WorkflowBuilder;
+
+  // ensure proper division of composite classes
+protected:
+
+    
 };
 
 class Stage : public WorkGroup {
@@ -103,11 +120,18 @@ public:
 
 class WorkUnit : public WorkComponent {
 public:
-  WorkUnit(std::string name);
   WorkMemento *createMemento();
   void setMemento(WorkMemento *memento);
+  WorkUnit(const std::string &taskId);
+  std::string getTaskId();
+  std::string getAssignedWorkerId();
   void accept(WorkVisitor &visitor) const override;
   WorkUnit *clone() const override;
+  WorkMemento *createMemento() override;
+  void setMemento(WorkMemento *memento) override;
+  bool startTask() override;
+  bool completeTask() override;
+  bool assignTask(const std::string &workerId) override;
 };
 
 #endif

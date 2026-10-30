@@ -6,7 +6,9 @@ WorkUnit::WorkUnit(std::string name) : WorkComponent(name){}
 
 
 WorkMemento* WorkUnit::createMemento() {
-  return new WorkMemento(taskID, state, assignedWorkerID);
+
+return new WorkMemento(taskId, currentState, assignedWorkerId);
+
 }
 
 void WorkUnit::setMemento(WorkMemento* memento) {
