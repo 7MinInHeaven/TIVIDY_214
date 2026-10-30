@@ -23,104 +23,108 @@
 \DoxyCodeLine{00019\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classAuditedTask}{AuditedTask}};}
 \DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Common_8h}{Common.h}}"{}}}
 \DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ }
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classWorkVisitor}{WorkVisitor}}\ \{}
-\DoxyCodeLine{00025\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classWorkVisitor_a5aeb1b6f5834787ef3f03560dd9e866d}{\string~WorkVisitor}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkVisitor_a038ac268b2b9d36872edf7a05698a593}{visit}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classWorkUnit}{WorkUnit}}\&\ item)\ =\ 0;}
-\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkVisitor_a372e7344d82d08e2b5ba32e05360eb75}{visit}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classWorkGroup}{WorkGroup}}\&\ item)\ =\ 0;}
-\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkVisitor_aa3ab41248503b7c8438b46272603cc28}{visit}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classStage}{Stage}}\&\ item)\ =\ 0;}
-\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkVisitor_acac6a80d134f520161ce04c2b622de89}{visit}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classSubProcess}{SubProcess}}\&\ item)\ =\ 0;}
-\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkVisitor_a004f022ddf5bf9dc7fa40a4b157ff3e0}{visit}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classPrioritisedTask}{PrioritisedTask}}\&\ item)\ =\ 0;}
-\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkVisitor_a3da837c431292429032f1c36b7bdb39b}{visit}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classAuditedTask}{AuditedTask}}\&\ item)\ =\ 0;}
-\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkVisitor_a755f09bf3c866ea32af9e6c68dcfd151}{visit}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classValidatedTask}{ValidatedTask}}\&\ item)\ =\ 0;}
-\DoxyCodeLine{00035\ \};}
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classProgressReportVisitor}{ProgressReportVisitor}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classWorkVisitor}{WorkVisitor}}\{}
-\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{classProgressReportVisitor_a5e82425e058f7205cf2a4c5537e5889a}{ProgressReportVisitor}}();}
-\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{classProgressReportVisitor_a49dc9ac426e9f397918364e6015b99c3}{\string~ProgressReportVisitor}}()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classProgressReportVisitor_a26384c14facf02a3e27229a617e830a4}{visit}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classWorkUnit}{WorkUnit}}\&\ item)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classProgressReportVisitor_a26384c14facf02a3e27229a617e830a4}{visit}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classWorkGroup}{WorkGroup}}\&\ item)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classProgressReportVisitor_a26384c14facf02a3e27229a617e830a4}{visit}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classStage}{Stage}}\&\ item)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classProgressReportVisitor_a26384c14facf02a3e27229a617e830a4}{visit}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classSubProcess}{SubProcess}}\&\ item)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classProgressReportVisitor_a26384c14facf02a3e27229a617e830a4}{visit}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classPrioritisedTask}{PrioritisedTask}}\&\ item)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classProgressReportVisitor_a26384c14facf02a3e27229a617e830a4}{visit}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classAuditedTask}{AuditedTask}}\&\ item)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classProgressReportVisitor_a26384c14facf02a3e27229a617e830a4}{visit}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classValidatedTask}{ValidatedTask}}\&\ item)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classWorkVisitor}{WorkVisitor}}\ \{}
+\DoxyCodeLine{00023\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classWorkVisitor_a5aeb1b6f5834787ef3f03560dd9e866d}{\string~WorkVisitor}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkVisitor_a038ac268b2b9d36872edf7a05698a593}{visit}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classWorkUnit}{WorkUnit}}\&\ item)\ =\ 0;}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkVisitor_a372e7344d82d08e2b5ba32e05360eb75}{visit}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classWorkGroup}{WorkGroup}}\&\ item)\ =\ 0;}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkVisitor_aa3ab41248503b7c8438b46272603cc28}{visit}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classStage}{Stage}}\&\ item)\ =\ 0;}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkVisitor_acac6a80d134f520161ce04c2b622de89}{visit}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classSubProcess}{SubProcess}}\&\ item)\ =\ 0;}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkVisitor_a004f022ddf5bf9dc7fa40a4b157ff3e0}{visit}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classPrioritisedTask}{PrioritisedTask}}\&\ item)\ =\ 0;}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkVisitor_a3da837c431292429032f1c36b7bdb39b}{visit}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classAuditedTask}{AuditedTask}}\&\ item)\ =\ 0;}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkVisitor_a755f09bf3c866ea32af9e6c68dcfd151}{visit}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classValidatedTask}{ValidatedTask}}\&\ item)\ =\ 0;}
+\DoxyCodeLine{00033\ \};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classProgressReportVisitor}{ProgressReportVisitor}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classWorkVisitor}{WorkVisitor}}\{}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{classProgressReportVisitor_a5e82425e058f7205cf2a4c5537e5889a}{ProgressReportVisitor}}();}
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{classProgressReportVisitor_a49dc9ac426e9f397918364e6015b99c3}{\string~ProgressReportVisitor}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classProgressReportVisitor_a26384c14facf02a3e27229a617e830a4}{visit}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classWorkUnit}{WorkUnit}}\&\ item)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classProgressReportVisitor_a26384c14facf02a3e27229a617e830a4}{visit}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classWorkGroup}{WorkGroup}}\&\ item)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classProgressReportVisitor_a26384c14facf02a3e27229a617e830a4}{visit}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classStage}{Stage}}\&\ item)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classProgressReportVisitor_a26384c14facf02a3e27229a617e830a4}{visit}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classSubProcess}{SubProcess}}\&\ item)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classProgressReportVisitor_a26384c14facf02a3e27229a617e830a4}{visit}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classPrioritisedTask}{PrioritisedTask}}\&\ item)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classProgressReportVisitor_a26384c14facf02a3e27229a617e830a4}{visit}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classAuditedTask}{AuditedTask}}\&\ item)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classProgressReportVisitor_a26384c14facf02a3e27229a617e830a4}{visit}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classValidatedTask}{ValidatedTask}}\&\ item)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classProgressReportVisitor_a1d7544db7e901de271882a7625d7468a}{createReport}}(\mbox{\hyperlink{classWorkComponent}{WorkComponent}}*\ root);}
 \DoxyCodeLine{00048\ }
-\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classProgressReportVisitor_a1d7544db7e901de271882a7625d7468a}{createReport}}(\mbox{\hyperlink{classWorkComponent}{WorkComponent}}*\ root);}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{private}:}
 \DoxyCodeLine{00050\ }
-\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00052\ }
-\DoxyCodeLine{00053\ \ \ \ \ \textcolor{comment}{//html\ writers}}
-\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{void}\ visitGroup(\textcolor{keyword}{const}\ \mbox{\hyperlink{classWorkGroup}{WorkGroup}}\&\ item);}
-\DoxyCodeLine{00055\ }
-\DoxyCodeLine{00056\ \ \ \ \ std::string\ writeProgressCircle(\textcolor{keywordtype}{int}\ done,\ \textcolor{keywordtype}{int}\ total);}
-\DoxyCodeLine{00057\ \ \ \ \ std::string\ writeDoneCheck(\textcolor{keywordtype}{bool}\ complete);}
-\DoxyCodeLine{00058\ }
-\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{void}\ writeChildren(std::vector<WorkComponent*>\&\ children);\ }
-\DoxyCodeLine{00060\ \ \ \ \ std::string\ writeLog(\textcolor{keyword}{const}\ \mbox{\hyperlink{classAuditLog}{AuditLog}}*\ log);}
-\DoxyCodeLine{00061\ \ \ \ \ std::string\ writeRules(\textcolor{keyword}{const}\ std::vector<std::shared\_ptr<const\ ValidationRule>>\&\ rules);}
-\DoxyCodeLine{00062\ }
-\DoxyCodeLine{00063\ \ \ \ \ \textcolor{comment}{//formats}}
-\DoxyCodeLine{00064\ \ \ \ \ std::string\ getPriorityString(\mbox{\hyperlink{Common_8h_a58ef2aaf285eac5903ead43e801a4513}{PriorityLevel}}\ priority);}
-\DoxyCodeLine{00065\ \ \ \ \ std::string\ formatTime(std::time\_t\ timestamp);}
-\DoxyCodeLine{00066\ \ \ \ \ std::string\ formatSeconds(\textcolor{keywordtype}{long}\ totalSeconds);}
-\DoxyCodeLine{00067\ }
-\DoxyCodeLine{00068\ \ \ \ \ \textcolor{comment}{//file}}
-\DoxyCodeLine{00069\ \ \ \ \ std::ofstream\ output;}
-\DoxyCodeLine{00070\ \};}
-\DoxyCodeLine{00071\ }
-\DoxyCodeLine{00072\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classPriorityCheckerVisitor}{PriorityCheckerVisitor}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classWorkVisitor}{WorkVisitor}}\{}
-\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00074\ \ \ \ \ \mbox{\hyperlink{classPriorityCheckerVisitor_a59621a65cf78b2372a39bdda3b47535e}{\string~PriorityCheckerVisitor}}()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPriorityCheckerVisitor_a6a5a34e7df4dd275400c1ade924b2a5b}{visit}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classWorkUnit}{WorkUnit}}\&\ item)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPriorityCheckerVisitor_a6a5a34e7df4dd275400c1ade924b2a5b}{visit}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classWorkGroup}{WorkGroup}}\&\ item)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPriorityCheckerVisitor_a6a5a34e7df4dd275400c1ade924b2a5b}{visit}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classStage}{Stage}}\&\ item)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPriorityCheckerVisitor_a6a5a34e7df4dd275400c1ade924b2a5b}{visit}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classSubProcess}{SubProcess}}\&\ item)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPriorityCheckerVisitor_a6a5a34e7df4dd275400c1ade924b2a5b}{visit}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classPrioritisedTask}{PrioritisedTask}}\&\ item)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPriorityCheckerVisitor_a6a5a34e7df4dd275400c1ade924b2a5b}{visit}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classAuditedTask}{AuditedTask}}\&\ item)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPriorityCheckerVisitor_a6a5a34e7df4dd275400c1ade924b2a5b}{visit}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classValidatedTask}{ValidatedTask}}\&\ item)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00082\ }
-\DoxyCodeLine{00083\ \ \ \ \ std::vector<const\ PrioritisedTask*>\ \mbox{\hyperlink{classPriorityCheckerVisitor_a443b16d32c28e15278a3a935396e3c4d}{found}};}
-\DoxyCodeLine{00084\ \};}
-\DoxyCodeLine{00085\ }
-\DoxyCodeLine{00086\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classWorkComponentValidator}{WorkComponentValidator}}\ \{}
-\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classWorkComponentValidator_a2c8c9717a40bd5b786a749176e9e59c3}{validate}}(\mbox{\hyperlink{classWorkComponent}{WorkComponent}}*\ parent,\ \mbox{\hyperlink{classWorkComponent}{WorkComponent}}*\ child);}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{comment}{//html\ writers}}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{void}\ visitGroup(\textcolor{keyword}{const}\ \mbox{\hyperlink{classWorkGroup}{WorkGroup}}\&\ item);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ std::string\ writeProgressCircle(\textcolor{keywordtype}{int}\ done,\ \textcolor{keywordtype}{int}\ total);}
+\DoxyCodeLine{00055\ \ \ \ \ std::string\ writeDoneCheck(\textcolor{keywordtype}{bool}\ complete);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ writeChildren(std::vector<WorkComponent*>\&\ children);\ }
+\DoxyCodeLine{00058\ \ \ \ \ std::string\ writeLog(\textcolor{keyword}{const}\ \mbox{\hyperlink{classAuditLog}{AuditLog}}*\ log);}
+\DoxyCodeLine{00059\ \ \ \ \ std::string\ writeRules(\textcolor{keyword}{const}\ std::vector<std::shared\_ptr<const\ ValidationRule>>\&\ rules);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{comment}{//formats}}
+\DoxyCodeLine{00062\ \ \ \ \ std::string\ getPriorityString(\mbox{\hyperlink{Common_8h_a58ef2aaf285eac5903ead43e801a4513}{PriorityLevel}}\ priority);}
+\DoxyCodeLine{00063\ \ \ \ \ std::string\ formatTime(std::time\_t\ timestamp);}
+\DoxyCodeLine{00064\ \ \ \ \ std::string\ formatSeconds(\textcolor{keywordtype}{long}\ totalSeconds);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{comment}{//file}}
+\DoxyCodeLine{00067\ \ \ \ \ std::ofstream\ output;}
+\DoxyCodeLine{00068\ \};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classPriorityCheckerVisitor}{PriorityCheckerVisitor}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classWorkVisitor}{WorkVisitor}}\{}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPriorityCheckerVisitor_a6a5a34e7df4dd275400c1ade924b2a5b}{visit}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classWorkUnit}{WorkUnit}}\&\ item)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPriorityCheckerVisitor_a6a5a34e7df4dd275400c1ade924b2a5b}{visit}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classWorkGroup}{WorkGroup}}\&\ item)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPriorityCheckerVisitor_a6a5a34e7df4dd275400c1ade924b2a5b}{visit}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classStage}{Stage}}\&\ item)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPriorityCheckerVisitor_a6a5a34e7df4dd275400c1ade924b2a5b}{visit}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classSubProcess}{SubProcess}}\&\ item)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPriorityCheckerVisitor_a6a5a34e7df4dd275400c1ade924b2a5b}{visit}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classPrioritisedTask}{PrioritisedTask}}\&\ item)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPriorityCheckerVisitor_a6a5a34e7df4dd275400c1ade924b2a5b}{visit}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classAuditedTask}{AuditedTask}}\&\ item)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPriorityCheckerVisitor_a6a5a34e7df4dd275400c1ade924b2a5b}{visit}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classValidatedTask}{ValidatedTask}}\&\ item)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPriorityCheckerVisitor_a141ba4687a81500c38554709663ede94}{reset}}();}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classPriorityCheckerVisitor_a68b5543fd2d392956119115fcb7a79ee}{found}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classPriorityCheckerVisitor_a983e3bfe7f7674e5fcf9e99f9f22ad84}{level}}\ =\ 0;}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ overduePenalty\ =\ 10;}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{int}\ computeRank(\textcolor{keyword}{const}\ \mbox{\hyperlink{classPrioritisedTask}{PrioritisedTask}}\&\ item);}
+\DoxyCodeLine{00088\ \};}
 \DoxyCodeLine{00089\ }
-\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{void}\ unwrap(\textcolor{keyword}{const}\ \mbox{\hyperlink{classWorkComponent}{WorkComponent}}*\ wrapped);}
-\DoxyCodeLine{00092\ }
-\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keyword}{enum\ class}\ Kind\{}
-\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classWorkGroup}{WorkGroup}},}
-\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classStage}{Stage}},}
-\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classSubProcess}{SubProcess}},}
-\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classWorkUnit}{WorkUnit}}}
-\DoxyCodeLine{00098\ \ \ \ \ \};}
-\DoxyCodeLine{00099\ }
-\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keyword}{class\ }KindFinder\ :\ \mbox{\hyperlink{classWorkVisitor}{WorkVisitor}}\ \{}
-\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ KindFinder(\mbox{\hyperlink{classWorkComponent}{WorkComponent}}*\ item);}
-\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ visit(\textcolor{keyword}{const}\ \mbox{\hyperlink{classWorkUnit}{WorkUnit}}\&\ item)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ visit(\textcolor{keyword}{const}\ \mbox{\hyperlink{classWorkGroup}{WorkGroup}}\&\ item)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ visit(\textcolor{keyword}{const}\ \mbox{\hyperlink{classStage}{Stage}}\&\ item)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ visit(\textcolor{keyword}{const}\ \mbox{\hyperlink{classSubProcess}{SubProcess}}\&\ item)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ visit(\textcolor{keyword}{const}\ \mbox{\hyperlink{classPrioritisedTask}{PrioritisedTask}}\&\ item)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ visit(\textcolor{keyword}{const}\ \mbox{\hyperlink{classAuditedTask}{AuditedTask}}\&\ item)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ visit(\textcolor{keyword}{const}\ \mbox{\hyperlink{classValidatedTask}{ValidatedTask}}\&\ item)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00110\ }
-\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ Kind\ getKind();}
-\DoxyCodeLine{00112\ }
-\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ unwrap(\mbox{\hyperlink{classWorkComponent}{WorkComponent}}*\ wrapped);}
-\DoxyCodeLine{00115\ }
-\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ Kind\ kind;}
-\DoxyCodeLine{00117\ \ \ \ \ \};}
-\DoxyCodeLine{00118\ \};}
+\DoxyCodeLine{00090\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classWorkComponentValidator}{WorkComponentValidator}}\ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classWorkComponentValidator_a2c8c9717a40bd5b786a749176e9e59c3}{validate}}(\mbox{\hyperlink{classWorkComponent}{WorkComponent}}*\ parent,\ \mbox{\hyperlink{classWorkComponent}{WorkComponent}}*\ child);}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{void}\ unwrap(\textcolor{keyword}{const}\ \mbox{\hyperlink{classWorkComponent}{WorkComponent}}*\ wrapped);}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keyword}{enum\ class}\ Kind\{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classWorkGroup}{WorkGroup}},}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classStage}{Stage}},}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classSubProcess}{SubProcess}},}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classWorkUnit}{WorkUnit}}}
+\DoxyCodeLine{00102\ \ \ \ \ \};}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keyword}{class\ }KindFinder\ :\ \mbox{\hyperlink{classWorkVisitor}{WorkVisitor}}\ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ KindFinder(\mbox{\hyperlink{classWorkComponent}{WorkComponent}}*\ item);}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ visit(\textcolor{keyword}{const}\ \mbox{\hyperlink{classWorkUnit}{WorkUnit}}\&\ item)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ visit(\textcolor{keyword}{const}\ \mbox{\hyperlink{classWorkGroup}{WorkGroup}}\&\ item)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ visit(\textcolor{keyword}{const}\ \mbox{\hyperlink{classStage}{Stage}}\&\ item)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ visit(\textcolor{keyword}{const}\ \mbox{\hyperlink{classSubProcess}{SubProcess}}\&\ item)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ visit(\textcolor{keyword}{const}\ \mbox{\hyperlink{classPrioritisedTask}{PrioritisedTask}}\&\ item)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ visit(\textcolor{keyword}{const}\ \mbox{\hyperlink{classAuditedTask}{AuditedTask}}\&\ item)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ visit(\textcolor{keyword}{const}\ \mbox{\hyperlink{classValidatedTask}{ValidatedTask}}\&\ item)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ Kind\ getKind();}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ unwrap(\mbox{\hyperlink{classWorkComponent}{WorkComponent}}*\ wrapped);}
 \DoxyCodeLine{00119\ }
-\DoxyCodeLine{00120\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ WORKVISITOR\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ Kind\ kind;}
+\DoxyCodeLine{00121\ \ \ \ \ \};}
+\DoxyCodeLine{00122\ \};}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ WORKVISITOR\_H\ */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

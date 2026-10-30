@@ -2,6 +2,11 @@
 \hypertarget{classEmailTransport}{}\label{classEmailTransport}\index{EmailTransport@{EmailTransport}}
 
 
+The Target interface in the Adapter Pattern.  
+
+
+
+
 {\ttfamily \#include $<$Notification\+Bridge.\+h$>$}
 
 
@@ -20,8 +25,13 @@ Inheritance diagram for Email\+Transport\+:
 virtual \mbox{\hyperlink{classEmailTransport_a77962c395fbfd8e72cf3530d2611731c}{\texorpdfstring{$\sim$}{\string~}\+Email\+Transport}} ()=default
 \item 
 virtual bool \mbox{\hyperlink{classEmailTransport_a733cdcb5000839b5dd8d46d92e6a0590}{send\+Email}} (string to, string subject, string body)=0
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Sends an email via a specific provider. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+The Target interface in the Adapter Pattern. 
+
+Represents the generic interface for sending emails. Concrete adapters (Mailjet, Brevo, Resend) will implement this to connect to specific external APIs. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \Hypertarget{classEmailTransport_a77962c395fbfd8e72cf3530d2611731c}\label{classEmailTransport_a77962c395fbfd8e72cf3530d2611731c} 
@@ -39,6 +49,13 @@ virtual bool \mbox{\hyperlink{classEmailTransport_a733cdcb5000839b5dd8d46d92e6a0
 \doxysubsubsection{\texorpdfstring{sendEmail()}{sendEmail()}}
 {\footnotesize\ttfamily virtual bool Email\+Transport\+::send\+Email (\begin{DoxyParamCaption}\item[{string}]{to,  }\item[{string}]{subject,  }\item[{string}]{body }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
+
+
+Sends an email via a specific provider. 
+
+\begin{DoxyReturn}{Returns}
+True if successful, false otherwise. 
+\end{DoxyReturn}
 
 
 Implemented in \mbox{\hyperlink{classMailjetEmailAdapter_aa1ac1551af96fd44a103372806f2696f}{Mailjet\+Email\+Adapter}}, and \mbox{\hyperlink{classConsoleEmailAdapter_a25fdc2391ecebf0662ddccadc3498ffb}{Console\+Email\+Adapter}}.

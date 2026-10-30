@@ -2,27 +2,42 @@
 \hypertarget{classPostgresAPI}{}\label{classPostgresAPI}\index{PostgresAPI@{PostgresAPI}}
 
 
+Adaptee participant in the Adapter design pattern for Cloud Postgre\+SQL.  
+
+
+
+
 {\ttfamily \#include $<$Postgres\+API.\+h$>$}
 
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classPostgresAPI_af3e6bb8369f9368339a3c22f6286ff7d}{Postgres\+API}} (std\+::string conn\+Str="{}"{})
-\item 
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{classPostgresAPI}{Postgres\+API} instance with the given connection string. \end{DoxyCompactList}\item 
 virtual \mbox{\hyperlink{classPostgresAPI_a8091954f9296e2fbea61a83a71ca51a9}{\texorpdfstring{$\sim$}{\string~}\+Postgres\+API}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Destructor that ensures disconnection cleanup. \end{DoxyCompactList}\item 
 virtual bool \mbox{\hyperlink{classPostgresAPI_a345163e496154addb9f9890f45b54b2c}{connect}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Establishes and verifies a live connection to the Postgre\+SQL server using {\ttfamily PQconnectdb} \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classPostgresAPI_a2cbe9f37f7b8b23b8dcf817f53c92f48}{disconnect}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Closes the connection. \end{DoxyCompactList}\item 
 virtual int \mbox{\hyperlink{classPostgresAPI_a1038cb6a978c3ff606ce33b8622e4288}{execute\+Transaction}} (std\+::string sql\+Query, const std\+::vector$<$ std\+::string $>$ \&params=std\+::vector$<$ std\+::string $>$())
-\item 
+\begin{DoxyCompactList}\small\item\em Executes a parameterized SQL write transaction ({\ttfamily INSERT}, {\ttfamily UPDATE}, {\ttfamily CREATE TABLE}) \end{DoxyCompactList}\item 
 virtual std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classPostgresAPI_ab08111e9bfd2b923b8ea1f20622a6b35}{execute\+Select}} (std\+::string sql\+Query, const std\+::vector$<$ std\+::string $>$ \&params=std\+::vector$<$ std\+::string $>$())
-\item 
+\begin{DoxyCompactList}\small\item\em Executes a parameterized SQL {\ttfamily SELECT} query and returns formatted result rows. \end{DoxyCompactList}\item 
 virtual bool \mbox{\hyperlink{classPostgresAPI_a81beb069781a404b50b99e8f6e4ff316}{get\+Connection\+Status}} () const
-\item 
+\begin{DoxyCompactList}\small\item\em Returns whether the API is currently marked as connected. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{classPostgresAPI_a8193e9350459a3a8b81a0e55fdd3e5cd}{get\+Conn\+String}} () const
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Returns the configured Postgre\+SQL connection string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Adaptee participant in the Adapter design pattern for Cloud Postgre\+SQL. 
+
+Encapsulates low-\/level libpq connection management and parameterized SQL execution ({\ttfamily PQexec\+Params}) for communicating with a remote Postgre\+SQL server
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{classPostgresAdapter}{Postgres\+Adapter} 
+\end{DoxySeeAlso}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
@@ -32,11 +47,24 @@ std\+::string \mbox{\hyperlink{classPostgresAPI_a8193e9350459a3a8b81a0e55fdd3e5c
 \doxysubsubsection{\texorpdfstring{PostgresAPI()}{PostgresAPI()}}
 {\footnotesize\ttfamily Postgres\+API\+::\+Postgres\+API (\begin{DoxyParamCaption}\item[{std\+::string}]{conn\+Str = {\ttfamily "{}"{}} }\end{DoxyParamCaption})}
 
+
+
+Constructs a \doxylink{classPostgresAPI}{Postgres\+API} instance with the given connection string. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em conn\+Str} & Postgre\+SQL connection URI (e.\+g., from {\ttfamily DATABASE\+\_\+\+URL}). \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classPostgresAPI_a8091954f9296e2fbea61a83a71ca51a9}\label{classPostgresAPI_a8091954f9296e2fbea61a83a71ca51a9} 
 \index{PostgresAPI@{PostgresAPI}!````~PostgresAPI@{\texorpdfstring{$\sim$}{\string~}PostgresAPI}}
 \index{````~PostgresAPI@{\texorpdfstring{$\sim$}{\string~}PostgresAPI}!PostgresAPI@{PostgresAPI}}
 \doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}PostgresAPI()}{\string~PostgresAPI()}}
 {\footnotesize\ttfamily Postgres\+API\+::\texorpdfstring{$\sim$}{\string~}\+Postgres\+API (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destructor that ensures disconnection cleanup. 
 
 
 
@@ -47,11 +75,22 @@ std\+::string \mbox{\hyperlink{classPostgresAPI_a8193e9350459a3a8b81a0e55fdd3e5c
 \doxysubsubsection{\texorpdfstring{connect()}{connect()}}
 {\footnotesize\ttfamily bool Postgres\+API\+::connect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
+
+
+Establishes and verifies a live connection to the Postgre\+SQL server using {\ttfamily PQconnectdb} 
+
+\begin{DoxyReturn}{Returns}
+true if the connection succeeded ({\ttfamily CONNECTION\+\_\+\+OK}), false otherwise 
+\end{DoxyReturn}
 \Hypertarget{classPostgresAPI_a2cbe9f37f7b8b23b8dcf817f53c92f48}\label{classPostgresAPI_a2cbe9f37f7b8b23b8dcf817f53c92f48} 
 \index{PostgresAPI@{PostgresAPI}!disconnect@{disconnect}}
 \index{disconnect@{disconnect}!PostgresAPI@{PostgresAPI}}
 \doxysubsubsection{\texorpdfstring{disconnect()}{disconnect()}}
 {\footnotesize\ttfamily void Postgres\+API\+::disconnect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Closes the connection. 
 
 \Hypertarget{classPostgresAPI_ab08111e9bfd2b923b8ea1f20622a6b35}\label{classPostgresAPI_ab08111e9bfd2b923b8ea1f20622a6b35} 
 \index{PostgresAPI@{PostgresAPI}!executeSelect@{executeSelect}}
@@ -59,24 +98,66 @@ std\+::string \mbox{\hyperlink{classPostgresAPI_a8193e9350459a3a8b81a0e55fdd3e5c
 \doxysubsubsection{\texorpdfstring{executeSelect()}{executeSelect()}}
 {\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ Postgres\+API\+::execute\+Select (\begin{DoxyParamCaption}\item[{std\+::string}]{sql\+Query,  }\item[{const std\+::vector$<$ std\+::string $>$ \&}]{params = {\ttfamily std\+:\+:vector$<$std\+:\+:string$>$()} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
+
+
+Executes a parameterized SQL {\ttfamily SELECT} query and returns formatted result rows. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em sql\+Query} & SQL {\ttfamily SELECT} statement with optional {\ttfamily \$1, \$2, ...} placeholders \\
+\hline
+\mbox{\texttt{ in}}  & {\em params} & Parameter values bound with {\ttfamily PQexec\+Params} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector of {\ttfamily "{} \texorpdfstring{$\vert$}{|} "{}} delimited row strings 
+\end{DoxyReturn}
 \Hypertarget{classPostgresAPI_a1038cb6a978c3ff606ce33b8622e4288}\label{classPostgresAPI_a1038cb6a978c3ff606ce33b8622e4288} 
 \index{PostgresAPI@{PostgresAPI}!executeTransaction@{executeTransaction}}
 \index{executeTransaction@{executeTransaction}!PostgresAPI@{PostgresAPI}}
 \doxysubsubsection{\texorpdfstring{executeTransaction()}{executeTransaction()}}
 {\footnotesize\ttfamily int Postgres\+API\+::execute\+Transaction (\begin{DoxyParamCaption}\item[{std\+::string}]{sql\+Query,  }\item[{const std\+::vector$<$ std\+::string $>$ \&}]{params = {\ttfamily std\+:\+:vector$<$std\+:\+:string$>$()} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
+
+
+Executes a parameterized SQL write transaction ({\ttfamily INSERT}, {\ttfamily UPDATE}, {\ttfamily CREATE TABLE}) 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em sql\+Query} & SQL statement with {\ttfamily \$1, \$2, ...} placeholders \\
+\hline
+\mbox{\texttt{ in}}  & {\em params} & Parameter values bound safely with {\ttfamily PQexec\+Params} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of affected rows, or {\ttfamily -\/1} on failure 
+\end{DoxyReturn}
 \Hypertarget{classPostgresAPI_a81beb069781a404b50b99e8f6e4ff316}\label{classPostgresAPI_a81beb069781a404b50b99e8f6e4ff316} 
 \index{PostgresAPI@{PostgresAPI}!getConnectionStatus@{getConnectionStatus}}
 \index{getConnectionStatus@{getConnectionStatus}!PostgresAPI@{PostgresAPI}}
 \doxysubsubsection{\texorpdfstring{getConnectionStatus()}{getConnectionStatus()}}
 {\footnotesize\ttfamily bool Postgres\+API\+::get\+Connection\+Status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
 
+
+
+Returns whether the API is currently marked as connected. 
+
+\begin{DoxyReturn}{Returns}
+true if connected, false otherwise 
+\end{DoxyReturn}
 \Hypertarget{classPostgresAPI_a8193e9350459a3a8b81a0e55fdd3e5cd}\label{classPostgresAPI_a8193e9350459a3a8b81a0e55fdd3e5cd} 
 \index{PostgresAPI@{PostgresAPI}!getConnString@{getConnString}}
 \index{getConnString@{getConnString}!PostgresAPI@{PostgresAPI}}
 \doxysubsubsection{\texorpdfstring{getConnString()}{getConnString()}}
 {\footnotesize\ttfamily std\+::string Postgres\+API\+::get\+Conn\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
+
+
+Returns the configured Postgre\+SQL connection string. 
+
+\begin{DoxyReturn}{Returns}
+Connection URI string 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

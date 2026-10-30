@@ -21,27 +21,17 @@ Collaboration diagram for Work\+Unit\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=322pt]{classWorkUnit__coll__graph}
+\includegraphics[width=350pt]{classWorkUnit__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classWorkUnit_a786f67c971508040e6ab99147b53276f}{Work\+Unit}} (const std\+::string \&task\+Id)
+\mbox{\hyperlink{classWorkUnit_a40d07b28bfd15207c918cf5205f00288}{Work\+Unit}} (std\+::string \mbox{\hyperlink{classWorkComponent_adae5b7dbf204f6fbbe59b9d89eaee013}{name}})
 \item 
 \mbox{\hyperlink{classWorkMemento}{Work\+Memento}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classWorkUnit_a40021f012a12ef97e846ab2b83289414}{create\+Memento}} ()
 \item 
 void \mbox{\hyperlink{classWorkUnit_a107640d4a4daf7369473f2a8b8d86faf}{set\+Memento}} (\mbox{\hyperlink{classWorkMemento}{Work\+Memento}} \texorpdfstring{$\ast$}{*}memento)
-\item 
-bool \mbox{\hyperlink{classWorkUnit_aa57fa9e4fa7acda08a4b80292727b82b}{start\+Task}} ()
-\item 
-bool \mbox{\hyperlink{classWorkUnit_a503e0e183baa93fe9549b0f1b7414dba}{complete\+Task}} ()
-\item 
-bool \mbox{\hyperlink{classWorkUnit_a6bc841536dd2dd9e5291766cac6c8bc7}{assign\+Task}} (const std\+::string \&worker\+Id)
-\item 
-std\+::string \mbox{\hyperlink{classWorkUnit_af0932d9da16f1058c7a9d35c9f15244a}{get\+Task\+Id}} ()
-\item 
-std\+::string \mbox{\hyperlink{classWorkUnit_a50ed94bbee57b49be177846c1ba7eab5}{get\+Assigned\+Worker\+Id}} ()
 \item 
 void \mbox{\hyperlink{classWorkUnit_a695c9d3af59e2408dd3c1f452edbab35}{accept}} (\mbox{\hyperlink{classWorkVisitor}{Work\+Visitor}} \&visitor) const override
 \item 
@@ -50,29 +40,47 @@ void \mbox{\hyperlink{classWorkUnit_a695c9d3af59e2408dd3c1f452edbab35}{accept}} 
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classWorkComponent}{Work\+Component}}}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classWorkComponent_aa89512171fd1ef2445ad306225b11596}{Work\+Component}} (std\+::string name)
+\mbox{\hyperlink{classWorkComponent_aa89512171fd1ef2445ad306225b11596}{Work\+Component}} (std\+::string \mbox{\hyperlink{classWorkComponent_adae5b7dbf204f6fbbe59b9d89eaee013}{name}})
 \item 
 \mbox{\hyperlink{classWorkComponent_adcb3560830552508ca1a6b96006e8b36}{Work\+Component}} (const \mbox{\hyperlink{classWorkComponent}{Work\+Component}} \&other)
 \item 
 virtual \mbox{\hyperlink{classWorkComponent_aeade7a1951170edf2add8f11bc755c8f}{\texorpdfstring{$\sim$}{\string~}\+Work\+Component}} ()
 \item 
-virtual \mbox{\hyperlink{classWorkState}{Work\+State}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classWorkComponent_ae0896d1dba4221e00c8451c6bdd110ab}{get\+State}} () const
+virtual const \mbox{\hyperlink{classWorkState}{Work\+State}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classWorkComponent_acc24518e9becf9398a1ca484501eee30}{get\+State}} () const
 \item 
 virtual std\+::string \mbox{\hyperlink{classWorkComponent_a091e902b6d3675ffb0ccf547363c6a60}{get\+Name}} () const
 \item 
-\mbox{\hyperlink{classWorkItem}{Work\+Item}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classWorkComponent_ae60abfce5aff4c38d68655ef31754ad6}{get\+Item}} () const
+virtual \mbox{\hyperlink{classWorkItem}{Work\+Item}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classWorkComponent_ae60abfce5aff4c38d68655ef31754ad6}{get\+Item}} () const
 \item 
-void \mbox{\hyperlink{classWorkComponent_a8b144dc90c4078115afd732f3e5829d7}{set\+State}} (\mbox{\hyperlink{classWorkState}{Work\+State}} \texorpdfstring{$\ast$}{*}state)
+virtual std\+::string \mbox{\hyperlink{classWorkComponent_a54f306471fc0f0da154e482d4aa1d925}{get\+ID}} () const
+\item 
+virtual std\+::string \mbox{\hyperlink{classWorkComponent_a00fc605ca1faba7205b6e8455ad0660d}{get\+Assigned\+Worker\+Id}} () const
+\item 
+virtual std\+::string \mbox{\hyperlink{classWorkComponent_a8d66b5505e54c12d17f525a7b4389df0}{get\+Data}} (const std\+::string \&key) const
+\item 
+virtual \mbox{\hyperlink{Common_8h_a58ef2aaf285eac5903ead43e801a4513}{Priority\+Level}} \mbox{\hyperlink{classWorkComponent_a82802785ac3c3187cf83af4d7d31cf81}{get\+Priority}} () const
+\item 
+void \mbox{\hyperlink{classWorkComponent_a8b144dc90c4078115afd732f3e5829d7}{set\+State}} (\mbox{\hyperlink{classWorkState}{Work\+State}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classWorkComponent_a2095aa720a4f5dbdeb98b7a47fd3712f}{state}})
 \item 
 virtual void \mbox{\hyperlink{classWorkComponent_a50c38dbeb610a0192f5bf07ab8dc8502}{set\+Data}} (const std\+::string \&key, const std\+::string \&value)
 \item 
-virtual std\+::string \mbox{\hyperlink{classWorkComponent_a8d66b5505e54c12d17f525a7b4389df0}{get\+Data}} (const std\+::string \&key) const
+virtual bool \mbox{\hyperlink{classWorkComponent_a3320bec5c5f693fd404db80f0f888ec9}{assign\+Task}} (const std\+::string \&worker\+ID)
 \item 
 virtual void \mbox{\hyperlink{classWorkComponent_a65163ad6e1863a35cab683a22d17a7b0}{next\+State}} ()
 \item 
 virtual bool \mbox{\hyperlink{classWorkComponent_aaf6d22756f9efceb5263d0454c7290b5}{is\+Complete}} () const
 \item 
-virtual \mbox{\hyperlink{Common_8h_a58ef2aaf285eac5903ead43e801a4513}{Priority\+Level}} \mbox{\hyperlink{classWorkComponent_a82802785ac3c3187cf83af4d7d31cf81}{get\+Priority}} () const
+virtual bool \mbox{\hyperlink{classWorkComponent_a64a149e1ad8543dfa67fdefd3635b64e}{start\+Task}} ()
+\item 
+virtual bool \mbox{\hyperlink{classWorkComponent_ad70f67af077da6e7b7ae67ab0cd512fa}{complete\+Task}} ()
+\item 
+virtual bool \mbox{\hyperlink{classWorkComponent_a08c0d5ce58d69cf05c444081d125284b}{add}} (\mbox{\hyperlink{classWorkComponent}{Work\+Component}} \texorpdfstring{$\ast$}{*}child)
+\item 
+virtual void \mbox{\hyperlink{classWorkComponent_aed1dbff13f0004e5a1ecfe6a2d0a79e5}{remove}} (\mbox{\hyperlink{classWorkComponent}{Work\+Component}} \texorpdfstring{$\ast$}{*}child)
+\item 
+virtual void \mbox{\hyperlink{classWorkComponent_a54e8d7694098092beddc413a3d9f9a93}{remove}} (std\+::string \mbox{\hyperlink{classWorkComponent_adae5b7dbf204f6fbbe59b9d89eaee013}{name}})
+\item 
+virtual const std\+::vector$<$ \mbox{\hyperlink{classWorkComponent}{Work\+Component}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classWorkComponent_ac2f1be1ee8a9a535e1e2f00d48e23b7b}{get\+Children}} () const
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classHandler}{Handler}}}
 \begin{DoxyCompactItemize}
@@ -85,16 +93,34 @@ virtual void \mbox{\hyperlink{classHandler_a638867a60f4e60eb6e5152a03a9e5367}{ha
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classWorkflowSubject_a7b9a281a5bbeac3b2bfd891c9b26363e}{Workflow\+Subject}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Default constructor. Creates a Work\+Flow\+Subject with no attached observers. \end{DoxyCompactList}\item 
 virtual \mbox{\hyperlink{classWorkflowSubject_a11fcb2de2f242d654212e0b63e8e9824}{\texorpdfstring{$\sim$}{\string~}\+Workflow\+Subject}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Virtual destructor. Does not delete attached observers (aggregation relationship) \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classWorkflowSubject_ab23bd0f715a4608f77d099b298aabeb2}{attach}} (\mbox{\hyperlink{classWorkflowObserver}{Workflow\+Observer}} \texorpdfstring{$\ast$}{*}observer)
-\item 
+\begin{DoxyCompactList}\small\item\em Registers an observer to receive state and payload change notifications. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classWorkflowSubject_a3b1f2fa7e8340297f781701f3d5c00af}{detach}} (\mbox{\hyperlink{classWorkflowObserver}{Workflow\+Observer}} \texorpdfstring{$\ast$}{*}observer)
-\item 
+\begin{DoxyCompactList}\small\item\em Unregisters a previously attached observer. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classWorkflowSubject_a4b7c602ead35d9ceebcef7a3e467e5a4}{notify}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Notifies all attached observers by setting the active subject and calling update() \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classWorkComponent}{Work\+Component}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classWorkComponent_a471a8d962863bffd4b8dab57814f1c81}{generate\+Random\+ID}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classWorkComponent}{Work\+Component}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classWorkState}{Work\+State}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classWorkComponent_a2095aa720a4f5dbdeb98b7a47fd3712f}{state}}
+\item 
+\mbox{\hyperlink{classWorkItem}{Work\+Item}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classWorkComponent_a1d66da30e814f696956f709d33c09c0d}{item}}
+\item 
+std\+::string \mbox{\hyperlink{classWorkComponent_adae5b7dbf204f6fbbe59b9d89eaee013}{name}}
+\item 
+std\+::string \mbox{\hyperlink{classWorkComponent_a2c982a2a8ccd83d1ad6d48aaffd668f7}{task\+ID}}
+\item 
+std\+::string \mbox{\hyperlink{classWorkComponent_ae722b05fff5ac03fda79a89fc9773b49}{assigned\+Worker\+ID}}
+\end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classHandler}{Handler}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -104,15 +130,15 @@ void \mbox{\hyperlink{classWorkflowSubject_a4b7c602ead35d9ceebcef7a3e467e5a4}{no
 \begin{DoxyCompactItemize}
 \item 
 std\+::vector$<$ \mbox{\hyperlink{classWorkflowObserver}{Workflow\+Observer}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classWorkflowSubject_aba1985d4025ed138de76912022b3b9fc}{observer\+List}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Collection of registered observers watching this subject. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classWorkUnit_a786f67c971508040e6ab99147b53276f}\label{classWorkUnit_a786f67c971508040e6ab99147b53276f} 
+\Hypertarget{classWorkUnit_a40d07b28bfd15207c918cf5205f00288}\label{classWorkUnit_a40d07b28bfd15207c918cf5205f00288} 
 \index{WorkUnit@{WorkUnit}!WorkUnit@{WorkUnit}}
 \index{WorkUnit@{WorkUnit}!WorkUnit@{WorkUnit}}
 \doxysubsubsection{\texorpdfstring{WorkUnit()}{WorkUnit()}}
-{\footnotesize\ttfamily Work\+Unit\+::\+Work\+Unit (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{task\+Id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Work\+Unit\+::\+Work\+Unit (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
 
 
 
@@ -127,12 +153,6 @@ std\+::vector$<$ \mbox{\hyperlink{classWorkflowObserver}{Workflow\+Observer}} \t
 
 Implements \mbox{\hyperlink{classWorkComponent_a3c178bf1da6d1c7026fcdbea7b02f72d}{Work\+Component}}.
 
-\Hypertarget{classWorkUnit_a6bc841536dd2dd9e5291766cac6c8bc7}\label{classWorkUnit_a6bc841536dd2dd9e5291766cac6c8bc7} 
-\index{WorkUnit@{WorkUnit}!assignTask@{assignTask}}
-\index{assignTask@{assignTask}!WorkUnit@{WorkUnit}}
-\doxysubsubsection{\texorpdfstring{assignTask()}{assignTask()}}
-{\footnotesize\ttfamily bool Work\+Unit\+::assign\+Task (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{worker\+Id }\end{DoxyParamCaption})}
-
 \Hypertarget{classWorkUnit_a7858a68ceed9a87944704a2bea671d48}\label{classWorkUnit_a7858a68ceed9a87944704a2bea671d48} 
 \index{WorkUnit@{WorkUnit}!clone@{clone}}
 \index{clone@{clone}!WorkUnit@{WorkUnit}}
@@ -143,41 +163,17 @@ Implements \mbox{\hyperlink{classWorkComponent_a3c178bf1da6d1c7026fcdbea7b02f72d
 
 Implements \mbox{\hyperlink{classWorkComponent_a65d7be3c551ee979e2ae238322441075}{Work\+Component}}.
 
-\Hypertarget{classWorkUnit_a503e0e183baa93fe9549b0f1b7414dba}\label{classWorkUnit_a503e0e183baa93fe9549b0f1b7414dba} 
-\index{WorkUnit@{WorkUnit}!completeTask@{completeTask}}
-\index{completeTask@{completeTask}!WorkUnit@{WorkUnit}}
-\doxysubsubsection{\texorpdfstring{completeTask()}{completeTask()}}
-{\footnotesize\ttfamily bool Work\+Unit\+::complete\+Task (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
 \Hypertarget{classWorkUnit_a40021f012a12ef97e846ab2b83289414}\label{classWorkUnit_a40021f012a12ef97e846ab2b83289414} 
 \index{WorkUnit@{WorkUnit}!createMemento@{createMemento}}
 \index{createMemento@{createMemento}!WorkUnit@{WorkUnit}}
 \doxysubsubsection{\texorpdfstring{createMemento()}{createMemento()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classWorkMemento}{Work\+Memento}} \texorpdfstring{$\ast$}{*} Work\+Unit\+::create\+Memento (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-\Hypertarget{classWorkUnit_a50ed94bbee57b49be177846c1ba7eab5}\label{classWorkUnit_a50ed94bbee57b49be177846c1ba7eab5} 
-\index{WorkUnit@{WorkUnit}!getAssignedWorkerId@{getAssignedWorkerId}}
-\index{getAssignedWorkerId@{getAssignedWorkerId}!WorkUnit@{WorkUnit}}
-\doxysubsubsection{\texorpdfstring{getAssignedWorkerId()}{getAssignedWorkerId()}}
-{\footnotesize\ttfamily std\+::string Work\+Unit\+::get\+Assigned\+Worker\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-\Hypertarget{classWorkUnit_af0932d9da16f1058c7a9d35c9f15244a}\label{classWorkUnit_af0932d9da16f1058c7a9d35c9f15244a} 
-\index{WorkUnit@{WorkUnit}!getTaskId@{getTaskId}}
-\index{getTaskId@{getTaskId}!WorkUnit@{WorkUnit}}
-\doxysubsubsection{\texorpdfstring{getTaskId()}{getTaskId()}}
-{\footnotesize\ttfamily std\+::string Work\+Unit\+::get\+Task\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
 \Hypertarget{classWorkUnit_a107640d4a4daf7369473f2a8b8d86faf}\label{classWorkUnit_a107640d4a4daf7369473f2a8b8d86faf} 
 \index{WorkUnit@{WorkUnit}!setMemento@{setMemento}}
 \index{setMemento@{setMemento}!WorkUnit@{WorkUnit}}
 \doxysubsubsection{\texorpdfstring{setMemento()}{setMemento()}}
 {\footnotesize\ttfamily void Work\+Unit\+::set\+Memento (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classWorkMemento}{Work\+Memento}} \texorpdfstring{$\ast$}{*}}]{memento }\end{DoxyParamCaption})}
-
-\Hypertarget{classWorkUnit_aa57fa9e4fa7acda08a4b80292727b82b}\label{classWorkUnit_aa57fa9e4fa7acda08a4b80292727b82b} 
-\index{WorkUnit@{WorkUnit}!startTask@{startTask}}
-\index{startTask@{startTask}!WorkUnit@{WorkUnit}}
-\doxysubsubsection{\texorpdfstring{startTask()}{startTask()}}
-{\footnotesize\ttfamily bool Work\+Unit\+::start\+Task (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 

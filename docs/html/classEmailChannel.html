@@ -76,14 +76,17 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>A Concrete Implementor in the Bridge Pattern (and Context in the Strategy Pattern).  
+ <a href="classEmailChannel.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="NotificationBridge_8h_source.html">NotificationBridge.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for EmailChannel:</div>
 <div class="dyncontent">
 <div class="center"><img src="classEmailChannel__inherit__graph.png" border="0" usemap="#aEmailChannel_inherit__map" alt="Inheritance graph"/></div>
 <map name="aEmailChannel_inherit__map" id="aEmailChannel_inherit__map">
-<area shape="rect" title=" " alt="" coords="25,79,137,104"/>
-<area shape="rect" href="classNotificationChannel.html" title=" " alt="" coords="5,5,156,31"/>
+<area shape="rect" title="A Concrete Implementor in the Bridge Pattern (and Context in the Strategy Pattern)." alt="" coords="25,79,137,104"/>
+<area shape="rect" href="classNotificationChannel.html" title="The Implementor interface in the Bridge Pattern." alt="" coords="5,5,156,31"/>
 <area shape="poly" title=" " alt="" coords="83,44,83,79,78,79,78,44"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
@@ -92,8 +95,8 @@ Collaboration diagram for EmailChannel:</div>
 <div class="dyncontent">
 <div class="center"><img src="classEmailChannel__coll__graph.png" border="0" usemap="#aEmailChannel_coll__map" alt="Collaboration graph"/></div>
 <map name="aEmailChannel_coll__map" id="aEmailChannel_coll__map">
-<area shape="rect" title=" " alt="" coords="25,79,137,104"/>
-<area shape="rect" href="classNotificationChannel.html" title=" " alt="" coords="5,5,156,31"/>
+<area shape="rect" title="A Concrete Implementor in the Bridge Pattern (and Context in the Strategy Pattern)." alt="" coords="25,79,137,104"/>
+<area shape="rect" href="classNotificationChannel.html" title="The Implementor interface in the Bridge Pattern." alt="" coords="5,5,156,31"/>
 <area shape="poly" title=" " alt="" coords="83,44,83,79,78,79,78,44"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
@@ -103,12 +106,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9e12e5ae40c9ba54dda0d0c4e564b54f" id="r_a9e12e5ae40c9ba54dda0d0c4e564b54f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEmailChannel.html#a9e12e5ae40c9ba54dda0d0c4e564b54f">EmailChannel</a> (<a class="el" href="classEmailTransport.html">EmailTransport</a> *t)</td></tr>
 <tr class="separator:a9e12e5ae40c9ba54dda0d0c4e564b54f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2339dac9633ff5fad58d988c29de4b00" id="r_a2339dac9633ff5fad58d988c29de4b00"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEmailChannel.html#a2339dac9633ff5fad58d988c29de4b00">deliver</a> (const <a class="el" href="structNotificationData.html">NotificationData</a> &amp;d) override</td></tr>
+<tr class="memdesc:a2339dac9633ff5fad58d988c29de4b00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delivers the composed notification data to the target.  <br /></td></tr>
 <tr class="separator:a2339dac9633ff5fad58d988c29de4b00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classNotificationChannel"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classNotificationChannel')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classNotificationChannel.html">NotificationChannel</a></td></tr>
 <tr class="memitem:af4b2a111ed252c88aaf53ea6394fae67 inherit pub_methods_classNotificationChannel" id="r_af4b2a111ed252c88aaf53ea6394fae67"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNotificationChannel.html#af4b2a111ed252c88aaf53ea6394fae67">~NotificationChannel</a> ()=default</td></tr>
 <tr class="separator:af4b2a111ed252c88aaf53ea6394fae67 inherit pub_methods_classNotificationChannel"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A Concrete Implementor in the Bridge Pattern (and Context in the Strategy Pattern). </p>
+<p>Bridges the notification system to the external email APIs by wrapping an <a class="el" href="classEmailTransport.html" title="The Target interface in the Adapter Pattern.">EmailTransport</a>. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a9e12e5ae40c9ba54dda0d0c4e564b54f" name="a9e12e5ae40c9ba54dda0d0c4e564b54f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9e12e5ae40c9ba54dda0d0c4e564b54f">&#9670;&#160;</a></span>EmailChannel()</h2>
 
@@ -149,7 +156,7 @@ Public Member Functions</h2></td></tr>
           <td class="memname">void EmailChannel::deliver </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structNotificationData.html">NotificationData</a> &amp;&#160;</td>
-          <td class="paramname"><em>d</em></td><td>)</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -160,7 +167,15 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="classNotificationChannel.html#a0a2279bac0c8ec0b445b13d18eb5acba">NotificationChannel</a>.</p>
+<p>Delivers the composed notification data to the target. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>The <a class="el" href="structNotificationData.html" title="Data Transfer Object (DTO) passed from the Abstraction to the Implementor.">NotificationData</a> containing recipient, subject, and body. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="classNotificationChannel.html#ab1378e527f4b65498205b6878c7650f9">NotificationChannel</a>.</p>
 
 </div>
 </div>

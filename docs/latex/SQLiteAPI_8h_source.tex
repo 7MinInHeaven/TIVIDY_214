@@ -2,29 +2,35 @@
 \hypertarget{SQLiteAPI_8h_source}{}\label{SQLiteAPI_8h_source}\index{include/SQLiteAPI.h@{include/SQLiteAPI.h}}
 \mbox{\hyperlink{SQLiteAPI_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ SQLITEAPI\_H}}
-\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ SQLITEAPI\_H}}
-\DoxyCodeLine{00003\ }
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
-\DoxyCodeLine{00006\ }
-\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classSQLiteAPI}{SQLiteAPI}}\ \{}
-\DoxyCodeLine{00008\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00009\ \ \ \ \ std::string\ dbFilePath;}
-\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{bool}\ connected;}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ SQLITEAPI\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ SQLITEAPI\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <vector>}}
 \DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{classSQLiteAPI}{SQLiteAPI}}(std::string\ filePath\ =\ \textcolor{stringliteral}{"{}tividy\_local.db"{}});}
-\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classSQLiteAPI_a58ee652aecc5c38b6fbb47382da511f5}{\string~SQLiteAPI}}();}
-\DoxyCodeLine{00015\ }
-\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classSQLiteAPI_ae30736a0151e14789b7d5fac9505cb0b}{openConnection}}();}
-\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classSQLiteAPI_ac1b0c65be605e2ffc8cb34c49efc5099}{closeConnection}}();}
-\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classSQLiteAPI_a15fad2921824253b6fa0686387ae219e}{runStatement}}(std::string\ sqlQuery,\ \textcolor{keyword}{const}\ std::vector<std::string>\&\ params\ =\ std::vector<std::string>());}
-\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{virtual}\ std::vector<std::string>\ \mbox{\hyperlink{classSQLiteAPI_a25321e562674fc8e11fd25308d87fc0b}{queryRows}}(std::string\ sqlQuery,\ \textcolor{keyword}{const}\ std::vector<std::string>\&\ params\ =\ std::vector<std::string>());}
-\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classSQLiteAPI_a8577ac390ba8ef96d6fb3a6d8dd0fb8e}{isOpen}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00021\ \ \ \ \ std::string\ \mbox{\hyperlink{classSQLiteAPI_afcf831f86c26a40ef48b9cd2b09eedb2}{getDbFilePath}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00022\ \};}
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classSQLiteAPI}{SQLiteAPI}}\ \{}
+\DoxyCodeLine{00022\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00023\ \ \ \ \ std::string\ dbFilePath;\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{bool}\ connected;\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{classSQLiteAPI}{SQLiteAPI}}(std::string\ filePath\ =\ \textcolor{stringliteral}{"{}tividy\_local.db"{}});}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classSQLiteAPI_a58ee652aecc5c38b6fbb47382da511f5}{\string~SQLiteAPI}}();}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classSQLiteAPI_ae30736a0151e14789b7d5fac9505cb0b}{openConnection}}();}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classSQLiteAPI_ac1b0c65be605e2ffc8cb34c49efc5099}{closeConnection}}();}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classSQLiteAPI_a15fad2921824253b6fa0686387ae219e}{runStatement}}(std::string\ sqlQuery,\ \textcolor{keyword}{const}\ std::vector<std::string>\&\ params\ =\ std::vector<std::string>());}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{virtual}\ std::vector<std::string>\ \mbox{\hyperlink{classSQLiteAPI_a25321e562674fc8e11fd25308d87fc0b}{queryRows}}(std::string\ sqlQuery,\ \textcolor{keyword}{const}\ std::vector<std::string>\&\ params\ =\ std::vector<std::string>());}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classSQLiteAPI_a8577ac390ba8ef96d6fb3a6d8dd0fb8e}{isOpen}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00081\ \ \ \ \ std::string\ \mbox{\hyperlink{classSQLiteAPI_afcf831f86c26a40ef48b9cd2b09eedb2}{getDbFilePath}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00082\ \};}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

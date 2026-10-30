@@ -1,0 +1,39 @@
+\doxysection{Workflow\+Scenario\+Catalog.\+h}
+\hypertarget{WorkflowScenarioCatalog_8h_source}{}\label{WorkflowScenarioCatalog_8h_source}\index{include/WorkflowScenarioCatalog.h@{include/WorkflowScenarioCatalog.h}}
+\mbox{\hyperlink{WorkflowScenarioCatalog_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ WORKFLOWSCENARIOCATALOG\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ WORKFLOWSCENARIOCATALOG\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <iosfwd>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{WorkflowBlueprint_8h}{WorkflowBlueprint.h}}"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structWorkflowScenario}{WorkflowScenario}}\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ std::string\ \mbox{\hyperlink{structWorkflowScenario_a43e4bb5d9e5cefd911ce8581b4869cea}{id}};}
+\DoxyCodeLine{00015\ \ \ \ \ std::string\ \mbox{\hyperlink{structWorkflowScenario_a1eb1a8b9cb1e4f8231a46e49d860dfbd}{label}};}
+\DoxyCodeLine{00016\ \ \ \ \ std::string\ \mbox{\hyperlink{structWorkflowScenario_a4d4d7633a68f75c8cab9240819691969}{path}};}
+\DoxyCodeLine{00017\ \};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classWorkflowScenarioCatalog}{WorkflowScenarioCatalog}}\ \{}
+\DoxyCodeLine{00023\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classWorkflowScenarioCatalog}{WorkflowScenarioCatalog}}(\textcolor{keyword}{const}\ std::string\&\ directory\ =\ \textcolor{stringliteral}{"{}src"{}});}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00034\ \ \ \ \ std::vector<std::string>\ \mbox{\hyperlink{classWorkflowScenarioCatalog_a6d37adc71dfd7ded63d4fd8bffb694bd}{refresh}}();}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<WorkflowScenario>\&\ \mbox{\hyperlink{classWorkflowScenarioCatalog_a66c516038ea8cce534b0c6bc8c5f1b32}{scenarios}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classWorkflowScenarioCatalog_a5908ce56c1c33613dd41a647d9214de2}{selectFromConsole}}(std::istream\&\ input,}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::ostream\&\ output,}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structWorkflowScenario}{WorkflowScenario}}\&\ selected)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00053\ \ \ \ \ std::string\ directory;}
+\DoxyCodeLine{00054\ \ \ \ \ std::vector<WorkflowScenario>\ availableScenarios;}
+\DoxyCodeLine{00055\ \};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

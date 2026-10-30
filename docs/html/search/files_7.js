@@ -1,9 +1,7 @@
 var searchData=
 [
-  ['mailjetemailadapter_2ecpp_0',['MailjetEmailAdapter.cpp',['../MailjetEmailAdapter_8cpp.html',1,'']]],
-  ['mailjetemailadapter_2eh_1',['MailjetEmailAdapter.h',['../MailjetEmailAdapter_8h.html',1,'']]],
-  ['mailjethttpclient_2ecpp_2',['MailjetHttpClient.cpp',['../MailjetHttpClient_8cpp.html',1,'']]],
-  ['mailjethttpclient_2eh_3',['MailjetHttpClient.h',['../MailjetHttpClient_8h.html',1,'']]],
-  ['main_2ecpp_4',['main.cpp',['../main_8cpp.html',1,'']]],
-  ['memento_2eh_5',['Memento.h',['../Memento_8h.html',1,'']]]
+  ['incompleteiterator_2ecpp_0',['IncompleteIterator.cpp',['../IncompleteIterator_8cpp.html',1,'']]],
+  ['inprogressstate_2ecpp_1',['InProgressState.cpp',['../InProgressState_8cpp.html',1,'']]],
+  ['inprogressstate_2eh_2',['InProgressState.h',['../InProgressState_8h.html',1,'']]],
+  ['iterator_2eh_3',['Iterator.h',['../Iterator_8h.html',1,'']]]
 ];

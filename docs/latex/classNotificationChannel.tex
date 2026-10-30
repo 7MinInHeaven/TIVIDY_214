@@ -2,6 +2,11 @@
 \hypertarget{classNotificationChannel}{}\label{classNotificationChannel}\index{NotificationChannel@{NotificationChannel}}
 
 
+The Implementor interface in the Bridge Pattern.  
+
+
+
+
 {\ttfamily \#include $<$Notification\+Bridge.\+h$>$}
 
 
@@ -19,9 +24,14 @@ Inheritance diagram for Notification\+Channel\+:
 \item 
 virtual \mbox{\hyperlink{classNotificationChannel_af4b2a111ed252c88aaf53ea6394fae67}{\texorpdfstring{$\sim$}{\string~}\+Notification\+Channel}} ()=default
 \item 
-virtual void \mbox{\hyperlink{classNotificationChannel_a0a2279bac0c8ec0b445b13d18eb5acba}{deliver}} (const \mbox{\hyperlink{structNotificationData}{Notification\+Data}} \&)=0
-\end{DoxyCompactItemize}
+virtual void \mbox{\hyperlink{classNotificationChannel_ab1378e527f4b65498205b6878c7650f9}{deliver}} (const \mbox{\hyperlink{structNotificationData}{Notification\+Data}} \&data)=0
+\begin{DoxyCompactList}\small\item\em Delivers the composed notification data to the target. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+The Implementor interface in the Bridge Pattern. 
+
+Defines how a notification is delivered, independent of what the notification is. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \Hypertarget{classNotificationChannel_af4b2a111ed252c88aaf53ea6394fae67}\label{classNotificationChannel_af4b2a111ed252c88aaf53ea6394fae67} 
@@ -33,12 +43,21 @@ virtual void \mbox{\hyperlink{classNotificationChannel_a0a2279bac0c8ec0b445b13d1
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classNotificationChannel_a0a2279bac0c8ec0b445b13d18eb5acba}\label{classNotificationChannel_a0a2279bac0c8ec0b445b13d18eb5acba} 
+\Hypertarget{classNotificationChannel_ab1378e527f4b65498205b6878c7650f9}\label{classNotificationChannel_ab1378e527f4b65498205b6878c7650f9} 
 \index{NotificationChannel@{NotificationChannel}!deliver@{deliver}}
 \index{deliver@{deliver}!NotificationChannel@{NotificationChannel}}
 \doxysubsubsection{\texorpdfstring{deliver()}{deliver()}}
-{\footnotesize\ttfamily virtual void Notification\+Channel\+::deliver (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structNotificationData}{Notification\+Data}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+{\footnotesize\ttfamily virtual void Notification\+Channel\+::deliver (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structNotificationData}{Notification\+Data}} \&}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
+
+
+Delivers the composed notification data to the target. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The \doxylink{structNotificationData}{Notification\+Data} containing recipient, subject, and body. \\
+\hline
+\end{DoxyParams}
 
 
 Implemented in \mbox{\hyperlink{classEmailChannel_a2339dac9633ff5fad58d988c29de4b00}{Email\+Channel}}, and \mbox{\hyperlink{classAppChannel_a8e71f6ba5794c05974a9f653a2274cd8}{App\+Channel}}.

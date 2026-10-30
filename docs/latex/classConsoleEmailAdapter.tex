@@ -2,6 +2,11 @@
 \hypertarget{classConsoleEmailAdapter}{}\label{classConsoleEmailAdapter}\index{ConsoleEmailAdapter@{ConsoleEmailAdapter}}
 
 
+A Concrete Adapter for testing and offline fallback.  
+
+
+
+
 {\ttfamily \#include $<$Notification\+Bridge.\+h$>$}
 
 
@@ -30,13 +35,18 @@ Collaboration diagram for Console\+Email\+Adapter\+:
 \mbox{\hyperlink{classConsoleEmailAdapter_a0bbdfa2e1a5619aaeaa9691ecb317207}{Console\+Email\+Adapter}} (ostream \&o)
 \item 
 bool \mbox{\hyperlink{classConsoleEmailAdapter_a25fdc2391ecebf0662ddccadc3498ffb}{send\+Email}} (string to, string subject, string body) override
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Mocks email delivery by printing the notification to the terminal. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classEmailTransport}{Email\+Transport}}}
 \begin{DoxyCompactItemize}
 \item 
 virtual \mbox{\hyperlink{classEmailTransport_a77962c395fbfd8e72cf3530d2611731c}{\texorpdfstring{$\sim$}{\string~}\+Email\+Transport}} ()=default
 \end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+A Concrete Adapter for testing and offline fallback. 
+
+Adapts the \doxylink{classEmailTransport}{Email\+Transport} interface to standard console output. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \Hypertarget{classConsoleEmailAdapter_a0bbdfa2e1a5619aaeaa9691ecb317207}\label{classConsoleEmailAdapter_a0bbdfa2e1a5619aaeaa9691ecb317207} 
@@ -53,6 +63,10 @@ virtual \mbox{\hyperlink{classEmailTransport_a77962c395fbfd8e72cf3530d2611731c}{
 \index{sendEmail@{sendEmail}!ConsoleEmailAdapter@{ConsoleEmailAdapter}}
 \doxysubsubsection{\texorpdfstring{sendEmail()}{sendEmail()}}
 {\footnotesize\ttfamily bool Console\+Email\+Adapter\+::send\+Email (\begin{DoxyParamCaption}\item[{string}]{to,  }\item[{string}]{subject,  }\item[{string}]{body }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Mocks email delivery by printing the notification to the terminal. 
 
 
 

@@ -168,7 +168,7 @@ TEST(AdapterStrategyTest, HandlesNullPointersSafely) {
 }
 
 TEST(AdapterStrategyTest, LiveNeonPostgresInsertWhenEnvConfigured) {
-    // 1. Save workflow tasks locally into SQLite (tividy_local.db)
+    // Save workflow tasks locally into SQLite (tividy_local.db)
     SQLiteAdapter* localSq = new SQLiteAdapter(new SQLiteAPI("tividy_local.db"), "workflow_audit_log", true);
     DatabaseObserver localObserver(nullptr, localSq);
 
@@ -182,7 +182,7 @@ TEST(AdapterStrategyTest, LiveNeonPostgresInsertWhenEnvConfigured) {
     localTaskA.setState(new InProgressState()); // Saves "Verify Policy | In Progress" to SQLite
     localTaskB.setState(new CompletedState());  // Saves "Approve Payout | Completed" to SQLite
 
-    // 2. If DATABASE_URL is configured (.env), test Cloud Postgres AND bidirectional sync!
+    // If DATABASE_URL is configured (.env) test Cloud Postgres  sync
     const char* envUrl = std::getenv("DATABASE_URL");
     if (envUrl == nullptr || std::string(envUrl).empty()) {
         SUCCEED();
@@ -205,8 +205,8 @@ TEST(AdapterStrategyTest, LiveNeonPostgresInsertWhenEnvConfigured) {
     EXPECT_EQ(liveObserver.getLastSyncedState(), "Completed");
 
    
-    //    - Upload missing local SQLite rows -> Neon Cloud
-    //    - Download missing Neon Cloud rows -> local SQLite
+    // Upload missing local SQLite rows -> Neon Cloud
+    // Download missing Neon Cloud rows -> local SQLite
     liveObserver.syncDatabases(localSq, cloudPg);
     liveObserver.syncDatabases(cloudPg, localSq);
 
@@ -218,21 +218,20 @@ TEST(AdapterStrategyTest, SingleObserverWatchesMultipleWorkComponentsAutomatical
     const std::string testFile = "test_multi_subject.db";
     std::remove(testFile.c_str());
 
-    // 1. Create ONE DatabaseObserver (starts with subject = nullptr)
+    // Create one DatabaseObserver (starts with subject = nullptr)
     SQLiteAdapter* localSq = new SQLiteAdapter(new SQLiteAPI(testFile), "workflow_audit_log", true);
     DatabaseObserver singleObserver(nullptr, localSq);
 
-    // 2. Create two separate WorkUnits and attach the SAME singleObserver to both!
+    // Create two separate WorkUnits and attach the same singleObserver to both
     WorkUnit taskA("Verify Policy");
     WorkUnit taskB("Approve Payout");
     taskA.attach(&singleObserver);
     taskB.attach(&singleObserver);
 
-    // 3. Change state on taskA and taskB (we never manually call setSubject or update!)
+    // 3. Change state on taskA and taskB (we never manually call setSubject or update)
     taskA.setState(new InProgressState());
     taskB.setState(new CompletedState());
 
-    // 4. Both tasks were automatically saved to the database by that ONE observer!
     EXPECT_EQ(localSq->getRecordState("Verify Policy"), "In Progress");
     EXPECT_EQ(localSq->getRecordState("Approve Payout"), "Completed");
 

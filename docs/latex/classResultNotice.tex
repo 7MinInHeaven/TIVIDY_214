@@ -2,6 +2,11 @@
 \hypertarget{classResultNotice}{}\label{classResultNotice}\index{ResultNotice@{ResultNotice}}
 
 
+A Refined Abstraction in the Bridge Pattern.  
+
+
+
+
 {\ttfamily \#include $<$Notification\+Bridge.\+h$>$}
 
 
@@ -30,14 +35,14 @@ Collaboration diagram for Result\+Notice\+:
 \mbox{\hyperlink{classResultNotice_a4fa7ba466eccd1a60b32a44ac3bdcc43}{Result\+Notice}} (\mbox{\hyperlink{classNotificationChannel}{Notification\+Channel}} \texorpdfstring{$\ast$}{*}ch, \mbox{\hyperlink{classWorkItem}{Work\+Item}} \texorpdfstring{$\ast$}{*}ctx, string to, string status)
 \item 
 \mbox{\hyperlink{structNotificationData}{Notification\+Data}} \mbox{\hyperlink{classResultNotice_a83fb9f1ae90123a5b5d0d3916b28f23f}{compose}} () override
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Dynamically composes the workflow update email. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classNotification}{Notification}}}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classNotification_a90ed22f58b45947261b2709771cc4070}{Notification}} (\mbox{\hyperlink{classNotificationChannel}{Notification\+Channel}} \texorpdfstring{$\ast$}{*}ch, \mbox{\hyperlink{classWorkItem}{Work\+Item}} \texorpdfstring{$\ast$}{*}ctx, string to, string status)
-\item 
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{classNotification}{Notification}. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classNotification_a93e00029080d8f656b2e57a9439d616b}{send}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Triggers the composition and delivery of the notification. \end{DoxyCompactList}\item 
 virtual \mbox{\hyperlink{classNotification_aea36b394897206968baa256fb95d3f59}{\texorpdfstring{$\sim$}{\string~}\+Notification}} ()=default
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Additional Inherited Members}
@@ -53,6 +58,11 @@ string \mbox{\hyperlink{classNotification_a6f2ea418a6fc6b812e315ee703d9ca33}{rec
 string \mbox{\hyperlink{classNotification_a74cd4187391559f6e43e53817c81e7f3}{current\+Status}}
 \end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+A Refined Abstraction in the Bridge Pattern. 
+
+Represents a standard workflow status update notification. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \Hypertarget{classResultNotice_a4fa7ba466eccd1a60b32a44ac3bdcc43}\label{classResultNotice_a4fa7ba466eccd1a60b32a44ac3bdcc43} 
@@ -71,6 +81,10 @@ string \mbox{\hyperlink{classNotification_a74cd4187391559f6e43e53817c81e7f3}{cur
 {\footnotesize\ttfamily \mbox{\hyperlink{structNotificationData}{Notification\+Data}} Result\+Notice\+::compose (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
+
+Dynamically composes the workflow update email. 
+
+This method iterates through the generic \doxylink{classWorkItem}{Work\+Item} payload, format the keys (e.\+g., replacing underscores with spaces), and builds a text body. This ensures the TIVIDY engine remains generic for any workflow blueprint (Insurance, Maintenance, etc.). 
 
 Implements \mbox{\hyperlink{classNotification_a8da571fa1b0f54aea047818e9fc49951}{Notification}}.
 

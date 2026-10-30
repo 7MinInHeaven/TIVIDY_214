@@ -6,8 +6,7 @@
 
 
 
-Inheritance diagram for Workflow\+Builder\+:
-\nopagebreak
+Inheritance diagram for Workflow\+Builder\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -16,8 +15,7 @@ Inheritance diagram for Workflow\+Builder\+:
 \end{figure}
 
 
-Collaboration diagram for Workflow\+Builder\+:
-\nopagebreak
+Collaboration diagram for Workflow\+Builder\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -46,7 +44,9 @@ void \mbox{\hyperlink{classWorkflowBuilder_a3bb4768844ad4dec18151c7bd2cbdc50}{bu
 \mbox{\hyperlink{classHandler}{Handler}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classWorkflowBuilder_a6b74afa15da553a9d29b9dbecade42ed}{get\+Result}} () override
 \item 
 std\+::vector$<$ \mbox{\hyperlink{classWorkGroup}{Work\+Group}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classWorkflowBuilder_a7666b9fce4618eb38e6627b74268c336}{get\+Work\+Groups}} () override
-\end{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classWorkGroup}{Work\+Group}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classWorkflowBuilder_a54bb67e1584f99c84a90b3fbf9f9a7b0}{clone\+Work\+Groups}} () const
+\begin{DoxyCompactList}\small\item\em Creates a deep-\/cloned workflow tree with a rebuilt top-\/level chain. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classChainBuilder}{Chain\+Builder}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -110,6 +110,21 @@ Implements \mbox{\hyperlink{classChainBuilder_ac926106c40eeb92e3b2aa8b6128a6162}
 
 Implements \mbox{\hyperlink{classChainBuilder_ad4be1b4fab22ccde4e4080e5827310d7}{Chain\+Builder}}.
 
+\Hypertarget{classWorkflowBuilder_a54bb67e1584f99c84a90b3fbf9f9a7b0}\label{classWorkflowBuilder_a54bb67e1584f99c84a90b3fbf9f9a7b0} 
+\index{WorkflowBuilder@{WorkflowBuilder}!cloneWorkGroups@{cloneWorkGroups}}
+\index{cloneWorkGroups@{cloneWorkGroups}!WorkflowBuilder@{WorkflowBuilder}}
+\doxysubsubsection{\texorpdfstring{cloneWorkGroups()}{cloneWorkGroups()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classWorkGroup}{Work\+Group}} \texorpdfstring{$\ast$}{*} $>$ Workflow\+Builder\+::clone\+Work\+Groups (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Creates a deep-\/cloned workflow tree with a rebuilt top-\/level chain. 
+
+Clones workflow roots and reconnects their Chain of Responsibility.
+
+\begin{DoxyReturn}{Returns}
+Independently owned cloned workflow roots. 
+\end{DoxyReturn}
 \Hypertarget{classWorkflowBuilder_a6a1b51b9c7a1595674c78617bc561346}\label{classWorkflowBuilder_a6a1b51b9c7a1595674c78617bc561346} 
 \index{WorkflowBuilder@{WorkflowBuilder}!endGroup@{endGroup}}
 \index{endGroup@{endGroup}!WorkflowBuilder@{WorkflowBuilder}}

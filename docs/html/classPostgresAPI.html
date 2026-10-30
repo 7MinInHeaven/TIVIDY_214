@@ -76,28 +76,43 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Adaptee participant in the Adapter design pattern for Cloud PostgreSQL.  
+ <a href="classPostgresAPI.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="PostgresAPI_8h_source.html">PostgresAPI.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:af3e6bb8369f9368339a3c22f6286ff7d" id="r_af3e6bb8369f9368339a3c22f6286ff7d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPostgresAPI.html#af3e6bb8369f9368339a3c22f6286ff7d">PostgresAPI</a> (std::string connStr=&quot;&quot;)</td></tr>
+<tr class="memdesc:af3e6bb8369f9368339a3c22f6286ff7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classPostgresAPI.html" title="Adaptee participant in the Adapter design pattern for Cloud PostgreSQL.">PostgresAPI</a> instance with the given connection string.  <br /></td></tr>
 <tr class="separator:af3e6bb8369f9368339a3c22f6286ff7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8091954f9296e2fbea61a83a71ca51a9" id="r_a8091954f9296e2fbea61a83a71ca51a9"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPostgresAPI.html#a8091954f9296e2fbea61a83a71ca51a9">~PostgresAPI</a> ()</td></tr>
+<tr class="memdesc:a8091954f9296e2fbea61a83a71ca51a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor that ensures disconnection cleanup.  <br /></td></tr>
 <tr class="separator:a8091954f9296e2fbea61a83a71ca51a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a345163e496154addb9f9890f45b54b2c" id="r_a345163e496154addb9f9890f45b54b2c"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPostgresAPI.html#a345163e496154addb9f9890f45b54b2c">connect</a> ()</td></tr>
+<tr class="memdesc:a345163e496154addb9f9890f45b54b2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Establishes and verifies a live connection to the PostgreSQL server using <code>PQconnectdb</code>  <br /></td></tr>
 <tr class="separator:a345163e496154addb9f9890f45b54b2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2cbe9f37f7b8b23b8dcf817f53c92f48" id="r_a2cbe9f37f7b8b23b8dcf817f53c92f48"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPostgresAPI.html#a2cbe9f37f7b8b23b8dcf817f53c92f48">disconnect</a> ()</td></tr>
+<tr class="memdesc:a2cbe9f37f7b8b23b8dcf817f53c92f48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the connection.  <br /></td></tr>
 <tr class="separator:a2cbe9f37f7b8b23b8dcf817f53c92f48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1038cb6a978c3ff606ce33b8622e4288" id="r_a1038cb6a978c3ff606ce33b8622e4288"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPostgresAPI.html#a1038cb6a978c3ff606ce33b8622e4288">executeTransaction</a> (std::string sqlQuery, const std::vector&lt; std::string &gt; &amp;params=std::vector&lt; std::string &gt;())</td></tr>
+<tr class="memdesc:a1038cb6a978c3ff606ce33b8622e4288"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a parameterized SQL write transaction (<code>INSERT</code>, <code>UPDATE</code>, <code>CREATE TABLE</code>)  <br /></td></tr>
 <tr class="separator:a1038cb6a978c3ff606ce33b8622e4288"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab08111e9bfd2b923b8ea1f20622a6b35" id="r_ab08111e9bfd2b923b8ea1f20622a6b35"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPostgresAPI.html#ab08111e9bfd2b923b8ea1f20622a6b35">executeSelect</a> (std::string sqlQuery, const std::vector&lt; std::string &gt; &amp;params=std::vector&lt; std::string &gt;())</td></tr>
+<tr class="memdesc:ab08111e9bfd2b923b8ea1f20622a6b35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a parameterized SQL <code>SELECT</code> query and returns formatted result rows.  <br /></td></tr>
 <tr class="separator:ab08111e9bfd2b923b8ea1f20622a6b35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a81beb069781a404b50b99e8f6e4ff316" id="r_a81beb069781a404b50b99e8f6e4ff316"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPostgresAPI.html#a81beb069781a404b50b99e8f6e4ff316">getConnectionStatus</a> () const</td></tr>
+<tr class="memdesc:a81beb069781a404b50b99e8f6e4ff316"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether the API is currently marked as connected.  <br /></td></tr>
 <tr class="separator:a81beb069781a404b50b99e8f6e4ff316"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8193e9350459a3a8b81a0e55fdd3e5cd" id="r_a8193e9350459a3a8b81a0e55fdd3e5cd"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPostgresAPI.html#a8193e9350459a3a8b81a0e55fdd3e5cd">getConnString</a> () const</td></tr>
+<tr class="memdesc:a8193e9350459a3a8b81a0e55fdd3e5cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the configured PostgreSQL connection string.  <br /></td></tr>
 <tr class="separator:a8193e9350459a3a8b81a0e55fdd3e5cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Adaptee participant in the Adapter design pattern for Cloud PostgreSQL. </p>
+<p>Encapsulates low-level libpq connection management and parameterized SQL execution (<code>PQexecParams</code>) for communicating with a remote PostgreSQL server</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classPostgresAdapter.html" title="Adapter in the Adapter pattern and ConcreteStrategy in the Strategy pattern for PostgreSQL.">PostgresAdapter</a> </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="af3e6bb8369f9368339a3c22f6286ff7d" name="af3e6bb8369f9368339a3c22f6286ff7d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af3e6bb8369f9368339a3c22f6286ff7d">&#9670;&#160;</a></span>PostgresAPI()</h2>
 
@@ -113,6 +128,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Constructs a <a class="el" href="classPostgresAPI.html" title="Adaptee participant in the Adapter design pattern for Cloud PostgreSQL.">PostgresAPI</a> instance with the given connection string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">connStr</td><td>PostgreSQL connection URI (e.g., from <code>DATABASE_URL</code>). </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -138,6 +161,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Destructor that ensures disconnection cleanup. </p>
 
 </div>
 </div>
@@ -165,6 +190,9 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Establishes and verifies a live connection to the PostgreSQL server using <code>PQconnectdb</code> </p>
+<dl class="section return"><dt>Returns</dt><dd>true if the connection succeeded (<code>CONNECTION_OK</code>), false otherwise </dd></dl>
+
 </div>
 </div>
 <a id="a2cbe9f37f7b8b23b8dcf817f53c92f48" name="a2cbe9f37f7b8b23b8dcf817f53c92f48"></a>
@@ -189,6 +217,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Closes the connection. </p>
 
 </div>
 </div>
@@ -226,6 +256,16 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Executes a parameterized SQL <code>SELECT</code> query and returns formatted result rows. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">sqlQuery</td><td>SQL <code>SELECT</code> statement with optional <code>$1, $2, ...</code> placeholders </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">params</td><td>Parameter values bound with <code>PQexecParams</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Vector of <code>" | "</code> delimited row strings </dd></dl>
+
 </div>
 </div>
 <a id="a1038cb6a978c3ff606ce33b8622e4288" name="a1038cb6a978c3ff606ce33b8622e4288"></a>
@@ -262,6 +302,16 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Executes a parameterized SQL write transaction (<code>INSERT</code>, <code>UPDATE</code>, <code>CREATE TABLE</code>) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">sqlQuery</td><td>SQL statement with <code>$1, $2, ...</code> placeholders </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">params</td><td>Parameter values bound safely with <code>PQexecParams</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of affected rows, or <code>-1</code> on failure </dd></dl>
+
 </div>
 </div>
 <a id="a81beb069781a404b50b99e8f6e4ff316" name="a81beb069781a404b50b99e8f6e4ff316"></a>
@@ -287,6 +337,9 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns whether the API is currently marked as connected. </p>
+<dl class="section return"><dt>Returns</dt><dd>true if connected, false otherwise </dd></dl>
+
 </div>
 </div>
 <a id="a8193e9350459a3a8b81a0e55fdd3e5cd" name="a8193e9350459a3a8b81a0e55fdd3e5cd"></a>
@@ -303,6 +356,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the configured PostgreSQL connection string. </p>
+<dl class="section return"><dt>Returns</dt><dd>Connection URI string </dd></dl>
 
 </div>
 </div>

@@ -2,13 +2,13 @@
 <area shape="rect" id="Node000001" title=" " alt="" coords="469,5,655,45"/>
 <area shape="rect" id="Node000002" href="$MailjetEmailAdapter_8h.html" title=" " alt="" coords="303,93,469,119"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="521,48,426,90,423,85,519,43"/>
-<area shape="rect" id="Node000009" href="$MailjetHttpClient_8h.html" title=" " alt="" coords="435,167,580,192"/>
+<area shape="rect" id="Node000009" href="$MailjetHttpClient_8h.html" title="HTTP client wrapper for interacting with the Mailjet API." alt="" coords="435,167,580,192"/>
 <area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="555,47,535,94,516,154,511,152,530,92,550,45"/>
 <area shape="rect" id="Node000010" title=" " alt="" coords="545,93,691,119"/>
 <area shape="poly" id="edge12_Node000001_Node000010" title=" " alt="" coords="578,44,604,80,600,84,573,47"/>
 <area shape="rect" id="Node000011" title=" " alt="" coords="716,93,776,119"/>
 <area shape="poly" id="edge13_Node000001_Node000011" title=" " alt="" coords="607,43,708,85,705,90,605,48"/>
-<area shape="rect" id="Node000003" href="$NotificationBridge_8h.html" title=" " alt="" coords="167,167,317,192"/>
+<area shape="rect" id="Node000003" href="$NotificationBridge_8h.html" title="Defines the Bridge pattern for the notification subsystem." alt="" coords="167,167,317,192"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="364,121,279,163,277,158,362,116"/>
 <area shape="rect" id="Node000004" title=" " alt="" coords="290,313,349,339"/>
 <area shape="poly" id="edge9_Node000002_Node000004" title=" " alt="" coords="390,119,391,183,386,225,374,266,361,288,345,306,341,302,357,285,369,264,381,224,386,183,385,119"/>

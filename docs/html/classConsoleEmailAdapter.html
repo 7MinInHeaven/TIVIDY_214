@@ -76,14 +76,17 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>A Concrete Adapter for testing and offline fallback.  
+ <a href="classConsoleEmailAdapter.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="NotificationBridge_8h_source.html">NotificationBridge.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for ConsoleEmailAdapter:</div>
 <div class="dyncontent">
 <div class="center"><img src="classConsoleEmailAdapter__inherit__graph.png" border="0" usemap="#aConsoleEmailAdapter_inherit__map" alt="Inheritance graph"/></div>
 <map name="aConsoleEmailAdapter_inherit__map" id="aConsoleEmailAdapter_inherit__map">
-<area shape="rect" title=" " alt="" coords="5,79,168,104"/>
-<area shape="rect" href="classEmailTransport.html" title=" " alt="" coords="27,5,146,31"/>
+<area shape="rect" title="A Concrete Adapter for testing and offline fallback." alt="" coords="5,79,168,104"/>
+<area shape="rect" href="classEmailTransport.html" title="The Target interface in the Adapter Pattern." alt="" coords="27,5,146,31"/>
 <area shape="poly" title=" " alt="" coords="89,44,89,79,84,79,84,44"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
@@ -92,8 +95,8 @@ Collaboration diagram for ConsoleEmailAdapter:</div>
 <div class="dyncontent">
 <div class="center"><img src="classConsoleEmailAdapter__coll__graph.png" border="0" usemap="#aConsoleEmailAdapter_coll__map" alt="Collaboration graph"/></div>
 <map name="aConsoleEmailAdapter_coll__map" id="aConsoleEmailAdapter_coll__map">
-<area shape="rect" title=" " alt="" coords="5,79,168,104"/>
-<area shape="rect" href="classEmailTransport.html" title=" " alt="" coords="27,5,146,31"/>
+<area shape="rect" title="A Concrete Adapter for testing and offline fallback." alt="" coords="5,79,168,104"/>
+<area shape="rect" href="classEmailTransport.html" title="The Target interface in the Adapter Pattern." alt="" coords="27,5,146,31"/>
 <area shape="poly" title=" " alt="" coords="89,44,89,79,84,79,84,44"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
@@ -103,12 +106,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0bbdfa2e1a5619aaeaa9691ecb317207" id="r_a0bbdfa2e1a5619aaeaa9691ecb317207"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classConsoleEmailAdapter.html#a0bbdfa2e1a5619aaeaa9691ecb317207">ConsoleEmailAdapter</a> (ostream &amp;o)</td></tr>
 <tr class="separator:a0bbdfa2e1a5619aaeaa9691ecb317207"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25fdc2391ecebf0662ddccadc3498ffb" id="r_a25fdc2391ecebf0662ddccadc3498ffb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classConsoleEmailAdapter.html#a25fdc2391ecebf0662ddccadc3498ffb">sendEmail</a> (string to, string subject, string body) override</td></tr>
+<tr class="memdesc:a25fdc2391ecebf0662ddccadc3498ffb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mocks email delivery by printing the notification to the terminal.  <br /></td></tr>
 <tr class="separator:a25fdc2391ecebf0662ddccadc3498ffb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classEmailTransport"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classEmailTransport')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classEmailTransport.html">EmailTransport</a></td></tr>
 <tr class="memitem:a77962c395fbfd8e72cf3530d2611731c inherit pub_methods_classEmailTransport" id="r_a77962c395fbfd8e72cf3530d2611731c"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEmailTransport.html#a77962c395fbfd8e72cf3530d2611731c">~EmailTransport</a> ()=default</td></tr>
 <tr class="separator:a77962c395fbfd8e72cf3530d2611731c inherit pub_methods_classEmailTransport"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A Concrete Adapter for testing and offline fallback. </p>
+<p>Adapts the <a class="el" href="classEmailTransport.html" title="The Target interface in the Adapter Pattern.">EmailTransport</a> interface to standard console output. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a0bbdfa2e1a5619aaeaa9691ecb317207" name="a0bbdfa2e1a5619aaeaa9691ecb317207"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0bbdfa2e1a5619aaeaa9691ecb317207">&#9670;&#160;</a></span>ConsoleEmailAdapter()</h2>
 
@@ -175,6 +182,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Mocks email delivery by printing the notification to the terminal. </p>
 
 <p>Implements <a class="el" href="classEmailTransport.html#a733cdcb5000839b5dd8d46d92e6a0590">EmailTransport</a>.</p>
 

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['inprogressstate_0',['InProgressState',['../classInProgressState.html',1,'']]]
+  ['handler_0',['Handler',['../classHandler.html',1,'']]],
+  ['httpresponse_1',['HttpResponse',['../structHttpResponse.html',1,'']]]
 ];

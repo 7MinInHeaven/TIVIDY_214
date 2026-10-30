@@ -1,6 +1,6 @@
 <map id="include/PostgresAPI.h" name="include/PostgresAPI.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="742,5,905,31"/>
-<area shape="rect" id="Node000002" href="$PostgresAdapter_8h.html" title=" " alt="" coords="728,86,919,111"/>
+<area shape="rect" id="Node000001" title="Declares the PostgreSQL Adaptee wrapping low&#45;level libpq C API calls." alt="" coords="742,5,905,31"/>
+<area shape="rect" id="Node000002" href="$PostgresAdapter_8h.html" title="Declares the Adapter and ConcreteStrategy for Cloud PostgreSQL." alt="" coords="728,86,919,111"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="826,44,826,86,821,86,821,44"/>
 <area shape="rect" id="Node000003" href="$WorkflowEngineFacade_8h.html" title=" " alt="" coords="573,174,807,199"/>
 <area shape="poly" id="edge12_Node000001_Node000003" title=" " alt="" coords="775,38,744,56,717,80,705,104,697,130,692,174,687,174,692,129,700,102,713,77,741,52,773,34"/>

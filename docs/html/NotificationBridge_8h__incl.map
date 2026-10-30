@@ -1,5 +1,5 @@
 <map id="include/NotificationBridge.h" name="include/NotificationBridge.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="11,5,214,31"/>
+<area shape="rect" id="Node000001" title="Defines the Bridge pattern for the notification subsystem." alt="" coords="11,5,214,31"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="62,152,121,177"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="75,33,40,51,25,64,13,80,9,98,18,114,34,130,55,143,52,148,31,134,13,118,4,98,8,78,21,61,37,47,73,28"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="22,79,102,104"/>

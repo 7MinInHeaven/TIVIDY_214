@@ -1,5 +1,5 @@
 <map id="include/ResendEmailAdapter.h" name="include/ResendEmailAdapter.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="103,5,323,31"/>
+<area shape="rect" id="Node000001" title="Adapter for the Resend API." alt="" coords="103,5,323,31"/>
 <area shape="rect" id="Node000002" href="$WorkflowEngineFacade_8cpp.html" title=" " alt="" coords="5,79,204,119"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="187,41,132,81,129,76,184,37"/>
 <area shape="rect" id="Node000003" href="$ResendEmailAdapter_8cpp.html" title=" " alt="" coords="228,79,416,119"/>

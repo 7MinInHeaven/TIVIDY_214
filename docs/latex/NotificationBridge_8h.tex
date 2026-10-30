@@ -1,5 +1,10 @@
 \doxysection{include/\+Notification\+Bridge.h File Reference}
 \hypertarget{NotificationBridge_8h}{}\label{NotificationBridge_8h}\index{include/NotificationBridge.h@{include/NotificationBridge.h}}
+
+
+Defines the Bridge pattern for the notification subsystem.  
+
+
 {\ttfamily \#include $<$string$>$}\newline
 {\ttfamily \#include $<$iostream$>$}\newline
 {\ttfamily \#include $<$memory$>$}\newline
@@ -24,20 +29,26 @@ This graph shows which files directly or indirectly include this file\+:
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{structNotificationData}{Notification\+Data}}
-\item 
+\begin{DoxyCompactList}\small\item\em Data Transfer Object (DTO) passed from the Abstraction to the Implementor. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classNotificationChannel}{Notification\+Channel}}
-\item 
+\begin{DoxyCompactList}\small\item\em The Implementor interface in the Bridge Pattern. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classEmailTransport}{Email\+Transport}}
-\item 
+\begin{DoxyCompactList}\small\item\em The Target interface in the Adapter Pattern. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classNotification}{Notification}}
-\item 
+\begin{DoxyCompactList}\small\item\em The Abstraction in the Bridge Pattern. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classResultNotice}{Result\+Notice}}
-\item 
+\begin{DoxyCompactList}\small\item\em A Refined Abstraction in the Bridge Pattern. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classDeadlineNotice}{Deadline\+Notice}}
-\item 
+\begin{DoxyCompactList}\small\item\em A Refined Abstraction in the Bridge Pattern. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classEmailChannel}{Email\+Channel}}
-\item 
+\begin{DoxyCompactList}\small\item\em A Concrete Implementor in the Bridge Pattern (and Context in the Strategy Pattern). \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classAppChannel}{App\+Channel}}
-\item 
+\begin{DoxyCompactList}\small\item\em A Concrete Implementor in the Bridge Pattern. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{classConsoleEmailAdapter}{Console\+Email\+Adapter}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em A Concrete Adapter for testing and offline fallback. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Defines the Bridge pattern for the notification subsystem. 
+
+This file contains the Abstractions (\doxylink{classNotification}{Notification}, \doxylink{classResultNotice}{Result\+Notice}) and the Implementors (\doxylink{classNotificationChannel}{Notification\+Channel}, \doxylink{classEmailChannel}{Email\+Channel}) that decouple the message content from the delivery mechanism. 
