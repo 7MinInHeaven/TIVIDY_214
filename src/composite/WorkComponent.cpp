@@ -1,5 +1,7 @@
 #include "Composite.h"
 #include "Iterator.h"
+#include <iomanip>
+#include <iostream>
 #include <random>
 #include <sstream>
 
@@ -12,14 +14,19 @@ WorkComponent::WorkComponent(std::string name) : name(name){
         WorkComponent* current = it.getCurrent();
         if(current->getID() == generatedID){
             generatedID = generateRandomID();
-            it.first(); //have to restart check
+            it.first(); 
         }
     }
+    taskID = generatedID;   
+    parent = nullptr;
 }
 WorkComponent::WorkComponent(const WorkComponent& other){
     state = other.state->clone();
     item = new WorkItem(*other.item);
     name = other.name;
+    taskID = other.taskID;
+    assignedWorkerID = other.assignedWorkerID;
+    parent = nullptr;         
 }
 WorkComponent::~WorkComponent() {
     delete state;
@@ -27,6 +34,7 @@ WorkComponent::~WorkComponent() {
 }
 
 const WorkState* WorkComponent::getState() const {return state;}   
+std::string WorkComponent::getStatus() const {return state->getStatus();}
 std::string WorkComponent::getName() const {return name;}
 WorkItem* WorkComponent::getItem() const {return item;}
 std::string WorkComponent::getID() const {return taskID;}
@@ -42,25 +50,45 @@ void WorkComponent::setState(WorkState* state){
     delete this->state;
     this->state = state;
     this->notify();
+
+    // tell the group we sit in, so its state can follow ours
+    if (parent != nullptr) {
+        parent->refreshState();
+    }
+}
+void WorkComponent::setParent(WorkGroup* newParent){
+    parent = newParent;
 }
 bool WorkComponent::assignTask(const std::string& workerID){
     assignedWorkerID = workerID; 
     return true;
 }
+// Pending -> In Progress. Needs an assignee, and any other state is refused.
 bool WorkComponent::startTask(){
-    if (assignedWorkerID.empty())
-      return false;
-    if (state) {
-      state->handleUpdate(this);
+    if (assignedWorkerID.empty()) {
+        std::cout << "Cannot start '" + name + "': nobody is assigned\n";
+        return false;
     }
+    if (state == nullptr || state->getStatus() != "Pending") {
+        std::cout << "Cannot start '" + name + "': it is not Pending\n";
+        return false;
+    }
+    state->handleUpdate(this);
     return true;
 }
+// In Progress -> Completed. A Pending task has to be started first.
 bool WorkComponent::completeTask(){
-    if (state) {
-        state->handleUpdate(this);
+    if (state == nullptr || state->getStatus() != "In Progress") {
+        std::cout << "Cannot complete '" + name + "': it is not In Progress\n";
+        return false;
     }
+    state->handleUpdate(this);
     return true;
 }
+
+// defaults: only WorkUnit saves and restores a memento
+WorkMemento* WorkComponent::createMemento(){ return nullptr; }
+void WorkComponent::setMemento(WorkMemento*){}
 
 void WorkComponent::nextState() {
     if (state != nullptr) {

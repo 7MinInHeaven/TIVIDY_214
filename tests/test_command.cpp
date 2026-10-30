@@ -27,8 +27,11 @@ TEST(CommandTests, CompleteTaskCommandExecution){
     WorkUnit task("Task-003");
     task.assignTask("Worker_Charlie");
 
+    StartTaskCommand startCmd(&task);
+    ASSERT_TRUE(startCmd.execute());  
+
     CompleteTaskCommand completeCmd(&task);
-    bool success = completeCmd.execute();
+    bool success = completeCmd.execute();  
 
     EXPECT_TRUE(success);
 }

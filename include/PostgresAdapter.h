@@ -15,7 +15,7 @@
  * @class PostgresAdapter
  * @brief Adapter in the Adapter pattern and ConcreteStrategy in the Strategy pattern for PostgreSQL
  *
- * Adapts the low-level PostgresAPI (Adaptee) to the ExternalDatabase (Target)
+ * Adapts the low-level PostgresAPI (`Adaptee`) to the ExternalDatabase (Target)
  * interface so DatabaseObserver can persist and retrieve workflow records in Neon Cloud PostgreSQL
  *
  * @see ExternalDatabase
@@ -27,18 +27,19 @@ private:
     PostgresAPI* pgApi;    /**< Pointer to the wrapped PostgresAPI Adaptee */
     std::string tableName; /**< Sanitized SQL table name used for storing audit records */
     bool ownsAPI;          /**< Indicates whether this adapter owns and deletes `pgApi` */
+    bool tableEnsured;     /**< Tracks whether `CREATE TABLE IF NOT EXISTS` has already run for this adapter */
 
     /**
-     * @brief Strips single quotes from strings to sanitize identifiers and fallback queries
+     * @brief Escapes single quotes in strings for SQL safety
      *
-     * @param[in] input Raw input string.
-     * @return Sanitized string with `'` characters removed.
+     * @param[in] input Raw input string
+     * @return Sanitized string with `'` escaped
      */
     std::string rmvQuotes(const std::string& input) const;
 
 public:
     /**
-     * @brief Constructs a PostgresAdapter, connects via `pgApi`, and ensures the target table exists
+     * @brief Constructs a PostgresAdapter wrapping a PostgresAPI instance
      *
      * @param[in] pgApi Pointer to the PostgresAPI Adaptee instance
      * @param[in] table Target SQL table name (defaults to `"workflow_audit_log"`)
@@ -47,7 +48,7 @@ public:
     PostgresAdapter(PostgresAPI* pgApi, std::string table = "workflow_audit_log", bool takeOwnership = true);
 
     /**
-     * @brief Destructor that disconnects and optionally deletes the wrapped PostgresAPI.
+     * @brief Destructor that deletes the wrapped PostgresAPI.
      */
     virtual ~PostgresAdapter();
 
@@ -57,13 +58,13 @@ public:
      * @param[in] taskID Integer identifier of the task
      * @param[in] taskName Name of the WorkComponent
      * @param[in] state Current workflow state string
-     * @param[in] payload payload data
+     * @param[in] payload Serialized key-value metadata
      * @return true if the transaction succeeded, false otherwise
      */
     virtual bool saveRecord(int taskID, std::string taskName, std::string state, std::string payload) override;
 
     /**
-     * @brief Queries the latest saved state for the specified task name from PostgreSQL
+     * @brief Queries the latest persisted state for the specified task name from PostgreSQL
      *
      * @param[in] taskName Name of the task to look up
      * @return Latest state string, or an empty string if not found
@@ -78,9 +79,9 @@ public:
     virtual std::vector<std::string> fetchAllRecords() override;
 
     /**
-     * @brief Checks whether the underlying PostgresAPI connection is active
+     * @brief Checks whether the underlying PostgresAPI connection is active.
      *
-     * @return true if connected, false otherwise
+     * @return true if connected, false otherwise.
      */
     virtual bool isConnected() override;
 };
