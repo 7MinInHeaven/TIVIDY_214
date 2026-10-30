@@ -10,6 +10,7 @@
 #include "MailjetEmailAdapter.h"
 #include "NotificationBridge.h"
 #include "WorkItem.h"
+#include "Command.h"
 #include <cstdlib>
 #include <curl/curl.h>
 #include <iostream>
@@ -35,6 +36,8 @@ class WorkflowService {
       virtual std::string getStatus(int actorId, int instanceId) const = 0;
       virtual std::vector<std::string> getHistory(int actorId, int instanceId) const = 0;
       virtual std::vector<int> listInstanceIds(int actorId) const = 0;
+
+
   };
 
   class WorkflowEngineFacade: public WorkflowService {
@@ -49,6 +52,10 @@ class WorkflowService {
       vector<string> history;
       vector<int> completedTasks; // task ids, in the order they were completed
       map<string, string> payload;
+
+      //Thando
+      ActionExecutor actionExecutor;
+      WorkComponent* rootComponent;
     };
     Request &find(int instanceId);
     const Request &find(int instanceId) const;
@@ -58,6 +65,10 @@ class WorkflowService {
     //Robert's stuff
     DatabaseObserver* dbObserver;
     void attachObserverToTree(WorkComponent* component);
+
+    //Thando (helpers)
+    WorkUnit* findUnit(WorkComponent* node, const std::string& taskId);
+    void requireActiveOwner(const Request& request, int actorId) const;
 
   public:
     WorkflowEngineFacade();
@@ -75,6 +86,11 @@ class WorkflowService {
     std::string getStatus(int actorId, int instanceId) const override;
     std::vector<std::string> getHistory(int actorId, int instanceId) const override;
     std::vector<int> listInstanceIds(int actorId) const override;
+
+    //Thando
+    void startTask(int actorId, int instanceId, const std::string& taskId) ;
+    void assignTask(int actorId, int instanceId, const std::string& taskId, const std::string& workerId) ;
+
 };
 
 #endif

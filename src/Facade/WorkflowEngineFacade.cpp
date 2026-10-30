@@ -8,6 +8,7 @@
 #include "ChainBuilder.h"
 #include "WorkflowBuilder.h"
 #include "Director.h"
+#include "Command.h"
 
 #include "ResendEmailAdapter.h"
 #include "BrevoEmailAdapter.h"
@@ -193,20 +194,17 @@ void WorkflowEngineFacade::takeOwnership(int actorId, int instanceId) {
 //only the owner can complete tasks, and each task only once
 void WorkflowEngineFacade::completeTask(int actorId, int instanceId, int taskId) {
   Request &request = find(instanceId);
-  if (request.status != "Open") {
-    throw logic_error("Request is " + request.status + ", tasks can no longer change");
-  }
-  if (request.owner != actorId) {
-    throw logic_error("Take ownership of the request first");
-  }
-  if (taskId < 1) {
+
+  requireActiveOwner(request, actorId);
+  WorkUnit* unit = findUnit(request.rootComponent,to_string(taskId));
+  if (!unit){
     throw invalid_argument("no such task");
   }
-  for (size_t i = 0; i < request.completedTasks.size(); ++i) {
-    if (request.completedTasks[i] == taskId) {
-      throw logic_error("Task " + to_string(taskId) + " is already completed");
-    }
+
+  if (!request.actionExecutor.executeCommand(new CompleteTaskCommand(unit))) {
+    throw logic_error("Failed to complete task " + to_string(taskId));
   }
+
   request.completedTasks.push_back(taskId);
   request.history.push_back("task " + to_string(taskId) + " completed by participant " + to_string(actorId));
 }
@@ -244,12 +242,12 @@ void WorkflowEngineFacade::cancelRequest(int actorId, int instanceId) {
 //reverses the most recently completed task
 void WorkflowEngineFacade::undoLastAction(int, int instanceId) {
   Request &request = find(instanceId);
-  if (request.status != "Open" || request.completedTasks.empty()) {
+  if (request.status != "Open" || !request.actionExecutor.undoLastAction()) {   //request.completedTasks.empty()
     throw logic_error("Nothing to undo");
   }
-  int taskId = request.completedTasks.back();
-  request.completedTasks.pop_back();
-  request.history.push_back("undo: task " + to_string(taskId) + " reopened");
+
+
+  request.history.push_back("undo: last action reversed");
 }
 
 //memento idk
@@ -274,3 +272,54 @@ vector<int> WorkflowEngineFacade::listInstanceIds(int) const {
   }
   return ids;
 }  
+
+
+//Thandoo 
+WorkUnit* WorkflowEngineFacade::findUnit(WorkComponent* node, const std::string& taskId){
+  if (node == nullptr) return nullptr;
+
+  if (WorkUnit* unit = dynamic_cast<WorkUnit*>(node)) {
+    return unit->getTaskId() == taskId ? unit : nullptr;
+  }
+  if (WorkGroup* group = dynamic_cast<WorkGroup*>(node)) {
+    for (WorkComponent* child : group->getChildren()) {
+      if (WorkUnit* found = findUnit(child, taskId)) return found;
+    }
+  }
+  return nullptr;
+}
+
+//
+void WorkflowEngineFacade::requireActiveOwner(const Request& request, int actorId) const {
+  if (request.status != "Open")     //claim must still be active
+    throw logic_error("Request is " + request.status + ", tasks can no longer change");
+  if (request.owner != actorId)     //caller must be the agent who took it
+    throw logic_error("Take ownership of the request first");
+}
+
+void WorkflowEngineFacade::startTask(int actorId, int instanceId, const std::string& taskId) {
+  Request &request = find(instanceId);
+  requireActiveOwner(request, actorId);
+  WorkUnit* unit = findUnit(request.rootComponent, taskId);
+  if (!unit) {
+    throw invalid_argument("no such task");
+  }
+  if (!request.actionExecutor.executeCommand(new StartTaskCommand(unit))) {
+    throw logic_error("Failed to start task " + taskId);
+  }
+  request.history.push_back("task " + taskId + " started by participant " + to_string(actorId));
+}
+
+void WorkflowEngineFacade::assignTask(int actorId, int instanceId, const std::string& taskId, const std::string& workerId) {
+  Request &request = find(instanceId);
+  requireActiveOwner(request, actorId);
+  WorkUnit* unit = findUnit(request.rootComponent, taskId);
+  if (!unit) {
+    throw invalid_argument("no such task");
+  }
+  if (!request.actionExecutor.executeCommand(new AssignTaskCommand(unit, workerId))) {
+    throw logic_error("Failed to assign task " + taskId + " to worker " + workerId);
+  }
+  request.history.push_back("task " + taskId + " assigned to worker " + workerId + " by participant " + to_string(actorId));
+}
+
