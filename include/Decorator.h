@@ -85,7 +85,7 @@ class TaskDecorator : public WorkComponent {
         explicit TaskDecorator(WorkComponent* taskToWrap);
         virtual ~TaskDecorator();
 
-        WorkState* getState() const override;
+        const WorkState* getState() const override; //gabriel added const
         std::string getName() const override;
         void setData(const std::string& key, const std::string& value) override;
         std::string getData(const std::string& key) const override;
@@ -93,6 +93,18 @@ class TaskDecorator : public WorkComponent {
         bool isComplete() const override;
         PriorityLevel getPriority() const override;
         virtual void accept(WorkVisitor& visitor) const override = 0;
+
+        //gabriel added getters
+        WorkItem* getItem() const;
+        std::string getID() const;
+        std::string getAssignedWorkerId() const;
+        const std::vector<WorkComponent*> getChildren() const override;
+
+        //gabriel added task functions
+        virtual bool assignTask(const std::string& workerID);
+        virtual bool startTask();
+        virtual bool completeTask();
+
 
         virtual WorkComponent* clone() const override = 0;
 

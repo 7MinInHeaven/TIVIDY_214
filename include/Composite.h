@@ -25,19 +25,24 @@ public:
   virtual ~WorkComponent();
 
   // getters
-  virtual WorkState *getState() const; // mo
+  virtual const WorkState* getState() const; // mo
   virtual std::string getName() const; // mo
-  WorkItem *getItem() const;
+  virtual WorkItem* getItem() const;
+  virtual std::string getID() const;
+  virtual std::string getAssignedWorkerId() const;
+  virtual std::string getData(const std::string &key) const;
+  virtual PriorityLevel getPriority() const;
 
   // setters
   void setState(WorkState *state);
   virtual void setData(const std::string &key, const std::string &value); // mo
+  virtual bool assignTask(const std::string& workerID);
 
   // mo added virtual functions for decorator
-  virtual std::string getData(const std::string &key) const;
   virtual void nextState();
   virtual bool isComplete() const;
-  virtual PriorityLevel getPriority() const;
+  virtual bool startTask();
+  virtual bool completeTask();
 
   virtual void accept(WorkVisitor& visitor) const = 0;
   virtual WorkComponent* clone() const override = 0;
@@ -45,13 +50,18 @@ public:
   virtual bool add(WorkComponent* child);
   virtual void remove(WorkComponent* child);
   virtual void remove(std::string name);
-  virtual std::vector<WorkComponent*> getChildren() const;
+  virtual const std::vector<WorkComponent*> getChildren() const;
 
 
-private:
+
+protected:
   WorkState *state;
   WorkItem *item;
   std::string name;
+  std::string taskID;
+  std::string assignedWorkerID;
+
+  std::string generateRandomID() const;
 };
 
 class WorkGroup : public WorkComponent {
@@ -61,21 +71,15 @@ public:
   ~WorkGroup() override;
 
   bool add(WorkComponent* child) override;
-
   void remove(WorkComponent *child) override;
   void remove(std::string name) override;
-
-  std::vector<WorkComponent *> getChildren() const override;
+  const std::vector<WorkComponent *> getChildren() const override;
 
   virtual void accept(WorkVisitor &visitor) const override;
   virtual WorkGroup *clone() const;
 
   void handleRequest(WorkItem item);
-
-  // ensure proper division of composite classes
-protected:
-
-    private:
+private:
     std::vector<WorkComponent*> children;
     void printTasks(WorkComponent* component);
     friend class WorkflowBuilder;
@@ -98,20 +102,10 @@ public:
 };
 
 class WorkUnit : public WorkComponent {
-private:
-  std::string taskId;
-  WorkState *currentState;
-  std::string assignedWorkerId;
-
 public:
-  WorkUnit(const std::string &taskId);
+  WorkUnit(std::string name);
   WorkMemento *createMemento();
   void setMemento(WorkMemento *memento);
-  bool startTask();
-  bool completeTask();
-  bool assignTask(const std::string &workerId);
-  std::string getTaskId();
-  std::string getAssignedWorkerId();
   void accept(WorkVisitor &visitor) const override;
   WorkUnit *clone() const override;
 };

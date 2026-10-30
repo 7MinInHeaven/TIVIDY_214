@@ -9,7 +9,7 @@ void PendingState::handleUpdate(WorkComponent* context)
     context->setState(new InProgressState());
 }
 
-std::string PendingState::getStatus()
+std::string PendingState::getStatus() const
 {
     return "Pending";
 }

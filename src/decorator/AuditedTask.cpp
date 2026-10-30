@@ -7,7 +7,7 @@ using namespace std;
 namespace {
 
 string statusOf(WorkComponent& task) {
-    WorkState* state = task.getState();
+    const WorkState* state = task.getState();
     return state != nullptr ? state->getStatus() : string("Unknown");
 }
 
