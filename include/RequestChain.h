@@ -11,7 +11,7 @@
 
 class RequestChain {
 public:
-    explicit RequestChain(const std::map<std::string, std::string>& payload);
+    RequestChain(const std::map<std::string, std::string>& payload);
     ~RequestChain();
     bool build(const json& blueprint);
     void indexTasks();
