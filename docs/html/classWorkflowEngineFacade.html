@@ -105,8 +105,18 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a7974d3d2396c1f86ae6f373b177d3c65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add29460804890f198077004898192433" id="r_add29460804890f198077004898192433"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkflowEngineFacade.html#add29460804890f198077004898192433">~WorkflowEngineFacade</a> ()</td></tr>
 <tr class="separator:add29460804890f198077004898192433"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cd8094812e3276eedbd75e6b2984fe4" id="r_a2cd8094812e3276eedbd75e6b2984fe4"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkflowEngineFacade.html#a2cd8094812e3276eedbd75e6b2984fe4">refreshScenarios</a> ()</td></tr>
+<tr class="memdesc:a2cd8094812e3276eedbd75e6b2984fe4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Refreshes the available JSON workflow scenarios.  <br /></td></tr>
+<tr class="separator:a2cd8094812e3276eedbd75e6b2984fe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad31dac1b6a39ca7a2b676039b961db74" id="r_ad31dac1b6a39ca7a2b676039b961db74"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="structWorkflowScenario.html">WorkflowScenario</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkflowEngineFacade.html#ad31dac1b6a39ca7a2b676039b961db74">listScenarios</a> () const</td></tr>
+<tr class="memdesc:ad31dac1b6a39ca7a2b676039b961db74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the scenarios discovered by the last refresh.  <br /></td></tr>
+<tr class="separator:ad31dac1b6a39ca7a2b676039b961db74"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06a35d28ab72d2dbc80da0189e47234f" id="r_a06a35d28ab72d2dbc80da0189e47234f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkflowEngineFacade.html#a06a35d28ab72d2dbc80da0189e47234f">submitRequest</a> (<a class="el" href="classWorkItem.html">WorkItem</a> item)</td></tr>
+<tr class="memdesc:a06a35d28ab72d2dbc80da0189e47234f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the default workflow blueprint.  <br /></td></tr>
 <tr class="separator:a06a35d28ab72d2dbc80da0189e47234f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92bb512fef85cf1878c4087c94a50f4b" id="r_a92bb512fef85cf1878c4087c94a50f4b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkflowEngineFacade.html#a92bb512fef85cf1878c4087c94a50f4b">submitRequest</a> (<a class="el" href="classWorkItem.html">WorkItem</a> item, const std::string &amp;blueprintPath)</td></tr>
+<tr class="memdesc:a92bb512fef85cf1878c4087c94a50f4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a selected workflow blueprint without changing the engine patterns.  <br /></td></tr>
+<tr class="separator:a92bb512fef85cf1878c4087c94a50f4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af162502120f1dd1ae79fe34bb7874890" id="r_af162502120f1dd1ae79fe34bb7874890"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkflowEngineFacade.html#af162502120f1dd1ae79fe34bb7874890">submitRequest</a> (int actorId, const std::map&lt; std::string, std::string &gt; &amp;payload) override</td></tr>
 <tr class="separator:af162502120f1dd1ae79fe34bb7874890"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abafea36b20010f8751c82a8f97b1da88" id="r_abafea36b20010f8751c82a8f97b1da88"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkflowEngineFacade.html#abafea36b20010f8751c82a8f97b1da88">takeOwnership</a> (int actorId, int instanceId) override</td></tr>
@@ -393,6 +403,47 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ad31dac1b6a39ca7a2b676039b961db74" name="ad31dac1b6a39ca7a2b676039b961db74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad31dac1b6a39ca7a2b676039b961db74">&#9670;&#160;</a></span>listScenarios()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt; <a class="el" href="structWorkflowScenario.html">WorkflowScenario</a> &gt; &amp; WorkflowEngineFacade::listScenarios </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the scenarios discovered by the last refresh. </p>
+<p>Returns the facade's currently discovered scenarios. </p>
+
+</div>
+</div>
+<a id="a2cd8094812e3276eedbd75e6b2984fe4" name="a2cd8094812e3276eedbd75e6b2984fe4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cd8094812e3276eedbd75e6b2984fe4">&#9670;&#160;</a></span>refreshScenarios()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::string &gt; WorkflowEngineFacade::refreshScenarios </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Refreshes the available JSON workflow scenarios. </p>
+<p>Refreshes the facade's runtime scenario catalog.</p>
+<dl class="section return"><dt>Returns</dt><dd>Errors encountered while skipping invalid scenario files. </dd></dl>
+
+</div>
+</div>
 <a id="a612d32a96ce6dac8dad0f2364d72fe0e" name="a612d32a96ce6dac8dad0f2364d72fe0e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a612d32a96ce6dac8dad0f2364d72fe0e">&#9670;&#160;</a></span>rejectRequest()</h2>
 
@@ -476,7 +527,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="af162502120f1dd1ae79fe34bb7874890" name="af162502120f1dd1ae79fe34bb7874890"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af162502120f1dd1ae79fe34bb7874890">&#9670;&#160;</a></span>submitRequest() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af162502120f1dd1ae79fe34bb7874890">&#9670;&#160;</a></span>submitRequest() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -514,7 +565,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a06a35d28ab72d2dbc80da0189e47234f" name="a06a35d28ab72d2dbc80da0189e47234f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a06a35d28ab72d2dbc80da0189e47234f">&#9670;&#160;</a></span>submitRequest() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a06a35d28ab72d2dbc80da0189e47234f">&#9670;&#160;</a></span>submitRequest() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -528,6 +579,46 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Executes the default workflow blueprint. </p>
+
+</div>
+</div>
+<a id="a92bb512fef85cf1878c4087c94a50f4b" name="a92bb512fef85cf1878c4087c94a50f4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92bb512fef85cf1878c4087c94a50f4b">&#9670;&#160;</a></span>submitRequest() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void WorkflowEngineFacade::submitRequest </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classWorkItem.html">WorkItem</a>&#160;</td>
+          <td class="paramname"><em>item</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>blueprintPath</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Executes a selected workflow blueprint without changing the engine patterns. </p>
+<p>Loads and executes one selected workflow blueprint.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">item</td><td>Work item passed through the workflow. </td></tr>
+    <tr><td class="paramname">blueprintPath</td><td>Validated scenario file to execute. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

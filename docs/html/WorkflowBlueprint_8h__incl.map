@@ -1,0 +1,11 @@
+<map id="include/WorkflowBlueprint.h" name="include/WorkflowBlueprint.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="89,5,293,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,76,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="168,33,79,75,77,70,166,28"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="100,79,187,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="186,33,161,69,156,66,181,30"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="211,79,270,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="202,29,227,66,223,69,197,33"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="294,79,441,104"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="221,28,327,71,325,76,219,33"/>
+</map>

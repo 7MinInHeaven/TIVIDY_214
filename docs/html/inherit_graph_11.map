@@ -1,3 +1,23 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$structHttpResponse.html" title=" " alt="" coords="5,5,119,31"/>
+<area shape="rect" id="Node000000" href="$classHandler.html" title=" " alt="" coords="34,128,107,153"/>
+<area shape="rect" id="Node000001" href="$classWorkComponent.html" title=" " alt="" coords="184,153,315,179"/>
+<area shape="poly" id="edge13_Node000000_Node000001" title=" " alt="" coords="122,145,184,154,184,159,121,150"/>
+<area shape="rect" id="Node000002" href="$classTaskDecorator.html" title=" " alt="" coords="363,80,477,105"/>
+<area shape="poly" id="edge14_Node000001_Node000002" title=" " alt="" coords="291,145,388,103,390,108,293,150"/>
+<area shape="rect" id="Node000006" href="$classWorkGroup.html" title=" " alt="" coords="373,153,467,179"/>
+<area shape="poly" id="edge18_Node000001_Node000006" title=" " alt="" coords="329,163,372,163,372,169,329,169"/>
+<area shape="rect" id="Node000009" href="$classWorkUnit.html" title=" " alt="" coords="379,203,461,228"/>
+<area shape="poly" id="edge21_Node000001_Node000009" title=" " alt="" coords="308,180,379,201,378,206,306,185"/>
+<area shape="rect" id="Node000003" href="$classAuditedTask.html" title=" " alt="" coords="533,5,635,31"/>
+<area shape="poly" id="edge15_Node000002_Node000003" title=" " alt="" coords="457,72,524,40,550,28,552,33,526,44,460,76"/>
+<area shape="rect" id="Node000004" href="$classPrioritisedTask.html" title=" " alt="" coords="525,55,643,80"/>
+<area shape="poly" id="edge16_Node000002_Node000004" title=" " alt="" coords="491,79,524,74,525,79,492,84"/>
+<area shape="rect" id="Node000005" href="$classValidatedTask.html" title=" " alt="" coords="528,104,640,129"/>
+<area shape="poly" id="edge17_Node000002_Node000005" title=" " alt="" coords="492,100,528,106,527,111,491,106"/>
+<area shape="rect" id="Node000007" href="$classStage.html" title=" " alt="" coords="555,153,613,179"/>
+<area shape="poly" id="edge19_Node000006_Node000007" title=" " alt="" coords="481,163,555,163,555,169,481,169"/>
+<area shape="rect" id="Node000008" href="$classSubProcess.html" title=" " alt="" coords="536,203,632,228"/>
+<area shape="poly" id="edge20_Node000006_Node000008" title=" " alt="" coords="476,180,541,200,540,205,475,185"/>
+<area shape="rect" id="Node000010" href="$classWorkflowSubject.html" title="Subject participant in the Observer design pattern." alt="" coords="5,177,136,203"/>
+<area shape="poly" id="edge22_Node000010_Node000001" title=" " alt="" coords="149,177,183,172,184,177,150,182"/>
 </map>

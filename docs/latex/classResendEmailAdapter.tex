@@ -2,6 +2,11 @@
 \hypertarget{classResendEmailAdapter}{}\label{classResendEmailAdapter}\index{ResendEmailAdapter@{ResendEmailAdapter}}
 
 
+A Concrete Strategy/\+Adapter that sends emails via the Resend REST API.  
+
+
+
+
 {\ttfamily \#include $<$Resend\+Email\+Adapter.\+h$>$}
 
 
@@ -30,7 +35,7 @@ Collaboration diagram for Resend\+Email\+Adapter\+:
 \mbox{\hyperlink{classResendEmailAdapter_a663aaa3b1f0aa64a3fe6f04893bb11c5}{Resend\+Email\+Adapter}} (std\+::string api\+Key, std\+::string from\+Email)
 \item 
 bool \mbox{\hyperlink{classResendEmailAdapter_abdf2d9dd7c5d65d44092cb9bd665edff}{send\+Email}} (std\+::string to, std\+::string subject, std\+::string body) override
-\item 
+\begin{DoxyCompactList}\small\item\em Sends an email via Resend. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{classResendEmailAdapter_adfbc2c3bc780d1d746dd05e8fbec23ba}{last\+Error}} () const
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classEmailTransport}{Email\+Transport}}}
@@ -39,8 +44,13 @@ std\+::string \mbox{\hyperlink{classResendEmailAdapter_adfbc2c3bc780d1d746dd05e8
 virtual \mbox{\hyperlink{classEmailTransport_a77962c395fbfd8e72cf3530d2611731c}{\texorpdfstring{$\sim$}{\string~}\+Email\+Transport}} ()=default
 \item 
 virtual bool \mbox{\hyperlink{classEmailTransport_a733cdcb5000839b5dd8d46d92e6a0590}{send\+Email}} (string to, string subject, string body)=0
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Sends an email via a specific provider. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+A Concrete Strategy/\+Adapter that sends emails via the Resend REST API. 
+
+Implements the \doxylink{classEmailTransport}{Email\+Transport} interface. Handles bearer token authentication and translates the payload into Resend\textquotesingle{}s expected JSON format. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \Hypertarget{classResendEmailAdapter_a663aaa3b1f0aa64a3fe6f04893bb11c5}\label{classResendEmailAdapter_a663aaa3b1f0aa64a3fe6f04893bb11c5} 
@@ -64,6 +74,13 @@ virtual bool \mbox{\hyperlink{classEmailTransport_a733cdcb5000839b5dd8d46d92e6a0
 \doxysubsubsection{\texorpdfstring{sendEmail()}{sendEmail()}}
 {\footnotesize\ttfamily bool Resend\+Email\+Adapter\+::send\+Email (\begin{DoxyParamCaption}\item[{std\+::string}]{to,  }\item[{std\+::string}]{subject,  }\item[{std\+::string}]{body }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
 
+
+
+Sends an email via Resend. 
+
+\begin{DoxyReturn}{Returns}
+True if HTTP 200 or 201 is received, false otherwise. 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

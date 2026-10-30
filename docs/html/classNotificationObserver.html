@@ -76,14 +76,17 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Concrete Observer in the Observer Pattern.  
+ <a href="classNotificationObserver.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="NotificationObserver_8h_source.html">NotificationObserver.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for NotificationObserver:</div>
 <div class="dyncontent">
 <div class="center"><img src="classNotificationObserver__inherit__graph.png" border="0" usemap="#aNotificationObserver_inherit__map" alt="Inheritance graph"/></div>
 <map name="aNotificationObserver_inherit__map" id="aNotificationObserver_inherit__map">
-<area shape="rect" title=" " alt="" coords="5,79,161,104"/>
-<area shape="rect" href="classWorkflowObserver.html" title=" " alt="" coords="13,5,154,31"/>
+<area shape="rect" title="Concrete Observer in the Observer Pattern." alt="" coords="5,79,161,104"/>
+<area shape="rect" href="classWorkflowObserver.html" title="Abstract Observer participant in the Observer design pattern." alt="" coords="13,5,154,31"/>
 <area shape="poly" title=" " alt="" coords="86,44,86,79,81,79,81,44"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
@@ -92,8 +95,8 @@ Collaboration diagram for NotificationObserver:</div>
 <div class="dyncontent">
 <div class="center"><img src="classNotificationObserver__coll__graph.png" border="0" usemap="#aNotificationObserver_coll__map" alt="Collaboration graph"/></div>
 <map name="aNotificationObserver_coll__map" id="aNotificationObserver_coll__map">
-<area shape="rect" title=" " alt="" coords="5,79,161,104"/>
-<area shape="rect" href="classWorkflowObserver.html" title=" " alt="" coords="13,5,154,31"/>
+<area shape="rect" title="Concrete Observer in the Observer Pattern." alt="" coords="5,79,161,104"/>
+<area shape="rect" href="classWorkflowObserver.html" title="Abstract Observer participant in the Observer design pattern." alt="" coords="13,5,154,31"/>
 <area shape="poly" title=" " alt="" coords="86,44,86,79,81,79,81,44"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
@@ -103,14 +106,20 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5ac8ce0bcef86530990886815a83a4af" id="r_a5ac8ce0bcef86530990886815a83a4af"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNotificationObserver.html#a5ac8ce0bcef86530990886815a83a4af">NotificationObserver</a> (<a class="el" href="classWorkComponent.html">WorkComponent</a> *w, <a class="el" href="classNotificationChannel.html">NotificationChannel</a> *e, <a class="el" href="classNotificationChannel.html">NotificationChannel</a> *a)</td></tr>
 <tr class="separator:a5ac8ce0bcef86530990886815a83a4af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aafcf6b9c5532900ce0c22d8b286516e6" id="r_aafcf6b9c5532900ce0c22d8b286516e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNotificationObserver.html#aafcf6b9c5532900ce0c22d8b286516e6">update</a> () override</td></tr>
+<tr class="memdesc:aafcf6b9c5532900ce0c22d8b286516e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Triggered automatically by the <a class="el" href="classWorkflowSubject.html" title="Subject participant in the Observer design pattern.">WorkflowSubject</a> when a state change occurs.  <br /></td></tr>
 <tr class="separator:aafcf6b9c5532900ce0c22d8b286516e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classWorkflowObserver"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classWorkflowObserver')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classWorkflowObserver.html">WorkflowObserver</a></td></tr>
 <tr class="memitem:a83aa588eedad3137543bc9fd8c7e507e inherit pub_methods_classWorkflowObserver" id="r_a83aa588eedad3137543bc9fd8c7e507e"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkflowObserver.html#a83aa588eedad3137543bc9fd8c7e507e">~WorkflowObserver</a> ()</td></tr>
+<tr class="memdesc:a83aa588eedad3137543bc9fd8c7e507e inherit pub_methods_classWorkflowObserver"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for safe polymorphic cleanup.  <br /></td></tr>
 <tr class="separator:a83aa588eedad3137543bc9fd8c7e507e inherit pub_methods_classWorkflowObserver"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a719a26df6c681b7224e73827ffb488bd inherit pub_methods_classWorkflowObserver" id="r_a719a26df6c681b7224e73827ffb488bd"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkflowObserver.html#a719a26df6c681b7224e73827ffb488bd">setSubject</a> (<a class="el" href="classWorkComponent.html">WorkComponent</a> *)</td></tr>
+<tr class="memdesc:a719a26df6c681b7224e73827ffb488bd inherit pub_methods_classWorkflowObserver"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the active subject pointer before notification.  <br /></td></tr>
 <tr class="separator:a719a26df6c681b7224e73827ffb488bd inherit pub_methods_classWorkflowObserver"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Concrete Observer in the Observer Pattern. </p>
+<p>Acts as the glue between the workflow engine and the notification bridge. When a <a class="el" href="classWorkComponent.html">WorkComponent</a> changes state, this observer is notified, checks if the state has actually changed (to prevent spam), and dynamically builds a Notice. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a5ac8ce0bcef86530990886815a83a4af" name="a5ac8ce0bcef86530990886815a83a4af"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5ac8ce0bcef86530990886815a83a4af">&#9670;&#160;</a></span>NotificationObserver()</h2>
 
@@ -176,6 +185,10 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Triggered automatically by the <a class="el" href="classWorkflowSubject.html" title="Subject participant in the Observer design pattern.">WorkflowSubject</a> when a state change occurs. </p>
+<p>Reacts to state changes by composing and sending notifications.</p>
+<p>It pulls the current state and payload from the subject (<a class="el" href="classWorkItem.html" title="Represents a generic payload data container moving through the workflow.">WorkItem</a>). If the state is different from <code>lastState</code>, it instantiates <code><a class="el" href="classResultNotice.html" title="A Refined Abstraction in the Bridge Pattern.">ResultNotice</a></code> objects, injecting the appropriate channels and sending them. </p>
 
 <p>Implements <a class="el" href="classWorkflowObserver.html#accbefdab0fdea492f27d3dcd6bf3ebee">WorkflowObserver</a>.</p>
 

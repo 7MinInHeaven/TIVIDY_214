@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['validate_0',['validate',['../classValidatedTask.html#af20fa6250254cbe005a9238b6f8a5ece',1,'ValidatedTask::validate()'],['../classWorkComponentValidator.html#a2c8c9717a40bd5b786a749176e9e59c3',1,'WorkComponentValidator::validate()']]],
+  ['validate_0',['validate',['../classValidatedTask.html#af20fa6250254cbe005a9238b6f8a5ece',1,'ValidatedTask::validate()'],['../classWorkflowBlueprint.html#aed997c13abf29f3e82e3a60ebbf8094c',1,'WorkflowBlueprint::validate()'],['../classWorkComponentValidator.html#a2c8c9717a40bd5b786a749176e9e59c3',1,'WorkComponentValidator::validate()']]],
   ['validatedtask_1',['validatedtask',['../classValidatedTask.html#a3efc8f8e48ccf937a594bec1a2ef24ad',1,'ValidatedTask::ValidatedTask()'],['../classValidatedTask.html',1,'ValidatedTask']]],
   ['validatedtask_2ecpp_2',['ValidatedTask.cpp',['../ValidatedTask_8cpp.html',1,'']]],
   ['validationerror_3',['validationerror',['../classValidationError.html',1,'ValidationError'],['../classValidationError.html#a0d1a297eceeef08586ed9083df4f2c40',1,'ValidationError::ValidationError()']]],

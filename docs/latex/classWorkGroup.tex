@@ -21,58 +21,68 @@ Collaboration diagram for Work\+Group\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=322pt]{classWorkGroup__coll__graph}
+\includegraphics[width=350pt]{classWorkGroup__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classWorkGroup_aa724b76f9a83d0c448754e127929516f}{Work\+Group}} (std\+::string name)
+\mbox{\hyperlink{classWorkGroup_aa724b76f9a83d0c448754e127929516f}{Work\+Group}} (std\+::string \mbox{\hyperlink{classWorkComponent_adae5b7dbf204f6fbbe59b9d89eaee013}{name}})
 \item 
 \mbox{\hyperlink{classWorkGroup_a97c232149cf8dcaa71acf124a4b811aa}{Work\+Group}} (const \mbox{\hyperlink{classWorkGroup}{Work\+Group}} \&other)
 \item 
 \mbox{\hyperlink{classWorkGroup_a32f63c00c23a9ec976bb555c32f760ee}{\texorpdfstring{$\sim$}{\string~}\+Work\+Group}} () override
 \item 
-bool \mbox{\hyperlink{classWorkGroup_af20986cf7e44102dcfc4a7c3f1f65848}{add}} (\mbox{\hyperlink{classWorkComponent}{Work\+Component}} \texorpdfstring{$\ast$}{*}child)
+bool \mbox{\hyperlink{classWorkGroup_a836fc82c983468f33fda2f67d16847b5}{add}} (\mbox{\hyperlink{classWorkComponent}{Work\+Component}} \texorpdfstring{$\ast$}{*}child) override
 \item 
-void \mbox{\hyperlink{classWorkGroup_a630931c79fbe23fb4a28ff6e624e10ac}{remove}} (\mbox{\hyperlink{classWorkComponent}{Work\+Component}} \texorpdfstring{$\ast$}{*}child)
+void \mbox{\hyperlink{classWorkGroup_a32f345eff994166dcd5ab045c12af13e}{remove}} (\mbox{\hyperlink{classWorkComponent}{Work\+Component}} \texorpdfstring{$\ast$}{*}child) override
 \item 
-void \mbox{\hyperlink{classWorkGroup_a5509e476df1e8a630c2c0c55cbdbeb88}{remove}} (std\+::string name)
+void \mbox{\hyperlink{classWorkGroup_a1dee8d4ca04645faf4655804f95ecbd7}{remove}} (std\+::string \mbox{\hyperlink{classWorkComponent_adae5b7dbf204f6fbbe59b9d89eaee013}{name}}) override
 \item 
-std\+::vector$<$ \mbox{\hyperlink{classWorkComponent}{Work\+Component}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classWorkGroup_aed02a0107f5d72b5c8c066d88ccbef62}{get\+Children}} () const
+const std\+::vector$<$ \mbox{\hyperlink{classWorkComponent}{Work\+Component}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classWorkGroup_a0bbc0131d8d51a2fe0c51d3ad3f02d6d}{get\+Children}} () const override
 \item 
 virtual void \mbox{\hyperlink{classWorkGroup_ac369015e95acd2bc401d13e3b43b5600}{accept}} (\mbox{\hyperlink{classWorkVisitor}{Work\+Visitor}} \&visitor) const override
 \item 
 virtual \mbox{\hyperlink{classWorkGroup}{Work\+Group}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classWorkGroup_a0117feac397297be0eee781777539179}{clone}} () const
 \item 
-void \mbox{\hyperlink{classWorkGroup_a01b69bbe93b90dc8eac9cfba09234c0a}{handle\+Request}} (\mbox{\hyperlink{classWorkItem}{Work\+Item}} item)
+void \mbox{\hyperlink{classWorkGroup_a01b69bbe93b90dc8eac9cfba09234c0a}{handle\+Request}} (\mbox{\hyperlink{classWorkItem}{Work\+Item}} \mbox{\hyperlink{classWorkComponent_a1d66da30e814f696956f709d33c09c0d}{item}})
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classWorkComponent}{Work\+Component}}}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classWorkComponent_aa89512171fd1ef2445ad306225b11596}{Work\+Component}} (std\+::string name)
+\mbox{\hyperlink{classWorkComponent_aa89512171fd1ef2445ad306225b11596}{Work\+Component}} (std\+::string \mbox{\hyperlink{classWorkComponent_adae5b7dbf204f6fbbe59b9d89eaee013}{name}})
 \item 
 \mbox{\hyperlink{classWorkComponent_adcb3560830552508ca1a6b96006e8b36}{Work\+Component}} (const \mbox{\hyperlink{classWorkComponent}{Work\+Component}} \&other)
 \item 
 virtual \mbox{\hyperlink{classWorkComponent_aeade7a1951170edf2add8f11bc755c8f}{\texorpdfstring{$\sim$}{\string~}\+Work\+Component}} ()
 \item 
-virtual \mbox{\hyperlink{classWorkState}{Work\+State}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classWorkComponent_ae0896d1dba4221e00c8451c6bdd110ab}{get\+State}} () const
+virtual const \mbox{\hyperlink{classWorkState}{Work\+State}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classWorkComponent_acc24518e9becf9398a1ca484501eee30}{get\+State}} () const
 \item 
 virtual std\+::string \mbox{\hyperlink{classWorkComponent_a091e902b6d3675ffb0ccf547363c6a60}{get\+Name}} () const
 \item 
-\mbox{\hyperlink{classWorkItem}{Work\+Item}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classWorkComponent_ae60abfce5aff4c38d68655ef31754ad6}{get\+Item}} () const
+virtual \mbox{\hyperlink{classWorkItem}{Work\+Item}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classWorkComponent_ae60abfce5aff4c38d68655ef31754ad6}{get\+Item}} () const
 \item 
-void \mbox{\hyperlink{classWorkComponent_a8b144dc90c4078115afd732f3e5829d7}{set\+State}} (\mbox{\hyperlink{classWorkState}{Work\+State}} \texorpdfstring{$\ast$}{*}state)
+virtual std\+::string \mbox{\hyperlink{classWorkComponent_a54f306471fc0f0da154e482d4aa1d925}{get\+ID}} () const
+\item 
+virtual std\+::string \mbox{\hyperlink{classWorkComponent_a00fc605ca1faba7205b6e8455ad0660d}{get\+Assigned\+Worker\+Id}} () const
+\item 
+virtual std\+::string \mbox{\hyperlink{classWorkComponent_a8d66b5505e54c12d17f525a7b4389df0}{get\+Data}} (const std\+::string \&key) const
+\item 
+virtual \mbox{\hyperlink{Common_8h_a58ef2aaf285eac5903ead43e801a4513}{Priority\+Level}} \mbox{\hyperlink{classWorkComponent_a82802785ac3c3187cf83af4d7d31cf81}{get\+Priority}} () const
+\item 
+void \mbox{\hyperlink{classWorkComponent_a8b144dc90c4078115afd732f3e5829d7}{set\+State}} (\mbox{\hyperlink{classWorkState}{Work\+State}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classWorkComponent_a2095aa720a4f5dbdeb98b7a47fd3712f}{state}})
 \item 
 virtual void \mbox{\hyperlink{classWorkComponent_a50c38dbeb610a0192f5bf07ab8dc8502}{set\+Data}} (const std\+::string \&key, const std\+::string \&value)
 \item 
-virtual std\+::string \mbox{\hyperlink{classWorkComponent_a8d66b5505e54c12d17f525a7b4389df0}{get\+Data}} (const std\+::string \&key) const
+virtual bool \mbox{\hyperlink{classWorkComponent_a3320bec5c5f693fd404db80f0f888ec9}{assign\+Task}} (const std\+::string \&worker\+ID)
 \item 
 virtual void \mbox{\hyperlink{classWorkComponent_a65163ad6e1863a35cab683a22d17a7b0}{next\+State}} ()
 \item 
 virtual bool \mbox{\hyperlink{classWorkComponent_aaf6d22756f9efceb5263d0454c7290b5}{is\+Complete}} () const
 \item 
-virtual \mbox{\hyperlink{Common_8h_a58ef2aaf285eac5903ead43e801a4513}{Priority\+Level}} \mbox{\hyperlink{classWorkComponent_a82802785ac3c3187cf83af4d7d31cf81}{get\+Priority}} () const
+virtual bool \mbox{\hyperlink{classWorkComponent_a64a149e1ad8543dfa67fdefd3635b64e}{start\+Task}} ()
+\item 
+virtual bool \mbox{\hyperlink{classWorkComponent_ad70f67af077da6e7b7ae67ab0cd512fa}{complete\+Task}} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classHandler}{Handler}}}
 \begin{DoxyCompactItemize}
@@ -83,21 +93,39 @@ void \mbox{\hyperlink{classHandler_a0a95c470d04fdc9dff2e0f9a82cc24b5}{set\+Next}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classWorkflowSubject_a7b9a281a5bbeac3b2bfd891c9b26363e}{Workflow\+Subject}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Default constructor. Creates a Work\+Flow\+Subject with no attached observers. \end{DoxyCompactList}\item 
 virtual \mbox{\hyperlink{classWorkflowSubject_a11fcb2de2f242d654212e0b63e8e9824}{\texorpdfstring{$\sim$}{\string~}\+Workflow\+Subject}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Virtual destructor. Does not delete attached observers (aggregation relationship) \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classWorkflowSubject_ab23bd0f715a4608f77d099b298aabeb2}{attach}} (\mbox{\hyperlink{classWorkflowObserver}{Workflow\+Observer}} \texorpdfstring{$\ast$}{*}observer)
-\item 
+\begin{DoxyCompactList}\small\item\em Registers an observer to receive state and payload change notifications. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classWorkflowSubject_a3b1f2fa7e8340297f781701f3d5c00af}{detach}} (\mbox{\hyperlink{classWorkflowObserver}{Workflow\+Observer}} \texorpdfstring{$\ast$}{*}observer)
-\item 
+\begin{DoxyCompactList}\small\item\em Unregisters a previously attached observer. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classWorkflowSubject_a4b7c602ead35d9ceebcef7a3e467e5a4}{notify}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Notifies all attached observers by setting the active subject and calling update() \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
 class \mbox{\hyperlink{classWorkGroup_a36c3a5782ecc1ab847a93eea5e172247}{Workflow\+Builder}}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classWorkComponent}{Work\+Component}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classWorkComponent_a471a8d962863bffd4b8dab57814f1c81}{generate\+Random\+ID}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classWorkComponent}{Work\+Component}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classWorkState}{Work\+State}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classWorkComponent_a2095aa720a4f5dbdeb98b7a47fd3712f}{state}}
+\item 
+\mbox{\hyperlink{classWorkItem}{Work\+Item}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classWorkComponent_a1d66da30e814f696956f709d33c09c0d}{item}}
+\item 
+std\+::string \mbox{\hyperlink{classWorkComponent_adae5b7dbf204f6fbbe59b9d89eaee013}{name}}
+\item 
+std\+::string \mbox{\hyperlink{classWorkComponent_a2c982a2a8ccd83d1ad6d48aaffd668f7}{task\+ID}}
+\item 
+std\+::string \mbox{\hyperlink{classWorkComponent_ae722b05fff5ac03fda79a89fc9773b49}{assigned\+Worker\+ID}}
+\end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classHandler}{Handler}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -107,7 +135,7 @@ class \mbox{\hyperlink{classWorkGroup_a36c3a5782ecc1ab847a93eea5e172247}{Workflo
 \begin{DoxyCompactItemize}
 \item 
 std\+::vector$<$ \mbox{\hyperlink{classWorkflowObserver}{Workflow\+Observer}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classWorkflowSubject_aba1985d4025ed138de76912022b3b9fc}{observer\+List}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Collection of registered observers watching this subject. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
@@ -146,11 +174,15 @@ Implements \mbox{\hyperlink{classWorkComponent_a3c178bf1da6d1c7026fcdbea7b02f72d
 
 Reimplemented in \mbox{\hyperlink{classStage_a8da0e38c2c5bee0bd48e73817c97594b}{Stage}}, and \mbox{\hyperlink{classSubProcess_ad53ea8839d61996ea4d48a232c4eac80}{Sub\+Process}}.
 
-\Hypertarget{classWorkGroup_af20986cf7e44102dcfc4a7c3f1f65848}\label{classWorkGroup_af20986cf7e44102dcfc4a7c3f1f65848} 
+\Hypertarget{classWorkGroup_a836fc82c983468f33fda2f67d16847b5}\label{classWorkGroup_a836fc82c983468f33fda2f67d16847b5} 
 \index{WorkGroup@{WorkGroup}!add@{add}}
 \index{add@{add}!WorkGroup@{WorkGroup}}
 \doxysubsubsection{\texorpdfstring{add()}{add()}}
-{\footnotesize\ttfamily bool Work\+Group\+::add (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classWorkComponent}{Work\+Component}} \texorpdfstring{$\ast$}{*}}]{child }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool Work\+Group\+::add (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classWorkComponent}{Work\+Component}} \texorpdfstring{$\ast$}{*}}]{child }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classWorkComponent_a08c0d5ce58d69cf05c444081d125284b}{Work\+Component}}.
 
 \Hypertarget{classWorkGroup_a0117feac397297be0eee781777539179}\label{classWorkGroup_a0117feac397297be0eee781777539179} 
 \index{WorkGroup@{WorkGroup}!clone@{clone}}
@@ -166,11 +198,15 @@ Implements \mbox{\hyperlink{classWorkComponent_a65d7be3c551ee979e2ae238322441075
 
 Reimplemented in \mbox{\hyperlink{classStage_af72ebb1a450f53f98813adbbbf5d2d63}{Stage}}, and \mbox{\hyperlink{classSubProcess_a6f23cce42b415ab58c5b7175c744b2f5}{Sub\+Process}}.
 
-\Hypertarget{classWorkGroup_aed02a0107f5d72b5c8c066d88ccbef62}\label{classWorkGroup_aed02a0107f5d72b5c8c066d88ccbef62} 
+\Hypertarget{classWorkGroup_a0bbc0131d8d51a2fe0c51d3ad3f02d6d}\label{classWorkGroup_a0bbc0131d8d51a2fe0c51d3ad3f02d6d} 
 \index{WorkGroup@{WorkGroup}!getChildren@{getChildren}}
 \index{getChildren@{getChildren}!WorkGroup@{WorkGroup}}
 \doxysubsubsection{\texorpdfstring{getChildren()}{getChildren()}}
-{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classWorkComponent}{Work\+Component}} \texorpdfstring{$\ast$}{*} $>$ Work\+Group\+::get\+Children (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily const std\+::vector$<$ \mbox{\hyperlink{classWorkComponent}{Work\+Component}} \texorpdfstring{$\ast$}{*} $>$ Work\+Group\+::get\+Children (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classWorkComponent_ac2f1be1ee8a9a535e1e2f00d48e23b7b}{Work\+Component}}.
 
 \Hypertarget{classWorkGroup_a01b69bbe93b90dc8eac9cfba09234c0a}\label{classWorkGroup_a01b69bbe93b90dc8eac9cfba09234c0a} 
 \index{WorkGroup@{WorkGroup}!handleRequest@{handleRequest}}
@@ -182,17 +218,25 @@ Reimplemented in \mbox{\hyperlink{classStage_af72ebb1a450f53f98813adbbbf5d2d63}{
 
 Reimplemented from \mbox{\hyperlink{classHandler_a638867a60f4e60eb6e5152a03a9e5367}{Handler}}.
 
-\Hypertarget{classWorkGroup_a5509e476df1e8a630c2c0c55cbdbeb88}\label{classWorkGroup_a5509e476df1e8a630c2c0c55cbdbeb88} 
+\Hypertarget{classWorkGroup_a1dee8d4ca04645faf4655804f95ecbd7}\label{classWorkGroup_a1dee8d4ca04645faf4655804f95ecbd7} 
 \index{WorkGroup@{WorkGroup}!remove@{remove}}
 \index{remove@{remove}!WorkGroup@{WorkGroup}}
 \doxysubsubsection{\texorpdfstring{remove()}{remove()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily void Work\+Group\+::remove (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Work\+Group\+::remove (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
-\Hypertarget{classWorkGroup_a630931c79fbe23fb4a28ff6e624e10ac}\label{classWorkGroup_a630931c79fbe23fb4a28ff6e624e10ac} 
+
+
+Reimplemented from \mbox{\hyperlink{classWorkComponent_a54e8d7694098092beddc413a3d9f9a93}{Work\+Component}}.
+
+\Hypertarget{classWorkGroup_a32f345eff994166dcd5ab045c12af13e}\label{classWorkGroup_a32f345eff994166dcd5ab045c12af13e} 
 \index{WorkGroup@{WorkGroup}!remove@{remove}}
 \index{remove@{remove}!WorkGroup@{WorkGroup}}
 \doxysubsubsection{\texorpdfstring{remove()}{remove()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily void Work\+Group\+::remove (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classWorkComponent}{Work\+Component}} \texorpdfstring{$\ast$}{*}}]{child }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Work\+Group\+::remove (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classWorkComponent}{Work\+Component}} \texorpdfstring{$\ast$}{*}}]{child }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classWorkComponent_aed1dbff13f0004e5a1ecfe6a2d0a79e5}{Work\+Component}}.
 
 
 

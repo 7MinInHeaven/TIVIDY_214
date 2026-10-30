@@ -2,6 +2,11 @@
 \hypertarget{classDeadlineNotice}{}\label{classDeadlineNotice}\index{DeadlineNotice@{DeadlineNotice}}
 
 
+A Refined Abstraction in the Bridge Pattern.  
+
+
+
+
 {\ttfamily \#include $<$Notification\+Bridge.\+h$>$}
 
 
@@ -30,14 +35,14 @@ Collaboration diagram for Deadline\+Notice\+:
 \mbox{\hyperlink{classDeadlineNotice_a32c9e20e66512ed1aa8a6dc0b6f1fded}{Deadline\+Notice}} (\mbox{\hyperlink{classNotificationChannel}{Notification\+Channel}} \texorpdfstring{$\ast$}{*}ch, \mbox{\hyperlink{classWorkItem}{Work\+Item}} \texorpdfstring{$\ast$}{*}ctx, string to, string status)
 \item 
 \mbox{\hyperlink{structNotificationData}{Notification\+Data}} \mbox{\hyperlink{classDeadlineNotice_abe7ce1646d4ab6b43deb5bf0809d6ec6}{compose}} () override
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Composes a specific alert for approaching deadlines. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classNotification}{Notification}}}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classNotification_a90ed22f58b45947261b2709771cc4070}{Notification}} (\mbox{\hyperlink{classNotificationChannel}{Notification\+Channel}} \texorpdfstring{$\ast$}{*}ch, \mbox{\hyperlink{classWorkItem}{Work\+Item}} \texorpdfstring{$\ast$}{*}ctx, string to, string status)
-\item 
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{classNotification}{Notification}. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classNotification_a93e00029080d8f656b2e57a9439d616b}{send}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Triggers the composition and delivery of the notification. \end{DoxyCompactList}\item 
 virtual \mbox{\hyperlink{classNotification_aea36b394897206968baa256fb95d3f59}{\texorpdfstring{$\sim$}{\string~}\+Notification}} ()=default
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Additional Inherited Members}
@@ -54,6 +59,11 @@ string \mbox{\hyperlink{classNotification_a74cd4187391559f6e43e53817c81e7f3}{cur
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+A Refined Abstraction in the Bridge Pattern. 
+
+Represents an alert regarding an approaching deadline. 
+
 \doxysubsection{Constructor \& Destructor Documentation}
 \Hypertarget{classDeadlineNotice_a32c9e20e66512ed1aa8a6dc0b6f1fded}\label{classDeadlineNotice_a32c9e20e66512ed1aa8a6dc0b6f1fded} 
 \index{DeadlineNotice@{DeadlineNotice}!DeadlineNotice@{DeadlineNotice}}
@@ -69,6 +79,10 @@ string \mbox{\hyperlink{classNotification_a74cd4187391559f6e43e53817c81e7f3}{cur
 \index{compose@{compose}!DeadlineNotice@{DeadlineNotice}}
 \doxysubsubsection{\texorpdfstring{compose()}{compose()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{structNotificationData}{Notification\+Data}} Deadline\+Notice\+::compose (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Composes a specific alert for approaching deadlines. 
 
 
 

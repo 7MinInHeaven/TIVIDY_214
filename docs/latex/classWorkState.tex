@@ -6,8 +6,7 @@
 
 
 
-Inheritance diagram for Work\+State\+:
-\nopagebreak
+Inheritance diagram for Work\+State\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -21,7 +20,7 @@ virtual \mbox{\hyperlink{classWorkState_a4ef078c5253a7c799df3609c90febadc}{\texo
 \item 
 virtual void \mbox{\hyperlink{classWorkState_af897f4deba4f3b3baffc889b4524513f}{handle\+Update}} (\mbox{\hyperlink{classWorkComponent}{Work\+Component}} \texorpdfstring{$\ast$}{*}context)=0
 \item 
-virtual std\+::string \mbox{\hyperlink{classWorkState_ad04418dc4d70f16427c5e84815b642cf}{get\+Status}} ()=0
+virtual std\+::string \mbox{\hyperlink{classWorkState_a3b8f66eed77cac67e347dd02a480ea98}{get\+Status}} () const =0
 \item 
 virtual \mbox{\hyperlink{classWorkState}{Work\+State}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classWorkState_afc1791f02620fbbc2db8f025df7a07ba}{clone}} ()=0
 \end{DoxyCompactItemize}
@@ -47,15 +46,15 @@ virtual \mbox{\hyperlink{classWorkState}{Work\+State}} \texorpdfstring{$\ast$}{*
 
 Implemented in \mbox{\hyperlink{classCompletedState_a27df7597e84debb46cfdeacb10d0b551}{Completed\+State}}, \mbox{\hyperlink{classInProgressState_a70a17ea1bdd24bc33872767e78e5fbef}{In\+Progress\+State}}, and \mbox{\hyperlink{classPendingState_aed9484632701cfde4e7d9470a9bbe674}{Pending\+State}}.
 
-\Hypertarget{classWorkState_ad04418dc4d70f16427c5e84815b642cf}\label{classWorkState_ad04418dc4d70f16427c5e84815b642cf} 
+\Hypertarget{classWorkState_a3b8f66eed77cac67e347dd02a480ea98}\label{classWorkState_a3b8f66eed77cac67e347dd02a480ea98} 
 \index{WorkState@{WorkState}!getStatus@{getStatus}}
 \index{getStatus@{getStatus}!WorkState@{WorkState}}
 \doxysubsubsection{\texorpdfstring{getStatus()}{getStatus()}}
-{\footnotesize\ttfamily virtual std\+::string Work\+State\+::get\+Status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+{\footnotesize\ttfamily virtual std\+::string Work\+State\+::get\+Status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
 
-Implemented in \mbox{\hyperlink{classCompletedState_a9cb274e136f3446ccc2d49bb5921c3e3}{Completed\+State}}, \mbox{\hyperlink{classInProgressState_a818848f39df45403b789d81894c3384c}{In\+Progress\+State}}, and \mbox{\hyperlink{classPendingState_a027e71a523d64fa56c70d0218e9d4c68}{Pending\+State}}.
+Implemented in \mbox{\hyperlink{classCompletedState_aa42f030dfd37e0f1d01adbe2d69949f1}{Completed\+State}}, \mbox{\hyperlink{classInProgressState_a5378ace6cec6d9bc2cc77eb8a795d864}{In\+Progress\+State}}, and \mbox{\hyperlink{classPendingState_a9177933023d59e59daf4109ad7f241a0}{Pending\+State}}.
 
 \Hypertarget{classWorkState_af897f4deba4f3b3baffc889b4524513f}\label{classWorkState_af897f4deba4f3b3baffc889b4524513f} 
 \index{WorkState@{WorkState}!handleUpdate@{handleUpdate}}

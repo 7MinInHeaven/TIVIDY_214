@@ -1,6 +1,6 @@
 <map id="include/ResendEmailAdapter.h" name="include/ResendEmailAdapter.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="218,5,438,31"/>
-<area shape="rect" id="Node000002" href="$NotificationBridge_8h.html" title=" " alt="" coords="185,79,335,104"/>
+<area shape="rect" id="Node000001" title="Adapter for the Resend API." alt="" coords="218,5,438,31"/>
+<area shape="rect" id="Node000002" href="$NotificationBridge_8h.html" title="Defines the Bridge pattern for the notification subsystem." alt="" coords="185,79,335,104"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="319,33,283,70,279,67,315,29"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="317,225,376,251"/>
 <area shape="poly" id="edge8_Node000001_Node000003" title=" " alt="" coords="336,30,351,78,355,151,352,212,347,212,350,151,345,79,331,32"/>

@@ -1,0 +1,44 @@
+\doxysection{Workflow\+Blueprint.\+h}
+\hypertarget{WorkflowBlueprint_8h_source}{}\label{WorkflowBlueprint_8h_source}\index{include/WorkflowBlueprint.h@{include/WorkflowBlueprint.h}}
+\mbox{\hyperlink{WorkflowBlueprint_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ WORKFLOWBLUEPRINT\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ WORKFLOWBLUEPRINT\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <cstddef>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <nlohmann/json.hpp>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classBlueprintValidationError}{BlueprintValidationError}}\ :\ \textcolor{keyword}{public}\ std::runtime\_error\ \{}
+\DoxyCodeLine{00014\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classBlueprintValidationError}{BlueprintValidationError}}(\textcolor{keyword}{const}\ std::string\&\ message);}
+\DoxyCodeLine{00016\ \};}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structBlueprintLimits}{BlueprintLimits}}\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ std::size\_t\ \mbox{\hyperlink{structBlueprintLimits_a714e6fd4472eee056edb67249831e80f}{maxFileBytes}};}
+\DoxyCodeLine{00023\ \ \ \ \ std::size\_t\ \mbox{\hyperlink{structBlueprintLimits_ad7fdd49dbfebe9caa8fd233b971b903d}{maxDepth}};}
+\DoxyCodeLine{00024\ \ \ \ \ std::size\_t\ \mbox{\hyperlink{structBlueprintLimits_a8be84c78ad367ad2a827a3a33f1d2678}{maxNodes}};}
+\DoxyCodeLine{00025\ \ \ \ \ std::size\_t\ \mbox{\hyperlink{structBlueprintLimits_af57b7502ec6d36e0c196ff26711b5549}{maxInputs}};}
+\DoxyCodeLine{00026\ \ \ \ \ std::size\_t\ \mbox{\hyperlink{structBlueprintLimits_ad69f592e70c043b8c90ad9866ad605a8}{maxCapabilities}};}
+\DoxyCodeLine{00027\ \ \ \ \ std::size\_t\ \mbox{\hyperlink{structBlueprintLimits_a2d30937eab8374ed360583799b72396f}{maxNameLength}};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{structBlueprintLimits_a40059a9e749814e10cc8b0ea426c8a6b}{BlueprintLimits}}();}
+\DoxyCodeLine{00030\ \};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classWorkflowBlueprint}{WorkflowBlueprint}}\ \{}
+\DoxyCodeLine{00036\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{static}\ nlohmann::json\ \mbox{\hyperlink{classWorkflowBlueprint_a03c6bfb20cdda9c818f7d2d4b6f2ad0c}{loadAndValidate}}(}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ path,}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structBlueprintLimits}{BlueprintLimits}}\&\ limits\ =\ \mbox{\hyperlink{structBlueprintLimits}{BlueprintLimits}}());}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkflowBlueprint_aed997c13abf29f3e82e3a60ebbf8094c}{validate}}(}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ nlohmann::json\&\ blueprint,}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ source\ =\ \textcolor{stringliteral}{"{}<memory>"{}},}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structBlueprintLimits}{BlueprintLimits}}\&\ limits\ =\ \mbox{\hyperlink{structBlueprintLimits}{BlueprintLimits}}());}
+\DoxyCodeLine{00057\ \};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
