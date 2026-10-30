@@ -29,7 +29,7 @@ int main() {
 
 /*
  * @brief Previous console menu implementation retained for later UI reuse.
- *Waiting for Mo's UI implementation to be completed before I can integrate it into the main.cpp file.
+ *Waiting for Mo's UI implementation to be completed before  can integrate it into the main.cpp file.
  *
  * namespace {
  * const int kMaxSelectionAttempts = 3;
