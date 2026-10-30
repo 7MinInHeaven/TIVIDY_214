@@ -1,11 +1,16 @@
 #include "WorkflowBuilder.h"
 #include "Composite.h"
+#include <memory>
+#include <stdexcept>
 
 WorkflowBuilder::WorkflowBuilder() {}
 WorkflowBuilder::~WorkflowBuilder() {}
 
 WorkGroup* WorkflowBuilder::currentGroup() const 
 {
+    if (stack.empty()) {
+        return nullptr;
+    }
     return stack.back();
 }
 
@@ -73,21 +78,50 @@ void WorkflowBuilder::buildWorkUnit(const std::string& name)
     parent->add(unit);
 }
     
-// void WorkflowBuilder::addDecorator(const std::string& type,const std::vector<std::string>& requiredKeys = {})
-// {
+/**
+ * @brief Wraps the most recently added child in the active composite.
+ */
+void WorkflowBuilder::addDecorator(const std::string& type)
+{
+    const std::vector<std::string> noRequiredKeys;
+    addDecorator(type, noRequiredKeys);
+}
 
-// }
-    
-// void WorkflowBuilder::addRule(const std::string& key, const std::string& op, const std::string& value)
-// {
-//     WorkGroup* target = currentGroup();
-//     if (target == nullptr) {
-//         return;
-//     }
+void WorkflowBuilder::addDecorator(
+    const std::string& type, const std::vector<std::string>& requiredKeys)
+{
+    WorkGroup* parent = currentGroup();
+    if (parent == nullptr || parent->children.empty()) {
+        throw std::logic_error(
+            "cannot add a decorator without a current component");
+    }
 
-//     //add rule to only workgroups
+    WorkComponent* wrapped = parent->children.back();
+    std::unique_ptr<WorkComponent> decorated;
 
-// }
+    if (type == "ValidatedTask") {
+        std::unique_ptr<ValidatedTask> validated(
+            new ValidatedTask(wrapped, "In Progress"));
+        for (const std::string& key : requiredKeys) {
+            if (key.empty()) {
+                throw std::invalid_argument(
+                    "ValidatedTask required keys cannot be empty");
+            }
+            validated->addRule(
+                std::shared_ptr<const ValidationRule>(new RequiredKeyRule(key)));
+        }
+        decorated.reset(validated.release());
+    } else if (type == "AuditedTask") {
+        decorated.reset(new AuditedTask(wrapped, &auditLog));
+    } else if (type == "PrioritisedTask") {
+        decorated.reset(
+            new PrioritisedTask(wrapped, PriorityLevel::Normal, 0));
+    } else {
+        throw std::invalid_argument("unsupported decorator type: " + type);
+    }
+
+    parent->children.back() = decorated.release();
+}
     
     
 void WorkflowBuilder::endGroup() 
