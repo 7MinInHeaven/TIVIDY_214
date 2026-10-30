@@ -7,7 +7,7 @@ class InProgressState : public WorkState {
 public: 
     InProgressState();
     void handleUpdate(WorkComponent* context);
-    std::string getStatus() override;
+    std::string getStatus() const override;
     WorkState* clone() override;
     virtual ~InProgressState();
 };

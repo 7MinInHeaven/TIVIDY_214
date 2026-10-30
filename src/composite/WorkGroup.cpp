@@ -62,7 +62,7 @@ WorkGroup* WorkGroup::clone() const {
     return new WorkGroup(*this);
 }
 
-std::vector<WorkComponent*> WorkGroup::getChildren() const{
+const std::vector<WorkComponent*> WorkGroup::getChildren() const{
     return children;
 }
 
