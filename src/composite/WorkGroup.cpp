@@ -1,10 +1,15 @@
 #include "Composite.h"
 #include "Command.h"
+#include "PendingState.h"
+#include "InProgressState.h"
+#include "CompletedState.h"
+#include <iostream>
 
-WorkGroup::WorkGroup(std::string name) : WorkComponent(name) {}
-WorkGroup::WorkGroup(const WorkGroup& other) : WorkComponent(other){
+WorkGroup::WorkGroup(std::string name) : WorkComponent(name), interactive(true) {}
+WorkGroup::WorkGroup(const WorkGroup& other) : WorkComponent(other), interactive(other.interactive){
     for(size_t i = 0; i < other.children.size(); i++){
         children.push_back(other.children[i]->clone());
+        children.back()->setParent(this);
     }
 }
 
@@ -33,6 +38,8 @@ bool WorkGroup::add(WorkComponent* child) {
     }
 
     children.push_back(child);
+    child->setParent(this);
+    refreshState();
     return true;
 }
 
@@ -43,6 +50,7 @@ void WorkGroup::remove(WorkComponent* child){
             children.erase(children.begin() + i);
         }
     }
+    refreshState();
 }
 
 void WorkGroup::remove(std::string name){
@@ -52,6 +60,7 @@ void WorkGroup::remove(std::string name){
             children.erase(children.begin() + i);
         }
     }
+    refreshState();
 }
 
 void WorkGroup::accept(WorkVisitor& visitor) const
@@ -80,25 +89,112 @@ void WorkGroup::printTasks(WorkComponent* component)
     }
 }
 
+void WorkGroup::setInteractive(bool on)
+{
+    interactive = on;
+}
+
+void WorkGroup::refreshState()
+{
+    if (children.empty()) {
+        return;
+    }
+
+    size_t completed = 0;
+    bool started = false;
+    for (size_t i = 0; i < children.size(); i++)
+    {
+        std::string status = children[i]->getStatus();
+        if (status == "Completed")
+        {
+            completed++;
+            started = true;
+        }
+        else if (status == "In Progress")
+        {
+            started = true;
+        }
+    }
+
+    std::string wanted = "Pending";
+    if (completed == children.size())
+    {
+        wanted = "Completed";
+    }
+    else if (started)
+    {
+        wanted = "In Progress";
+    }
+
+    if (getStatus() == wanted) {
+        return;                         
+    }
+
+    if (wanted == "Completed")
+    {
+        setState(new CompletedState());
+    }
+    else if (wanted == "In Progress")
+    {
+        setState(new InProgressState());
+    }
+    else
+    {
+        setState(new PendingState());
+    }
+}
+
+static void completeLeaves(WorkComponent* component, ActionExecutor& ae)
+{
+    WorkGroup* group = dynamic_cast<WorkGroup*>(component);
+    if (group != nullptr)
+    {
+        std::vector<WorkComponent*> kids = group->getChildren();
+        for (size_t i = 0; i < kids.size(); i++)
+        {
+            completeLeaves(kids[i], ae);
+        }
+        return;
+    }
+
+    if (component->getStatus() == "Pending")
+    {
+        ae.executeCommand(new AssignTaskCommand(component, "console-user"));   
+        ae.executeCommand(new StartTaskCommand(component));
+    }
+    if (component->getStatus() == "In Progress")
+    {
+        ae.executeCommand(new CompleteTaskCommand(component));
+    }
+}
+
 void WorkGroup::handleRequest(WorkItem item)
 {
-    std::cout << "Work Group: " + getName() + " is starting\n";
-    ActionExecutor ae;
+    std::cout << "Work Group: " + getName() + " is " + getStatus() + "\n";
 
-
-    ae.executeCommand(new StartTaskCommand(this));
-
-    std::cout << "Have you completed " + getName() +"?\n";
-    std::string input;
-    std::cin >> input;
-    if (input == "Y")
+    if (!isComplete() && !children.empty() && interactive)
     {
-        ae.executeCommand(new CompleteTaskCommand(this));
-        printTasks(this);                         
-       
+        std::cout << "Complete all tasks in " + getName() + " now? (Y/N)\n";
+        std::string input;
+        std::cin >> input;
+        if (input == "Y")
+        {
+            ActionExecutor ae;
+            completeLeaves(this, ae);       // the group's state follows its children
+        }
+    }
+
+    if (!isComplete() && !children.empty())
+    {
+        std::cout << "Chain paused at " + getName() + "\n";
+        return;                          
+    }
+
+    if (interactive)
+    {
+        printTasks(this);
     }
     Handler::handleRequest(item);
-        
 }
 
 
@@ -116,22 +212,16 @@ void WorkGroup::handleRequest(WorkItem item)
 
 
 bool WorkGroup::startTask() {
-  if (state) {
-    state->handleUpdate(this);
-  }
-  return true;
+  std::cout << getName() + " cannot be started directly: its state follows its tasks\n";
+  return false;
 }
 
 bool WorkGroup::completeTask() {
-  if (state) {
-    state->handleUpdate(this);
-  }
-  return true;
+  std::cout << getName() + " cannot be completed directly: its state follows its tasks\n";
+  return false;
 }
 
 bool WorkGroup::assignTask(const std::string &task) {
   name = task;
   return true;
 }
-
-
