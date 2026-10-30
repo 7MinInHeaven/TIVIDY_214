@@ -8,11 +8,12 @@
 #include "ChainBuilder.h"
 #include "WorkflowBuilder.h"
 #include "Director.h"
+#include "WorkflowBlueprint.h"
 
 #include "ResendEmailAdapter.h"
 #include "BrevoEmailAdapter.h"
 
-WorkflowEngineFacade::WorkflowEngineFacade() : nextId(1) {
+WorkflowEngineFacade::WorkflowEngineFacade() : nextId(1), scenarioCatalog("src") {
   curl_global_init(CURL_GLOBAL_DEFAULT);
   dbObserver = new DatabaseObserver(nullptr, new PostgresAdapter(new PostgresAPI(), "workflow_audit_log", true),new SQLiteAdapter(new SQLiteAPI("tividy_local.db"), "workflow_audit_log", true));
 
@@ -39,6 +40,20 @@ void WorkflowEngineFacade::attachObserverToTree(WorkComponent* component) {
 
 //------------------------------------------
 
+/**
+ * @brief Refreshes the facade's runtime scenario catalog.
+ */
+std::vector<std::string> WorkflowEngineFacade::refreshScenarios() {
+  return scenarioCatalog.refresh();
+}
+
+/**
+ * @brief Returns the facade's currently discovered scenarios.
+ */
+const std::vector<WorkflowScenario>& WorkflowEngineFacade::listScenarios() const {
+  return scenarioCatalog.scenarios();
+}
+
 void WorkflowEngineFacade::submitRequest(WorkItem item) {
   std::string path = "src/service_blueprint.json";
   std::ifstream file(path);
@@ -48,18 +63,36 @@ void WorkflowEngineFacade::submitRequest(WorkItem item) {
   }
 
   if (!file) {
-    std::cerr << "couldn't find json file: " << path << "\n";
+    path = "blueprint.json";
+  }
+
+  submitRequest(item, path);
+}
+
+/**
+ * @brief Loads and executes one selected workflow blueprint.
+ */
+void WorkflowEngineFacade::submitRequest(
+    WorkItem item, const std::string& blueprintPath) {
+  json data;
+  try {
+    data = WorkflowBlueprint::loadAndValidate(blueprintPath);
+  } catch (const BlueprintValidationError& error) {
+    std::cerr << "[Workflow error] " << error.what() << "\n";
     return;
   }
 
-  json data;
-  file >> data;
-
   WorkflowBuilder builder;
   Director director(&builder, &item, false);
-  director.construct(data);
-  Handler* chainHead = builder.getResult();
-  std::vector<WorkGroup*> workGroups = builder.getWorkGroups();   // we own these
+  try {
+    director.construct(data);
+  } catch (const std::exception& error) {
+    std::cerr << "[Workflow input error] " << error.what() << "\n";
+    return;
+  }
+  std::vector<WorkGroup*> templateGroups = builder.getWorkGroups();
+  std::vector<WorkGroup*> workGroups = builder.cloneWorkGroups();
+  Handler* chainHead = workGroups.empty() ? nullptr : workGroups.front();
   
   for (size_t i = 0; i < workGroups.size(); i++) {
     attachObserverToTree(workGroups[i]);
@@ -73,7 +106,11 @@ void WorkflowEngineFacade::submitRequest(WorkItem item) {
   for (size_t i = 0; i < workGroups.size(); i++) {
     delete workGroups[i];
   }
+  for (size_t i = 0; i < templateGroups.size(); i++) {
+    delete templateGroups[i];
+  }
   workGroups.clear();
+  templateGroups.clear();
   chainHead = nullptr;
 
   std::cout << "\n=== Work Item Payload ===\n";

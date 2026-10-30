@@ -29,6 +29,12 @@ public:
     // void addRule(const std::string& key, const std::string& op, const std::string& value) override;
     Handler* getResult() override;
     std::vector<WorkGroup*> getWorkGroups() override;
+
+    /**
+     * @brief Creates a deep-cloned workflow tree with a rebuilt top-level chain.
+     * @return Independently owned cloned workflow roots.
+     */
+    std::vector<WorkGroup*> cloneWorkGroups() const;
 };
 
 #endif /* WORKFLOWBUILDER_H */
