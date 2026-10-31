@@ -18,8 +18,14 @@ void DatabaseObserver::setSubject(WorkComponent* s) {
 }
 
 void DatabaseObserver::setDatabaseStrategy(ExternalDatabase* db) {
-    if (database != nullptr && database != db && database != fallbackDatabase) {
-        delete database;
+     if (database != nullptr && database != db) {
+        if (database->isConnected() && db != nullptr && db->isConnected()) {
+            syncDatabases(database, db);
+            syncDatabases(db, database);
+        }
+        if (database != fallbackDatabase) {
+            delete database;
+        }
     }
     database = db;
 }

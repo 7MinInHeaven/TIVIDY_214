@@ -1,5 +1,5 @@
 <map id="include/ExternalDatabase.h" name="include/ExternalDatabase.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,207,31"/>
+<area shape="rect" id="Node000001" title="Declares the abstract Target (Adapter pattern) and Abstract Strategy (Strategy pattern) interface for..." alt="" coords="5,5,207,31"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="34,79,93,104"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="101,32,79,68,75,66,97,30"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="117,79,180,104"/>

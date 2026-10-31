@@ -76,14 +76,17 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>A Concrete Strategy/Adapter that sends emails via the Brevo REST API.  
+ <a href="classBrevoEmailAdapter.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="BrevoEmailAdapter_8h_source.html">BrevoEmailAdapter.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for BrevoEmailAdapter:</div>
 <div class="dyncontent">
 <div class="center"><img src="classBrevoEmailAdapter__inherit__graph.png" border="0" usemap="#aBrevoEmailAdapter_inherit__map" alt="Inheritance graph"/></div>
 <map name="aBrevoEmailAdapter_inherit__map" id="aBrevoEmailAdapter_inherit__map">
-<area shape="rect" title=" " alt="" coords="5,79,153,104"/>
-<area shape="rect" href="classEmailTransport.html" title=" " alt="" coords="20,5,139,31"/>
+<area shape="rect" title="A Concrete Strategy/Adapter that sends emails via the Brevo REST API." alt="" coords="5,79,153,104"/>
+<area shape="rect" href="classEmailTransport.html" title="The Target interface in the Adapter Pattern." alt="" coords="20,5,139,31"/>
 <area shape="poly" title=" " alt="" coords="82,44,82,79,77,79,77,44"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
@@ -92,8 +95,8 @@ Collaboration diagram for BrevoEmailAdapter:</div>
 <div class="dyncontent">
 <div class="center"><img src="classBrevoEmailAdapter__coll__graph.png" border="0" usemap="#aBrevoEmailAdapter_coll__map" alt="Collaboration graph"/></div>
 <map name="aBrevoEmailAdapter_coll__map" id="aBrevoEmailAdapter_coll__map">
-<area shape="rect" title=" " alt="" coords="5,79,153,104"/>
-<area shape="rect" href="classEmailTransport.html" title=" " alt="" coords="20,5,139,31"/>
+<area shape="rect" title="A Concrete Strategy/Adapter that sends emails via the Brevo REST API." alt="" coords="5,79,153,104"/>
+<area shape="rect" href="classEmailTransport.html" title="The Target interface in the Adapter Pattern." alt="" coords="20,5,139,31"/>
 <area shape="poly" title=" " alt="" coords="82,44,82,79,77,79,77,44"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
@@ -103,6 +106,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afbf6785bce66d3754dd7ffa31d83337f" id="r_afbf6785bce66d3754dd7ffa31d83337f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBrevoEmailAdapter.html#afbf6785bce66d3754dd7ffa31d83337f">BrevoEmailAdapter</a> (std::string apiKey, std::string fromEmail)</td></tr>
 <tr class="separator:afbf6785bce66d3754dd7ffa31d83337f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7802360ce863ebcdcb19265d8bd9ad68" id="r_a7802360ce863ebcdcb19265d8bd9ad68"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBrevoEmailAdapter.html#a7802360ce863ebcdcb19265d8bd9ad68">sendEmail</a> (std::string to, std::string subject, std::string body) override</td></tr>
+<tr class="memdesc:a7802360ce863ebcdcb19265d8bd9ad68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends an email via Brevo.  <br /></td></tr>
 <tr class="separator:a7802360ce863ebcdcb19265d8bd9ad68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abeaa55c0cc5f6b487cef87451b75fc04" id="r_abeaa55c0cc5f6b487cef87451b75fc04"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBrevoEmailAdapter.html#abeaa55c0cc5f6b487cef87451b75fc04">lastError</a> () const</td></tr>
 <tr class="separator:abeaa55c0cc5f6b487cef87451b75fc04"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -110,9 +114,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a77962c395fbfd8e72cf3530d2611731c inherit pub_methods_classEmailTransport" id="r_a77962c395fbfd8e72cf3530d2611731c"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEmailTransport.html#a77962c395fbfd8e72cf3530d2611731c">~EmailTransport</a> ()=default</td></tr>
 <tr class="separator:a77962c395fbfd8e72cf3530d2611731c inherit pub_methods_classEmailTransport"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a733cdcb5000839b5dd8d46d92e6a0590 inherit pub_methods_classEmailTransport" id="r_a733cdcb5000839b5dd8d46d92e6a0590"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEmailTransport.html#a733cdcb5000839b5dd8d46d92e6a0590">sendEmail</a> (string to, string subject, string body)=0</td></tr>
+<tr class="memdesc:a733cdcb5000839b5dd8d46d92e6a0590 inherit pub_methods_classEmailTransport"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends an email via a specific provider.  <br /></td></tr>
 <tr class="separator:a733cdcb5000839b5dd8d46d92e6a0590 inherit pub_methods_classEmailTransport"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A Concrete Strategy/Adapter that sends emails via the Brevo REST API. </p>
+<p>Implements the <a class="el" href="classEmailTransport.html" title="The Target interface in the Adapter Pattern.">EmailTransport</a> interface. Uses libcurl to make HTTP requests and nlohmann::json to format the payload according to Brevo's v3 API specifications. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="afbf6785bce66d3754dd7ffa31d83337f" name="afbf6785bce66d3754dd7ffa31d83337f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afbf6785bce66d3754dd7ffa31d83337f">&#9670;&#160;</a></span>BrevoEmailAdapter()</h2>
 
@@ -206,6 +214,9 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Sends an email via Brevo. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if HTTP 201 Created is received, false otherwise. </dd></dl>
 
 </div>
 </div>

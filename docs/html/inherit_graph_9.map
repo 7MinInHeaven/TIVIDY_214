@@ -1,7 +1,11 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$classExternalDatabase.html" title=" " alt="" coords="5,31,144,56"/>
-<area shape="rect" id="Node000001" href="$classPostgresAdapter.html" title=" " alt="" coords="192,5,321,31"/>
-<area shape="poly" id="edge11_Node000000_Node000001" title=" " alt="" coords="157,29,192,24,192,30,158,34"/>
-<area shape="rect" id="Node000002" href="$classSQLiteAdapter.html" title=" " alt="" coords="199,55,314,80"/>
-<area shape="poly" id="edge12_Node000000_Node000002" title=" " alt="" coords="158,52,199,57,199,62,157,57"/>
+<area shape="rect" id="Node000000" href="$classEmailTransport.html" title="The Target interface in the Adapter Pattern." alt="" coords="5,80,124,105"/>
+<area shape="rect" id="Node000001" href="$classBrevoEmailAdapter.html" title="A Concrete Strategy/Adapter that sends emails via the Brevo REST API." alt="" coords="179,5,327,31"/>
+<area shape="poly" id="edge7_Node000000_Node000001" title=" " alt="" coords="101,71,171,40,204,28,206,33,173,44,103,76"/>
+<area shape="rect" id="Node000002" href="$classConsoleEmailAdapter.html" title="A Concrete Adapter for testing and offline fallback." alt="" coords="172,55,335,80"/>
+<area shape="poly" id="edge8_Node000000_Node000002" title=" " alt="" coords="137,80,171,76,172,81,138,86"/>
+<area shape="rect" id="Node000003" href="$classMailjetEmailAdapter.html" title=" " alt="" coords="176,104,331,129"/>
+<area shape="poly" id="edge9_Node000000_Node000003" title=" " alt="" coords="138,99,176,104,175,109,137,105"/>
+<area shape="rect" id="Node000004" href="$classResendEmailAdapter.html" title="A Concrete Strategy/Adapter that sends emails via the Resend REST API." alt="" coords="174,153,333,179"/>
+<area shape="poly" id="edge10_Node000000_Node000004" title=" " alt="" coords="105,109,173,138,209,151,208,156,171,143,103,114"/>
 </map>

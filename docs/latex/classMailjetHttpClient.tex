@@ -2,6 +2,11 @@
 \hypertarget{classMailjetHttpClient}{}\label{classMailjetHttpClient}\index{MailjetHttpClient@{MailjetHttpClient}}
 
 
+The Adaptee in the Adapter Pattern for Mailjet.  
+
+
+
+
 {\ttfamily \#include $<$Mailjet\+Http\+Client.\+h$>$}
 
 \doxysubsubsection*{Public Member Functions}
@@ -10,8 +15,13 @@
 \mbox{\hyperlink{classMailjetHttpClient_afe76ca9fc5c63304fd77f0e387a01431}{Mailjet\+Http\+Client}} (std\+::string api\+Key, std\+::string api\+Secret)
 \item 
 \mbox{\hyperlink{structHttpResponse}{Http\+Response}} \mbox{\hyperlink{classMailjetHttpClient_a39229d809db4b458712f2545086473d7}{post\+Json}} (const std\+::string \&url, const std\+::string \&\mbox{\hyperlink{Director_8h_ab701e3ac61a85b337ec5c1abaad6742d}{json}})
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Executes a POST request with a JSON payload. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+The Adaptee in the Adapter Pattern for Mailjet. 
+
+Provides a thin wrapper around libcurl to handle Basic Authentication and POST requests. Used internally by the \doxylink{classMailjetEmailAdapter}{Mailjet\+Email\+Adapter}. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \Hypertarget{classMailjetHttpClient_afe76ca9fc5c63304fd77f0e387a01431}\label{classMailjetHttpClient_afe76ca9fc5c63304fd77f0e387a01431} 
@@ -29,6 +39,20 @@
 \doxysubsubsection{\texorpdfstring{postJson()}{postJson()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{structHttpResponse}{Http\+Response}} Mailjet\+Http\+Client\+::post\+Json (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{url,  }\item[{const std\+::string \&}]{json }\end{DoxyParamCaption})}
 
+
+
+Executes a POST request with a JSON payload. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em url} & The Mailjet endpoint. \\
+\hline
+{\em json} & The serialized JSON string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{structHttpResponse}{Http\+Response} containing the status and body. 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

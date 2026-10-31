@@ -1,10 +1,10 @@
 <map id="include/ExternalDatabase.h" name="include/ExternalDatabase.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="693,5,895,31"/>
-<area shape="rect" id="Node000002" href="$DatabaseObserver_8h.html" title=" " alt="" coords="907,79,1113,104"/>
+<area shape="rect" id="Node000001" title="Declares the abstract Target (Adapter pattern) and Abstract Strategy (Strategy pattern) interface for..." alt="" coords="693,5,895,31"/>
+<area shape="rect" id="Node000002" href="$DatabaseObserver_8h.html" title="Declares the ConcreteObserver and Strategy Context for database persistence." alt="" coords="907,79,1113,104"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="843,32,976,76,974,81,841,37"/>
-<area shape="rect" id="Node000013" href="$PostgresAdapter_8h.html" title=" " alt="" coords="491,79,681,104"/>
+<area shape="rect" id="Node000013" href="$PostgresAdapter_8h.html" title="Declares the Adapter and ConcreteStrategy for Cloud PostgreSQL." alt="" coords="491,79,681,104"/>
 <area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="748,38,621,81,619,76,747,33"/>
-<area shape="rect" id="Node000015" href="$SQLiteAdapter_8h.html" title=" " alt="" coords="705,79,883,104"/>
+<area shape="rect" id="Node000015" href="$SQLiteAdapter_8h.html" title="Declares the Adapter and ConcreteStrategy for local SQLite." alt="" coords="705,79,883,104"/>
 <area shape="poly" id="edge15_Node000001_Node000015" title=" " alt="" coords="797,44,797,79,791,79,791,44"/>
 <area shape="rect" id="Node000003" href="$WorkflowEngineFacade_8h.html" title=" " alt="" coords="573,159,807,185"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="951,110,737,162,736,157,950,105"/>

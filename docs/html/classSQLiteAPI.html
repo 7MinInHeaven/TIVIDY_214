@@ -76,28 +76,43 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Adaptee participant in the Adapter design pattern for local SQLite.  
+ <a href="classSQLiteAPI.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="SQLiteAPI_8h_source.html">SQLiteAPI.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a62a4c6cfc638f12b0204bbf161a21f07" id="r_a62a4c6cfc638f12b0204bbf161a21f07"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLiteAPI.html#a62a4c6cfc638f12b0204bbf161a21f07">SQLiteAPI</a> (std::string filePath=&quot;tividy_local.db&quot;)</td></tr>
+<tr class="memdesc:a62a4c6cfc638f12b0204bbf161a21f07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classSQLiteAPI.html" title="Adaptee participant in the Adapter design pattern for local SQLite.">SQLiteAPI</a> instance pointing to a local database file.  <br /></td></tr>
 <tr class="separator:a62a4c6cfc638f12b0204bbf161a21f07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a58ee652aecc5c38b6fbb47382da511f5" id="r_a58ee652aecc5c38b6fbb47382da511f5"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLiteAPI.html#a58ee652aecc5c38b6fbb47382da511f5">~SQLiteAPI</a> ()</td></tr>
+<tr class="memdesc:a58ee652aecc5c38b6fbb47382da511f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor that closes the connection.  <br /></td></tr>
 <tr class="separator:a58ee652aecc5c38b6fbb47382da511f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae30736a0151e14789b7d5fac9505cb0b" id="r_ae30736a0151e14789b7d5fac9505cb0b"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLiteAPI.html#ae30736a0151e14789b7d5fac9505cb0b">openConnection</a> ()</td></tr>
+<tr class="memdesc:ae30736a0151e14789b7d5fac9505cb0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens and verifies access to the local SQLite database file via <code>sqlite3_open</code>  <br /></td></tr>
 <tr class="separator:ae30736a0151e14789b7d5fac9505cb0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac1b0c65be605e2ffc8cb34c49efc5099" id="r_ac1b0c65be605e2ffc8cb34c49efc5099"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLiteAPI.html#ac1b0c65be605e2ffc8cb34c49efc5099">closeConnection</a> ()</td></tr>
+<tr class="memdesc:ac1b0c65be605e2ffc8cb34c49efc5099"><td class="mdescLeft">&#160;</td><td class="mdescRight">Marks the local SQLite connection as closed.  <br /></td></tr>
 <tr class="separator:ac1b0c65be605e2ffc8cb34c49efc5099"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a15fad2921824253b6fa0686387ae219e" id="r_a15fad2921824253b6fa0686387ae219e"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLiteAPI.html#a15fad2921824253b6fa0686387ae219e">runStatement</a> (std::string sqlQuery, const std::vector&lt; std::string &gt; &amp;params=std::vector&lt; std::string &gt;())</td></tr>
+<tr class="memdesc:a15fad2921824253b6fa0686387ae219e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a parameterized SQL write statement (<code>INSERT</code>, <code>UPDATE</code>, <code>CREATE TABLE</code>)  <br /></td></tr>
 <tr class="separator:a15fad2921824253b6fa0686387ae219e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25321e562674fc8e11fd25308d87fc0b" id="r_a25321e562674fc8e11fd25308d87fc0b"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLiteAPI.html#a25321e562674fc8e11fd25308d87fc0b">queryRows</a> (std::string sqlQuery, const std::vector&lt; std::string &gt; &amp;params=std::vector&lt; std::string &gt;())</td></tr>
+<tr class="memdesc:a25321e562674fc8e11fd25308d87fc0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a parameterized SQL <code>SELECT</code> query and returns formatted result rows.  <br /></td></tr>
 <tr class="separator:a25321e562674fc8e11fd25308d87fc0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8577ac390ba8ef96d6fb3a6d8dd0fb8e" id="r_a8577ac390ba8ef96d6fb3a6d8dd0fb8e"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLiteAPI.html#a8577ac390ba8ef96d6fb3a6d8dd0fb8e">isOpen</a> () const</td></tr>
+<tr class="memdesc:a8577ac390ba8ef96d6fb3a6d8dd0fb8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether the local SQLite connection is currently open.  <br /></td></tr>
 <tr class="separator:a8577ac390ba8ef96d6fb3a6d8dd0fb8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afcf831f86c26a40ef48b9cd2b09eedb2" id="r_afcf831f86c26a40ef48b9cd2b09eedb2"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSQLiteAPI.html#afcf831f86c26a40ef48b9cd2b09eedb2">getDbFilePath</a> () const</td></tr>
+<tr class="memdesc:afcf831f86c26a40ef48b9cd2b09eedb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the file path of the local SQLite database.  <br /></td></tr>
 <tr class="separator:afcf831f86c26a40ef48b9cd2b09eedb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Adaptee participant in the Adapter design pattern for local SQLite. </p>
+<p>Encapsulates low-level <code>&lt;sqlite3.h&gt;</code> file connection handling and prepared statement execution (<code>sqlite3_prepare_v2</code>, <code>sqlite3_bind_text</code>, <code>sqlite3_step</code>) on a local <code>.db</code> file</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classSQLiteAdapter.html" title="Adapter in the Adapter pattern and ConcreteStrategy in the Strategy pattern for SQLite.">SQLiteAdapter</a> </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a62a4c6cfc638f12b0204bbf161a21f07" name="a62a4c6cfc638f12b0204bbf161a21f07"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a62a4c6cfc638f12b0204bbf161a21f07">&#9670;&#160;</a></span>SQLiteAPI()</h2>
 
@@ -113,6 +128,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Constructs a <a class="el" href="classSQLiteAPI.html" title="Adaptee participant in the Adapter design pattern for local SQLite.">SQLiteAPI</a> instance pointing to a local database file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">filePath</td><td>Path to the SQLite <code>.db</code> file (defaults to <code>"tividy_local.db"</code>) </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -138,6 +161,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Destructor that closes the connection. </p>
 
 </div>
 </div>
@@ -165,6 +190,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Marks the local SQLite connection as closed. </p>
+
 </div>
 </div>
 <a id="afcf831f86c26a40ef48b9cd2b09eedb2" name="afcf831f86c26a40ef48b9cd2b09eedb2"></a>
@@ -181,6 +208,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the file path of the local SQLite database. </p>
+<dl class="section return"><dt>Returns</dt><dd>Database file path string </dd></dl>
 
 </div>
 </div>
@@ -207,6 +237,9 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns whether the local SQLite connection is currently open. </p>
+<dl class="section return"><dt>Returns</dt><dd>true if open, false otherwise. </dd></dl>
+
 </div>
 </div>
 <a id="ae30736a0151e14789b7d5fac9505cb0b" name="ae30736a0151e14789b7d5fac9505cb0b"></a>
@@ -231,6 +264,9 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Opens and verifies access to the local SQLite database file via <code>sqlite3_open</code> </p>
+<dl class="section return"><dt>Returns</dt><dd>true if the SQLite file was opened successfully, false otherwise </dd></dl>
 
 </div>
 </div>
@@ -268,6 +304,16 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Executes a parameterized SQL <code>SELECT</code> query and returns formatted result rows. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">sqlQuery</td><td>SQL <code>SELECT</code> statement with optional <code>?</code> placeholders </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">params</td><td>Parameter values bound with <code>sqlite3_bind_text</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Vector of <code>" | "</code>-delimited row strings </dd></dl>
+
 </div>
 </div>
 <a id="a15fad2921824253b6fa0686387ae219e" name="a15fad2921824253b6fa0686387ae219e"></a>
@@ -303,6 +349,16 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Executes a parameterized SQL write statement (<code>INSERT</code>, <code>UPDATE</code>, <code>CREATE TABLE</code>) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">sqlQuery</td><td>SQL statement with <code>?</code> placeholders. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">params</td><td>Parameter values bound safely with <code>sqlite3_bind_text</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of rows modified (<code>sqlite3_changes</code>), or <code>-1</code> on error </dd></dl>
 
 </div>
 </div>

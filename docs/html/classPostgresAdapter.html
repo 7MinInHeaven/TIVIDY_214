@@ -76,14 +76,17 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Adapter in the Adapter pattern and ConcreteStrategy in the Strategy pattern for PostgreSQL.  
+ <a href="classPostgresAdapter.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="PostgresAdapter_8h_source.html">PostgresAdapter.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for PostgresAdapter:</div>
 <div class="dyncontent">
 <div class="center"><img src="classPostgresAdapter__inherit__graph.png" border="0" usemap="#aPostgresAdapter_inherit__map" alt="Inheritance graph"/></div>
 <map name="aPostgresAdapter_inherit__map" id="aPostgresAdapter_inherit__map">
-<area shape="rect" title=" " alt="" coords="10,79,139,104"/>
-<area shape="rect" href="classExternalDatabase.html" title=" " alt="" coords="5,5,144,31"/>
+<area shape="rect" title="Adapter in the Adapter pattern and ConcreteStrategy in the Strategy pattern for PostgreSQL." alt="" coords="10,79,139,104"/>
+<area shape="rect" href="classExternalDatabase.html" title="Target interface in the Adapter pattern and abstract Strategy in the Strategy pattern." alt="" coords="5,5,144,31"/>
 <area shape="poly" title=" " alt="" coords="77,44,77,79,72,79,72,44"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
@@ -92,8 +95,8 @@ Collaboration diagram for PostgresAdapter:</div>
 <div class="dyncontent">
 <div class="center"><img src="classPostgresAdapter__coll__graph.png" border="0" usemap="#aPostgresAdapter_coll__map" alt="Collaboration graph"/></div>
 <map name="aPostgresAdapter_coll__map" id="aPostgresAdapter_coll__map">
-<area shape="rect" title=" " alt="" coords="10,79,139,104"/>
-<area shape="rect" href="classExternalDatabase.html" title=" " alt="" coords="5,5,144,31"/>
+<area shape="rect" title="Adapter in the Adapter pattern and ConcreteStrategy in the Strategy pattern for PostgreSQL." alt="" coords="10,79,139,104"/>
+<area shape="rect" href="classExternalDatabase.html" title="Target interface in the Adapter pattern and abstract Strategy in the Strategy pattern." alt="" coords="5,5,144,31"/>
 <area shape="poly" title=" " alt="" coords="77,44,77,79,72,79,72,44"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
@@ -101,22 +104,37 @@ Collaboration diagram for PostgresAdapter:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a72aaf631d85ece3f53593ab396b25a16" id="r_a72aaf631d85ece3f53593ab396b25a16"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPostgresAdapter.html#a72aaf631d85ece3f53593ab396b25a16">PostgresAdapter</a> (<a class="el" href="classPostgresAPI.html">PostgresAPI</a> *pgApi, std::string table=&quot;workflow_audit_log&quot;, bool takeOwnership=true)</td></tr>
+<tr class="memdesc:a72aaf631d85ece3f53593ab396b25a16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classPostgresAdapter.html" title="Adapter in the Adapter pattern and ConcreteStrategy in the Strategy pattern for PostgreSQL.">PostgresAdapter</a>, connects via <code>pgApi</code>, and ensures the target table exists.  <br /></td></tr>
 <tr class="separator:a72aaf631d85ece3f53593ab396b25a16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade8e24028899fa0f54333aa6fa8ce510" id="r_ade8e24028899fa0f54333aa6fa8ce510"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPostgresAdapter.html#ade8e24028899fa0f54333aa6fa8ce510">~PostgresAdapter</a> ()</td></tr>
+<tr class="memdesc:ade8e24028899fa0f54333aa6fa8ce510"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor that disconnects and optionally deletes the wrapped <a class="el" href="classPostgresAPI.html" title="Adaptee participant in the Adapter design pattern for Cloud PostgreSQL.">PostgresAPI</a>.  <br /></td></tr>
 <tr class="separator:ade8e24028899fa0f54333aa6fa8ce510"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af080462101e29451e7f99fde41736293" id="r_af080462101e29451e7f99fde41736293"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPostgresAdapter.html#af080462101e29451e7f99fde41736293">saveRecord</a> (int taskID, std::string taskName, std::string state, std::string payload) override</td></tr>
+<tr class="memdesc:af080462101e29451e7f99fde41736293"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts a workflow audit record into the PostgreSQL table.  <br /></td></tr>
 <tr class="separator:af080462101e29451e7f99fde41736293"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a152cf664e65b1e64c6107d1cdde0739b" id="r_a152cf664e65b1e64c6107d1cdde0739b"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPostgresAdapter.html#a152cf664e65b1e64c6107d1cdde0739b">getRecordState</a> (std::string taskName) override</td></tr>
+<tr class="memdesc:a152cf664e65b1e64c6107d1cdde0739b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queries the latest saved state for the specified task name from PostgreSQL.  <br /></td></tr>
 <tr class="separator:a152cf664e65b1e64c6107d1cdde0739b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac93e310b76b3c92d6b79e5925a956fba" id="r_ac93e310b76b3c92d6b79e5925a956fba"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPostgresAdapter.html#ac93e310b76b3c92d6b79e5925a956fba">fetchAllRecords</a> () override</td></tr>
+<tr class="memdesc:ac93e310b76b3c92d6b79e5925a956fba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves all audit records from the PostgreSQL table ordered by <code>id ASC</code>  <br /></td></tr>
 <tr class="separator:ac93e310b76b3c92d6b79e5925a956fba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7677db7ca14c8bbb3ae0e1b48379c49" id="r_ae7677db7ca14c8bbb3ae0e1b48379c49"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPostgresAdapter.html#ae7677db7ca14c8bbb3ae0e1b48379c49">isConnected</a> () override</td></tr>
+<tr class="memdesc:ae7677db7ca14c8bbb3ae0e1b48379c49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the underlying <a class="el" href="classPostgresAPI.html" title="Adaptee participant in the Adapter design pattern for Cloud PostgreSQL.">PostgresAPI</a> connection is active.  <br /></td></tr>
 <tr class="separator:ae7677db7ca14c8bbb3ae0e1b48379c49"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classExternalDatabase"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classExternalDatabase')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classExternalDatabase.html">ExternalDatabase</a></td></tr>
 <tr class="memitem:ad663a6ebcbdf01ad2933448119b392d6 inherit pub_methods_classExternalDatabase" id="r_ad663a6ebcbdf01ad2933448119b392d6"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExternalDatabase.html#ad663a6ebcbdf01ad2933448119b392d6">~ExternalDatabase</a> ()</td></tr>
+<tr class="memdesc:ad663a6ebcbdf01ad2933448119b392d6 inherit pub_methods_classExternalDatabase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for safe polymorphic cleanup.  <br /></td></tr>
 <tr class="separator:ad663a6ebcbdf01ad2933448119b392d6 inherit pub_methods_classExternalDatabase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Adapter in the Adapter pattern and ConcreteStrategy in the Strategy pattern for PostgreSQL. </p>
+<p>Adapts the low-level <a class="el" href="classPostgresAPI.html" title="Adaptee participant in the Adapter design pattern for Cloud PostgreSQL.">PostgresAPI</a> (Adaptee) to the <a class="el" href="classExternalDatabase.html" title="Target interface in the Adapter pattern and abstract Strategy in the Strategy pattern.">ExternalDatabase</a> (Target) interface so <a class="el" href="classDatabaseObserver.html" title="ConcreteObserver in the Observer pattern and Context in the Strategy pattern.">DatabaseObserver</a> can persist and retrieve workflow records in Neon Cloud PostgreSQL</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classExternalDatabase.html" title="Target interface in the Adapter pattern and abstract Strategy in the Strategy pattern.">ExternalDatabase</a> </dd>
+<dd>
+<a class="el" href="classPostgresAPI.html" title="Adaptee participant in the Adapter design pattern for Cloud PostgreSQL.">PostgresAPI</a> </dd>
+<dd>
+<a class="el" href="classDatabaseObserver.html" title="ConcreteObserver in the Observer pattern and Context in the Strategy pattern.">DatabaseObserver</a> </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a72aaf631d85ece3f53593ab396b25a16" name="a72aaf631d85ece3f53593ab396b25a16"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a72aaf631d85ece3f53593ab396b25a16">&#9670;&#160;</a></span>PostgresAdapter()</h2>
 
@@ -149,6 +167,16 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Constructs a <a class="el" href="classPostgresAdapter.html" title="Adapter in the Adapter pattern and ConcreteStrategy in the Strategy pattern for PostgreSQL.">PostgresAdapter</a>, connects via <code>pgApi</code>, and ensures the target table exists. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pgApi</td><td>Pointer to the <a class="el" href="classPostgresAPI.html" title="Adaptee participant in the Adapter design pattern for Cloud PostgreSQL.">PostgresAPI</a> Adaptee instance </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">table</td><td>Target SQL table name (defaults to <code>"workflow_audit_log"</code>) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">takeOwnership</td><td>If true, the adapter deletes <code>pgApi</code> in its destructor </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ade8e24028899fa0f54333aa6fa8ce510" name="ade8e24028899fa0f54333aa6fa8ce510"></a>
@@ -173,6 +201,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Destructor that disconnects and optionally deletes the wrapped <a class="el" href="classPostgresAPI.html" title="Adaptee participant in the Adapter design pattern for Cloud PostgreSQL.">PostgresAPI</a>. </p>
 
 </div>
 </div>
@@ -199,6 +229,9 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Retrieves all audit records from the PostgreSQL table ordered by <code>id ASC</code> </p>
+<dl class="section return"><dt>Returns</dt><dd>Vector of records formatted as <code>"task_id | task_name | state | payload"</code> </dd></dl>
 
 <p>Implements <a class="el" href="classExternalDatabase.html#ac9eca650196f19cea2223a9192c334a6">ExternalDatabase</a>.</p>
 
@@ -228,6 +261,15 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Queries the latest saved state for the specified task name from PostgreSQL. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">taskName</td><td>Name of the task to look up </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Latest state string, or an empty string if not found </dd></dl>
+
 <p>Implements <a class="el" href="classExternalDatabase.html#aa7da8d9258dd91709c29c0c419cfd2aa">ExternalDatabase</a>.</p>
 
 </div>
@@ -254,6 +296,9 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Checks whether the underlying <a class="el" href="classPostgresAPI.html" title="Adaptee participant in the Adapter design pattern for Cloud PostgreSQL.">PostgresAPI</a> connection is active. </p>
+<dl class="section return"><dt>Returns</dt><dd>true if connected, false otherwise </dd></dl>
 
 <p>Implements <a class="el" href="classExternalDatabase.html#aa69857fcae2139c91428953695395c5e">ExternalDatabase</a>.</p>
 
@@ -304,6 +349,18 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Inserts a workflow audit record into the PostgreSQL table. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">taskID</td><td>Integer identifier of the task </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">taskName</td><td>Name of the <a class="el" href="classWorkComponent.html">WorkComponent</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">state</td><td>Current workflow state string </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">payload</td><td>payload data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the transaction succeeded, false otherwise </dd></dl>
 
 <p>Implements <a class="el" href="classExternalDatabase.html#a5642ad378a433f79737c52beb7116296">ExternalDatabase</a>.</p>
 

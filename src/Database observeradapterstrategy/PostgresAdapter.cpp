@@ -1,6 +1,7 @@
 #include "PostgresAdapter.h"
 
-PostgresAdapter::PostgresAdapter(PostgresAPI* api, std::string table, bool takeOwnership) : pgApi(api), tableName(table), ownsAPI(takeOwnership) {}
+PostgresAdapter::PostgresAdapter(PostgresAPI* api, std::string table, bool takeOwnership)
+    : pgApi(api), tableName(table), ownsAPI(takeOwnership), tableEnsured(false) {}
 
 PostgresAdapter::~PostgresAdapter() {
     if (ownsAPI && pgApi != nullptr) {
@@ -26,17 +27,20 @@ bool PostgresAdapter::saveRecord(int taskID, std::string taskName, std::string s
         return false;
     }
 
-     //automatically create the table in PostgreSQL if this is a new scenario/tableName
-    std::string createTableSql =
-        "CREATE TABLE IF NOT EXISTS " + tableName + " ("
-        "id SERIAL PRIMARY KEY, "
-        "task_id INT, "
-        "task_name VARCHAR(255), "
-        "state VARCHAR(100), "
-        "payload TEXT, "
-        "updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);";
-    pgApi->executeTransaction(createTableSql);
-    
+    if (!tableEnsured) {
+        std::string createTableSql =
+            "CREATE TABLE IF NOT EXISTS " + tableName + " ("
+            "id SERIAL PRIMARY KEY, "
+            "task_id INT, "
+            "task_name VARCHAR(255), "
+            "state VARCHAR(100), "
+            "payload TEXT, "
+            "updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);";
+        if (pgApi->executeTransaction(createTableSql) == 0) {
+            tableEnsured = true;
+        }
+    }
+
     std::string sqlQuery =
         "INSERT INTO " + tableName + " (task_id, task_name, state, payload) VALUES ($1, $2, $3, $4);";
     std::vector<std::string> params;

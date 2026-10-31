@@ -6,8 +6,7 @@
 
 
 
-Inheritance diagram for Workflow\+Engine\+Facade\+:
-\nopagebreak
+Inheritance diagram for Workflow\+Engine\+Facade\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -16,8 +15,7 @@ Inheritance diagram for Workflow\+Engine\+Facade\+:
 \end{figure}
 
 
-Collaboration diagram for Workflow\+Engine\+Facade\+:
-\nopagebreak
+Collaboration diagram for Workflow\+Engine\+Facade\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -31,8 +29,14 @@ Collaboration diagram for Workflow\+Engine\+Facade\+:
 \item 
 \mbox{\hyperlink{classWorkflowEngineFacade_add29460804890f198077004898192433}{\texorpdfstring{$\sim$}{\string~}\+Workflow\+Engine\+Facade}} ()
 \item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classWorkflowEngineFacade_a2cd8094812e3276eedbd75e6b2984fe4}{refresh\+Scenarios}} ()
+\begin{DoxyCompactList}\small\item\em Refreshes the available JSON workflow scenarios. \end{DoxyCompactList}\item 
+const std\+::vector$<$ \mbox{\hyperlink{structWorkflowScenario}{Workflow\+Scenario}} $>$ \& \mbox{\hyperlink{classWorkflowEngineFacade_ad31dac1b6a39ca7a2b676039b961db74}{list\+Scenarios}} () const
+\begin{DoxyCompactList}\small\item\em Returns the scenarios discovered by the last refresh. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classWorkflowEngineFacade_a06a35d28ab72d2dbc80da0189e47234f}{submit\+Request}} (\mbox{\hyperlink{classWorkItem}{Work\+Item}} item)
-\item 
+\begin{DoxyCompactList}\small\item\em Executes the default workflow blueprint. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classWorkflowEngineFacade_a92bb512fef85cf1878c4087c94a50f4b}{submit\+Request}} (\mbox{\hyperlink{classWorkItem}{Work\+Item}} item, const std\+::string \&blueprint\+Path)
+\begin{DoxyCompactList}\small\item\em Executes a selected workflow blueprint without changing the engine patterns. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classWorkflowEngineFacade_af162502120f1dd1ae79fe34bb7874890}{submit\+Request}} (int actor\+Id, const std\+::map$<$ std\+::string, std\+::string $>$ \&payload) override
 \item 
 void \mbox{\hyperlink{classWorkflowEngineFacade_abafea36b20010f8751c82a8f97b1da88}{take\+Ownership}} (int actor\+Id, int instance\+Id) override
@@ -138,6 +142,31 @@ Implements \mbox{\hyperlink{classWorkflowService_a9756be2131bb190c4e756bef5d91bd
 
 Implements \mbox{\hyperlink{classWorkflowService_a7ee421714cd991c17b16ca4789f34688}{Workflow\+Service}}.
 
+\Hypertarget{classWorkflowEngineFacade_ad31dac1b6a39ca7a2b676039b961db74}\label{classWorkflowEngineFacade_ad31dac1b6a39ca7a2b676039b961db74} 
+\index{WorkflowEngineFacade@{WorkflowEngineFacade}!listScenarios@{listScenarios}}
+\index{listScenarios@{listScenarios}!WorkflowEngineFacade@{WorkflowEngineFacade}}
+\doxysubsubsection{\texorpdfstring{listScenarios()}{listScenarios()}}
+{\footnotesize\ttfamily const std\+::vector$<$ \mbox{\hyperlink{structWorkflowScenario}{Workflow\+Scenario}} $>$ \& Workflow\+Engine\+Facade\+::list\+Scenarios (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the scenarios discovered by the last refresh. 
+
+Returns the facade\textquotesingle{}s currently discovered scenarios. \Hypertarget{classWorkflowEngineFacade_a2cd8094812e3276eedbd75e6b2984fe4}\label{classWorkflowEngineFacade_a2cd8094812e3276eedbd75e6b2984fe4} 
+\index{WorkflowEngineFacade@{WorkflowEngineFacade}!refreshScenarios@{refreshScenarios}}
+\index{refreshScenarios@{refreshScenarios}!WorkflowEngineFacade@{WorkflowEngineFacade}}
+\doxysubsubsection{\texorpdfstring{refreshScenarios()}{refreshScenarios()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ Workflow\+Engine\+Facade\+::refresh\+Scenarios (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Refreshes the available JSON workflow scenarios. 
+
+Refreshes the facade\textquotesingle{}s runtime scenario catalog.
+
+\begin{DoxyReturn}{Returns}
+Errors encountered while skipping invalid scenario files. 
+\end{DoxyReturn}
 \Hypertarget{classWorkflowEngineFacade_a612d32a96ce6dac8dad0f2364d72fe0e}\label{classWorkflowEngineFacade_a612d32a96ce6dac8dad0f2364d72fe0e} 
 \index{WorkflowEngineFacade@{WorkflowEngineFacade}!rejectRequest@{rejectRequest}}
 \index{rejectRequest@{rejectRequest}!WorkflowEngineFacade@{WorkflowEngineFacade}}
@@ -161,7 +190,7 @@ Implements \mbox{\hyperlink{classWorkflowService_a98968c4cbb62a795af853001f84eeb
 \Hypertarget{classWorkflowEngineFacade_af162502120f1dd1ae79fe34bb7874890}\label{classWorkflowEngineFacade_af162502120f1dd1ae79fe34bb7874890} 
 \index{WorkflowEngineFacade@{WorkflowEngineFacade}!submitRequest@{submitRequest}}
 \index{submitRequest@{submitRequest}!WorkflowEngineFacade@{WorkflowEngineFacade}}
-\doxysubsubsection{\texorpdfstring{submitRequest()}{submitRequest()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\doxysubsubsection{\texorpdfstring{submitRequest()}{submitRequest()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
 {\footnotesize\ttfamily int Workflow\+Engine\+Facade\+::submit\+Request (\begin{DoxyParamCaption}\item[{int}]{actor\+Id,  }\item[{const std\+::map$<$ std\+::string, std\+::string $>$ \&}]{payload }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
@@ -171,9 +200,32 @@ Implements \mbox{\hyperlink{classWorkflowService_af4d9b3a0e2f56ad6b1f1a78a9ee8e6
 \Hypertarget{classWorkflowEngineFacade_a06a35d28ab72d2dbc80da0189e47234f}\label{classWorkflowEngineFacade_a06a35d28ab72d2dbc80da0189e47234f} 
 \index{WorkflowEngineFacade@{WorkflowEngineFacade}!submitRequest@{submitRequest}}
 \index{submitRequest@{submitRequest}!WorkflowEngineFacade@{WorkflowEngineFacade}}
-\doxysubsubsection{\texorpdfstring{submitRequest()}{submitRequest()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\doxysubsubsection{\texorpdfstring{submitRequest()}{submitRequest()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
 {\footnotesize\ttfamily void Workflow\+Engine\+Facade\+::submit\+Request (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classWorkItem}{Work\+Item}}}]{item }\end{DoxyParamCaption})}
 
+
+
+Executes the default workflow blueprint. 
+
+\Hypertarget{classWorkflowEngineFacade_a92bb512fef85cf1878c4087c94a50f4b}\label{classWorkflowEngineFacade_a92bb512fef85cf1878c4087c94a50f4b} 
+\index{WorkflowEngineFacade@{WorkflowEngineFacade}!submitRequest@{submitRequest}}
+\index{submitRequest@{submitRequest}!WorkflowEngineFacade@{WorkflowEngineFacade}}
+\doxysubsubsection{\texorpdfstring{submitRequest()}{submitRequest()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void Workflow\+Engine\+Facade\+::submit\+Request (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classWorkItem}{Work\+Item}}}]{item,  }\item[{const std\+::string \&}]{blueprint\+Path }\end{DoxyParamCaption})}
+
+
+
+Executes a selected workflow blueprint without changing the engine patterns. 
+
+Loads and executes one selected workflow blueprint.
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & Work item passed through the workflow. \\
+\hline
+{\em blueprint\+Path} & Validated scenario file to execute. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classWorkflowEngineFacade_abafea36b20010f8751c82a8f97b1da88}\label{classWorkflowEngineFacade_abafea36b20010f8751c82a8f97b1da88} 
 \index{WorkflowEngineFacade@{WorkflowEngineFacade}!takeOwnership@{takeOwnership}}
 \index{takeOwnership@{takeOwnership}!WorkflowEngineFacade@{WorkflowEngineFacade}}

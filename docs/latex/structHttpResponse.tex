@@ -2,6 +2,11 @@
 \hypertarget{structHttpResponse}{}\label{structHttpResponse}\index{HttpResponse@{HttpResponse}}
 
 
+A simple DTO to hold the results of an HTTP request.  
+
+
+
+
 {\ttfamily \#include $<$Mailjet\+Http\+Client.\+h$>$}
 
 \doxysubsubsection*{Public Attributes}
@@ -15,6 +20,9 @@ std\+::string \mbox{\hyperlink{structHttpResponse_a51dd454a5a7b3ffdd984a9b8baf54
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+A simple DTO to hold the results of an HTTP request. 
+
 \doxysubsection{Member Data Documentation}
 \Hypertarget{structHttpResponse_ab59b82bffe1ab9a8e2741d5f4f94d12a}\label{structHttpResponse_ab59b82bffe1ab9a8e2741d5f4f94d12a} 
 \index{HttpResponse@{HttpResponse}!body@{body}}
@@ -22,19 +30,19 @@ std\+::string \mbox{\hyperlink{structHttpResponse_a51dd454a5a7b3ffdd984a9b8baf54
 \doxysubsubsection{\texorpdfstring{body}{body}}
 {\footnotesize\ttfamily std\+::string Http\+Response\+::body}
 
-\Hypertarget{structHttpResponse_a51dd454a5a7b3ffdd984a9b8baf54e6e}\label{structHttpResponse_a51dd454a5a7b3ffdd984a9b8baf54e6e} 
+The raw JSON body from the response \Hypertarget{structHttpResponse_a51dd454a5a7b3ffdd984a9b8baf54e6e}\label{structHttpResponse_a51dd454a5a7b3ffdd984a9b8baf54e6e} 
 \index{HttpResponse@{HttpResponse}!error@{error}}
 \index{error@{error}!HttpResponse@{HttpResponse}}
 \doxysubsubsection{\texorpdfstring{error}{error}}
 {\footnotesize\ttfamily std\+::string Http\+Response\+::error}
 
-\Hypertarget{structHttpResponse_ad236f2a6fc1f8d3a10cd77a34fb7fb0b}\label{structHttpResponse_ad236f2a6fc1f8d3a10cd77a34fb7fb0b} 
+Contains error messages if the request failed \Hypertarget{structHttpResponse_ad236f2a6fc1f8d3a10cd77a34fb7fb0b}\label{structHttpResponse_ad236f2a6fc1f8d3a10cd77a34fb7fb0b} 
 \index{HttpResponse@{HttpResponse}!status@{status}}
 \index{status@{status}!HttpResponse@{HttpResponse}}
 \doxysubsubsection{\texorpdfstring{status}{status}}
 {\footnotesize\ttfamily long Http\+Response\+::status = 0}
 
-
+HTTP status code (e.\+g., 200, 401) 
 
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

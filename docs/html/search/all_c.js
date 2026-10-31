@@ -1,17 +1,19 @@
 var searchData=
 [
-  ['nextstate_0',['nextstate',['../classPrioritisedTask.html#ab153c9e307ab87b1f8d51d12fb6a9115',1,'PrioritisedTask::nextState()'],['../classAuditedTask.html#ab77df3d5e5c289d8e5f2fbfd5f4bba9e',1,'AuditedTask::nextState()'],['../classValidatedTask.html#a5ed7d0d67ad7a04de6e816f3a7721c7d',1,'ValidatedTask::nextState()'],['../classTaskDecorator.html#a0c640ba0c12a3ce14457dd61f0c290e2',1,'TaskDecorator::nextState()'],['../classWorkComponent.html#a65163ad6e1863a35cab683a22d17a7b0',1,'WorkComponent::nextState()']]],
-  ['noinstance_1',['NoInstance',['../classAccessPolicy.html#a4b3c42a3f71b3eb5f68b17588e1249cb',1,'AccessPolicy']]],
-  ['normal_2',['Normal',['../Common_8h.html#a58ef2aaf285eac5903ead43e801a4513a960b44c579bc2f6818d2daaf9e4c16f0',1,'Common.h']]],
-  ['notification_3',['notification',['../classNotification.html#a90ed22f58b45947261b2709771cc4070',1,'Notification::Notification()'],['../classNotification.html',1,'Notification']]],
-  ['notificationbridge_2ecpp_4',['NotificationBridge.cpp',['../NotificationBridge_8cpp.html',1,'']]],
-  ['notificationbridge_2eh_5',['NotificationBridge.h',['../NotificationBridge_8h.html',1,'']]],
-  ['notificationchannel_6',['NotificationChannel',['../classNotificationChannel.html',1,'']]],
-  ['notificationdata_7',['NotificationData',['../structNotificationData.html',1,'']]],
-  ['notificationobserver_8',['notificationobserver',['../classNotificationObserver.html',1,'NotificationObserver'],['../classNotificationObserver.html#a5ac8ce0bcef86530990886815a83a4af',1,'NotificationObserver::NotificationObserver()']]],
-  ['notificationobserver_2ecpp_9',['NotificationObserver.cpp',['../NotificationObserver_8cpp.html',1,'']]],
-  ['notificationobserver_2eh_10',['NotificationObserver.h',['../NotificationObserver_8h.html',1,'']]],
-  ['notify_11',['notify',['../classWorkflowSubject.html#a4b7c602ead35d9ceebcef7a3e467e5a4',1,'WorkflowSubject']]],
-  ['now_12',['now',['../classClock.html#a516a7d3f4eb8a5248471a5a91c6e44a3',1,'Clock::now()'],['../classSystemClock.html#af556802854535500cd24329b65e52b80',1,'SystemClock::now()'],['../classManualClock.html#ad536050e8f9ac62fcd902f4e72ca8c61',1,'ManualClock::now()']]],
-  ['numericrangerule_13',['numericrangerule',['../classNumericRangeRule.html',1,'NumericRangeRule'],['../classNumericRangeRule.html#a6d3f0455b40860b188d44ebd700df57c',1,'NumericRangeRule::NumericRangeRule()']]]
+  ['name_0',['name',['../classWorkComponent.html#adae5b7dbf204f6fbbe59b9d89eaee013',1,'WorkComponent']]],
+  ['next_1',['next',['../classPriorityIterator.html#aa2b4747a172600c5c880f236da0dbec9',1,'PriorityIterator::next()'],['../classFilterIterator.html#a5f3afb644a420b75029dd195c761af01',1,'FilterIterator::next()'],['../classWorkIterator.html#aefb715074dab312debc7e42076b44349',1,'WorkIterator::next()'],['../classDepthFirstIterator.html#a5a87b79bf2169da85eb3ca87fdf57085',1,'DepthFirstIterator::next()']]],
+  ['nextstate_2',['nextstate',['../classPrioritisedTask.html#ab153c9e307ab87b1f8d51d12fb6a9115',1,'PrioritisedTask::nextState()'],['../classAuditedTask.html#ab77df3d5e5c289d8e5f2fbfd5f4bba9e',1,'AuditedTask::nextState()'],['../classValidatedTask.html#a5ed7d0d67ad7a04de6e816f3a7721c7d',1,'ValidatedTask::nextState()'],['../classTaskDecorator.html#a0c640ba0c12a3ce14457dd61f0c290e2',1,'TaskDecorator::nextState()'],['../classWorkComponent.html#a65163ad6e1863a35cab683a22d17a7b0',1,'WorkComponent::nextState()']]],
+  ['noinstance_3',['NoInstance',['../classAccessPolicy.html#a4b3c42a3f71b3eb5f68b17588e1249cb',1,'AccessPolicy']]],
+  ['normal_4',['Normal',['../Common_8h.html#a58ef2aaf285eac5903ead43e801a4513a960b44c579bc2f6818d2daaf9e4c16f0',1,'Common.h']]],
+  ['notification_5',['notification',['../classNotification.html#a90ed22f58b45947261b2709771cc4070',1,'Notification::Notification()'],['../classNotification.html',1,'Notification']]],
+  ['notificationbridge_2ecpp_6',['NotificationBridge.cpp',['../NotificationBridge_8cpp.html',1,'']]],
+  ['notificationbridge_2eh_7',['NotificationBridge.h',['../NotificationBridge_8h.html',1,'']]],
+  ['notificationchannel_8',['NotificationChannel',['../classNotificationChannel.html',1,'']]],
+  ['notificationdata_9',['NotificationData',['../structNotificationData.html',1,'']]],
+  ['notificationobserver_10',['notificationobserver',['../classNotificationObserver.html',1,'NotificationObserver'],['../classNotificationObserver.html#a5ac8ce0bcef86530990886815a83a4af',1,'NotificationObserver::NotificationObserver()']]],
+  ['notificationobserver_2ecpp_11',['NotificationObserver.cpp',['../NotificationObserver_8cpp.html',1,'']]],
+  ['notificationobserver_2eh_12',['NotificationObserver.h',['../NotificationObserver_8h.html',1,'']]],
+  ['notify_13',['notify',['../classWorkflowSubject.html#a4b7c602ead35d9ceebcef7a3e467e5a4',1,'WorkflowSubject']]],
+  ['now_14',['now',['../classClock.html#a516a7d3f4eb8a5248471a5a91c6e44a3',1,'Clock::now()'],['../classSystemClock.html#af556802854535500cd24329b65e52b80',1,'SystemClock::now()'],['../classManualClock.html#ad536050e8f9ac62fcd902f4e72ca8c61',1,'ManualClock::now()']]],
+  ['numericrangerule_15',['numericrangerule',['../classNumericRangeRule.html',1,'NumericRangeRule'],['../classNumericRangeRule.html#a6d3f0455b40860b188d44ebd700df57c',1,'NumericRangeRule::NumericRangeRule()']]]
 ];

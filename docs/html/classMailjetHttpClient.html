@@ -76,6 +76,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>The Adaptee in the Adapter Pattern for Mailjet.  
+ <a href="classMailjetHttpClient.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="MailjetHttpClient_8h_source.html">MailjetHttpClient.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -83,9 +86,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afe76ca9fc5c63304fd77f0e387a01431" id="r_afe76ca9fc5c63304fd77f0e387a01431"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMailjetHttpClient.html#afe76ca9fc5c63304fd77f0e387a01431">MailjetHttpClient</a> (std::string apiKey, std::string apiSecret)</td></tr>
 <tr class="separator:afe76ca9fc5c63304fd77f0e387a01431"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39229d809db4b458712f2545086473d7" id="r_a39229d809db4b458712f2545086473d7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structHttpResponse.html">HttpResponse</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMailjetHttpClient.html#a39229d809db4b458712f2545086473d7">postJson</a> (const std::string &amp;url, const std::string &amp;<a class="el" href="Director_8h.html#ab701e3ac61a85b337ec5c1abaad6742d">json</a>)</td></tr>
+<tr class="memdesc:a39229d809db4b458712f2545086473d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes a POST request with a JSON payload.  <br /></td></tr>
 <tr class="separator:a39229d809db4b458712f2545086473d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The Adaptee in the Adapter Pattern for Mailjet. </p>
+<p>Provides a thin wrapper around libcurl to handle Basic Authentication and POST requests. Used internally by the <a class="el" href="classMailjetEmailAdapter.html">MailjetEmailAdapter</a>. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="afe76ca9fc5c63304fd77f0e387a01431" name="afe76ca9fc5c63304fd77f0e387a01431"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afe76ca9fc5c63304fd77f0e387a01431">&#9670;&#160;</a></span>MailjetHttpClient()</h2>
 
@@ -140,6 +147,16 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Executes a POST request with a JSON payload. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">url</td><td>The Mailjet endpoint. </td></tr>
+    <tr><td class="paramname">json</td><td>The serialized JSON string. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="structHttpResponse.html" title="A simple DTO to hold the results of an HTTP request.">HttpResponse</a> containing the status and body. </dd></dl>
 
 </div>
 </div>

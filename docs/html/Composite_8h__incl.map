@@ -20,7 +20,7 @@
 <area shape="poly" id="edge16_Node000001_Node000013" title=" " alt="" coords="681,28,705,42,727,60,740,81,741,93,736,105,723,122,706,135,670,152,667,148,704,130,719,118,732,103,736,93,735,83,723,64,702,47,678,33"/>
 <area shape="rect" id="Node000014" href="$PendingState_8h.html" title=" " alt="" coords="229,79,349,104"/>
 <area shape="poly" id="edge19_Node000001_Node000014" title=" " alt="" coords="596,33,362,79,361,73,595,28"/>
-<area shape="rect" id="Node000015" href="$WorkflowSubject_8h.html" title=" " alt="" coords="797,79,940,104"/>
+<area shape="rect" id="Node000015" href="$WorkflowSubject_8h.html" title="Declares the Subject participant for the Observer pattern." alt="" coords="797,79,940,104"/>
 <area shape="poly" id="edge23_Node000001_Node000015" title=" " alt="" coords="689,28,822,72,820,77,688,33"/>
 <area shape="rect" id="Node000017" href="$WorkVisitor_8h.html" title=" " alt="" coords="1121,79,1229,104"/>
 <area shape="poly" id="edge26_Node000001_Node000017" title=" " alt="" coords="732,27,1108,78,1107,83,731,32"/>
@@ -44,7 +44,7 @@
 <area shape="poly" id="edge18_Node000013_Node000006" title=" " alt="" coords="656,174,875,224,874,229,655,179"/>
 <area shape="poly" id="edge20_Node000014_Node000008" title=" " alt="" coords="313,102,400,144,398,148,311,106"/>
 <area shape="poly" id="edge25_Node000015_Node000006" title=" " alt="" coords="875,104,913,212,908,213,870,105"/>
-<area shape="rect" id="Node000016" href="$WorkflowObserver_8h.html" title=" " alt="" coords="679,152,831,177"/>
+<area shape="rect" id="Node000016" href="$WorkflowObserver_8h.html" title="Declares the abstract Observer interface for the Workflow Observer pattern." alt="" coords="679,152,831,177"/>
 <area shape="poly" id="edge24_Node000015_Node000016" title=" " alt="" coords="852,106,787,147,784,142,849,102"/>
 <area shape="poly" id="edge33_Node000017_Node000002" title=" " alt="" coords="1157,106,1087,147,1084,143,1154,102"/>
 <area shape="poly" id="edge30_Node000017_Node000005" title=" " alt="" coords="1137,107,1007,142,844,180,639,214,478,235,478,229,639,209,843,175,1006,137,1136,101"/>

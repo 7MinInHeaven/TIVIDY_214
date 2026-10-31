@@ -9,12 +9,13 @@ class WorkUnit;
 class WorkHistory;
 class WorkState;
 class WorkMemento;
+class WorkComponent;
 
 class Action {
     public:
         virtual bool execute() = 0;
         virtual bool isUndoable() const { return true;}
-        virtual WorkUnit* getReceiver() const =0;
+        virtual WorkComponent* getReceiver() const =0;
         virtual ~Action() {}
 };
 
@@ -37,26 +38,26 @@ class ActionExecutor
 class StartTaskCommand : public Action
 {
     private:
-        WorkUnit* receiver;
+        WorkComponent* receiver;
 
     public:
-        StartTaskCommand(WorkUnit* receiver);
+        StartTaskCommand(WorkComponent* receiver);
         ~StartTaskCommand() = default;
         bool execute() override;
-        WorkUnit* getReceiver() const override;
+        WorkComponent* getReceiver() const override;
         
 };
 
 class CompleteTaskCommand : public Action
 {
     private:
-        WorkUnit* receiver;
+        WorkComponent* receiver;
 
     public:
-        CompleteTaskCommand(WorkUnit* receiver);
+        CompleteTaskCommand(WorkComponent* receiver);
         ~CompleteTaskCommand() = default;
         bool execute() override;
-        WorkUnit* getReceiver() const override;
+        WorkComponent* getReceiver() const override;
         
 };
 
@@ -64,14 +65,14 @@ class CompleteTaskCommand : public Action
 class AssignTaskCommand : public Action
 {
     private:
-        WorkUnit* receiver;
+        WorkComponent* receiver;
         std::string workerId;
 
     public:
-        AssignTaskCommand(WorkUnit* receiver, const std::string& workerId);
+        AssignTaskCommand(WorkComponent* receiver, const std::string& workerId);
         ~AssignTaskCommand() = default;
         bool execute() override;
-        WorkUnit* getReceiver() const override;
+        WorkComponent* getReceiver() const override;
         
 };
 

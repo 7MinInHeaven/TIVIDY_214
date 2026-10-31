@@ -2,6 +2,11 @@
 \hypertarget{classPostgresAdapter}{}\label{classPostgresAdapter}\index{PostgresAdapter@{PostgresAdapter}}
 
 
+Adapter in the Adapter pattern and Concrete\+Strategy in the Strategy pattern for Postgre\+SQL.  
+
+
+
+
 {\ttfamily \#include $<$Postgres\+Adapter.\+h$>$}
 
 
@@ -28,22 +33,36 @@ Collaboration diagram for Postgres\+Adapter\+:
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classPostgresAdapter_a72aaf631d85ece3f53593ab396b25a16}{Postgres\+Adapter}} (\mbox{\hyperlink{classPostgresAPI}{Postgres\+API}} \texorpdfstring{$\ast$}{*}pg\+Api, std\+::string table="{}workflow\+\_\+audit\+\_\+log"{}, bool take\+Ownership=true)
-\item 
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{classPostgresAdapter}{Postgres\+Adapter}, connects via {\ttfamily pg\+Api}, and ensures the target table exists. \end{DoxyCompactList}\item 
 virtual \mbox{\hyperlink{classPostgresAdapter_ade8e24028899fa0f54333aa6fa8ce510}{\texorpdfstring{$\sim$}{\string~}\+Postgres\+Adapter}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Destructor that disconnects and optionally deletes the wrapped \doxylink{classPostgresAPI}{Postgres\+API}. \end{DoxyCompactList}\item 
 virtual bool \mbox{\hyperlink{classPostgresAdapter_af080462101e29451e7f99fde41736293}{save\+Record}} (int task\+ID, std\+::string task\+Name, std\+::string state, std\+::string payload) override
-\item 
+\begin{DoxyCompactList}\small\item\em Inserts a workflow audit record into the Postgre\+SQL table. \end{DoxyCompactList}\item 
 virtual std\+::string \mbox{\hyperlink{classPostgresAdapter_a152cf664e65b1e64c6107d1cdde0739b}{get\+Record\+State}} (std\+::string task\+Name) override
-\item 
+\begin{DoxyCompactList}\small\item\em Queries the latest saved state for the specified task name from Postgre\+SQL. \end{DoxyCompactList}\item 
 virtual std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{classPostgresAdapter_ac93e310b76b3c92d6b79e5925a956fba}{fetch\+All\+Records}} () override
-\item 
+\begin{DoxyCompactList}\small\item\em Retrieves all audit records from the Postgre\+SQL table ordered by {\ttfamily id ASC} \end{DoxyCompactList}\item 
 virtual bool \mbox{\hyperlink{classPostgresAdapter_ae7677db7ca14c8bbb3ae0e1b48379c49}{is\+Connected}} () override
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Checks whether the underlying \doxylink{classPostgresAPI}{Postgres\+API} connection is active. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classExternalDatabase}{External\+Database}}}
 \begin{DoxyCompactItemize}
 \item 
 virtual \mbox{\hyperlink{classExternalDatabase_ad663a6ebcbdf01ad2933448119b392d6}{\texorpdfstring{$\sim$}{\string~}\+External\+Database}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Virtual destructor for safe polymorphic cleanup. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Adapter in the Adapter pattern and Concrete\+Strategy in the Strategy pattern for Postgre\+SQL. 
+
+Adapts the low-\/level \doxylink{classPostgresAPI}{Postgres\+API} (Adaptee) to the \doxylink{classExternalDatabase}{External\+Database} (Target) interface so \doxylink{classDatabaseObserver}{Database\+Observer} can persist and retrieve workflow records in Neon Cloud Postgre\+SQL
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{classExternalDatabase}{External\+Database} 
+
+\doxylink{classPostgresAPI}{Postgres\+API} 
+
+\doxylink{classDatabaseObserver}{Database\+Observer} 
+\end{DoxySeeAlso}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
@@ -53,11 +72,28 @@ virtual \mbox{\hyperlink{classExternalDatabase_ad663a6ebcbdf01ad2933448119b392d6
 \doxysubsubsection{\texorpdfstring{PostgresAdapter()}{PostgresAdapter()}}
 {\footnotesize\ttfamily Postgres\+Adapter\+::\+Postgres\+Adapter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPostgresAPI}{Postgres\+API}} \texorpdfstring{$\ast$}{*}}]{pg\+Api,  }\item[{std\+::string}]{table = {\ttfamily "{}workflow\+\_\+audit\+\_\+log"{}},  }\item[{bool}]{take\+Ownership = {\ttfamily true} }\end{DoxyParamCaption})}
 
+
+
+Constructs a \doxylink{classPostgresAdapter}{Postgres\+Adapter}, connects via {\ttfamily pg\+Api}, and ensures the target table exists. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em pg\+Api} & Pointer to the \doxylink{classPostgresAPI}{Postgres\+API} Adaptee instance \\
+\hline
+\mbox{\texttt{ in}}  & {\em table} & Target SQL table name (defaults to {\ttfamily "{}workflow\+\_\+audit\+\_\+log"{}}) \\
+\hline
+\mbox{\texttt{ in}}  & {\em take\+Ownership} & If true, the adapter deletes {\ttfamily pg\+Api} in its destructor \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classPostgresAdapter_ade8e24028899fa0f54333aa6fa8ce510}\label{classPostgresAdapter_ade8e24028899fa0f54333aa6fa8ce510} 
 \index{PostgresAdapter@{PostgresAdapter}!````~PostgresAdapter@{\texorpdfstring{$\sim$}{\string~}PostgresAdapter}}
 \index{````~PostgresAdapter@{\texorpdfstring{$\sim$}{\string~}PostgresAdapter}!PostgresAdapter@{PostgresAdapter}}
 \doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}PostgresAdapter()}{\string~PostgresAdapter()}}
 {\footnotesize\ttfamily Postgres\+Adapter\+::\texorpdfstring{$\sim$}{\string~}\+Postgres\+Adapter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destructor that disconnects and optionally deletes the wrapped \doxylink{classPostgresAPI}{Postgres\+API}. 
 
 
 
@@ -70,6 +106,13 @@ virtual \mbox{\hyperlink{classExternalDatabase_ad663a6ebcbdf01ad2933448119b392d6
 
 
 
+Retrieves all audit records from the Postgre\+SQL table ordered by {\ttfamily id ASC} 
+
+\begin{DoxyReturn}{Returns}
+Vector of records formatted as {\ttfamily "{}task\+\_\+id \texorpdfstring{$\vert$}{|} task\+\_\+name \texorpdfstring{$\vert$}{|} state \texorpdfstring{$\vert$}{|} payload"{}} 
+\end{DoxyReturn}
+
+
 Implements \mbox{\hyperlink{classExternalDatabase_ac9eca650196f19cea2223a9192c334a6}{External\+Database}}.
 
 \Hypertarget{classPostgresAdapter_a152cf664e65b1e64c6107d1cdde0739b}\label{classPostgresAdapter_a152cf664e65b1e64c6107d1cdde0739b} 
@@ -78,6 +121,18 @@ Implements \mbox{\hyperlink{classExternalDatabase_ac9eca650196f19cea2223a9192c33
 \doxysubsubsection{\texorpdfstring{getRecordState()}{getRecordState()}}
 {\footnotesize\ttfamily std\+::string Postgres\+Adapter\+::get\+Record\+State (\begin{DoxyParamCaption}\item[{std\+::string}]{task\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
+
+
+Queries the latest saved state for the specified task name from Postgre\+SQL. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em task\+Name} & Name of the task to look up \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Latest state string, or an empty string if not found 
+\end{DoxyReturn}
 
 
 Implements \mbox{\hyperlink{classExternalDatabase_aa7da8d9258dd91709c29c0c419cfd2aa}{External\+Database}}.
@@ -90,6 +145,13 @@ Implements \mbox{\hyperlink{classExternalDatabase_aa7da8d9258dd91709c29c0c419cfd
 
 
 
+Checks whether the underlying \doxylink{classPostgresAPI}{Postgres\+API} connection is active. 
+
+\begin{DoxyReturn}{Returns}
+true if connected, false otherwise 
+\end{DoxyReturn}
+
+
 Implements \mbox{\hyperlink{classExternalDatabase_aa69857fcae2139c91428953695395c5e}{External\+Database}}.
 
 \Hypertarget{classPostgresAdapter_af080462101e29451e7f99fde41736293}\label{classPostgresAdapter_af080462101e29451e7f99fde41736293} 
@@ -98,6 +160,24 @@ Implements \mbox{\hyperlink{classExternalDatabase_aa69857fcae2139c91428953695395
 \doxysubsubsection{\texorpdfstring{saveRecord()}{saveRecord()}}
 {\footnotesize\ttfamily bool Postgres\+Adapter\+::save\+Record (\begin{DoxyParamCaption}\item[{int}]{task\+ID,  }\item[{std\+::string}]{task\+Name,  }\item[{std\+::string}]{state,  }\item[{std\+::string}]{payload }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
+
+
+Inserts a workflow audit record into the Postgre\+SQL table. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em task\+ID} & Integer identifier of the task \\
+\hline
+\mbox{\texttt{ in}}  & {\em task\+Name} & Name of the \doxylink{classWorkComponent}{Work\+Component} \\
+\hline
+\mbox{\texttt{ in}}  & {\em state} & Current workflow state string \\
+\hline
+\mbox{\texttt{ in}}  & {\em payload} & payload data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the transaction succeeded, false otherwise 
+\end{DoxyReturn}
 
 
 Implements \mbox{\hyperlink{classExternalDatabase_a5642ad378a433f79737c52beb7116296}{External\+Database}}.

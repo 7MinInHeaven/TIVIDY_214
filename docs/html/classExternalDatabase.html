@@ -76,16 +76,19 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Target interface in the Adapter pattern and abstract Strategy in the Strategy pattern.  
+ <a href="classExternalDatabase.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="ExternalDatabase_8h_source.html">ExternalDatabase.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for ExternalDatabase:</div>
 <div class="dyncontent">
 <div class="center"><img src="classExternalDatabase__inherit__graph.png" border="0" usemap="#aExternalDatabase_inherit__map" alt="Inheritance graph"/></div>
 <map name="aExternalDatabase_inherit__map" id="aExternalDatabase_inherit__map">
-<area shape="rect" title=" " alt="" coords="74,5,213,31"/>
-<area shape="rect" href="classPostgresAdapter.html" title=" " alt="" coords="5,79,135,104"/>
+<area shape="rect" title="Target interface in the Adapter pattern and abstract Strategy in the Strategy pattern." alt="" coords="74,5,213,31"/>
+<area shape="rect" href="classPostgresAdapter.html" title="Adapter in the Adapter pattern and ConcreteStrategy in the Strategy pattern for PostgreSQL." alt="" coords="5,79,135,104"/>
 <area shape="poly" title=" " alt="" coords="123,42,84,80,80,77,120,38"/>
-<area shape="rect" href="classSQLiteAdapter.html" title=" " alt="" coords="159,79,274,104"/>
+<area shape="rect" href="classSQLiteAdapter.html" title="Adapter in the Adapter pattern and ConcreteStrategy in the Strategy pattern for SQLite." alt="" coords="159,79,274,104"/>
 <area shape="poly" title=" " alt="" coords="167,38,207,77,203,80,163,42"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
@@ -93,17 +96,30 @@ Inheritance diagram for ExternalDatabase:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a5642ad378a433f79737c52beb7116296" id="r_a5642ad378a433f79737c52beb7116296"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExternalDatabase.html#a5642ad378a433f79737c52beb7116296">saveRecord</a> (int taskID, std::string taskName, std::string state, std::string payload)=0</td></tr>
+<tr class="memdesc:a5642ad378a433f79737c52beb7116296"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves a workflow state transition and payload update record to the database.  <br /></td></tr>
 <tr class="separator:a5642ad378a433f79737c52beb7116296"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa7da8d9258dd91709c29c0c419cfd2aa" id="r_aa7da8d9258dd91709c29c0c419cfd2aa"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExternalDatabase.html#aa7da8d9258dd91709c29c0c419cfd2aa">getRecordState</a> (std::string taskName)=0</td></tr>
+<tr class="memdesc:aa7da8d9258dd91709c29c0c419cfd2aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the most recently saved state for a given task name.  <br /></td></tr>
 <tr class="separator:aa7da8d9258dd91709c29c0c419cfd2aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9eca650196f19cea2223a9192c334a6" id="r_ac9eca650196f19cea2223a9192c334a6"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExternalDatabase.html#ac9eca650196f19cea2223a9192c334a6">fetchAllRecords</a> ()=0</td></tr>
+<tr class="memdesc:ac9eca650196f19cea2223a9192c334a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fetches all saved audit records formatted as <code>"task_id | task_name | state | payload"</code>  <br /></td></tr>
 <tr class="separator:ac9eca650196f19cea2223a9192c334a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa69857fcae2139c91428953695395c5e" id="r_aa69857fcae2139c91428953695395c5e"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExternalDatabase.html#aa69857fcae2139c91428953695395c5e">isConnected</a> ()=0</td></tr>
+<tr class="memdesc:aa69857fcae2139c91428953695395c5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the underlying database connection is currently active.  <br /></td></tr>
 <tr class="separator:aa69857fcae2139c91428953695395c5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad663a6ebcbdf01ad2933448119b392d6" id="r_ad663a6ebcbdf01ad2933448119b392d6"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classExternalDatabase.html#ad663a6ebcbdf01ad2933448119b392d6">~ExternalDatabase</a> ()</td></tr>
+<tr class="memdesc:ad663a6ebcbdf01ad2933448119b392d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for safe polymorphic cleanup.  <br /></td></tr>
 <tr class="separator:ad663a6ebcbdf01ad2933448119b392d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Target interface in the Adapter pattern and abstract Strategy in the Strategy pattern. </p>
+<p>Defines a uniform way used by <a class="el" href="classDatabaseObserver.html" title="ConcreteObserver in the Observer pattern and Context in the Strategy pattern.">DatabaseObserver</a> to store, query, and synchronize workflow audit records regardless of the underlying database engine</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classDatabaseObserver.html" title="ConcreteObserver in the Observer pattern and Context in the Strategy pattern.">DatabaseObserver</a> </dd>
+<dd>
+<a class="el" href="classPostgresAdapter.html" title="Adapter in the Adapter pattern and ConcreteStrategy in the Strategy pattern for PostgreSQL.">PostgresAdapter</a> </dd>
+<dd>
+<a class="el" href="classSQLiteAdapter.html" title="Adapter in the Adapter pattern and ConcreteStrategy in the Strategy pattern for SQLite.">SQLiteAdapter</a> </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad663a6ebcbdf01ad2933448119b392d6" name="ad663a6ebcbdf01ad2933448119b392d6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad663a6ebcbdf01ad2933448119b392d6">&#9670;&#160;</a></span>~ExternalDatabase()</h2>
 
@@ -126,6 +142,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Virtual destructor for safe polymorphic cleanup. </p>
 
 </div>
 </div>
@@ -152,6 +170,9 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Fetches all saved audit records formatted as <code>"task_id | task_name | state | payload"</code> </p>
+<dl class="section return"><dt>Returns</dt><dd>Vector of formatted record strings in order </dd></dl>
 
 <p>Implemented in <a class="el" href="classPostgresAdapter.html#ac93e310b76b3c92d6b79e5925a956fba">PostgresAdapter</a>, and <a class="el" href="classSQLiteAdapter.html#aaf7eaca5e72613fcd4b255bc357f9e3c">SQLiteAdapter</a>.</p>
 
@@ -181,6 +202,15 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Retrieves the most recently saved state for a given task name. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">taskName</td><td>Name of the workflow task to query. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The latest state string or an empty string if not found or disconnected </dd></dl>
+
 <p>Implemented in <a class="el" href="classPostgresAdapter.html#a152cf664e65b1e64c6107d1cdde0739b">PostgresAdapter</a>, and <a class="el" href="classSQLiteAdapter.html#a4204cc811d072979ca94e38a5606ad6b">SQLiteAdapter</a>.</p>
 
 </div>
@@ -207,6 +237,9 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Checks whether the underlying database connection is currently active. </p>
+<dl class="section return"><dt>Returns</dt><dd>true if connected and ready for queries, false otherwise </dd></dl>
 
 <p>Implemented in <a class="el" href="classPostgresAdapter.html#ae7677db7ca14c8bbb3ae0e1b48379c49">PostgresAdapter</a>, and <a class="el" href="classSQLiteAdapter.html#a9a8acc420611a8ad88d83743c9f8d9aa">SQLiteAdapter</a>.</p>
 
@@ -257,6 +290,18 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Saves a workflow state transition and payload update record to the database. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">taskID</td><td>Integer identifier of the workflow task </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">taskName</td><td>Name of the <a class="el" href="classWorkComponent.html">WorkComponent</a> (task) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">state</td><td>Current workflow state name </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">payload</td><td>Data from the task's <a class="el" href="classWorkItem.html" title="Represents a generic payload data container moving through the workflow.">WorkItem</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the record was successfully written, false otherwise </dd></dl>
 
 <p>Implemented in <a class="el" href="classPostgresAdapter.html#af080462101e29451e7f99fde41736293">PostgresAdapter</a>, and <a class="el" href="classSQLiteAdapter.html#a1f8801ee4ccc6a896c2f86deab27dbb9">SQLiteAdapter</a>.</p>
 

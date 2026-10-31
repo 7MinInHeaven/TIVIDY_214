@@ -6,8 +6,7 @@
 
 
 
-Inheritance diagram for Priority\+Checker\+Visitor\+:
-\nopagebreak
+Inheritance diagram for Priority\+Checker\+Visitor\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -16,8 +15,7 @@ Inheritance diagram for Priority\+Checker\+Visitor\+:
 \end{figure}
 
 
-Collaboration diagram for Priority\+Checker\+Visitor\+:
-\nopagebreak
+Collaboration diagram for Priority\+Checker\+Visitor\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -26,8 +24,6 @@ Collaboration diagram for Priority\+Checker\+Visitor\+:
 \end{figure}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
-\item 
-\mbox{\hyperlink{classPriorityCheckerVisitor_a59621a65cf78b2372a39bdda3b47535e}{\texorpdfstring{$\sim$}{\string~}\+Priority\+Checker\+Visitor}} () override
 \item 
 void \mbox{\hyperlink{classPriorityCheckerVisitor_a6a5a34e7df4dd275400c1ade924b2a5b}{visit}} (const \mbox{\hyperlink{classWorkUnit}{Work\+Unit}} \&item) override
 \item 
@@ -42,6 +38,8 @@ void \mbox{\hyperlink{classPriorityCheckerVisitor_a3510f2c3e21a2400a3159b071ca8e
 void \mbox{\hyperlink{classPriorityCheckerVisitor_a9d7daa19233550d9a9bafd210eeb4f34}{visit}} (const \mbox{\hyperlink{classAuditedTask}{Audited\+Task}} \&item) override
 \item 
 void \mbox{\hyperlink{classPriorityCheckerVisitor_ae6a4035d66aa4ed8ff013ed1b564d93e}{visit}} (const \mbox{\hyperlink{classValidatedTask}{Validated\+Task}} \&item) override
+\item 
+void \mbox{\hyperlink{classPriorityCheckerVisitor_a141ba4687a81500c38554709663ede94}{reset}} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classWorkVisitor}{Work\+Visitor}}}
 \begin{DoxyCompactItemize}
@@ -51,20 +49,19 @@ virtual \mbox{\hyperlink{classWorkVisitor_a5aeb1b6f5834787ef3f03560dd9e866d}{\te
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-std\+::vector$<$ const \mbox{\hyperlink{classPrioritisedTask}{Prioritised\+Task}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classPriorityCheckerVisitor_a443b16d32c28e15278a3a935396e3c4d}{found}}
+bool \mbox{\hyperlink{classPriorityCheckerVisitor_a68b5543fd2d392956119115fcb7a79ee}{found}} = false
+\item 
+int \mbox{\hyperlink{classPriorityCheckerVisitor_a983e3bfe7f7674e5fcf9e99f9f22ad84}{level}} = 0
 \end{DoxyCompactItemize}
 
 
-\doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classPriorityCheckerVisitor_a59621a65cf78b2372a39bdda3b47535e}\label{classPriorityCheckerVisitor_a59621a65cf78b2372a39bdda3b47535e} 
-\index{PriorityCheckerVisitor@{PriorityCheckerVisitor}!````~PriorityCheckerVisitor@{\texorpdfstring{$\sim$}{\string~}PriorityCheckerVisitor}}
-\index{````~PriorityCheckerVisitor@{\texorpdfstring{$\sim$}{\string~}PriorityCheckerVisitor}!PriorityCheckerVisitor@{PriorityCheckerVisitor}}
-\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}PriorityCheckerVisitor()}{\string~PriorityCheckerVisitor()}}
-{\footnotesize\ttfamily Priority\+Checker\+Visitor\+::\texorpdfstring{$\sim$}{\string~}\+Priority\+Checker\+Visitor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
-
-
-
 \doxysubsection{Member Function Documentation}
+\Hypertarget{classPriorityCheckerVisitor_a141ba4687a81500c38554709663ede94}\label{classPriorityCheckerVisitor_a141ba4687a81500c38554709663ede94} 
+\index{PriorityCheckerVisitor@{PriorityCheckerVisitor}!reset@{reset}}
+\index{reset@{reset}!PriorityCheckerVisitor@{PriorityCheckerVisitor}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void Priority\+Checker\+Visitor\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
 \Hypertarget{classPriorityCheckerVisitor_a9d7daa19233550d9a9bafd210eeb4f34}\label{classPriorityCheckerVisitor_a9d7daa19233550d9a9bafd210eeb4f34} 
 \index{PriorityCheckerVisitor@{PriorityCheckerVisitor}!visit@{visit}}
 \index{visit@{visit}!PriorityCheckerVisitor@{PriorityCheckerVisitor}}
@@ -138,11 +135,17 @@ Implements \mbox{\hyperlink{classWorkVisitor_a038ac268b2b9d36872edf7a05698a593}{
 
 
 \doxysubsection{Member Data Documentation}
-\Hypertarget{classPriorityCheckerVisitor_a443b16d32c28e15278a3a935396e3c4d}\label{classPriorityCheckerVisitor_a443b16d32c28e15278a3a935396e3c4d} 
+\Hypertarget{classPriorityCheckerVisitor_a68b5543fd2d392956119115fcb7a79ee}\label{classPriorityCheckerVisitor_a68b5543fd2d392956119115fcb7a79ee} 
 \index{PriorityCheckerVisitor@{PriorityCheckerVisitor}!found@{found}}
 \index{found@{found}!PriorityCheckerVisitor@{PriorityCheckerVisitor}}
 \doxysubsubsection{\texorpdfstring{found}{found}}
-{\footnotesize\ttfamily std\+::vector$<$const \mbox{\hyperlink{classPrioritisedTask}{Prioritised\+Task}}\texorpdfstring{$\ast$}{*}$>$ Priority\+Checker\+Visitor\+::found}
+{\footnotesize\ttfamily bool Priority\+Checker\+Visitor\+::found = false}
+
+\Hypertarget{classPriorityCheckerVisitor_a983e3bfe7f7674e5fcf9e99f9f22ad84}\label{classPriorityCheckerVisitor_a983e3bfe7f7674e5fcf9e99f9f22ad84} 
+\index{PriorityCheckerVisitor@{PriorityCheckerVisitor}!level@{level}}
+\index{level@{level}!PriorityCheckerVisitor@{PriorityCheckerVisitor}}
+\doxysubsubsection{\texorpdfstring{level}{level}}
+{\footnotesize\ttfamily int Priority\+Checker\+Visitor\+::level = 0}
 
 
 
