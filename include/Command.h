@@ -13,7 +13,6 @@ class WorkMemento;
 class Action {
     public:
         virtual bool execute() = 0;
-        virtual void undo() {};
         virtual bool isUndoable() const { return true;}
         virtual WorkUnit* getReceiver() const =0;
         virtual ~Action() {}
