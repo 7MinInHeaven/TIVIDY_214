@@ -70,7 +70,7 @@ class WorkflowService {
     void attachObserverToTree(WorkComponent* component);
 
     //Thando (helpers)
-    WorkUnit* findUnit(WorkComponent* node, const std::string& taskId);
+    WorkComponent* findUnit(WorkComponent* node, const std::string& taskId);
     void requireActiveOwner(const Request& request, int actorId) const;
 
   public:

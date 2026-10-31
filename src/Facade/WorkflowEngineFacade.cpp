@@ -295,7 +295,7 @@ void WorkflowEngineFacade::completeTask(int actorId, int instanceId, int taskId)
     return;
   }
 
-  WorkUnit* unit = findUnit(request.rootComponent,to_string(taskId));
+  WorkComponent* unit = findUnit(request.rootComponent,to_string(taskId));
     throw invalid_argument("no such task");
   }
 
@@ -385,15 +385,15 @@ vector<int> WorkflowEngineFacade::listInstanceIds(int) const {
 
 
 //Thandoo 
-WorkUnit* WorkflowEngineFacade::findUnit(WorkComponent* node, const std::string& taskId){
+WorkComponent* WorkflowEngineFacade::findUnit(WorkComponent* node, const std::string& taskId){
   if (node == nullptr) return nullptr;
 
-  if (WorkUnit* unit = dynamic_cast<WorkUnit*>(node)) {
+  if (WorkComponent* unit = dynamic_cast<WorkComponent*>(node)) {
     return unit->getTaskId() == taskId ? unit : nullptr;
   }
   if (WorkGroup* group = dynamic_cast<WorkGroup*>(node)) {
     for (WorkComponent* child : group->getChildren()) {
-      if (WorkUnit* found = findUnit(child, taskId)) return found;
+      if (WorkComponent* found = findUnit(child, taskId)) return found;
     }
   }
   return nullptr;
@@ -410,7 +410,7 @@ void WorkflowEngineFacade::requireActiveOwner(const Request& request, int actorI
 void WorkflowEngineFacade::startTask(int actorId, int instanceId, const std::string& taskId) {
   Request &request = find(instanceId);
   requireActiveOwner(request, actorId);
-  WorkUnit* unit = findUnit(request.rootComponent, taskId);
+  WorkComponent* unit = findUnit(request.rootComponent, taskId);
   if (!unit) {
     throw invalid_argument("no such task");
   }
@@ -423,7 +423,7 @@ void WorkflowEngineFacade::startTask(int actorId, int instanceId, const std::str
 void WorkflowEngineFacade::assignTask(int actorId, int instanceId, const std::string& taskId, const std::string& workerId) {
   Request &request = find(instanceId);
   requireActiveOwner(request, actorId);
-  WorkUnit* unit = findUnit(request.rootComponent, taskId);
+  WorkComponent* unit = findUnit(request.rootComponent, taskId);
   if (!unit) {
     throw invalid_argument("no such task");
   }
