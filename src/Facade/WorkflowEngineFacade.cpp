@@ -256,6 +256,17 @@ void WorkflowEngineFacade::undoLastAction(int, int instanceId) {
     throw logic_error("Nothing to undo");
   }
 
+  if (request.rootComponent == nullptr) {
+    if (request.completedTasks.empty()) throw logic_error("Nothing to undo");
+    int taskId = request.completedTasks.back();
+    request.completedTasks.pop_back();
+    request.history.push_back("undo: task " + to_string(taskId) + " reopened");
+    return;
+  }
+
+   if (!request.actionExecutor.undoLastAction()) {
+    throw logic_error("Nothing to undo");
+  }
 
   request.history.push_back("undo: last action reversed");
 }
