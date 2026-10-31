@@ -17,6 +17,28 @@ RequestChain::~RequestChain()
     }
 }
 
+// give every component (groups and their descendants) a copy of the request's data
+static void stampPayload(WorkComponent* component, const std::map<std::string, std::string>& payload)
+{
+    WorkItem* target = component->getItem();
+    if (target != nullptr)
+    {
+        for (std::map<std::string, std::string>::const_iterator it = payload.begin(); it != payload.end(); ++it)
+        {
+            target->setData(it->first, it->second);   // item directly: WorkComponent::setData would notify
+        }
+    }
+    WorkGroup* group = dynamic_cast<WorkGroup*>(component);
+    if (group != nullptr)
+    {
+        const std::vector<WorkComponent*> kids = group->getChildren();
+        for (size_t i = 0; i < kids.size(); i++)
+        {
+            stampPayload(kids[i], payload);
+        }
+    }
+}
+
 bool RequestChain::build(const json& blueprint)
 {
     WorkflowBuilder builder;
@@ -47,6 +69,16 @@ bool RequestChain::build(const json& blueprint)
         chain[i]->setInteractive(false);            
     }
     indexTasks();
+
+    for (size_t i = 0; i < chain.size(); i++)
+    {
+        stampPayload(chain[i], item.getPayloadData());
+    }
+    for (size_t t = 0; t < tasks.size(); t++)
+    {
+        tasks[t]->getItem()->setData("task_id", std::to_string(t + 1));   // same number participants use
+    }
+
     return true;
 }
 
