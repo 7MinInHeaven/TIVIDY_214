@@ -100,13 +100,15 @@ void WorkflowBuilder::addDecorator(
     std::unique_ptr<WorkComponent> decorated;
 
     if (type == "ValidatedTask") {
-        std::unique_ptr<ValidatedTask> validated(
-            new ValidatedTask(wrapped, "In Progress"));
         for (const std::string& key : requiredKeys) {
             if (key.empty()) {
                 throw std::invalid_argument(
                     "ValidatedTask required keys cannot be empty");
             }
+        }
+        std::unique_ptr<ValidatedTask> validated(
+            new ValidatedTask(wrapped, "In Progress"));
+        for (const std::string& key : requiredKeys) {
             validated->addRule(
                 std::shared_ptr<const ValidationRule>(new RequiredKeyRule(key)));
         }
@@ -122,8 +124,7 @@ void WorkflowBuilder::addDecorator(
 
     parent->children.back() = decorated.release();
 }
-    
-    
+
 void WorkflowBuilder::endGroup() 
 {
     if (!stack.empty()) 
