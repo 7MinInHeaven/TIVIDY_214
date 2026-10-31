@@ -24,7 +24,6 @@ class DepthFirstIterator : public WorkIterator {
     virtual WorkComponent* getCurrent() override;
     
     protected:
-    WorkComponent* root;
     size_t index = 0;
     std::vector<WorkComponent*> elements;
 
