@@ -47,16 +47,13 @@ class WorkflowService {
     // Handler* masterTemplate
     // mo
     struct Request {
-      Request() : requester(0), owner(0), rootComponent(nullptr) {}
+      Request() : requester(0), owner(0) {}
       int requester;  // who submitted it
       int owner; // who took it (0 = nobody yet)
       string status; // Open, Approved, Rejected or Cancelled
       vector<string> history;
       map<string, string> payload;
 
-      //Thando
-      ActionExecutor actionExecutor;
-      WorkComponent* rootComponent;
       unique_ptr<RequestChain> chain; // this request's WorkGroups, task states and commands
     };
     Request &find(int instanceId);
@@ -69,8 +66,7 @@ class WorkflowService {
     WorkflowScenarioCatalog scenarioCatalog;
     void attachObserverToTree(WorkComponent* component);
 
-    //Thando (helpers)
-    WorkComponent* findUnit(WorkComponent* node, const std::string& taskId);
+    //Thando 
     void requireActiveOwner(const Request& request, int actorId) const;
 
   public:
@@ -117,10 +113,6 @@ class WorkflowService {
     std::string getStatus(int actorId, int instanceId) const override;
     std::vector<std::string> getHistory(int actorId, int instanceId) const override;
     std::vector<int> listInstanceIds(int actorId) const override;
-
-    //Thando
-    void startTask(int actorId, int instanceId, const std::string& taskId) ;
-    void assignTask(int actorId, int instanceId, const std::string& taskId, const std::string& workerId) ;
 
     /**
      * @brief One line per task: number, name, state and the group it belongs to.

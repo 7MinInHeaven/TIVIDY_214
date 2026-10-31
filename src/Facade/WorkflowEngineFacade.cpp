@@ -285,30 +285,16 @@ void WorkflowEngineFacade::completeTask(int actorId, int instanceId, int taskId)
   Request &request = find(instanceId);
   requireActiveOwner(request, actorId);
 
-  if (request.rootComponent == nullptr) {
-    if (taskId < 1) throw invalid_argument("no such task");
-    for (size_t i = 0; i < request.completedTasks.size(); ++i)
-      if (request.completedTasks[i] == taskId)
-        throw logic_error("Task " + to_string(taskId) + " is already completed");
-    request.completedTasks.push_back(taskId);
-    request.history.push_back("task " + to_string(taskId) + " completed by participant " + to_string(actorId));
-    return;
-  }
-
-  WorkComponent* unit = findUnit(request.rootComponent,to_string(taskId));
+  if (taskId < 1) {
     throw invalid_argument("no such task");
   }
-
-  if (!request.actionExecutor.executeCommand(new CompleteTaskCommand(unit))) {
-    throw logic_error("Failed to complete task " + to_string(taskId));
+  if (!request.chain->completeTask(to_string(actorId), taskId)) {
+    throw logic_error("Task " + to_string(taskId) + " cannot be completed");
   }
-
-  request.completedTasks.push_back(taskId);
-  if (request.owner != actorId) {
-    throw logic_error("Take ownership of the request first");
-  request.chain->completeTask(to_string(actorId), taskId);
   request.history.push_back("task " + to_string(taskId) + " completed by participant " + to_string(actorId));
 }
+
+
 // approving needs a request that someone has taken (no amount-based authority yet)
 void WorkflowEngineFacade::approveRequest(int actorId, int instanceId) {
   Request &request = find(instanceId);
@@ -346,17 +332,10 @@ void WorkflowEngineFacade::undoLastAction(int, int instanceId) {
     throw logic_error("Nothing to undo");
   }
 
-  if (request.rootComponent == nullptr) {
-    if (!request.actionExecutor.undoLastAction()) {
-      throw logic_error("Nothing to undo");
-    }
-    
-    request.history.push_back("undo: task " + to_string(taskId) + " reopened");
-    return;
-  }
-
   int taskId = request.chain->undoLastCompletion();
-  
+  if (taskId <0){
+    throw logic_error("Nothing to undo");
+  } 
   request.history.push_back("undo: task " + to_string(taskId) + " reopened");
 }
 
@@ -385,54 +364,12 @@ vector<int> WorkflowEngineFacade::listInstanceIds(int) const {
 
 
 //Thandoo 
-WorkComponent* WorkflowEngineFacade::findUnit(WorkComponent* node, const std::string& taskId){
-  if (node == nullptr) return nullptr;
-
-  if (WorkComponent* unit = dynamic_cast<WorkComponent*>(node)) {
-    return unit->getTaskId() == taskId ? unit : nullptr;
-  }
-  if (WorkGroup* group = dynamic_cast<WorkGroup*>(node)) {
-    for (WorkComponent* child : group->getChildren()) {
-      if (WorkComponent* found = findUnit(child, taskId)) return found;
-    }
-  }
-  return nullptr;
-}
-
-//
 void WorkflowEngineFacade::requireActiveOwner(const Request& request, int actorId) const {
   if (request.status != "Open")     //claim must still be active
     throw logic_error("Request is " + request.status + ", tasks can no longer change");
   if (request.owner != actorId)     //caller must be the agent who took it
     throw logic_error("Take ownership of the request first");
 }
-
-void WorkflowEngineFacade::startTask(int actorId, int instanceId, const std::string& taskId) {
-  Request &request = find(instanceId);
-  requireActiveOwner(request, actorId);
-  WorkComponent* unit = findUnit(request.rootComponent, taskId);
-  if (!unit) {
-    throw invalid_argument("no such task");
-  }
-  if (!request.actionExecutor.executeCommand(new StartTaskCommand(unit))) {
-    throw logic_error("Failed to start task " + taskId);
-  }
-  request.history.push_back("task " + taskId + " started by participant " + to_string(actorId));
-}
-
-void WorkflowEngineFacade::assignTask(int actorId, int instanceId, const std::string& taskId, const std::string& workerId) {
-  Request &request = find(instanceId);
-  requireActiveOwner(request, actorId);
-  WorkComponent* unit = findUnit(request.rootComponent, taskId);
-  if (!unit) {
-    throw invalid_argument("no such task");
-  }
-  if (!request.actionExecutor.executeCommand(new AssignTaskCommand(unit, workerId))) {
-    throw logic_error("Failed to assign task " + taskId + " to worker " + workerId);
-  }
-  request.history.push_back("task " + taskId + " assigned to worker " + workerId + " by participant " + to_string(actorId));
-}
-
 
 
 //one line per task, with its state and group
