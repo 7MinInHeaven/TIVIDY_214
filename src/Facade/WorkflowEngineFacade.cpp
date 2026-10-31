@@ -252,7 +252,7 @@ void WorkflowEngineFacade::cancelRequest(int actorId, int instanceId) {
 //reverses the most recently completed task
 void WorkflowEngineFacade::undoLastAction(int, int instanceId) {
   Request &request = find(instanceId);
-  if (request.status != "Open" || !request.actionExecutor.undoLastAction()) {   //request.completedTasks.empty()
+  if (request.status != "Open" ) {   
     throw logic_error("Nothing to undo");
   }
 
