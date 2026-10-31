@@ -7,6 +7,7 @@
 #include <string>
 #include <vector>
 #include <memory>
+#include <sstream>
 
 class WorkComponent;
 class WorkUnit;
@@ -55,6 +56,7 @@ class ProgressReportVisitor : public WorkVisitor{
     std::string writeDoneCheck(bool complete);
 
     void writeChildren(std::vector<WorkComponent*>& children); 
+    std::string writePriority(PriorityLevel level);
     std::string writeLog(const AuditLog* log);
     std::string writeRules(const std::vector<std::shared_ptr<const ValidationRule>>& rules);
 
@@ -64,7 +66,14 @@ class ProgressReportVisitor : public WorkVisitor{
     std::string formatSeconds(long totalSeconds);
 
     //file
-    std::ofstream output;
+    std::ofstream outputFile;
+
+    //decorator shenanigans
+    std::string badges;
+    std::string details;
+
+    std::ostringstream decoratorLine;
+    bool isInDecorated = false;
 };
 
 class PriorityCheckerVisitor : public WorkVisitor{

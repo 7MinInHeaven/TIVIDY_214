@@ -1,10 +1,9 @@
 #include "WorkVisitor.h"
 #include "Composite.h"
 #include "Decorator.h"
-#include <sstream>
 
-ProgressReportVisitor::ProgressReportVisitor(std::string filename) : output(filename + ".html"){
-    output  << "<!DOCTYPE html>\n"
+ProgressReportVisitor::ProgressReportVisitor(std::string filename) : outputFile(filename + ".html"){
+    outputFile  << "<!DOCTYPE html>\n"
             << "<html lang=\"en\">\n"
             << "<head>\n"
             << "\t<meta charset=\"UTF-8\">\n"
@@ -15,8 +14,8 @@ ProgressReportVisitor::ProgressReportVisitor(std::string filename) : output(file
 }
 
 ProgressReportVisitor::~ProgressReportVisitor(){
-    if(output.is_open()){
-        output.close();
+    if(outputFile.is_open()){
+        outputFile.close();
     }
 }
 
@@ -31,36 +30,41 @@ void ProgressReportVisitor::visit(const SubProcess& item){
 }
 
 void ProgressReportVisitor::visit(const WorkUnit& item){
-    output << item.getName() << "\n";
+    outputFile << item.getName() << writePriority(item.getPriority()) << details << badges;
+
+    badges.clear();
+    details.clear();
 }
 
 
 void ProgressReportVisitor::visit(const PrioritisedTask& item){
-    output  << item.getName() 
-            << "<div class=\"priority-color\" data-value=\"" << static_cast<int>(item.getPriority()) << "\">" << getPriorityString(item.getPriority())
-            << "</div>";
     if(item.hasDeadline()){
         if(item.isOverdue()){
-            output << "<div class=\"overdue\">OVERDUE</div>";
+            badges += "<span class=\"overdue\">OVERDUE</span>";
         } else {
-            output << formatSeconds(item.getSecondsRemaining());
+            badges += "<span class=\"deadline\">" + formatSeconds(item.getSecondsRemaining());
         }
     }
-    output << "\n";
+    item.getWrappedTask()->accept(*this);
 }
 
 void ProgressReportVisitor::visit(const AuditedTask& item){
-    output  << item.getName()
-            << writeLog(item.getLog()); //need function to get log
+    details += writeLog(item.getLog());
+    item.getWrappedTask()->accept(*this);
 }
 
 void ProgressReportVisitor::visit(const ValidatedTask& item){
-    output  << item.getName()
-            << writeRules(item.getRules()); // nee  d function to getRules
+    details += writeRules(item.getRules());
+    item.getWrappedTask()->accept(*this);
 }
 
 void ProgressReportVisitor::visitGroup(const WorkGroup& item){
     std::vector<WorkComponent*> children = item.getChildren();
+
+    std::string myBadges = badges;
+    std::string myDetails = details;
+    badges.clear();
+    details.clear();
 
     int total = static_cast<int>(children.size());
     int done = 0;
@@ -70,16 +74,16 @@ void ProgressReportVisitor::visitGroup(const WorkGroup& item){
         }
     }
 
-    output  << "<li class=\"group\">"
-            << "<details>\n"
-            << "<summary>"
-            << "\t<span class=\"name\">" << item.getName() << writeProgressCircle(done, total) << "</span>\n"
-            << "</summary>\n";
-
+    outputFile  << "<details class=\"group\">\n"
+                << "<summary>"
+                << "\t<span class=\"name\">" << item.getName() 
+                << writePriority(item.getPriority())
+                << myBadges << writeProgressCircle(done, total)
+                << "</span>\n"
+                << "</summary>\n"
+                << myDetails;
     writeChildren(children);
-
-    output  << "</details>\n"
-            << "</li>\n";
+    outputFile  << "</details>\n";
 }
 
 std::string ProgressReportVisitor::writeProgressCircle(int done, int total){
@@ -103,11 +107,21 @@ std::string ProgressReportVisitor::writeDoneCheck(bool complete){
 
 void ProgressReportVisitor::writeChildren(std::vector<WorkComponent*>& children){
 
+    outputFile << "<ul>\n";
     for(WorkComponent* child : children){
-        output << "<ul>";
+        outputFile << "<li>";
         child->accept(*this);
-        output << "</ul>\n";
+        outputFile << "</li>\n";
     }
+    outputFile << "</ul>\n";
+}
+
+std::string ProgressReportVisitor::writePriority(PriorityLevel level){
+    std::ostringstream output;
+    output << "<span class=\"priority-color\" data-value=\"" << static_cast<int>(level) << "\">" << getPriorityString(level)
+            << "</span>";
+
+    return output.str();
 }
 
 std::string ProgressReportVisitor::writeLog(const AuditLog* log){
@@ -115,7 +129,7 @@ std::string ProgressReportVisitor::writeLog(const AuditLog* log){
 
     output << "<details><summary>Log</summary>\n";
     output  << "<table class=\"log-table\"\n>"
-            <<  "\t<thead>\n"
+            << "\t<thead>\n"
             << "\t\t<tr>\n"
             << "\t\t\t<th>ID</th>\n"
             << "\t\t\t<th>Timestamp</th>\n"
@@ -142,22 +156,22 @@ std::string ProgressReportVisitor::writeLog(const AuditLog* log){
 
 std::string ProgressReportVisitor::writeRules(const std::vector<std::shared_ptr<const ValidationRule>>& rules){
     std::ostringstream output;
-    output  << "<details><summary>Log</summary>\n" 
-            << "\t<li>\n";
+    output  << "<details><summary>Rules</summary>\n" 
+            << "\t<ul class=\"rules\">\n";
     for(std::shared_ptr<const ValidationRule> rule : rules){ //need to make sure this works with shared pointers
-        output << "\t\t<ul>" << rule->getMessage() << "</ul>\n";
+        output << "\t\t<li>" << rule->getMessage() << "</li>\n";
     }
-    output  << "\t</li>\n"
+    output  << "\t</ul>\n"
             << "</details>\n";
     return output.str();
 }
 
 void ProgressReportVisitor::createReport(WorkComponent* root){
-    output << "<body>";
+    outputFile << "<body>";
         root->accept(*this);
-    output << "</body>";
+    outputFile << "</body>";
 
-    output.close();
+    outputFile.close();
 }
 
 std::string ProgressReportVisitor::getPriorityString(PriorityLevel priority){
@@ -180,8 +194,8 @@ std::string ProgressReportVisitor::formatTime(std::time_t timestamp){
 std::string ProgressReportVisitor::formatSeconds(long totalSeconds){
 
     //I'm going to not have weeks and years because I don't think we need it, will check though
-    long days = totalSeconds / 86000;
-    long hours = (totalSeconds % 86000) / 3600;
+    long days = totalSeconds / 86400;
+    long hours = (totalSeconds % 86400) / 3600;
     long minutes = (totalSeconds % 3600) / 60;
     long seconds = totalSeconds % 60;
 
@@ -190,7 +204,7 @@ std::string ProgressReportVisitor::formatSeconds(long totalSeconds){
     if (days || hours) format += std::to_string(hours) + "h ";
     if (days || hours || minutes) format += std::to_string(minutes) + "m ";
 
-    format += std::to_string(seconds) = "s";
+    format += std::to_string(seconds) + "s";
 
     return format;
 }

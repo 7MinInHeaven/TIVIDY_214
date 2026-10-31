@@ -1,5 +1,5 @@
 body{
-  font-family: 'Courier New', Courier, monospace;
+  font-family: monospace;
 }
 
 .progress-circle {
@@ -41,6 +41,16 @@ body{
 .progress-value { font-size: calc(var(--size) * 0.30); font-weight: 700; }
 .done-total     { font-size: calc(var(--size) * 0.25); font-weight: 600; color: #818386; margin: 0; }
 
+.priority-color,
+.overdue{
+  color: white;
+  border-radius: 15px;
+  padding: 2px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-left:4px;
+}
+
 .priority-color[data-value="0"]{
   background-color: greenyellow;
 }
@@ -53,17 +63,67 @@ body{
 .priority-color[data-value="3"]{
   background-color: red;
 }
-
 .overdue{
   background-color: darkred;
 }
 
-.priority-color
-.overdue{
-  color: white;
-}
+
 
 
 .task-complete{
     color: green;
+}
+
+
+
+
+/* tables */
+.log-table{
+  width:100%;
+  border-collapse: collapse;
+}
+
+.log-table th,
+.log-table td{
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+.log-table thead th {
+  background: #222;
+  color:white;
+}
+.log-table tbody tr:nth-child(even){
+  background: #f5f5f5;
+}
+
+.log-table tbody tr:hover,
+.log-table tbody tr:focus-visible{
+  background: #eee;
+}
+
+/* rules */
+.rules{
+  list-style: none;
+  margin:0;
+  padding:0;
+  max-width: 400px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.rules li + li {
+  border-top: 1px solid #ccc;
+}
+
+.rules li:hover,
+.rules li:focus-visible{
+  background: #eee;
+}
+
+.name{
+  display: flex;
+  align-items: center;
 }
