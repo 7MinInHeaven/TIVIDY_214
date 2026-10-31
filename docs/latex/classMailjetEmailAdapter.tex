@@ -30,7 +30,7 @@ Collaboration diagram for Mailjet\+Email\+Adapter\+:
 \mbox{\hyperlink{classMailjetEmailAdapter_a6e6bb9f3b767b6a89082fa4595c43463}{Mailjet\+Email\+Adapter}} (string api\+Key, string api\+Secret, string from\+Email, string from\+Name="{}TIVIDY"{}, bool sandbox\+Mode=false)
 \item 
 bool \mbox{\hyperlink{classMailjetEmailAdapter_aa1ac1551af96fd44a103372806f2696f}{send\+Email}} (string to, string subject, string body) override
-\item 
+\begin{DoxyCompactList}\small\item\em Sends an email via a specific provider. \end{DoxyCompactList}\item 
 string \mbox{\hyperlink{classMailjetEmailAdapter_a1b0fd6c0f12280290f677e2588f6aa53}{last\+Error}} () const
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classEmailTransport}{Email\+Transport}}}
@@ -62,6 +62,13 @@ virtual \mbox{\hyperlink{classEmailTransport_a77962c395fbfd8e72cf3530d2611731c}{
 \doxysubsubsection{\texorpdfstring{sendEmail()}{sendEmail()}}
 {\footnotesize\ttfamily bool Mailjet\+Email\+Adapter\+::send\+Email (\begin{DoxyParamCaption}\item[{string}]{to,  }\item[{string}]{subject,  }\item[{string}]{body }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
+
+
+Sends an email via a specific provider. 
+
+\begin{DoxyReturn}{Returns}
+True if successful, false otherwise. 
+\end{DoxyReturn}
 
 
 Implements \mbox{\hyperlink{classEmailTransport_a733cdcb5000839b5dd8d46d92e6a0590}{Email\+Transport}}.

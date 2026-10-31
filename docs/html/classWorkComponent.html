@@ -71,6 +71,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classWorkComponent-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">WorkComponent Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
@@ -91,7 +93,7 @@ Inheritance diagram for WorkComponent:</div>
 <area shape="poly" title=" " alt="" coords="469,109,534,150,531,154,466,114"/>
 <area shape="rect" href="classHandler.html" title=" " alt="" coords="338,5,411,31"/>
 <area shape="poly" title=" " alt="" coords="396,39,429,77,425,80,392,43"/>
-<area shape="rect" href="classWorkflowSubject.html" title=" " alt="" coords="436,5,567,31"/>
+<area shape="rect" href="classWorkflowSubject.html" title="Subject participant in the Observer design pattern." alt="" coords="436,5,567,31"/>
 <area shape="poly" title=" " alt="" coords="484,43,450,80,446,77,480,39"/>
 <area shape="rect" href="classAuditedTask.html" title=" " alt="" coords="5,225,107,251"/>
 <area shape="poly" title=" " alt="" coords="207,184,89,228,87,223,205,179"/>
@@ -110,45 +112,67 @@ Collaboration diagram for WorkComponent:</div>
 <div class="dyncontent">
 <div class="center"><img src="classWorkComponent__coll__graph.png" border="0" usemap="#aWorkComponent_coll__map" alt="Collaboration graph"/></div>
 <map name="aWorkComponent_coll__map" id="aWorkComponent_coll__map">
-<area shape="rect" title=" " alt="" coords="86,80,217,105"/>
+<area shape="rect" title=" " alt="" coords="263,93,394,119"/>
 <area shape="rect" href="classHandler.html" title=" " alt="" coords="5,5,79,31"/>
-<area shape="poly" title=" " alt="" coords="73,36,135,78,132,82,70,41"/>
-<area shape="poly" title=" " alt="" coords="93,10,105,18,97,26,79,28,78,22,95,21,100,18,91,14"/>
-<area shape="rect" href="classWorkflowSubject.html" title=" " alt="" coords="197,5,327,31"/>
-<area shape="poly" title=" " alt="" coords="234,41,171,82,168,78,231,36"/>
+<area shape="poly" title=" " alt="" coords="93,32,291,91,290,96,91,37"/>
+<area shape="poly" title=" " alt="" coords="93,8,101,12,105,18,97,27,79,29,78,23,95,22,100,18,98,16,91,14"/>
+<area shape="rect" href="classWorkflowSubject.html" title="Subject participant in the Observer design pattern." alt="" coords="197,5,327,31"/>
+<area shape="poly" title=" " alt="" coords="282,40,321,91,317,94,277,43"/>
+<area shape="rect" href="classWorkState.html" title=" " alt="" coords="352,5,441,31"/>
+<area shape="poly" title=" " alt="" coords="381,43,340,94,336,91,377,40"/>
+<area shape="rect" href="classWorkItem.html" title="Represents a generic payload data container moving through the workflow." alt="" coords="466,5,551,31"/>
+<area shape="poly" title=" " alt="" coords="475,39,410,72,357,96,354,91,408,67,473,35"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa89512171fd1ef2445ad306225b11596" id="r_aa89512171fd1ef2445ad306225b11596"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkComponent.html#aa89512171fd1ef2445ad306225b11596">WorkComponent</a> (std::string name)</td></tr>
+<tr class="memitem:aa89512171fd1ef2445ad306225b11596" id="r_aa89512171fd1ef2445ad306225b11596"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkComponent.html#aa89512171fd1ef2445ad306225b11596">WorkComponent</a> (std::string <a class="el" href="classWorkComponent.html#adae5b7dbf204f6fbbe59b9d89eaee013">name</a>)</td></tr>
 <tr class="separator:aa89512171fd1ef2445ad306225b11596"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adcb3560830552508ca1a6b96006e8b36" id="r_adcb3560830552508ca1a6b96006e8b36"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkComponent.html#adcb3560830552508ca1a6b96006e8b36">WorkComponent</a> (const <a class="el" href="classWorkComponent.html">WorkComponent</a> &amp;other)</td></tr>
 <tr class="separator:adcb3560830552508ca1a6b96006e8b36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeade7a1951170edf2add8f11bc755c8f" id="r_aeade7a1951170edf2add8f11bc755c8f"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkComponent.html#aeade7a1951170edf2add8f11bc755c8f">~WorkComponent</a> ()</td></tr>
 <tr class="separator:aeade7a1951170edf2add8f11bc755c8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0896d1dba4221e00c8451c6bdd110ab" id="r_ae0896d1dba4221e00c8451c6bdd110ab"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classWorkState.html">WorkState</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkComponent.html#ae0896d1dba4221e00c8451c6bdd110ab">getState</a> () const</td></tr>
-<tr class="separator:ae0896d1dba4221e00c8451c6bdd110ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc24518e9becf9398a1ca484501eee30" id="r_acc24518e9becf9398a1ca484501eee30"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classWorkState.html">WorkState</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkComponent.html#acc24518e9becf9398a1ca484501eee30">getState</a> () const</td></tr>
+<tr class="separator:acc24518e9becf9398a1ca484501eee30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a091e902b6d3675ffb0ccf547363c6a60" id="r_a091e902b6d3675ffb0ccf547363c6a60"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkComponent.html#a091e902b6d3675ffb0ccf547363c6a60">getName</a> () const</td></tr>
 <tr class="separator:a091e902b6d3675ffb0ccf547363c6a60"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae60abfce5aff4c38d68655ef31754ad6" id="r_ae60abfce5aff4c38d68655ef31754ad6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classWorkItem.html">WorkItem</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkComponent.html#ae60abfce5aff4c38d68655ef31754ad6">getItem</a> () const</td></tr>
+<tr class="memitem:ae60abfce5aff4c38d68655ef31754ad6" id="r_ae60abfce5aff4c38d68655ef31754ad6"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classWorkItem.html">WorkItem</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkComponent.html#ae60abfce5aff4c38d68655ef31754ad6">getItem</a> () const</td></tr>
 <tr class="separator:ae60abfce5aff4c38d68655ef31754ad6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b144dc90c4078115afd732f3e5829d7" id="r_a8b144dc90c4078115afd732f3e5829d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkComponent.html#a8b144dc90c4078115afd732f3e5829d7">setState</a> (<a class="el" href="classWorkState.html">WorkState</a> *state)</td></tr>
+<tr class="memitem:a54f306471fc0f0da154e482d4aa1d925" id="r_a54f306471fc0f0da154e482d4aa1d925"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkComponent.html#a54f306471fc0f0da154e482d4aa1d925">getID</a> () const</td></tr>
+<tr class="separator:a54f306471fc0f0da154e482d4aa1d925"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00fc605ca1faba7205b6e8455ad0660d" id="r_a00fc605ca1faba7205b6e8455ad0660d"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkComponent.html#a00fc605ca1faba7205b6e8455ad0660d">getAssignedWorkerId</a> () const</td></tr>
+<tr class="separator:a00fc605ca1faba7205b6e8455ad0660d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d66b5505e54c12d17f525a7b4389df0" id="r_a8d66b5505e54c12d17f525a7b4389df0"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkComponent.html#a8d66b5505e54c12d17f525a7b4389df0">getData</a> (const std::string &amp;key) const</td></tr>
+<tr class="separator:a8d66b5505e54c12d17f525a7b4389df0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82802785ac3c3187cf83af4d7d31cf81" id="r_a82802785ac3c3187cf83af4d7d31cf81"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="Common_8h.html#a58ef2aaf285eac5903ead43e801a4513">PriorityLevel</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkComponent.html#a82802785ac3c3187cf83af4d7d31cf81">getPriority</a> () const</td></tr>
+<tr class="separator:a82802785ac3c3187cf83af4d7d31cf81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b144dc90c4078115afd732f3e5829d7" id="r_a8b144dc90c4078115afd732f3e5829d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkComponent.html#a8b144dc90c4078115afd732f3e5829d7">setState</a> (<a class="el" href="classWorkState.html">WorkState</a> *<a class="el" href="classWorkComponent.html#a2095aa720a4f5dbdeb98b7a47fd3712f">state</a>)</td></tr>
 <tr class="separator:a8b144dc90c4078115afd732f3e5829d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50c38dbeb610a0192f5bf07ab8dc8502" id="r_a50c38dbeb610a0192f5bf07ab8dc8502"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkComponent.html#a50c38dbeb610a0192f5bf07ab8dc8502">setData</a> (const std::string &amp;key, const std::string &amp;value)</td></tr>
 <tr class="separator:a50c38dbeb610a0192f5bf07ab8dc8502"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d66b5505e54c12d17f525a7b4389df0" id="r_a8d66b5505e54c12d17f525a7b4389df0"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkComponent.html#a8d66b5505e54c12d17f525a7b4389df0">getData</a> (const std::string &amp;key) const</td></tr>
-<tr class="separator:a8d66b5505e54c12d17f525a7b4389df0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3320bec5c5f693fd404db80f0f888ec9" id="r_a3320bec5c5f693fd404db80f0f888ec9"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkComponent.html#a3320bec5c5f693fd404db80f0f888ec9">assignTask</a> (const std::string &amp;workerID)</td></tr>
+<tr class="separator:a3320bec5c5f693fd404db80f0f888ec9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65163ad6e1863a35cab683a22d17a7b0" id="r_a65163ad6e1863a35cab683a22d17a7b0"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkComponent.html#a65163ad6e1863a35cab683a22d17a7b0">nextState</a> ()</td></tr>
 <tr class="separator:a65163ad6e1863a35cab683a22d17a7b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf6d22756f9efceb5263d0454c7290b5" id="r_aaf6d22756f9efceb5263d0454c7290b5"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkComponent.html#aaf6d22756f9efceb5263d0454c7290b5">isComplete</a> () const</td></tr>
 <tr class="separator:aaf6d22756f9efceb5263d0454c7290b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82802785ac3c3187cf83af4d7d31cf81" id="r_a82802785ac3c3187cf83af4d7d31cf81"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="Common_8h.html#a58ef2aaf285eac5903ead43e801a4513">PriorityLevel</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkComponent.html#a82802785ac3c3187cf83af4d7d31cf81">getPriority</a> () const</td></tr>
-<tr class="separator:a82802785ac3c3187cf83af4d7d31cf81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64a149e1ad8543dfa67fdefd3635b64e" id="r_a64a149e1ad8543dfa67fdefd3635b64e"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkComponent.html#a64a149e1ad8543dfa67fdefd3635b64e">startTask</a> ()</td></tr>
+<tr class="separator:a64a149e1ad8543dfa67fdefd3635b64e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad70f67af077da6e7b7ae67ab0cd512fa" id="r_ad70f67af077da6e7b7ae67ab0cd512fa"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkComponent.html#ad70f67af077da6e7b7ae67ab0cd512fa">completeTask</a> ()</td></tr>
+<tr class="separator:ad70f67af077da6e7b7ae67ab0cd512fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c178bf1da6d1c7026fcdbea7b02f72d" id="r_a3c178bf1da6d1c7026fcdbea7b02f72d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkComponent.html#a3c178bf1da6d1c7026fcdbea7b02f72d">accept</a> (<a class="el" href="classWorkVisitor.html">WorkVisitor</a> &amp;visitor) const =0</td></tr>
 <tr class="separator:a3c178bf1da6d1c7026fcdbea7b02f72d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65d7be3c551ee979e2ae238322441075" id="r_a65d7be3c551ee979e2ae238322441075"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classWorkComponent.html">WorkComponent</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkComponent.html#a65d7be3c551ee979e2ae238322441075">clone</a> () const override=0</td></tr>
 <tr class="separator:a65d7be3c551ee979e2ae238322441075"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08c0d5ce58d69cf05c444081d125284b" id="r_a08c0d5ce58d69cf05c444081d125284b"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkComponent.html#a08c0d5ce58d69cf05c444081d125284b">add</a> (<a class="el" href="classWorkComponent.html">WorkComponent</a> *child)</td></tr>
+<tr class="separator:a08c0d5ce58d69cf05c444081d125284b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed1dbff13f0004e5a1ecfe6a2d0a79e5" id="r_aed1dbff13f0004e5a1ecfe6a2d0a79e5"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkComponent.html#aed1dbff13f0004e5a1ecfe6a2d0a79e5">remove</a> (<a class="el" href="classWorkComponent.html">WorkComponent</a> *child)</td></tr>
+<tr class="separator:aed1dbff13f0004e5a1ecfe6a2d0a79e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54e8d7694098092beddc413a3d9f9a93" id="r_a54e8d7694098092beddc413a3d9f9a93"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkComponent.html#a54e8d7694098092beddc413a3d9f9a93">remove</a> (std::string <a class="el" href="classWorkComponent.html#adae5b7dbf204f6fbbe59b9d89eaee013">name</a>)</td></tr>
+<tr class="separator:a54e8d7694098092beddc413a3d9f9a93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2f1be1ee8a9a535e1e2f00d48e23b7b" id="r_ac2f1be1ee8a9a535e1e2f00d48e23b7b"><td class="memItemLeft" align="right" valign="top">virtual const std::vector&lt; <a class="el" href="classWorkComponent.html">WorkComponent</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkComponent.html#ac2f1be1ee8a9a535e1e2f00d48e23b7b">getChildren</a> () const</td></tr>
+<tr class="separator:ac2f1be1ee8a9a535e1e2f00d48e23b7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classHandler"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classHandler')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classHandler.html">Handler</a></td></tr>
 <tr class="memitem:a0a95c470d04fdc9dff2e0f9a82cc24b5 inherit pub_methods_classHandler" id="r_a0a95c470d04fdc9dff2e0f9a82cc24b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHandler.html#a0a95c470d04fdc9dff2e0f9a82cc24b5">setNext</a> (<a class="el" href="classHandler.html">Handler</a> *nextPhase)</td></tr>
 <tr class="separator:a0a95c470d04fdc9dff2e0f9a82cc24b5 inherit pub_methods_classHandler"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -156,23 +180,44 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a638867a60f4e60eb6e5152a03a9e5367 inherit pub_methods_classHandler"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classWorkflowSubject"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classWorkflowSubject')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classWorkflowSubject.html">WorkflowSubject</a></td></tr>
 <tr class="memitem:a7b9a281a5bbeac3b2bfd891c9b26363e inherit pub_methods_classWorkflowSubject" id="r_a7b9a281a5bbeac3b2bfd891c9b26363e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkflowSubject.html#a7b9a281a5bbeac3b2bfd891c9b26363e">WorkflowSubject</a> ()</td></tr>
+<tr class="memdesc:a7b9a281a5bbeac3b2bfd891c9b26363e inherit pub_methods_classWorkflowSubject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor. Creates a WorkFlowSubject with no attached observers.  <br /></td></tr>
 <tr class="separator:a7b9a281a5bbeac3b2bfd891c9b26363e inherit pub_methods_classWorkflowSubject"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11fcb2de2f242d654212e0b63e8e9824 inherit pub_methods_classWorkflowSubject" id="r_a11fcb2de2f242d654212e0b63e8e9824"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkflowSubject.html#a11fcb2de2f242d654212e0b63e8e9824">~WorkflowSubject</a> ()</td></tr>
+<tr class="memdesc:a11fcb2de2f242d654212e0b63e8e9824 inherit pub_methods_classWorkflowSubject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor. Does not delete attached observers (aggregation relationship)  <br /></td></tr>
 <tr class="separator:a11fcb2de2f242d654212e0b63e8e9824 inherit pub_methods_classWorkflowSubject"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab23bd0f715a4608f77d099b298aabeb2 inherit pub_methods_classWorkflowSubject" id="r_ab23bd0f715a4608f77d099b298aabeb2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkflowSubject.html#ab23bd0f715a4608f77d099b298aabeb2">attach</a> (<a class="el" href="classWorkflowObserver.html">WorkflowObserver</a> *observer)</td></tr>
+<tr class="memdesc:ab23bd0f715a4608f77d099b298aabeb2 inherit pub_methods_classWorkflowSubject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers an observer to receive state and payload change notifications.  <br /></td></tr>
 <tr class="separator:ab23bd0f715a4608f77d099b298aabeb2 inherit pub_methods_classWorkflowSubject"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b1f2fa7e8340297f781701f3d5c00af inherit pub_methods_classWorkflowSubject" id="r_a3b1f2fa7e8340297f781701f3d5c00af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkflowSubject.html#a3b1f2fa7e8340297f781701f3d5c00af">detach</a> (<a class="el" href="classWorkflowObserver.html">WorkflowObserver</a> *observer)</td></tr>
+<tr class="memdesc:a3b1f2fa7e8340297f781701f3d5c00af inherit pub_methods_classWorkflowSubject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unregisters a previously attached observer.  <br /></td></tr>
 <tr class="separator:a3b1f2fa7e8340297f781701f3d5c00af inherit pub_methods_classWorkflowSubject"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b7c602ead35d9ceebcef7a3e467e5a4 inherit pub_methods_classWorkflowSubject" id="r_a4b7c602ead35d9ceebcef7a3e467e5a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkflowSubject.html#a4b7c602ead35d9ceebcef7a3e467e5a4">notify</a> ()</td></tr>
+<tr class="memdesc:a4b7c602ead35d9ceebcef7a3e467e5a4 inherit pub_methods_classWorkflowSubject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Notifies all attached observers by setting the active subject and calling update()  <br /></td></tr>
 <tr class="separator:a4b7c602ead35d9ceebcef7a3e467e5a4 inherit pub_methods_classWorkflowSubject"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a471a8d962863bffd4b8dab57814f1c81" id="r_a471a8d962863bffd4b8dab57814f1c81"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkComponent.html#a471a8d962863bffd4b8dab57814f1c81">generateRandomID</a> () const</td></tr>
+<tr class="separator:a471a8d962863bffd4b8dab57814f1c81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a2095aa720a4f5dbdeb98b7a47fd3712f" id="r_a2095aa720a4f5dbdeb98b7a47fd3712f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classWorkState.html">WorkState</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkComponent.html#a2095aa720a4f5dbdeb98b7a47fd3712f">state</a></td></tr>
+<tr class="separator:a2095aa720a4f5dbdeb98b7a47fd3712f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d66da30e814f696956f709d33c09c0d" id="r_a1d66da30e814f696956f709d33c09c0d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classWorkItem.html">WorkItem</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkComponent.html#a1d66da30e814f696956f709d33c09c0d">item</a></td></tr>
+<tr class="separator:a1d66da30e814f696956f709d33c09c0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adae5b7dbf204f6fbbe59b9d89eaee013" id="r_adae5b7dbf204f6fbbe59b9d89eaee013"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkComponent.html#adae5b7dbf204f6fbbe59b9d89eaee013">name</a></td></tr>
+<tr class="separator:adae5b7dbf204f6fbbe59b9d89eaee013"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c982a2a8ccd83d1ad6d48aaffd668f7" id="r_a2c982a2a8ccd83d1ad6d48aaffd668f7"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkComponent.html#a2c982a2a8ccd83d1ad6d48aaffd668f7">taskID</a></td></tr>
+<tr class="separator:a2c982a2a8ccd83d1ad6d48aaffd668f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae722b05fff5ac03fda79a89fc9773b49" id="r_ae722b05fff5ac03fda79a89fc9773b49"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkComponent.html#ae722b05fff5ac03fda79a89fc9773b49">assignedWorkerID</a></td></tr>
+<tr class="separator:ae722b05fff5ac03fda79a89fc9773b49"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classHandler"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classHandler')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classHandler.html">Handler</a></td></tr>
 <tr class="memitem:ac648b2e586445186b89e54d07bca0d09 inherit pro_attribs_classHandler" id="r_ac648b2e586445186b89e54d07bca0d09"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classHandler.html">Handler</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHandler.html#ac648b2e586445186b89e54d07bca0d09">successor</a> = nullptr</td></tr>
 <tr class="separator:ac648b2e586445186b89e54d07bca0d09 inherit pro_attribs_classHandler"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classWorkflowSubject"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classWorkflowSubject')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classWorkflowSubject.html">WorkflowSubject</a></td></tr>
 <tr class="memitem:aba1985d4025ed138de76912022b3b9fc inherit pro_attribs_classWorkflowSubject" id="r_aba1985d4025ed138de76912022b3b9fc"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classWorkflowObserver.html">WorkflowObserver</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkflowSubject.html#aba1985d4025ed138de76912022b3b9fc">observerList</a></td></tr>
+<tr class="memdesc:aba1985d4025ed138de76912022b3b9fc inherit pro_attribs_classWorkflowSubject"><td class="mdescLeft">&#160;</td><td class="mdescRight">Collection of registered observers watching this subject.  <br /></td></tr>
 <tr class="separator:aba1985d4025ed138de76912022b3b9fc inherit pro_attribs_classWorkflowSubject"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -266,6 +311,62 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a id="a08c0d5ce58d69cf05c444081d125284b" name="a08c0d5ce58d69cf05c444081d125284b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08c0d5ce58d69cf05c444081d125284b">&#9670;&#160;</a></span>add()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool WorkComponent::add </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classWorkComponent.html">WorkComponent</a> *&#160;</td>
+          <td class="paramname"><em>child</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classWorkGroup.html#a836fc82c983468f33fda2f67d16847b5">WorkGroup</a>.</p>
+
+</div>
+</div>
+<a id="a3320bec5c5f693fd404db80f0f888ec9" name="a3320bec5c5f693fd404db80f0f888ec9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3320bec5c5f693fd404db80f0f888ec9">&#9670;&#160;</a></span>assignTask()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool WorkComponent::assignTask </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>workerID</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classTaskDecorator.html#ac754660c77a9f0841c8aa15c1c24f9b9">TaskDecorator</a>.</p>
+
+</div>
+</div>
 <a id="a65d7be3c551ee979e2ae238322441075" name="a65d7be3c551ee979e2ae238322441075"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a65d7be3c551ee979e2ae238322441075">&#9670;&#160;</a></span>clone()</h2>
 
@@ -292,6 +393,112 @@ Additional Inherited Members</h2></td></tr>
 <p>Implements <a class="el" href="classHandler.html#a7f2ff0d5815caefa9a96adc1837d2d5b">Handler</a>.</p>
 
 <p>Implemented in <a class="el" href="classWorkGroup.html#a0117feac397297be0eee781777539179">WorkGroup</a>, <a class="el" href="classStage.html#af72ebb1a450f53f98813adbbbf5d2d63">Stage</a>, <a class="el" href="classSubProcess.html#a6f23cce42b415ab58c5b7175c744b2f5">SubProcess</a>, <a class="el" href="classWorkUnit.html#a7858a68ceed9a87944704a2bea671d48">WorkUnit</a>, <a class="el" href="classValidatedTask.html#a741329f68dd4b5e5d68e4a350b659e77">ValidatedTask</a>, <a class="el" href="classAuditedTask.html#acdc27f1fcf893aaa9c4f560b61b602a7">AuditedTask</a>, <a class="el" href="classPrioritisedTask.html#a8d40d4bc51a2659199fbd37c873c42ea">PrioritisedTask</a>, and <a class="el" href="classTaskDecorator.html#aad9c7eaf04be9252a3eb3bb8d977df5a">TaskDecorator</a>.</p>
+
+</div>
+</div>
+<a id="ad70f67af077da6e7b7ae67ab0cd512fa" name="ad70f67af077da6e7b7ae67ab0cd512fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad70f67af077da6e7b7ae67ab0cd512fa">&#9670;&#160;</a></span>completeTask()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool WorkComponent::completeTask </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classTaskDecorator.html#a1ba295c95f3ccecfdfc8ea05b97ff389">TaskDecorator</a>.</p>
+
+</div>
+</div>
+<a id="a471a8d962863bffd4b8dab57814f1c81" name="a471a8d962863bffd4b8dab57814f1c81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a471a8d962863bffd4b8dab57814f1c81">&#9670;&#160;</a></span>generateRandomID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string WorkComponent::generateRandomID </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a00fc605ca1faba7205b6e8455ad0660d" name="a00fc605ca1faba7205b6e8455ad0660d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00fc605ca1faba7205b6e8455ad0660d">&#9670;&#160;</a></span>getAssignedWorkerId()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string WorkComponent::getAssignedWorkerId </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classTaskDecorator.html#afe636163e8b09753b9ef49d14e53bb3d">TaskDecorator</a>.</p>
+
+</div>
+</div>
+<a id="ac2f1be1ee8a9a535e1e2f00d48e23b7b" name="ac2f1be1ee8a9a535e1e2f00d48e23b7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2f1be1ee8a9a535e1e2f00d48e23b7b">&#9670;&#160;</a></span>getChildren()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt; <a class="el" href="classWorkComponent.html">WorkComponent</a> * &gt; WorkComponent::getChildren </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classWorkGroup.html#a0bbc0131d8d51a2fe0c51d3ad3f02d6d">WorkGroup</a>, and <a class="el" href="classTaskDecorator.html#a77afbbfd868e8fe234367dfbb2d02e21">TaskDecorator</a>.</p>
 
 </div>
 </div>
@@ -323,11 +530,41 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a id="a54f306471fc0f0da154e482d4aa1d925" name="a54f306471fc0f0da154e482d4aa1d925"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54f306471fc0f0da154e482d4aa1d925">&#9670;&#160;</a></span>getID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string WorkComponent::getID </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classTaskDecorator.html#acce995f2203f46def23d36600498c263">TaskDecorator</a>.</p>
+
+</div>
+</div>
 <a id="ae60abfce5aff4c38d68655ef31754ad6" name="ae60abfce5aff4c38d68655ef31754ad6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae60abfce5aff4c38d68655ef31754ad6">&#9670;&#160;</a></span>getItem()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classWorkItem.html">WorkItem</a> * WorkComponent::getItem </td>
@@ -336,7 +573,14 @@ Additional Inherited Members</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classTaskDecorator.html#a2c3803f77b4c80e29aa4e7b648490f79">TaskDecorator</a>.</p>
 
 </div>
 </div>
@@ -394,8 +638,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="ae0896d1dba4221e00c8451c6bdd110ab" name="ae0896d1dba4221e00c8451c6bdd110ab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae0896d1dba4221e00c8451c6bdd110ab">&#9670;&#160;</a></span>getState()</h2>
+<a id="acc24518e9becf9398a1ca484501eee30" name="acc24518e9becf9398a1ca484501eee30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc24518e9becf9398a1ca484501eee30">&#9670;&#160;</a></span>getState()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -404,7 +648,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classWorkState.html">WorkState</a> * WorkComponent::getState </td>
+          <td class="memname">const <a class="el" href="classWorkState.html">WorkState</a> * WorkComponent::getState </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -417,7 +661,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented in <a class="el" href="classTaskDecorator.html#a8c762e3f3e789e78af7518767e5efb57">TaskDecorator</a>.</p>
+<p>Reimplemented in <a class="el" href="classTaskDecorator.html#a460c72e91e541fc57078864f8f28c486">TaskDecorator</a>.</p>
 
 </div>
 </div>
@@ -475,6 +719,62 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a id="a54e8d7694098092beddc413a3d9f9a93" name="a54e8d7694098092beddc413a3d9f9a93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54e8d7694098092beddc413a3d9f9a93">&#9670;&#160;</a></span>remove() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void WorkComponent::remove </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classWorkGroup.html#a1dee8d4ca04645faf4655804f95ecbd7">WorkGroup</a>.</p>
+
+</div>
+</div>
+<a id="aed1dbff13f0004e5a1ecfe6a2d0a79e5" name="aed1dbff13f0004e5a1ecfe6a2d0a79e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed1dbff13f0004e5a1ecfe6a2d0a79e5">&#9670;&#160;</a></span>remove() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void WorkComponent::remove </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classWorkComponent.html">WorkComponent</a> *&#160;</td>
+          <td class="paramname"><em>child</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classWorkGroup.html#a32f345eff994166dcd5ab045c12af13e">WorkGroup</a>.</p>
+
+</div>
+</div>
 <a id="a50c38dbeb610a0192f5bf07ab8dc8502" name="a50c38dbeb610a0192f5bf07ab8dc8502"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a50c38dbeb610a0192f5bf07ab8dc8502">&#9670;&#160;</a></span>setData()</h2>
 
@@ -527,6 +827,144 @@ Additional Inherited Members</h2></td></tr>
           <td></td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a64a149e1ad8543dfa67fdefd3635b64e" name="a64a149e1ad8543dfa67fdefd3635b64e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64a149e1ad8543dfa67fdefd3635b64e">&#9670;&#160;</a></span>startTask()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool WorkComponent::startTask </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classTaskDecorator.html#aa40898d129f1ccbf87ee8ed0eb331cae">TaskDecorator</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ae722b05fff5ac03fda79a89fc9773b49" name="ae722b05fff5ac03fda79a89fc9773b49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae722b05fff5ac03fda79a89fc9773b49">&#9670;&#160;</a></span>assignedWorkerID</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string WorkComponent::assignedWorkerID</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1d66da30e814f696956f709d33c09c0d" name="a1d66da30e814f696956f709d33c09c0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d66da30e814f696956f709d33c09c0d">&#9670;&#160;</a></span>item</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classWorkItem.html">WorkItem</a>* WorkComponent::item</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adae5b7dbf204f6fbbe59b9d89eaee013" name="adae5b7dbf204f6fbbe59b9d89eaee013"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adae5b7dbf204f6fbbe59b9d89eaee013">&#9670;&#160;</a></span>name</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string WorkComponent::name</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2095aa720a4f5dbdeb98b7a47fd3712f" name="a2095aa720a4f5dbdeb98b7a47fd3712f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2095aa720a4f5dbdeb98b7a47fd3712f">&#9670;&#160;</a></span>state</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classWorkState.html">WorkState</a>* WorkComponent::state</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2c982a2a8ccd83d1ad6d48aaffd668f7" name="a2c982a2a8ccd83d1ad6d48aaffd668f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c982a2a8ccd83d1ad6d48aaffd668f7">&#9670;&#160;</a></span>taskID</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string WorkComponent::taskID</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>

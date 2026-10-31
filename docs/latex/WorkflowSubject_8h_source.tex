@@ -2,25 +2,28 @@
 \hypertarget{WorkflowSubject_8h_source}{}\label{WorkflowSubject_8h_source}\index{include/WorkflowSubject.h@{include/WorkflowSubject.h}}
 \mbox{\hyperlink{WorkflowSubject_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ WORKFLOWSUBJECT\_H}}
-\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ WORKFLOWSUBJECT\_H}}
-\DoxyCodeLine{00003\ }
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{WorkflowObserver_8h}{WorkflowObserver.h}}"{}}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
-\DoxyCodeLine{00006\ }
-\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classWorkflowSubject}{WorkflowSubject}}\ \{}
-\DoxyCodeLine{00008\ \textcolor{keyword}{protected}:}
-\DoxyCodeLine{00009\ \ \ \ \ std::vector<WorkflowObserver*>\ \mbox{\hyperlink{classWorkflowSubject_aba1985d4025ed138de76912022b3b9fc}{observerList}};}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ WORKFLOWSUBJECT\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ WORKFLOWSUBJECT\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{WorkflowObserver_8h}{WorkflowObserver.h}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <vector>}}
 \DoxyCodeLine{00010\ }
-\DoxyCodeLine{00011\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00012\ \ \ \ \ \mbox{\hyperlink{classWorkflowSubject_a7b9a281a5bbeac3b2bfd891c9b26363e}{WorkflowSubject}}();}
-\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classWorkflowSubject_a11fcb2de2f242d654212e0b63e8e9824}{\string~WorkflowSubject}}();}
-\DoxyCodeLine{00014\ }
-\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkflowSubject_ab23bd0f715a4608f77d099b298aabeb2}{attach}}(\mbox{\hyperlink{classWorkflowObserver}{WorkflowObserver}}*\ observer);}
-\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkflowSubject_a3b1f2fa7e8340297f781701f3d5c00af}{detach}}(\mbox{\hyperlink{classWorkflowObserver}{WorkflowObserver}}*\ observer);}
-\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkflowSubject_a4b7c602ead35d9ceebcef7a3e467e5a4}{notify}}();}
-\DoxyCodeLine{00018\ \};}
-\DoxyCodeLine{00019\ }
-\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classWorkflowSubject}{WorkflowSubject}}\ \{}
+\DoxyCodeLine{00023\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00025\ \ \ \ \ std::vector<WorkflowObserver*>\ \mbox{\hyperlink{classWorkflowSubject_aba1985d4025ed138de76912022b3b9fc}{observerList}};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{classWorkflowSubject_a7b9a281a5bbeac3b2bfd891c9b26363e}{WorkflowSubject}}();}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classWorkflowSubject_a11fcb2de2f242d654212e0b63e8e9824}{\string~WorkflowSubject}}();}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkflowSubject_ab23bd0f715a4608f77d099b298aabeb2}{attach}}(\mbox{\hyperlink{classWorkflowObserver}{WorkflowObserver}}*\ observer);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkflowSubject_a3b1f2fa7e8340297f781701f3d5c00af}{detach}}(\mbox{\hyperlink{classWorkflowObserver}{WorkflowObserver}}*\ observer);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classWorkflowSubject_a4b7c602ead35d9ceebcef7a3e467e5a4}{notify}}();}
+\DoxyCodeLine{00055\ \};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

@@ -101,8 +101,6 @@ Collaboration diagram for PriorityCheckerVisitor:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a59621a65cf78b2372a39bdda3b47535e" id="r_a59621a65cf78b2372a39bdda3b47535e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPriorityCheckerVisitor.html#a59621a65cf78b2372a39bdda3b47535e">~PriorityCheckerVisitor</a> () override</td></tr>
-<tr class="separator:a59621a65cf78b2372a39bdda3b47535e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a5a34e7df4dd275400c1ade924b2a5b" id="r_a6a5a34e7df4dd275400c1ade924b2a5b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPriorityCheckerVisitor.html#a6a5a34e7df4dd275400c1ade924b2a5b">visit</a> (const <a class="el" href="classWorkUnit.html">WorkUnit</a> &amp;item) override</td></tr>
 <tr class="separator:a6a5a34e7df4dd275400c1ade924b2a5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a55be4670363441d3623393bad2b10caa" id="r_a55be4670363441d3623393bad2b10caa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPriorityCheckerVisitor.html#a55be4670363441d3623393bad2b10caa">visit</a> (const <a class="el" href="classWorkGroup.html">WorkGroup</a> &amp;item) override</td></tr>
@@ -117,42 +115,37 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a9d7daa19233550d9a9bafd210eeb4f34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae6a4035d66aa4ed8ff013ed1b564d93e" id="r_ae6a4035d66aa4ed8ff013ed1b564d93e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPriorityCheckerVisitor.html#ae6a4035d66aa4ed8ff013ed1b564d93e">visit</a> (const <a class="el" href="classValidatedTask.html">ValidatedTask</a> &amp;item) override</td></tr>
 <tr class="separator:ae6a4035d66aa4ed8ff013ed1b564d93e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a141ba4687a81500c38554709663ede94" id="r_a141ba4687a81500c38554709663ede94"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPriorityCheckerVisitor.html#a141ba4687a81500c38554709663ede94">reset</a> ()</td></tr>
+<tr class="separator:a141ba4687a81500c38554709663ede94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classWorkVisitor"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classWorkVisitor')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classWorkVisitor.html">WorkVisitor</a></td></tr>
 <tr class="memitem:a5aeb1b6f5834787ef3f03560dd9e866d inherit pub_methods_classWorkVisitor" id="r_a5aeb1b6f5834787ef3f03560dd9e866d"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkVisitor.html#a5aeb1b6f5834787ef3f03560dd9e866d">~WorkVisitor</a> ()=default</td></tr>
 <tr class="separator:a5aeb1b6f5834787ef3f03560dd9e866d inherit pub_methods_classWorkVisitor"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a443b16d32c28e15278a3a935396e3c4d" id="r_a443b16d32c28e15278a3a935396e3c4d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; const <a class="el" href="classPrioritisedTask.html">PrioritisedTask</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPriorityCheckerVisitor.html#a443b16d32c28e15278a3a935396e3c4d">found</a></td></tr>
-<tr class="separator:a443b16d32c28e15278a3a935396e3c4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68b5543fd2d392956119115fcb7a79ee" id="r_a68b5543fd2d392956119115fcb7a79ee"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPriorityCheckerVisitor.html#a68b5543fd2d392956119115fcb7a79ee">found</a> = false</td></tr>
+<tr class="separator:a68b5543fd2d392956119115fcb7a79ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a983e3bfe7f7674e5fcf9e99f9f22ad84" id="r_a983e3bfe7f7674e5fcf9e99f9f22ad84"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPriorityCheckerVisitor.html#a983e3bfe7f7674e5fcf9e99f9f22ad84">level</a> = 0</td></tr>
+<tr class="separator:a983e3bfe7f7674e5fcf9e99f9f22ad84"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a59621a65cf78b2372a39bdda3b47535e" name="a59621a65cf78b2372a39bdda3b47535e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a59621a65cf78b2372a39bdda3b47535e">&#9670;&#160;</a></span>~PriorityCheckerVisitor()</h2>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a141ba4687a81500c38554709663ede94" name="a141ba4687a81500c38554709663ede94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a141ba4687a81500c38554709663ede94">&#9670;&#160;</a></span>reset()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">PriorityCheckerVisitor::~PriorityCheckerVisitor </td>
+          <td class="memname">void PriorityCheckerVisitor::reset </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
 <a id="a9d7daa19233550d9a9bafd210eeb4f34" name="a9d7daa19233550d9a9bafd210eeb4f34"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9d7daa19233550d9a9bafd210eeb4f34">&#9670;&#160;</a></span>visit() <span class="overload">[1/7]</span></h2>
 
@@ -350,14 +343,28 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a443b16d32c28e15278a3a935396e3c4d" name="a443b16d32c28e15278a3a935396e3c4d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a443b16d32c28e15278a3a935396e3c4d">&#9670;&#160;</a></span>found</h2>
+<a id="a68b5543fd2d392956119115fcb7a79ee" name="a68b5543fd2d392956119115fcb7a79ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68b5543fd2d392956119115fcb7a79ee">&#9670;&#160;</a></span>found</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;const <a class="el" href="classPrioritisedTask.html">PrioritisedTask</a>*&gt; PriorityCheckerVisitor::found</td>
+          <td class="memname">bool PriorityCheckerVisitor::found = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a983e3bfe7f7674e5fcf9e99f9f22ad84" name="a983e3bfe7f7674e5fcf9e99f9f22ad84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a983e3bfe7f7674e5fcf9e99f9f22ad84">&#9670;&#160;</a></span>level</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int PriorityCheckerVisitor::level = 0</td>
         </tr>
       </table>
 </div><div class="memdoc">

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['mailjetemailadapter_0',['MailjetEmailAdapter',['../classMailjetEmailAdapter.html',1,'']]],
-  ['mailjethttpclient_1',['MailjetHttpClient',['../classMailjetHttpClient.html',1,'']]],
-  ['manualclock_2',['ManualClock',['../classManualClock.html',1,'']]]
+  ['incompleteiterator_0',['IncompleteIterator',['../classIncompleteIterator.html',1,'']]],
+  ['inprogressstate_1',['InProgressState',['../classInProgressState.html',1,'']]]
 ];

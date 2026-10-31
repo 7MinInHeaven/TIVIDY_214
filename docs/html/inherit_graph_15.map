@@ -1,3 +1,7 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$structNotificationData.html" title=" " alt="" coords="5,5,133,31"/>
+<area shape="rect" id="Node000000" href="$classNotificationChannel.html" title="The Implementor interface in the Bridge Pattern." alt="" coords="5,31,156,56"/>
+<area shape="rect" id="Node000001" href="$classAppChannel.html" title="A Concrete Implementor in the Bridge Pattern." alt="" coords="210,5,310,31"/>
+<area shape="poly" id="edge25_Node000000_Node000001" title=" " alt="" coords="169,28,210,22,210,28,170,33"/>
+<area shape="rect" id="Node000002" href="$classEmailChannel.html" title="A Concrete Implementor in the Bridge Pattern (and Context in the Strategy Pattern)." alt="" coords="204,55,316,80"/>
+<area shape="poly" id="edge26_Node000000_Node000002" title=" " alt="" coords="170,53,204,57,203,63,170,58"/>
 </map>

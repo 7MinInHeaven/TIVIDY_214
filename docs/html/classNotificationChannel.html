@@ -76,16 +76,19 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>The Implementor interface in the Bridge Pattern.  
+ <a href="classNotificationChannel.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="NotificationBridge_8h_source.html">NotificationBridge.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for NotificationChannel:</div>
 <div class="dyncontent">
 <div class="center"><img src="classNotificationChannel__inherit__graph.png" border="0" usemap="#aNotificationChannel_inherit__map" alt="Inheritance graph"/></div>
 <map name="aNotificationChannel_inherit__map" id="aNotificationChannel_inherit__map">
-<area shape="rect" title=" " alt="" coords="44,5,195,31"/>
-<area shape="rect" href="classAppChannel.html" title=" " alt="" coords="5,79,105,104"/>
+<area shape="rect" title="The Implementor interface in the Bridge Pattern." alt="" coords="44,5,195,31"/>
+<area shape="rect" href="classAppChannel.html" title="A Concrete Implementor in the Bridge Pattern." alt="" coords="5,79,105,104"/>
 <area shape="poly" title=" " alt="" coords="102,43,68,80,64,77,98,39"/>
-<area shape="rect" href="classEmailChannel.html" title=" " alt="" coords="129,79,241,104"/>
+<area shape="rect" href="classEmailChannel.html" title="A Concrete Implementor in the Bridge Pattern (and Context in the Strategy Pattern)." alt="" coords="129,79,241,104"/>
 <area shape="poly" title=" " alt="" coords="141,39,176,77,172,80,137,43"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
@@ -94,10 +97,14 @@ Inheritance diagram for NotificationChannel:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:af4b2a111ed252c88aaf53ea6394fae67" id="r_af4b2a111ed252c88aaf53ea6394fae67"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNotificationChannel.html#af4b2a111ed252c88aaf53ea6394fae67">~NotificationChannel</a> ()=default</td></tr>
 <tr class="separator:af4b2a111ed252c88aaf53ea6394fae67"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a2279bac0c8ec0b445b13d18eb5acba" id="r_a0a2279bac0c8ec0b445b13d18eb5acba"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNotificationChannel.html#a0a2279bac0c8ec0b445b13d18eb5acba">deliver</a> (const <a class="el" href="structNotificationData.html">NotificationData</a> &amp;)=0</td></tr>
-<tr class="separator:a0a2279bac0c8ec0b445b13d18eb5acba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1378e527f4b65498205b6878c7650f9" id="r_ab1378e527f4b65498205b6878c7650f9"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNotificationChannel.html#ab1378e527f4b65498205b6878c7650f9">deliver</a> (const <a class="el" href="structNotificationData.html">NotificationData</a> &amp;data)=0</td></tr>
+<tr class="memdesc:ab1378e527f4b65498205b6878c7650f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delivers the composed notification data to the target.  <br /></td></tr>
+<tr class="separator:ab1378e527f4b65498205b6878c7650f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The Implementor interface in the Bridge Pattern. </p>
+<p>Defines how a notification is delivered, independent of what the notification is. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="af4b2a111ed252c88aaf53ea6394fae67" name="af4b2a111ed252c88aaf53ea6394fae67"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af4b2a111ed252c88aaf53ea6394fae67">&#9670;&#160;</a></span>~NotificationChannel()</h2>
 
@@ -124,8 +131,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a0a2279bac0c8ec0b445b13d18eb5acba" name="a0a2279bac0c8ec0b445b13d18eb5acba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0a2279bac0c8ec0b445b13d18eb5acba">&#9670;&#160;</a></span>deliver()</h2>
+<a id="ab1378e527f4b65498205b6878c7650f9" name="ab1378e527f4b65498205b6878c7650f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1378e527f4b65498205b6878c7650f9">&#9670;&#160;</a></span>deliver()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -137,7 +144,7 @@ Public Member Functions</h2></td></tr>
           <td class="memname">virtual void NotificationChannel::deliver </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structNotificationData.html">NotificationData</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -147,6 +154,14 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Delivers the composed notification data to the target. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>The <a class="el" href="structNotificationData.html" title="Data Transfer Object (DTO) passed from the Abstraction to the Implementor.">NotificationData</a> containing recipient, subject, and body. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implemented in <a class="el" href="classEmailChannel.html#a2339dac9633ff5fad58d988c29de4b00">EmailChannel</a>, and <a class="el" href="classAppChannel.html#a8e71f6ba5794c05974a9f653a2274cd8">AppChannel</a>.</p>
 

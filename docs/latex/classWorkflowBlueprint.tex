@@ -1,0 +1,73 @@
+\doxysection{Workflow\+Blueprint Class Reference}
+\hypertarget{classWorkflowBlueprint}{}\label{classWorkflowBlueprint}\index{WorkflowBlueprint@{WorkflowBlueprint}}
+
+
+Loads and validates runtime workflow blueprint files.  
+
+
+
+
+{\ttfamily \#include $<$Workflow\+Blueprint.\+h$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static nlohmann\+::json \mbox{\hyperlink{classWorkflowBlueprint_a03c6bfb20cdda9c818f7d2d4b6f2ad0c}{load\+And\+Validate}} (const std\+::string \&path, const \mbox{\hyperlink{structBlueprintLimits}{Blueprint\+Limits}} \&limits=\mbox{\hyperlink{structBlueprintLimits}{Blueprint\+Limits}}())
+\begin{DoxyCompactList}\small\item\em Loads a JSON blueprint from disk and validates it. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classWorkflowBlueprint_aed997c13abf29f3e82e3a60ebbf8094c}{validate}} (const nlohmann\+::json \&blueprint, const std\+::string \&source="{}$<$memory$>$"{}, const \mbox{\hyperlink{structBlueprintLimits}{Blueprint\+Limits}} \&limits=\mbox{\hyperlink{structBlueprintLimits}{Blueprint\+Limits}}())
+\begin{DoxyCompactList}\small\item\em Validates an already parsed workflow blueprint. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Loads and validates runtime workflow blueprint files. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classWorkflowBlueprint_a03c6bfb20cdda9c818f7d2d4b6f2ad0c}\label{classWorkflowBlueprint_a03c6bfb20cdda9c818f7d2d4b6f2ad0c} 
+\index{WorkflowBlueprint@{WorkflowBlueprint}!loadAndValidate@{loadAndValidate}}
+\index{loadAndValidate@{loadAndValidate}!WorkflowBlueprint@{WorkflowBlueprint}}
+\doxysubsubsection{\texorpdfstring{loadAndValidate()}{loadAndValidate()}}
+{\footnotesize\ttfamily nlohmann\+::json Workflow\+Blueprint\+::load\+And\+Validate (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path,  }\item[{const \mbox{\hyperlink{structBlueprintLimits}{Blueprint\+Limits}} \&}]{limits = {\ttfamily \mbox{\hyperlink{structBlueprintLimits}{Blueprint\+Limits}}()} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Loads a JSON blueprint from disk and validates it. 
+
+Loads and validates a blueprint file from disk.
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Path to the blueprint file. \\
+\hline
+{\em limits} & Maximum permitted blueprint dimensions. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The validated JSON blueprint. 
+\end{DoxyReturn}
+\Hypertarget{classWorkflowBlueprint_aed997c13abf29f3e82e3a60ebbf8094c}\label{classWorkflowBlueprint_aed997c13abf29f3e82e3a60ebbf8094c} 
+\index{WorkflowBlueprint@{WorkflowBlueprint}!validate@{validate}}
+\index{validate@{validate}!WorkflowBlueprint@{WorkflowBlueprint}}
+\doxysubsubsection{\texorpdfstring{validate()}{validate()}}
+{\footnotesize\ttfamily void Workflow\+Blueprint\+::validate (\begin{DoxyParamCaption}\item[{const nlohmann\+::json \&}]{blueprint,  }\item[{const std\+::string \&}]{source = {\ttfamily "{}$<$memory$>$"{}},  }\item[{const \mbox{\hyperlink{structBlueprintLimits}{Blueprint\+Limits}} \&}]{limits = {\ttfamily \mbox{\hyperlink{structBlueprintLimits}{Blueprint\+Limits}}()} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Validates an already parsed workflow blueprint. 
+
+Validates the complete workflow blueprint structure.
+
+
+\begin{DoxyParams}{Parameters}
+{\em blueprint} & Parsed JSON blueprint. \\
+\hline
+{\em source} & Source name used in validation errors. \\
+\hline
+{\em limits} & Maximum permitted blueprint dimensions. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{WorkflowBlueprint_8h}{Workflow\+Blueprint.\+h}}\item 
+src/\+Builder/\mbox{\hyperlink{WorkflowBlueprint_8cpp}{Workflow\+Blueprint.\+cpp}}\end{DoxyCompactItemize}

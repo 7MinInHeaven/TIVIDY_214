@@ -100,20 +100,21 @@ TEST(IteratorTest, StateIteratorTest){
     StateIterator inProgressIterator(&group, "In Progress");
     StateIterator completedIterator(&group, "Completed");
 
+    // Only the untouched unit is Pending; the group is In Progress because
+    // some of its children have started.
     EXPECT_EQ(pendingIterator.getCurrent(), pendingUnit);
-    pendingIterator.next();
-    EXPECT_EQ(pendingIterator.getCurrent(), &group); //automatically set to pending
     pendingIterator.next();
     EXPECT_TRUE(pendingIterator.isDone());
 
     EXPECT_EQ(inProgressIterator.getCurrent(), inProgressUnit);
     inProgressIterator.next();
+    EXPECT_EQ(inProgressIterator.getCurrent(), &group); // derived from its children
+    inProgressIterator.next();
     EXPECT_TRUE(inProgressIterator.isDone());
 
     EXPECT_EQ(completedIterator.getCurrent(), completedUnit);
     completedIterator.next();
-    EXPECT_TRUE(completedIterator.isDone());
-
+    EXPECT_TRUE(completedIterator.isDone()); 
 }
 
 TEST(IteratorTest, IncompleteIteratorTest){

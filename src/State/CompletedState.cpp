@@ -9,7 +9,7 @@ void CompletedState::handleUpdate(WorkComponent* context)
     std::cout << context->getName() + "has already been completed\n";
 }
 
-std::string CompletedState::getStatus()
+std::string CompletedState::getStatus() const
 {
     return "Completed";
 }

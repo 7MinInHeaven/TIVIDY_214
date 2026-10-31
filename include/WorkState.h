@@ -9,7 +9,7 @@ class WorkState {
 public: 
     virtual ~WorkState() {}    
     virtual void handleUpdate(WorkComponent* context) = 0;
-    virtual std::string getStatus() = 0;
+    virtual std::string getStatus() const = 0;
     virtual WorkState* clone() = 0;
 };
 

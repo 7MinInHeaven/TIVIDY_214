@@ -1,11 +1,11 @@
 #include "Command.h"
 
-StartTaskCommand::StartTaskCommand(WorkUnit* receiver) : receiver(receiver) {}
+StartTaskCommand::StartTaskCommand(WorkComponent* receiver) : receiver(receiver) {}
 
 bool StartTaskCommand::execute() {
     return receiver->startTask();
 }
 
-WorkUnit* StartTaskCommand::getReceiver() const{
+WorkComponent* StartTaskCommand::getReceiver() const{
     return receiver;
 }

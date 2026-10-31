@@ -1,6 +1,16 @@
 #include "Director.h"
 #include <iostream>
+#include <stdexcept>
 #include <vector>
+
+namespace {
+
+/**
+ * @brief Limits retries for missing required workflow input values.
+ */
+const int kMaxInputAttempts = 3;
+
+} // namespace
 
 Director::Director(ChainBuilder* b, WorkItem* i, bool in): builder(b), item(i), input(in) {}
 
@@ -24,10 +34,29 @@ void Director::construct(const json& data) {
             std::string key = req["key"];
             std::string prompt = req.value("prompt", key);
 
-            std::cout << prompt << " (" << key << "): " << std::endl;
             std::string value;
-            std::getline(std::cin, value);
-            item->setData(key, value);
+            bool accepted = false;
+            for (int attempt = 1; attempt <= kMaxInputAttempts; ++attempt) {
+                std::cout << prompt << " (" << key << "): " << std::endl;
+                if (!std::getline(std::cin, value)) {
+                    throw std::runtime_error(
+                        "input stream closed while reading required input: " +
+                        key);
+                }
+                if (!value.empty()) {
+                    item->setData(key, value);
+                    accepted = true;
+                    break;
+                }
+                std::cerr << "Input cannot be empty. Attempt "
+                          << attempt << " of " << kMaxInputAttempts << ".\n";
+            }
+
+            if (!accepted) {
+                throw std::invalid_argument(
+                    "required input was empty after " +
+                    std::to_string(kMaxInputAttempts) + " attempts: " + key);
+            }
         }
     }
 

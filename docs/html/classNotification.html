@@ -77,16 +77,19 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>The Abstraction in the Bridge Pattern.  
+ <a href="classNotification.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="NotificationBridge_8h_source.html">NotificationBridge.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Notification:</div>
 <div class="dyncontent">
 <div class="center"><img src="classNotification__inherit__graph.png" border="0" usemap="#aNotification_inherit__map" alt="Inheritance graph"/></div>
 <map name="aNotification_inherit__map" id="aNotification_inherit__map">
-<area shape="rect" title=" " alt="" coords="87,5,185,31"/>
-<area shape="rect" href="classDeadlineNotice.html" title=" " alt="" coords="5,79,128,104"/>
+<area shape="rect" title="The Abstraction in the Bridge Pattern." alt="" coords="87,5,185,31"/>
+<area shape="rect" href="classDeadlineNotice.html" title="A Refined Abstraction in the Bridge Pattern." alt="" coords="5,79,128,104"/>
 <area shape="poly" title=" " alt="" coords="117,43,80,80,76,77,113,39"/>
-<area shape="rect" href="classResultNotice.html" title=" " alt="" coords="153,79,258,104"/>
+<area shape="rect" href="classResultNotice.html" title="A Refined Abstraction in the Bridge Pattern." alt="" coords="153,79,258,104"/>
 <area shape="poly" title=" " alt="" coords="159,39,196,77,192,80,155,43"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
@@ -95,8 +98,8 @@ Collaboration diagram for Notification:</div>
 <div class="dyncontent">
 <div class="center"><img src="classNotification__coll__graph.png" border="0" usemap="#aNotification_coll__map" alt="Collaboration graph"/></div>
 <map name="aNotification_coll__map" id="aNotification_coll__map">
-<area shape="rect" title=" " alt="" coords="103,93,200,119"/>
-<area shape="rect" href="classNotificationChannel.html" title=" " alt="" coords="5,5,156,31"/>
+<area shape="rect" title="The Abstraction in the Bridge Pattern." alt="" coords="103,93,200,119"/>
+<area shape="rect" href="classNotificationChannel.html" title="The Implementor interface in the Bridge Pattern." alt="" coords="5,5,156,31"/>
 <area shape="poly" title=" " alt="" coords="101,39,144,91,139,94,97,43"/>
 <area shape="rect" href="classWorkItem.html" title="Represents a generic payload data container moving through the workflow." alt="" coords="181,5,266,31"/>
 <area shape="poly" title=" " alt="" coords="207,43,184,71,164,95,160,91,180,68,203,40"/>
@@ -106,10 +109,13 @@ Collaboration diagram for Notification:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a90ed22f58b45947261b2709771cc4070" id="r_a90ed22f58b45947261b2709771cc4070"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNotification.html#a90ed22f58b45947261b2709771cc4070">Notification</a> (<a class="el" href="classNotificationChannel.html">NotificationChannel</a> *ch, <a class="el" href="classWorkItem.html">WorkItem</a> *ctx, string to, string status)</td></tr>
+<tr class="memdesc:a90ed22f58b45947261b2709771cc4070"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classNotification.html" title="The Abstraction in the Bridge Pattern.">Notification</a>.  <br /></td></tr>
 <tr class="separator:a90ed22f58b45947261b2709771cc4070"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93e00029080d8f656b2e57a9439d616b" id="r_a93e00029080d8f656b2e57a9439d616b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNotification.html#a93e00029080d8f656b2e57a9439d616b">send</a> ()</td></tr>
+<tr class="memdesc:a93e00029080d8f656b2e57a9439d616b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Triggers the composition and delivery of the notification.  <br /></td></tr>
 <tr class="separator:a93e00029080d8f656b2e57a9439d616b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8da571fa1b0f54aea047818e9fc49951" id="r_a8da571fa1b0f54aea047818e9fc49951"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structNotificationData.html">NotificationData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNotification.html#a8da571fa1b0f54aea047818e9fc49951">compose</a> ()=0</td></tr>
+<tr class="memdesc:a8da571fa1b0f54aea047818e9fc49951"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abstract method to compose the message. Must be implemented by subclasses.  <br /></td></tr>
 <tr class="separator:a8da571fa1b0f54aea047818e9fc49951"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea36b394897206968baa256fb95d3f59" id="r_aea36b394897206968baa256fb95d3f59"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNotification.html#aea36b394897206968baa256fb95d3f59">~Notification</a> ()=default</td></tr>
 <tr class="separator:aea36b394897206968baa256fb95d3f59"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -125,7 +131,10 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:a74cd4187391559f6e43e53817c81e7f3" id="r_a74cd4187391559f6e43e53817c81e7f3"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNotification.html#a74cd4187391559f6e43e53817c81e7f3">currentStatus</a></td></tr>
 <tr class="separator:a74cd4187391559f6e43e53817c81e7f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The Abstraction in the Bridge Pattern. </p>
+<p>Holds the message context and delegates the actual delivery to a <a class="el" href="classNotificationChannel.html" title="The Implementor interface in the Bridge Pattern.">NotificationChannel</a>. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a90ed22f58b45947261b2709771cc4070" name="a90ed22f58b45947261b2709771cc4070"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a90ed22f58b45947261b2709771cc4070">&#9670;&#160;</a></span>Notification()</h2>
 
@@ -171,6 +180,17 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Constructs a <a class="el" href="classNotification.html" title="The Abstraction in the Bridge Pattern.">Notification</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ch</td><td>Pointer to the delivery channel. </td></tr>
+    <tr><td class="paramname">ctx</td><td>Pointer to the <a class="el" href="classWorkItem.html" title="Represents a generic payload data container moving through the workflow.">WorkItem</a> context. </td></tr>
+    <tr><td class="paramname">to</td><td>The recipient. </td></tr>
+    <tr><td class="paramname">status</td><td>The current workflow status. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -223,6 +243,9 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Abstract method to compose the message. Must be implemented by subclasses. </p>
+<dl class="section return"><dt>Returns</dt><dd>The fully formatted <a class="el" href="structNotificationData.html" title="Data Transfer Object (DTO) passed from the Abstraction to the Implementor.">NotificationData</a>. </dd></dl>
+
 <p>Implemented in <a class="el" href="classResultNotice.html#a83fb9f1ae90123a5b5d0d3916b28f23f">ResultNotice</a>, and <a class="el" href="classDeadlineNotice.html#abe7ce1646d4ab6b43deb5bf0809d6ec6">DeadlineNotice</a>.</p>
 
 </div>
@@ -250,6 +273,8 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Triggers the composition and delivery of the notification. </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -272,6 +297,7 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>The delivery mechanism (Implementor) </p>
 
 </div>
 </div>
@@ -294,6 +320,7 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>The workflow data used to compose the message </p>
 
 </div>
 </div>
@@ -316,6 +343,7 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>The current state of the workflow (e.g., "Pending") </p>
 
 </div>
 </div>
@@ -338,6 +366,7 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>The target recipient </p>
 
 </div>
 </div>

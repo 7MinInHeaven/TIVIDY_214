@@ -1,0 +1,66 @@
+\doxysection{Workflow\+Action\+Registry Class Reference}
+\hypertarget{classWorkflowActionRegistry}{}\label{classWorkflowActionRegistry}\index{WorkflowActionRegistry@{WorkflowActionRegistry}}
+
+
+Defines the action and integration keys accepted in a blueprint.  
+
+
+
+
+{\ttfamily \#include $<$Workflow\+Action\+Registry.\+h$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{classWorkflowActionRegistry_acda930642f92d417f8cb1ab053d1c61f}{is\+Supported\+Action}} (const std\+::string \&action\+Key)
+\begin{DoxyCompactList}\small\item\em Checks whether an action key is allow-\/listed. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classWorkflowActionRegistry_a4a1aea02b10456ee02598505fce18350}{is\+Supported\+Capability}} (const std\+::string \&capability\+Key)
+\begin{DoxyCompactList}\small\item\em Checks whether a capability key is allow-\/listed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Defines the action and integration keys accepted in a blueprint. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classWorkflowActionRegistry_acda930642f92d417f8cb1ab053d1c61f}\label{classWorkflowActionRegistry_acda930642f92d417f8cb1ab053d1c61f} 
+\index{WorkflowActionRegistry@{WorkflowActionRegistry}!isSupportedAction@{isSupportedAction}}
+\index{isSupportedAction@{isSupportedAction}!WorkflowActionRegistry@{WorkflowActionRegistry}}
+\doxysubsubsection{\texorpdfstring{isSupportedAction()}{isSupportedAction()}}
+{\footnotesize\ttfamily bool Workflow\+Action\+Registry\+::is\+Supported\+Action (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{action\+Key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Checks whether an action key is allow-\/listed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em action\+Key} & \doxylink{classAction}{Action} key from a workflow blueprint. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True when the action key is supported by the registry. 
+\end{DoxyReturn}
+\Hypertarget{classWorkflowActionRegistry_a4a1aea02b10456ee02598505fce18350}\label{classWorkflowActionRegistry_a4a1aea02b10456ee02598505fce18350} 
+\index{WorkflowActionRegistry@{WorkflowActionRegistry}!isSupportedCapability@{isSupportedCapability}}
+\index{isSupportedCapability@{isSupportedCapability}!WorkflowActionRegistry@{WorkflowActionRegistry}}
+\doxysubsubsection{\texorpdfstring{isSupportedCapability()}{isSupportedCapability()}}
+{\footnotesize\ttfamily bool Workflow\+Action\+Registry\+::is\+Supported\+Capability (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{capability\+Key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Checks whether a capability key is allow-\/listed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em capability\+Key} & Capability key from a workflow blueprint. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True when the capability key is supported by the registry. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{WorkflowActionRegistry_8h}{Workflow\+Action\+Registry.\+h}}\item 
+src/\+Builder/\mbox{\hyperlink{WorkflowActionRegistry_8cpp}{Workflow\+Action\+Registry.\+cpp}}\end{DoxyCompactItemize}

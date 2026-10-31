@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['notification_0',['Notification',['../classNotification.html',1,'']]],
-  ['notificationchannel_1',['NotificationChannel',['../classNotificationChannel.html',1,'']]],
-  ['notificationdata_2',['NotificationData',['../structNotificationData.html',1,'']]],
-  ['notificationobserver_3',['NotificationObserver',['../classNotificationObserver.html',1,'']]],
-  ['numericrangerule_4',['NumericRangeRule',['../classNumericRangeRule.html',1,'']]]
+  ['mailjetemailadapter_0',['MailjetEmailAdapter',['../classMailjetEmailAdapter.html',1,'']]],
+  ['mailjethttpclient_1',['MailjetHttpClient',['../classMailjetHttpClient.html',1,'']]],
+  ['manualclock_2',['ManualClock',['../classManualClock.html',1,'']]]
 ];

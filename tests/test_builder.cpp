@@ -10,6 +10,7 @@
 #include "Handler.h"
 #include "WorkItem.h"
 #include "WorkflowBuilder.h"
+#include "Decorator.h"
 
 using json = nlohmann::json;
 
@@ -87,6 +88,85 @@ TEST(BuilderTest, WorkflowBuilderResetClearsResult) {
     EXPECT_EQ(builder.getResult(), nullptr);
 
     delete firstGroup;
+}
+
+/**
+ * @brief Verifies that Builder clones roots and restores their chain links.
+ */
+TEST(BuilderTest, WorkflowBuilderClonesIndependentWorkflowChain) {
+    WorkflowBuilder builder;
+    builder.buildWorkGroup("First Group");
+    builder.endGroup();
+    builder.buildWorkGroup("Second Group");
+    builder.endGroup();
+
+    std::vector<WorkGroup*> clones = builder.cloneWorkGroups();
+
+    ASSERT_EQ(clones.size(), 2u);
+    EXPECT_NE(clones[0], builder.getWorkGroups()[0]);
+    EXPECT_NE(clones[1], builder.getWorkGroups()[1]);
+    EXPECT_EQ(clones[0]->getName(), "First Group");
+    EXPECT_EQ(clones[1]->getName(), "Second Group");
+
+    WorkItem item;
+    EXPECT_NO_THROW(clones[0]->handleRequest(item));
+
+    for (WorkGroup* clone : clones) {
+        delete clone;
+    }
+
+    for (WorkGroup* group : builder.getWorkGroups()) {
+        delete group;
+    }
+}
+
+/**
+ * @brief Verifies that Builder wraps the latest child with each decorator type.
+ */
+TEST(BuilderTest, WorkflowBuilderAddsDecoratorsToLatestChild) {
+    WorkflowBuilder builder;
+    builder.buildWorkGroup("Decorated Group");
+    builder.buildWorkUnit("Decorated Unit");
+
+    std::vector<std::string> requiredKeys;
+    requiredKeys.push_back("request_id");
+    builder.addDecorator("ValidatedTask", requiredKeys);
+    WorkComponent* validated = builder.getWorkGroups()[0]->getChildren()[0];
+    ValidatedTask* validatedTask = dynamic_cast<ValidatedTask*>(validated);
+    ASSERT_NE(validatedTask, nullptr);
+    EXPECT_EQ(validatedTask->getRuleCount(), 1u);
+
+    builder.addDecorator("AuditedTask");
+    WorkComponent* audited = builder.getWorkGroups()[0]->getChildren()[0];
+    EXPECT_NE(dynamic_cast<AuditedTask*>(audited), nullptr);
+
+    builder.addDecorator("PrioritisedTask");
+    WorkComponent* prioritised = builder.getWorkGroups()[0]->getChildren()[0];
+    EXPECT_NE(dynamic_cast<PrioritisedTask*>(prioritised), nullptr);
+
+    builder.endGroup();
+    for (WorkGroup* group : builder.getWorkGroups()) {
+        delete group;
+    }
+}
+
+/**
+ * @brief Verifies that invalid decorator requests fail explicitly.
+ */
+TEST(BuilderTest, WorkflowBuilderRejectsInvalidDecoratorRequests) {
+    WorkflowBuilder builder;
+    builder.buildWorkGroup("Decorator Group");
+
+    EXPECT_THROW(builder.addDecorator("AuditedTask"), std::logic_error);
+    EXPECT_THROW(builder.addDecorator("UnknownTask"), std::logic_error);
+
+    builder.buildWorkUnit("Decorated Unit");
+    EXPECT_THROW(builder.addDecorator("UnknownTask"), std::invalid_argument);
+
+    builder.endGroup();
+    for (WorkGroup* group : builder.getWorkGroups()) {
+        delete group;
+    }
 }
 
 // 3. Test Director constructing a workflow from JSON via WorkflowBuilder
@@ -174,6 +254,51 @@ TEST(BuilderTest, DirectorPopulatesRequiredInputsOnWorkItem) {
     EXPECT_TRUE(item.hasData("category"));
     EXPECT_EQ(item.getData("category"), "DeathBenefit");
     EXPECT_EQ(builder.getResult(), nullptr);
+}
+
+/**
+ * @brief Verifies that empty required input is retried before acceptance.
+ */
+TEST(BuilderTest, DirectorRetriesEmptyRequiredInput) {
+    json blueprint = json::parse(R"({
+        "required_inputs": [
+            { "key": "policy_number", "prompt": "Enter Policy Number" }
+        ],
+        "chain": []
+    })");
+
+    std::istringstream simulatedInput("\nPOL-777\n");
+    std::streambuf* oldCin = std::cin.rdbuf(simulatedInput.rdbuf());
+
+    WorkItem item;
+    WorkflowBuilder builder;
+    Director director(&builder, &item, true);
+    EXPECT_NO_THROW(director.construct(blueprint));
+
+    std::cin.rdbuf(oldCin);
+    EXPECT_EQ(item.getData("policy_number"), "POL-777");
+}
+
+/**
+ * @brief Verifies that repeated empty required input fails clearly.
+ */
+TEST(BuilderTest, DirectorRejectsRepeatedEmptyRequiredInput) {
+    json blueprint = json::parse(R"({
+        "required_inputs": [
+            { "key": "policy_number", "prompt": "Enter Policy Number" }
+        ],
+        "chain": []
+    })");
+
+    std::istringstream simulatedInput("\n\n\n");
+    std::streambuf* oldCin = std::cin.rdbuf(simulatedInput.rdbuf());
+
+    WorkItem item;
+    WorkflowBuilder builder;
+    Director director(&builder, &item, true);
+    EXPECT_THROW(director.construct(blueprint), std::invalid_argument);
+
+    std::cin.rdbuf(oldCin);
 }
 
 // 5. Test Director with null builder and multi-WorkGroup chain traversal using a spy ChainBuilder
