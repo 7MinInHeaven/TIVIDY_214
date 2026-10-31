@@ -194,8 +194,18 @@ void WorkflowEngineFacade::takeOwnership(int actorId, int instanceId) {
 //only the owner can complete tasks, and each task only once
 void WorkflowEngineFacade::completeTask(int actorId, int instanceId, int taskId) {
   Request &request = find(instanceId);
-
   requireActiveOwner(request, actorId);
+
+  if (request.rootComponent == nullptr) {
+    if (taskId < 1) throw invalid_argument("no such task");
+    for (size_t i = 0; i < request.completedTasks.size(); ++i)
+      if (request.completedTasks[i] == taskId)
+        throw logic_error("Task " + to_string(taskId) + " is already completed");
+    request.completedTasks.push_back(taskId);
+    request.history.push_back("task " + to_string(taskId) + " completed by participant " + to_string(actorId));
+    return;
+  }
+
   WorkUnit* unit = findUnit(request.rootComponent,to_string(taskId));
   if (!unit){
     throw invalid_argument("no such task");
