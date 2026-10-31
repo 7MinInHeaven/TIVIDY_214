@@ -45,7 +45,7 @@ class WorkflowService {
     // Handler* masterTemplate
     // mo
     struct Request {
-      Request() : requester(0), owner(0) {}
+      Request() : requester(0), owner(0), rootComponent(nullptr) {}
       int requester;  // who submitted it
       int owner; // who took it (0 = nobody yet)
       string status; // Open, Approved, Rejected or Cancelled
