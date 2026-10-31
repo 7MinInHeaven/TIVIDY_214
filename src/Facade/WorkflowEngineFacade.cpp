@@ -23,6 +23,28 @@ std::string defaultPath()
   return "blueprint.json";
 }
 
+// copies the request's data into every component, and numbers leaf tasks 1, 2, 3...
+// in the same depth-first order RequestChain uses
+void stampTree(WorkComponent* component, const std::map<std::string, std::string>& payload, int& nextTaskId)
+{
+  WorkItem* target = component->getItem();
+  WorkGroup* group = dynamic_cast<WorkGroup*>(component);
+  if (target != nullptr) {
+    for (std::map<std::string, std::string>::const_iterator it = payload.begin(); it != payload.end(); ++it) {
+      target->setData(it->first, it->second);   // item directly, so no notify() fires
+    }
+    if (group == nullptr) {
+      target->setData("task_id", std::to_string(nextTaskId++));
+    }
+  }
+  if (group != nullptr) {
+    const std::vector<WorkComponent*> kids = group->getChildren();
+    for (size_t i = 0; i < kids.size(); i++) {
+      stampTree(kids[i], payload, nextTaskId);
+    }
+  }
+}
+
 } // namespace
 
 WorkflowEngineFacade::WorkflowEngineFacade() : nextId(1), scenarioCatalog("src") {
@@ -93,9 +115,15 @@ void WorkflowEngineFacade::submitRequest(
     std::cerr << "[Workflow input error] " << error.what() << "\n";
     return;
   }
+  
   std::vector<WorkGroup*> templateGroups = builder.getWorkGroups();
   std::vector<WorkGroup*> workGroups = builder.cloneWorkGroups();
   Handler* chainHead = workGroups.empty() ? nullptr : workGroups.front();
+
+  int nextTaskId = 1;
+  for (size_t i = 0; i < workGroups.size(); i++) {
+    stampTree(workGroups[i], item.getPayloadData(), nextTaskId);
+  }
   
   for (size_t i = 0; i < workGroups.size(); i++) {
     attachObserverToTree(workGroups[i]);
