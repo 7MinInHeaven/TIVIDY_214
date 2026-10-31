@@ -9,12 +9,12 @@ class WorkUnit;
 class WorkHistory;
 class WorkState;
 class WorkMemento;
-class WorkComponent;
 
 class Action {
     public:
         virtual bool execute() = 0;
         virtual bool isUndoable() const { return true;}
+        virtual void undo() {};
         virtual WorkComponent* getReceiver() const =0;
         virtual ~Action() {}
 };
