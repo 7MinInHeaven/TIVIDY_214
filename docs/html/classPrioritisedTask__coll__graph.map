@@ -1,12 +1,16 @@
 <map id="PrioritisedTask" name="PrioritisedTask">
-<area shape="rect" id="Node000001" title=" " alt="" coords="93,229,210,255"/>
-<area shape="rect" id="Node000002" href="$classTaskDecorator.html" title=" " alt="" coords="94,155,209,180"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="154,194,154,229,149,229,149,194"/>
-<area shape="rect" id="Node000003" href="$classWorkComponent.html" title=" " alt="" coords="86,80,217,105"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="154,120,154,154,149,154,149,120"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="270,243,387,268"/>
+<area shape="rect" id="Node000002" href="$classTaskDecorator.html" title=" " alt="" coords="271,168,386,193"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="331,208,331,242,326,242,326,208"/>
+<area shape="rect" id="Node000003" href="$classWorkComponent.html" title=" " alt="" coords="263,93,394,119"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="331,133,331,168,326,168,326,133"/>
 <area shape="rect" id="Node000004" href="$classHandler.html" title=" " alt="" coords="5,5,79,31"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="73,36,135,78,132,82,70,41"/>
-<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="93,10,105,18,97,26,79,28,78,22,95,21,100,18,91,14"/>
-<area shape="rect" id="Node000005" href="$classWorkflowSubject.html" title=" " alt="" coords="197,5,327,31"/>
-<area shape="poly" id="edge5_Node000003_Node000005" title=" " alt="" coords="234,41,171,82,168,78,231,36"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="93,32,291,91,290,96,91,37"/>
+<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="93,8,101,12,105,18,97,27,79,29,78,23,95,22,100,18,98,16,91,14"/>
+<area shape="rect" id="Node000005" href="$classWorkflowSubject.html" title="Subject participant in the Observer design pattern." alt="" coords="197,5,327,31"/>
+<area shape="poly" id="edge5_Node000003_Node000005" title=" " alt="" coords="282,40,321,91,317,94,277,43"/>
+<area shape="rect" id="Node000006" href="$classWorkState.html" title=" " alt="" coords="352,5,441,31"/>
+<area shape="poly" id="edge6_Node000003_Node000006" title=" " alt="" coords="381,43,340,94,336,91,377,40"/>
+<area shape="rect" id="Node000007" href="$classWorkItem.html" title="Represents a generic payload data container moving through the workflow." alt="" coords="466,5,551,31"/>
+<area shape="poly" id="edge7_Node000003_Node000007" title=" " alt="" coords="475,39,410,72,357,96,354,91,408,67,473,35"/>
 </map>

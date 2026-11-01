@@ -1,5 +1,5 @@
 <map id="include/PostgresAdapter.h" name="include/PostgresAdapter.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="733,5,924,31"/>
+<area shape="rect" id="Node000001" title="Declares the Adapter and ConcreteStrategy for Cloud PostgreSQL." alt="" coords="733,5,924,31"/>
 <area shape="rect" id="Node000002" href="$WorkflowEngineFacade_8h.html" title=" " alt="" coords="573,86,807,111"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="798,40,712,88,709,83,795,35"/>
 <area shape="rect" id="Node000011" href="$PostgresAdapter_8cpp.html" title=" " alt="" coords="831,79,1103,119"/>

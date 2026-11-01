@@ -1,10 +1,8 @@
 var searchData=
 [
-  ['participant_0',['Participant',['../classParticipant.html',1,'']]],
-  ['pendingstate_1',['PendingState',['../classPendingState.html',1,'']]],
-  ['postgresadapter_2',['PostgresAdapter',['../classPostgresAdapter.html',1,'']]],
-  ['postgresapi_3',['PostgresAPI',['../classPostgresAPI.html',1,'']]],
-  ['prioritisedtask_4',['PrioritisedTask',['../classPrioritisedTask.html',1,'']]],
-  ['prioritycheckervisitor_5',['PriorityCheckerVisitor',['../classPriorityCheckerVisitor.html',1,'']]],
-  ['progressreportvisitor_6',['ProgressReportVisitor',['../classProgressReportVisitor.html',1,'']]]
+  ['notification_0',['Notification',['../classNotification.html',1,'']]],
+  ['notificationchannel_1',['NotificationChannel',['../classNotificationChannel.html',1,'']]],
+  ['notificationdata_2',['NotificationData',['../structNotificationData.html',1,'']]],
+  ['notificationobserver_3',['NotificationObserver',['../classNotificationObserver.html',1,'']]],
+  ['numericrangerule_4',['NumericRangeRule',['../classNumericRangeRule.html',1,'']]]
 ];

@@ -120,6 +120,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a6b74afa15da553a9d29b9dbecade42ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7666b9fce4618eb38e6627b74268c336" id="r_a7666b9fce4618eb38e6627b74268c336"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classWorkGroup.html">WorkGroup</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkflowBuilder.html#a7666b9fce4618eb38e6627b74268c336">getWorkGroups</a> () override</td></tr>
 <tr class="separator:a7666b9fce4618eb38e6627b74268c336"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54bb67e1584f99c84a90b3fbf9f9a7b0" id="r_a54bb67e1584f99c84a90b3fbf9f9a7b0"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classWorkGroup.html">WorkGroup</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkflowBuilder.html#a54bb67e1584f99c84a90b3fbf9f9a7b0">cloneWorkGroups</a> () const</td></tr>
+<tr class="memdesc:a54bb67e1584f99c84a90b3fbf9f9a7b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a deep-cloned workflow tree with a rebuilt top-level chain.  <br /></td></tr>
+<tr class="separator:a54bb67e1584f99c84a90b3fbf9f9a7b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classChainBuilder"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classChainBuilder')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classChainBuilder.html">ChainBuilder</a></td></tr>
 <tr class="memitem:af4674b8f54787aed1bb9311c2a363dde inherit pub_methods_classChainBuilder" id="r_af4674b8f54787aed1bb9311c2a363dde"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classChainBuilder.html#af4674b8f54787aed1bb9311c2a363dde">~ChainBuilder</a> ()=default</td></tr>
 <tr class="separator:af4674b8f54787aed1bb9311c2a363dde inherit pub_methods_classChainBuilder"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -269,6 +272,27 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Implements <a class="el" href="classChainBuilder.html#ad4be1b4fab22ccde4e4080e5827310d7">ChainBuilder</a>.</p>
+
+</div>
+</div>
+<a id="a54bb67e1584f99c84a90b3fbf9f9a7b0" name="a54bb67e1584f99c84a90b3fbf9f9a7b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54bb67e1584f99c84a90b3fbf9f9a7b0">&#9670;&#160;</a></span>cloneWorkGroups()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="classWorkGroup.html">WorkGroup</a> * &gt; WorkflowBuilder::cloneWorkGroups </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a deep-cloned workflow tree with a rebuilt top-level chain. </p>
+<p>Clones workflow roots and reconnects their Chain of Responsibility.</p>
+<dl class="section return"><dt>Returns</dt><dd>Independently owned cloned workflow roots. </dd></dl>
 
 </div>
 </div>
