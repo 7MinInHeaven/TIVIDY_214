@@ -3,12 +3,9 @@
 #include <memory>
 #include <stdexcept>
 
-
 WorkflowBuilder::WorkflowBuilder() {}
 
-
 WorkflowBuilder::~WorkflowBuilder() {}
-
 
 WorkGroup* WorkflowBuilder::currentGroup() const 
 {
@@ -43,6 +40,9 @@ void WorkflowBuilder::attach(WorkGroup* group)
     stack.push_back(group);
 }
 
+/**
+ * @brief Clears the current list of WorkGroups and currently processed sub-tasks
+ */
 void WorkflowBuilder::reset()
 {
     head = nullptr;
@@ -50,7 +50,6 @@ void WorkflowBuilder::reset()
     workGroups.clear();
     stack.clear();
 }
-
 
 void WorkflowBuilder::buildWorkGroup(const std::string& name)
 {
@@ -70,7 +69,10 @@ void WorkflowBuilder::buildSubProcess(const std::string& name)
     attach(sub);
 }
     
-
+/**
+ * @brief Create a WorkUnit instance and links it to a WorkGroup 
+ * @param[in] name The name of the WorkUnit to be created
+ */
 void WorkflowBuilder::buildWorkUnit(const std::string& name)
 {
     WorkGroup* parent = currentGroup();
@@ -89,6 +91,11 @@ void WorkflowBuilder::addDecorator(const std::string& type)
     addDecorator(type, noRequiredKeys);
 }
 
+/**
+ * @brief Wraps the most recently added child in the active composite.
+ * @param[in] type The type of Decorator that needs to be made
+ * @param[in] requiredKeys The keys needed to instantiate the Decorator
+ */
 void WorkflowBuilder::addDecorator(
     const std::string& type, const std::vector<std::string>& requiredKeys)
 {
@@ -126,7 +133,6 @@ void WorkflowBuilder::addDecorator(
 
     parent->children.back() = decorated.release();
 }
-
 
 void WorkflowBuilder::endGroup() 
 {

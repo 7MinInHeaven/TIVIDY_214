@@ -11,9 +11,12 @@ const int kMaxInputAttempts = 3;
 } // namespace
 
 
-
 Director::Director(ChainBuilder* b, WorkItem* i, bool in): builder(b), item(i), input(in) {}
 
+
+/**
+ * @brief Destroys the Director instance.
+ */
 Director::~Director() {};
 
 void Director::construct(const json& data) {
@@ -71,6 +74,10 @@ void Director::construct(const json& data) {
     }
 }
 
+/**
+ * @brief Take a portion of the JSON file and create the assosiated class and its children
+ * @param[in] node The portion of the JSON file we are using to create the classes
+ */
 void Director::parseNode(const json& node) {
     std::string type;
     if (node.contains("type"))
@@ -104,6 +111,10 @@ void Director::parseNode(const json& node) {
     }
 }
 
+/**
+ * @brief Determine if a parent has children and if so hand them over to the node parser
+ * @param[in] parent The portion of the JSON file that the contains children Nodes that need to be parsed
+ */
 void Director::parseChildren(const json& parent) 
 {
     if (!parent.contains("children")) {
