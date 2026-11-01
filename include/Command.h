@@ -107,18 +107,6 @@ class StartTaskCommand : public Action
          */
         bool execute() override;
 
-        /** 
-        * @param receiver The task to start.
-        */
-        StartTaskCommand(WorkComponent* receiver);
-        ~StartTaskCommand() = default;
-
-        /**
-         * @brief Starts the receiver task.
-         * @return true if the task started, false if it 
-         */
-        bool execute() override;
-
          /**
          * @brief Gives the task this command acts on.
          * @return The receiver.
