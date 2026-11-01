@@ -8,6 +8,7 @@
 #include "ChainBuilder.h"
 #include "WorkflowBuilder.h"
 #include "Director.h"
+#include "Command.h"
 #include "WorkflowBlueprint.h"
 
 #include "ResendEmailAdapter.h"
@@ -345,19 +346,21 @@ void WorkflowEngineFacade::takeOwnership(int actorId, int instanceId) {
 //the chain checks that the task exists, is in the active group and is not already completed
 void WorkflowEngineFacade::completeTask(int actorId, int instanceId, int taskId) {
   Request &request = find(instanceId);
-  if (request.status != "Open") {
-    throw logic_error("Request is " + request.status + ", tasks can no longer change");
+  requireActiveOwner(request, actorId);
+
+  if (taskId < 1) {
+    throw invalid_argument("no such task");
   }
-  if (request.owner != actorId) {
-    throw logic_error("Take ownership of the request first");
+  if (!request.chain->completeTask(to_string(actorId), taskId)) {
+    throw logic_error("Task " + to_string(taskId) + " cannot be completed");
   }
-  request.chain->completeTask(to_string(actorId), taskId);
   request.history.push_back("task " + to_string(taskId) + " completed by participant " + to_string(actorId));
 
 
   //Tsohle
  
 }
+
 
 // approving needs a request that someone has taken (no amount-based authority yet)
 void WorkflowEngineFacade::approveRequest(int actorId, int instanceId) {
@@ -405,16 +408,21 @@ void WorkflowEngineFacade::cancelRequest(int actorId, int instanceId) {
 }
 
 //reverses the most recently completed task
-void WorkflowEngineFacade::undoLastAction(int, int instanceId) {
+void WorkflowEngineFacade::undoLastAction(int actorId, int instanceId) {
   Request &request = find(instanceId);
-  if (request.status != "Open") {
+  if (request.status != "Open" ) {   
     throw logic_error("Nothing to undo");
   }
+
   int taskId = request.chain->undoLastCompletion();
+  if (taskId <0){
+    throw logic_error("Nothing to undo");
+  }
+  request.chain->completeTask(to_string(actorId), taskId);
   request.history.push_back("undo: task " + to_string(taskId) + " reopened");
 }
 
-//memento idk
+//memento 
 void WorkflowEngineFacade::saveProgress(int, int instanceId) {
   find(instanceId).history.push_back("progress saved");
 }
@@ -435,7 +443,17 @@ vector<int> WorkflowEngineFacade::listInstanceIds(int) const {
     ids.push_back(it->first);
   }
   return ids;
+}  
+
+
+//Thandoo 
+void WorkflowEngineFacade::requireActiveOwner(const Request& request, int actorId) const {
+  if (request.status != "Open")     //claim must still be active
+    throw logic_error("Request is " + request.status + ", tasks can no longer change");
+  if (request.owner != actorId)     //caller must be the agent who took it
+    throw logic_error("Take ownership of the request first");
 }
+
 
 //one line per task, with its state and group
 vector<string> WorkflowEngineFacade::getTaskStates(int, int instanceId) const {

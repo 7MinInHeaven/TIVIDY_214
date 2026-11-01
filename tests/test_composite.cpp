@@ -7,24 +7,28 @@ TEST(CompositeTest, AddGetRemoveChildrenCorrectly) {
     SubProcess* process = new SubProcess("Test Process One");
     WorkUnit* unit = new WorkUnit("Test Unit One");
 
-    group.add(stage);    
-    group.add(stage);
-    group.add(new Stage("Test Stage Two"));
-    group.add(new Stage("Test Stage Two"));
+    EXPECT_TRUE(group.add(stage));    
+    EXPECT_FALSE(group.add(stage));
+    EXPECT_TRUE(group.add(new Stage("Test Stage Two")));
+    EXPECT_FALSE(group.add(new Stage("Test Stage Two")));
     group.getChildren();
     group.remove("Test Stage Two");
-
-    stage->add(process);    
-    stage->add(new SubProcess("Test Process Two"));
-    stage->add(new SubProcess("Test Process Two"));
+    
+    EXPECT_TRUE(stage->add(process));    
+    EXPECT_TRUE(stage->add(new SubProcess("Test Process Two")));
+    EXPECT_FALSE(stage->add(new SubProcess("Test Process Two")));
     stage->getChildren();
     stage->remove("Test Process Two");
 
-    process->add(unit);    
-    process->add(new WorkUnit("Test Unit Two"));
-    process->add(new WorkUnit("Test Unit Two"));
+    WorkComponent* testStage = new Stage("Test Stage");
+
+    EXPECT_TRUE(process->add(unit)); 
+    EXPECT_FALSE(process->add(testStage));   
+    EXPECT_TRUE(process->add(new WorkUnit("Test Unit Two")));
+    EXPECT_FALSE(process->add(new WorkUnit("Test Unit Two")));
     process->getChildren();
     process->remove("Test Unit Two");
+    process->remove(unit);
 }
 
 TEST(CompositeTest, CloningCorrect) {
