@@ -6,8 +6,8 @@ void PriorityCheckerVisitor::visit(const WorkUnit&){}
 void PriorityCheckerVisitor::visit(const WorkGroup&){}
 void PriorityCheckerVisitor::visit(const Stage&){}
 void PriorityCheckerVisitor::visit(const SubProcess&){}
-void PriorityCheckerVisitor::visit(const AuditedTask&){}
-void PriorityCheckerVisitor::visit(const ValidatedTask&){}
+void PriorityCheckerVisitor::visit(const AuditedTask& item){item.getWrappedTask()->accept(*this);}
+void PriorityCheckerVisitor::visit(const ValidatedTask& item){item.getWrappedTask()->accept(*this);}
 void PriorityCheckerVisitor::visit(const PrioritisedTask& item){
     found = true;
     level = computeRank(item);
