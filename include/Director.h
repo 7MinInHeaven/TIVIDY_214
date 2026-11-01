@@ -16,8 +16,7 @@ private:
 
     void parseNode(const json& node);
     void parseChildren(const json& parentNode);
-    // void parseDecorators(const json& node);
-    // void parseRule(const json& node);
+    void parseDecorators(const json& node);
 
 public:
     Director(ChainBuilder* b, WorkItem* i = nullptr, bool input = false);

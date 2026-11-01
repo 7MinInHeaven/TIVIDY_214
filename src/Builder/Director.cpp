@@ -87,27 +87,25 @@ void Director::parseNode(const json& node) {
     if (type == "WorkGroup") 
     {
         builder->buildWorkGroup(name);
-        // parseRule(node);
         // parseDecorators(node);
         parseChildren(node);
         builder->endGroup();
     } else if (type == "Stage") 
     {
         builder->buildStage(name);
-        // parseRule(node);
         // parseDecorators(node);
         parseChildren(node);
         builder->endGroup();
     } else if (type == "SubProcess") 
     {
         builder->buildSubProcess(name);
-        // parseRule(node);
         // parseDecorators(node);
         parseChildren(node);
         builder->endGroup();
-    } else 
+    } else
     {
         builder->buildWorkUnit(name);
+        parseDecorators(node);
     }
 }
 
@@ -123,34 +121,28 @@ void Director::parseChildren(const json& parent)
     }
 }
 
-// void Director::parseDecorators(const json& node) 
-// {
-//     if (!node.contains("decorators")) {
-//         return;
-//     }
+/**
+ * @brief Applies the decorators declared on the current WorkUnit node.
+ */
+void Director::parseDecorators(const json& node)
+{
+    if (!node.contains("decorators")) {
+        return;
+    }
 
-//     for (const auto& decorator : node["decorators"]) 
-//     {
-//         std::string type = decorator["type"];
-//         std::vector<std::string> requiredKeys;
+    for (const auto& decorator : node["decorators"]) {
+        const std::string type = decorator.at("type").get<std::string>();
+        std::vector<std::string> requiredKeys;
+        if (decorator.contains("required_keys")) {
+            for (const auto& key : decorator["required_keys"]) {
+                requiredKeys.push_back(key.get<std::string>());
+            }
+        }
 
-//         if (decorator.contains("required_keys")) 
-//         {
-//             for (const auto& k : decorator["required_keys"]) //needed for decorator constructors
-//             {
-//                 requiredKeys.push_back(k);
-//             }
-//         }
-
-//         builder->addDecorator(type, requiredKeys);
-//     }
-// }
-
-// void Director::parseRule(const json& node) 
-// {
-//     if (node.contains("has_rule") && node["has_rule"] == true && node.contains("rule")) 
-//     {
-//         const auto& rule = node["rule"]; //get the rule object from the JSON
-//         builder->addRule(rule["key"], rule["op"], rule["value"]);
-//     }
-// }
+        if (requiredKeys.empty()) {
+            builder->addDecorator(type);
+        } else {
+            builder->addDecorator(type, requiredKeys);
+        }
+    }
+}
