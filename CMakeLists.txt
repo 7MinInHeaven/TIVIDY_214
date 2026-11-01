@@ -37,6 +37,7 @@ link_directories(${PQXX_LIBRARY_DIRS})
 # -------------------------------------------------------------
 # Main Application Executable
 # -------------------------------------------------------------
+file(GLOB_RECURSE APP_SOURCES "src/*.cpp")
 add_executable(tividy_app ${APP_SOURCES})
 target_include_directories(tividy_app PRIVATE include ${PQXX_INCLUDE_DIRS})
 target_include_directories(tividy_app SYSTEM PRIVATE third_party) # mo
