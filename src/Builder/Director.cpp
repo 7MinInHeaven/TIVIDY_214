@@ -121,9 +121,7 @@ void Director::parseChildren(const json& parent)
     }
 }
 
-/**
- * @brief Applies the decorators declared on the current WorkUnit node.
- */
+
 void Director::parseDecorators(const json& node)
 {
     if (!node.contains("decorators")) {
