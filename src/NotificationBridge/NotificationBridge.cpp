@@ -74,10 +74,12 @@ NotificationData DeadlineNotice::compose(){
  * @brief Mocks email delivery by printing the notification to the terminal.
  */
 bool ConsoleEmailAdapter::sendEmail(string to, string subject, string body) {
-    out << "\n--- SIMULATED EMAIL ---\n";
-    out << "To: " << to << "\n";
-    out << "Subject: " << subject << "\n";
-    out << "Body: " << body << "\n";
-    out << "--------------------------\n";
+    string email = "";
+    email += "\n--- SIMULATED EMAIL ---\n";
+    email += "To: " + to + "\n";
+    email += "Subject: " + subject + "\n";
+    email += "Body: " + body + "\n";
+    email += "--------------------------\n";
+    cout << email; 
     return true; 
 }

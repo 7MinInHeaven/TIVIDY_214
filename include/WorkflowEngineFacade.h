@@ -103,6 +103,8 @@ class WorkflowService {
     void undoLastAction(int actorId, int instanceId) override;
     void saveProgress(int actorId, int instanceId) override;
 
+    void sendNotification(int instanceId, const std::map<std::string, std::string>& payload, const std::string& string);
+
     std::string getStatus(int actorId, int instanceId) const override;
     std::vector<std::string> getHistory(int actorId, int instanceId) const override;
     std::vector<int> listInstanceIds(int actorId) const override;

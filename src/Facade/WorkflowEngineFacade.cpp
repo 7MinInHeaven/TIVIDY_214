@@ -90,6 +90,67 @@ const std::vector<WorkflowScenario>& WorkflowEngineFacade::listScenarios() const
   return scenarioCatalog.scenarios();
 }
 
+
+//Tsohle func
+void WorkflowEngineFacade::sendNotification(int instanceId, const std::map<std::string, std::string> &payload, const std::string &status) {
+  // 1. Create a WorkItem context
+  WorkItem item;
+  for (auto const& pair : payload) {
+      item.setData(pair.first, pair.second);
+  }
+  item.setData("id", std::to_string(instanceId)); 
+  item.setData("state", status);
+
+  // 2. Setup Strategy (Adapter)
+  std::unique_ptr<EmailTransport> transport;
+  const char* resendKey = getenv("RESEND_API_KEY");
+  const char* brevoKey  = getenv("BREVO_API_KEY");
+  const char* mjKey     = getenv("MJ_APIKEY_PUBLIC");
+
+  if (resendKey) {
+      std::cout << "[Init] Strategy: Using Resend Adapter\n";
+      transport.reset(new ResendEmailAdapter(resendKey, getenv("RESEND_FROM_EMAIL")));
+  } 
+  else if (brevoKey) {
+      std::cout << "[Init] Strategy: Using Brevo Adapter\n";
+      transport.reset(new BrevoEmailAdapter(brevoKey, getenv("BREVO_FROM_EMAIL")));
+  } 
+  else if (mjKey) {
+      bool sandbox = (getenv("MJ_SANDBOX") != nullptr);
+      std::cout << "[Init] Strategy: Using Mailjet Adapter " << (sandbox ? "(SANDBOX)" : "(LIVE)") << "\n";
+      transport.reset(new MailjetEmailAdapter(mjKey, getenv("MJ_APIKEY_PRIVATE"), getenv("MJ_FROM_EMAIL"), "TIVIDY Support", sandbox));
+  } 
+  else {
+      std::cout << "[Init] Missing API credentials. Using Console Adapter.\n";
+      transport.reset(new ConsoleEmailAdapter(cout));
+  }
+
+  // 3. Setup Channels (Bridge)
+  EmailChannel emailChannel(transport.get());
+  AppChannel appChannel;
+
+  // 4. Extract email
+  std::string customerEmail = payload.count("customer_email") ? payload.at("customer_email") : 
+                         (payload.count("email") ? payload.at("email") : "customer@example.com");
+
+  // 5. Create and Send Notifications
+  ResultNotice emailResult(&emailChannel, &item, customerEmail, status);
+  ResultNotice appResult(&appChannel, &item, "system-admin", status);
+  
+  emailResult.send();
+  appResult.send();
+
+  // 6. Check for Errors (WebServer catches this via cerr)
+  if (auto *mj = dynamic_cast<MailjetEmailAdapter *>(transport.get())) {
+    if (!mj->lastError().empty()) cerr << "[MAILJET ERROR] " << mj->lastError() << "\n";
+  } else if (auto *rs = dynamic_cast<ResendEmailAdapter *>(transport.get())) {
+    if (!rs->lastError().empty()) cerr << "[RESEND ERROR] " << rs->lastError() << "\n";
+  } else if (auto *br = dynamic_cast<BrevoEmailAdapter *>(transport.get())) {
+    if (!br->lastError().empty()) cerr << "[BREVO ERROR] " << br->lastError() << "\n";
+  }
+}
+
+
 void WorkflowEngineFacade::submitRequest(WorkItem item) {
   submitRequest(item, defaultPath());
 }
@@ -264,6 +325,10 @@ int WorkflowEngineFacade::submitRequest(int actorId, const map<string, string> &
   request.payload = payload;
   request.chain = std::move(chain);
   request.history.push_back("submitted by participant " + to_string(actorId));
+
+  //Tsohle
+  sendNotification(id, payload, "Open");
+
   return id;
 }
 
@@ -292,6 +357,10 @@ void WorkflowEngineFacade::completeTask(int actorId, int instanceId, int taskId)
   }
   request.chain->completeTask(to_string(actorId), taskId);
   request.history.push_back("task " + to_string(taskId) + " completed by participant " + to_string(actorId));
+
+
+  //Tsohle
+ 
 }
 
 // approving needs a request that someone has taken (no amount-based authority yet)
@@ -302,6 +371,9 @@ void WorkflowEngineFacade::approveRequest(int actorId, int instanceId) {
   }
   request.status = "Approved";
   request.history.push_back("approved by participant " + to_string(actorId));
+
+  //Tsohle
+  sendNotification(instanceId, request.payload, "Approved");
 }
 
 //same rule as approving, and the reason is kept in the history
@@ -312,6 +384,14 @@ void WorkflowEngineFacade::rejectRequest(int actorId, int instanceId, const stri
   }
   request.status = "Rejected";
   request.history.push_back("rejected by participant " + to_string(actorId) + ": " + reason);
+
+
+  //also this Tsohle
+  map<string, string> emailPayload = request.payload;
+  emailPayload["Rejection Reason"] = reason;
+
+  //Tsohle
+  sendNotification(instanceId, emailPayload, "Rejected");
 }
 
 //any request that is not already finished can be cancelled
@@ -322,6 +402,10 @@ void WorkflowEngineFacade::cancelRequest(int actorId, int instanceId) {
   }
   request.status = "Cancelled";
   request.history.push_back("cancelled by participant " + to_string(actorId));
+
+
+  //Tsohle
+  sendNotification(instanceId, request.payload, "Cancelled");
 }
 
 //reverses the most recently completed task
