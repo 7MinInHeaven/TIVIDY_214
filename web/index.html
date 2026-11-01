@@ -4,34 +4,80 @@
 <meta charset="utf-8">
 <title>TIVIDY</title>
 <style>
-body { margin: 0; font-family: sans-serif; font-size: 14px; background: #f4f4f4; }
-header { color: #fff; padding: 10px 16px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+html { font-size: 17px; }
+body { margin: 0; font-family: sans-serif; font-size: 1rem; background: #f4f4f4; height: 100vh; height: 100dvh; display: flex; flex-direction: column; }
+header { color: #fff; padding: 10px 16px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; flex: none; }
 header button { border: 1px solid #fff; background: transparent; color: #fff; padding: 4px 10px; cursor: pointer; }
 header button.on { background: #fff; color: #000; }
 .right { margin-left: auto; }
-#warn { background: #fff3cd; padding: 4px 16px; font-size: 12px; }
-main { display: grid; grid-template-columns: 300px 1fr 340px; gap: 12px; padding: 12px; }
-section { background: #fff; padding: 10px; border: 1px solid #ddd; overflow: auto; }
+#sizer { margin-right: 16px; }
+#warn { background: #fff3cd; padding: 4px 16px; font-size: .86rem; flex: none; }
+main { display: grid; grid-template-columns: minmax(300px, 24%) minmax(0, 1fr) minmax(320px, 28%); grid-template-rows: minmax(0, 1fr); gap: 12px; padding: 12px; flex: 1 1 auto; min-height: 0; }
+section { background: #fff; padding: 10px; border: 1px solid #ddd; overflow: auto; min-height: 0; }
 h3 { margin: 8px 0; }
 table { border-collapse: collapse; width: 100%; }
 td, th { padding: 3px 6px; text-align: left; border-bottom: 1px solid #eee; }
 input, select, textarea { width: 100%; box-sizing: border-box; margin-bottom: 6px; }
+button, input, select, textarea { font: inherit; }
 button { cursor: pointer; }
 #toast { position: fixed; top: 10px; right: 10px; padding: 10px 14px; color: #fff; display: none; z-index: 9; max-width: 380px; }
 #toast.bad { background: #b00020; } #toast.good { background: #1b6b3a; }
-.chip { padding: 1px 6px; border-radius: 8px; font-size: 11px; background: #ddd; }
+.chip { padding: 1px 6px; border-radius: 8px; font-size: .8rem; background: #ddd; }
 .s-Pending { background: #ddd; } .s-InProgress { background: #ffd54f; } .s-Completed { background: #81c784; }
 .kids { margin-left: 16px; border-left: 2px solid #eee; padding-left: 8px; }
 .leaf { margin: 2px 0; }
 .box { background: #fff3cd; border: 1px solid #e0c060; padding: 6px; margin: 6px 0; }
-.ev { font-size: 12px; margin: 2px 0; } .ev b { background: #333; color: #fff; padding: 0 5px; border-radius: 4px; margin-right: 4px; font-weight: normal; }
-pre { background: #eee; padding: 6px; overflow: auto; max-height: 260px; font-size: 11px; }
+.ev { font-size: .86rem; margin: 2px 0; } .ev b { background: #333; color: #fff; padding: 0 5px; border-radius: 4px; margin-right: 4px; font-weight: normal; }
+pre { background: #eee; padding: 6px; overflow: auto; max-height: 260px; font-size: .8rem; }
+
+/* request list: status and lock text stacked, buttons a fixed width */
+#list td { vertical-align: middle; }
+#list td.n { white-space: nowrap; }
+#list .lock { display: block; font-size: .8rem; color: #666; }
+#list .acts { display: flex; flex-direction: column; gap: 4px; }
+#list .acts button { width: 8.5em; }
+
+/* task tree: collapsible nodes with done/total counts, one aligned row per task */
+.th { cursor: pointer; user-select: none; padding: 1px 0; }
+.th:hover { background: #f4f4f4; }
+.car { display: inline-block; width: 0; height: 0; border-left: .35em solid transparent; border-right: .35em solid transparent; border-top: .5em solid #555; margin-right: .4em; vertical-align: middle; }
+.node.closed > .th .car { transform: rotate(-90deg); }
+.node.closed > .kids { display: none; }
+.cnt { font-size: .8rem; color: #444; background: #eee; border-radius: 8px; padding: 0 6px; margin-left: 4px; }
+.cnt.all { background: #81c784; }
+.leaf { display: flex; align-items: center; gap: .5em; }
+.leaf .lt { flex: 1; min-width: 0; }
+.leaf .chip { flex: none; white-space: nowrap; min-width: 5.6em; text-align: center; box-sizing: border-box; }
+.leaf .slot { flex: none; width: 9em; text-align: right; }
+.leaf button { white-space: nowrap; }
+.leaf.done .lt { color: #777; }
+
+/* right column: three regions that each scroll on their own */
+#rightCol { display: flex; flex-direction: column; }
+#rightCol h3 { flex: none; }
+#legend { display: flex; flex-wrap: wrap; gap: 4px; margin: 0 0 6px; flex: none; }
+.lg { font-size: .72rem; padding: 0 6px; border-radius: 4px; }
+#fired { flex: 3 1 0; min-height: 8rem; overflow: auto; }
+#outbox { flex: 1 1 0; min-height: 3rem; overflow: auto; }
+#db { flex: 1.4 1 0; min-height: 3rem; overflow: auto; }
+
+/* "What just fired": fixed-width pattern tags in the UML legend colours, two-line messages */
+#fired .ev { display: grid; grid-template-columns: 8em 1fr; gap: .5em; align-items: start; padding: 2px 3px; margin: 3px 0; border-radius: 4px; }
+#fired .ev b { margin-right: 0; text-align: center; line-height: 1.2; padding: 1px 4px; }
+#fired .et { display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+#fired .ev.new { animation: flash 1.8s ease-out; }
+@keyframes flash { from { background: #fff0a6; } to { background: rgba(255, 240, 166, 0); } }
+.ev b.tg-blue, .lg.tg-blue { background: #2540d9; color: #fff; }
+.ev b.tg-green, .lg.tg-green { background: #17803a; color: #fff; }
+.ev b.tg-orange, .lg.tg-orange { background: #f59e0b; color: #000; }
+.ev b.tg-magenta, .lg.tg-magenta { background: #c026d3; color: #fff; }
+.ev b.tg-yellow, .lg.tg-yellow { background: #f2d600; color: #000; }
 </style>
 </head>
 <body>
 <header id="bar">
   <b>TIVIDY</b> <span id="tabs"></span>
-  <span class="right">Signed in as <select id="who" style="width:auto"></select></span>
+  <span class="right"><span id="sizer"><button id="fontDown" title="Smaller text" onclick="textSize(-2)">A-</button> <button id="fontUp" title="Larger text" onclick="textSize(2)">A+</button></span>Signed in as <select id="who" style="width:auto"></select></span>
 </header>
 <div id="warn"></div>
 <div id="toast"></div>
@@ -48,8 +94,16 @@ pre { background: #eee; padding: 6px; overflow: auto; max-height: 260px; font-si
     </details>
   </section>
   <section><h3>Request details</h3><div id="detail">Select a request</div></section>
-  <section>
-    <h3>What just fired</h3><div id="fired"></div>
+  <section id="rightCol">
+    <h3>What just fired</h3>
+    <div id="legend">
+      <span class="lg tg-blue" title="Work structure and traversal">Structure</span>
+      <span class="lg tg-green" title="Definition, creation and entry">Creation</span>
+      <span class="lg tg-orange" title="Lifecycle and history">Lifecycle</span>
+      <span class="lg tg-magenta" title="Events and outside world">Events</span>
+      <span class="lg tg-yellow" title="Wrappers and guards">Guards</span>
+    </div>
+    <div id="fired"></div>
     <h3>Messages sent</h3><div id="outbox"></div>
     <h3>Database records</h3><div id="db"></div>
   </section>
@@ -59,6 +113,17 @@ const $ = id => document.getElementById(id);
 const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => '&#' + c.charCodeAt(0) + ';');
 let boot = null, scenario = null, selected = null, eventsNext = 0, tick = 0, bpShown = false, bpText = '';
 const events = [];
+const treeOpen = {};                                               // fold state of task-tree nodes, kept across the 2 second refresh
+
+//-------text size for the projector (A- / A+ in the header, remembered by the browser)
+let fontPx = 17;
+try { const saved = parseInt(localStorage.getItem('tividyFont'), 10); if (saved >= 12 && saved <= 32) fontPx = saved; } catch (e) {}
+document.documentElement.style.fontSize = fontPx + 'px';
+function textSize(delta) {
+  fontPx = Math.max(12, Math.min(32, fontPx + delta));
+  document.documentElement.style.fontSize = fontPx + 'px';
+  try { localStorage.setItem('tividyFont', String(fontPx)); } catch (e) {}
+}
 
 //-------talk to the server (the person in the dropdown is sent with every call)
 async function api(path, method, params, raw) {
@@ -123,12 +188,26 @@ $('form').onsubmit = async e => {
 };
 
 //-------list, details, task tree
-function tree(n, id, canDo) {
+function count(n) {                                                // [completed work units, all work units] below a node
+  if (n.type === 'WorkUnit') return [n.state === 'Completed' ? 1 : 0, 1];
+  let done = 0, all = 0;
+  (n.children || []).forEach(c => { const x = count(c); done += x[0]; all += x[1]; });
+  return [done, all];
+}
+function toggleNode(head, key) {
+  const node = head.parentNode;
+  node.classList.toggle('closed');
+  treeOpen[key] = !node.classList.contains('closed');
+}
+function tree(n, id, canDo, key) {
   if (n.type === 'WorkUnit') {
     const btn = canDo && n.state !== 'Completed' ? `<button onclick="act('/requests/${id}/tasks/${n.id}/complete',null,'Task ${n.id} completed')">Complete task</button>` : '';
-    return `<div class="leaf">${n.id}. ${esc(n.name)} <span class="chip s-${esc(n.state).replace(' ', '')}">${esc(n.state)}</span> ${btn}</div>`;
+    return `<div class="leaf${n.state === 'Completed' ? ' done' : ''}"><span class="lt">${n.id}. ${esc(n.name)}</span> <span class="chip s-${esc(n.state).replace(' ', '')}">${esc(n.state)}</span>${canDo ? `<span class="slot">${btn}</span>` : ''}</div>`;
   }
-  return `<div><b>${esc(n.type)}</b> ${esc(n.name)}<div class="kids">${(n.children || []).map(c => tree(c, id, canDo)).join('')}</div></div>`;
+  const c = count(n), complete = c[1] > 0 && c[0] === c[1];
+  const closed = key in treeOpen ? !treeOpen[key] : complete;      // finished branches start folded unless the person opened them
+  return `<div class="node${closed ? ' closed' : ''}"><div class="th" onclick="toggleNode(this,'${key}')"><span class="car"></span><b>${esc(n.type)}</b> ${esc(n.name)} <span class="cnt${complete ? ' all' : ''}">${c[0]}/${c[1]}</span></div>` +
+    `<div class="kids">${(n.children || []).map((k, i) => tree(k, id, canDo, key + '.' + i)).join('')}</div></div>`;
 }
 function reject(id) { act('/requests/' + id + '/reject', { reason: prompt('Reason?') || 'no reason given' }, 'Request rejected'); }
 async function showBlueprint(id) {
@@ -147,13 +226,24 @@ async function showDetail(id) {
       (c.reject ? `<button onclick="reject(${id})">Reject</button>` : '') + `</div>` : '') +
     `<p><a href="/api/requests/${id}/report?as=${$('who').value}">Download progress report</a> | <a href="#" onclick="showBlueprint(${id});return false">${bpShown ? 'Hide' : 'Show'} blueprint</a></p>` +
     (bpShown ? `<pre>${esc(bpText)}</pre>` : '') +
-    `<h4>Task tree (cloned from the blueprint)</h4>` + d.tree.map(n => tree(n, id, c.complete)).join('') +
+    `<h4>Task tree (cloned from the blueprint)</h4>` + d.tree.map((n, i) => tree(n, id, c.complete, id + ':' + i)).join('') +
     `<h4>Request data</h4><pre>${esc(JSON.stringify(d.data, null, 1))}</pre>` +
     `<h4>History</h4><ul>${d.history.map(h => `<li>${esc(h)}</li>`).join('')}</ul>`;
 }
-function renderEvents() {
+
+//-------pattern tags use the colour groups of the UML legend; anything else (UI, Engine) stays dark grey
+const TAG_GROUP = {
+  'composite': 'blue', 'iterator': 'blue', 'visitor': 'blue',
+  'facade': 'green', 'builder': 'green', 'chain of responsibility': 'green', 'factory method': 'green', 'abstract factory': 'green', 'prototype': 'green', 'singleton': 'green',
+  'state': 'orange', 'memento': 'orange', 'command': 'orange', 'template method': 'orange', 'strategy': 'orange',
+  'observer': 'magenta', 'adapter': 'magenta', 'bridge': 'magenta',
+  'proxy': 'yellow', 'decorator': 'yellow'
+};
+const tagClass = p => TAG_GROUP[String(p).toLowerCase()] ? 'tg-' + TAG_GROUP[String(p).toLowerCase()] : '';
+function renderEvents(fresh) {
   const recent = events.slice(-60).reverse();
-  $('fired').innerHTML = recent.map(e => `<div class="ev"><b>${esc(e.p)}</b>${esc(e.t)}</div>`).join('');
+  $('fired').innerHTML = recent.map((e, i) =>
+    `<div class="ev${i < (fresh || 0) ? ' new' : ''}"><b class="${tagClass(e.p)}">${esc(e.p)}</b><span class="et" title="${esc(e.t)}">${esc(e.t)}</span></div>`).join('');
   const mail = events.filter(e => e.p === 'Engine' && /alert|email|mailjet|brevo|resend|notice/i.test(e.t)).slice(-8).reverse();
   $('outbox').innerHTML = mail.map(e => `<div class="ev">${esc(e.t)}</div>`).join('') || '<div class="ev">nothing sent yet</div>';
 }
@@ -162,13 +252,14 @@ async function refresh() {
   try {
     const rows = (await api('/requests')).filter(r => r.scenario === scenario.id);
     $('list').innerHTML = '<tr><th>#</th><th>Status</th><th>Tasks</th><th></th></tr>' + (rows.map(r =>
-      `<tr><td>${r.id}</td><td>${esc(r.status)} <i>${esc(r.lock)}</i></td><td>${esc(r.progress)}</td><td>` +
-      (r.can.take ? `<button onclick="act('/requests/${r.id}/take',null,'Ownership taken')">Take ownership</button> ` : '') +
-      `<button onclick="selected=${r.id};refresh()">${r.can.complete ? 'Work on claim' : 'View details'}</button></td></tr>`).join('') ||
+      `<tr><td class="n">${r.id}</td><td>${esc(r.status)}<i class="lock">${esc(r.lock)}</i></td><td class="n">${esc(r.progress)}</td><td><div class="acts">` +
+      (r.can.take ? `<button onclick="act('/requests/${r.id}/take',null,'Ownership taken')">Take ownership</button>` : '') +
+      `<button onclick="selected=${r.id};refresh()">${r.can.complete ? 'Work on claim' : 'View details'}</button></div></td></tr>`).join('') ||
       '<tr><td colspan="4">nothing visible to this person</td></tr>');
     if (selected) await showDetail(selected); else $('detail').textContent = 'Select a request';
+    const had = events.length;
     const ev = await api('/events?since=' + eventsNext);
-    eventsNext = ev.next; ev.events.forEach(e => events.push(e)); renderEvents();
+    eventsNext = ev.next; ev.events.forEach(e => events.push(e)); renderEvents(had ? ev.events.length : 0);
     if (tick++ % 3 === 0) {
       const db = await api('/db');
       $('db').innerHTML = `<div class="ev"><b>${esc(db.adapter)}</b></div>` + db.rows.map(r => `<div class="ev">${esc(r)}</div>`).join('');
