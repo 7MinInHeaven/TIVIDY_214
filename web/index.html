@@ -241,10 +241,11 @@ const TAG_GROUP = {
 };
 const tagClass = p => TAG_GROUP[String(p).toLowerCase()] ? 'tg-' + TAG_GROUP[String(p).toLowerCase()] : '';
 function renderEvents(fresh) {
-  const recent = events.slice(-60).reverse();
+  const recent = events.filter(e => e.p !== 'Mail').slice(-60).reverse(); // mo changed
   $('fired').innerHTML = recent.map((e, i) =>
     `<div class="ev${i < (fresh || 0) ? ' new' : ''}"><b class="${tagClass(e.p)}">${esc(e.p)}</b><span class="et" title="${esc(e.t)}">${esc(e.t)}</span></div>`).join('');
-  const mail = events.filter(e => e.p === 'Engine' && /alert|email|mailjet|brevo|resend|notice/i.test(e.t)).slice(-8).reverse();
+  
+  const mail = events.filter(e => e.p === 'Mail').slice(-8).reverse(); // mo changed
   $('outbox').innerHTML = mail.map(e => `<div class="ev">${esc(e.t)}</div>`).join('') || '<div class="ev">nothing sent yet</div>';
 }
 async function refresh() {
@@ -259,7 +260,7 @@ async function refresh() {
     if (selected) await showDetail(selected); else $('detail').textContent = 'Select a request';
     const had = events.length;
     const ev = await api('/events?since=' + eventsNext);
-    eventsNext = ev.next; ev.events.forEach(e => events.push(e)); renderEvents(had ? ev.events.length : 0);
+    eventsNext = ev.next; ev.events.forEach(e => events.push(e)); renderEvents(had ? ev.events.filter(e => e.p !== 'Mail').length : 0);
     if (tick++ % 3 === 0) {
       const db = await api('/db');
       $('db').innerHTML = `<div class="ev"><b>${esc(db.adapter)}</b></div>` + db.rows.map(r => `<div class="ev">${esc(r)}</div>`).join('');

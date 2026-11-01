@@ -187,6 +187,8 @@ struct WebServer::Site {
   mutex engineLock;                             // one request at a time into the engine
   vector<Event> events;
   size_t auditSeen;
+  bool inAlert;          //tracks if we are inside a notification body
+  string alertHeader;    //stores the alert header
   map<int, WorkflowScenario> scenarioOf;        // which blueprint each request came from
   map<int, map<string, string> > submitted;
   vector<string> warnings;
@@ -194,7 +196,7 @@ struct WebServer::Site {
   unique_ptr<SQLiteAdapter> lite;
   mutex dbLock;
 
-  Site(WorkflowEngineFacade *f, const string &root) : facade(f), webRoot(root), auditSeen(0) {
+  Site(WorkflowEngineFacade *f, const string &root) : facade(f), webRoot(root), auditSeen(0), inAlert(false) {
     configureInsuranceAccess(policy);
     configureServiceRequestAccess(policy);
     //-------roles for the generic industries (job application, custom blueprints)
@@ -248,6 +250,38 @@ struct WebServer::Site {
     if (first == string::npos) return;
     string line = raw.substr(first);
     if (line.find_first_not_of("=- ") == string::npos) return;   // skip separator lines
+
+    // mo added: adapter failures must stay visible
+    if (line.find("ERROR]") != string::npos) { note("Engine", line.substr(0, 200)); return; }
+
+    // mo added: show Chain of Responsibility in green
+    if (line.find("Work Group:") == 0) { 
+        note("Chain of Responsibility", line.substr(0, 200)); 
+        return; 
+    }
+
+    // mo added: collapse the in-app notification into one event
+    if (line.find("[APP ALERT") == 0) {
+      inAlert = true;
+      alertHeader = line;
+      note("Bridge", "notification sent through the app channel");
+      return;
+    }
+    if (inAlert) {
+      if (!alertHeader.empty()) {                                
+        note("Mail", alertHeader + " " + line.substr(0, 150));
+        alertHeader.clear();
+      }
+      if (line.find("The TIVIDY Support Team") == 0) inAlert = false;   
+      return;                                                    
+    }
+
+    // mo added: collapse console email into one event
+    if (line.find("[EMAIL SENT]") == 0) {                        
+      note("Adapter", "email handed to the console email adapter");
+      note("Mail", line.substr(0, 200));
+      return;
+    }
     note("Engine", line.substr(0, 200));
   }
 
@@ -275,6 +309,8 @@ struct WebServer::Site {
     ~Capture() {
       cout.rdbuf(oldOut);
       cerr.rdbuf(oldErr);
+      site.inAlert = false;          //reset alert state
+      site.alertHeader.clear();
       istringstream lines(buffer.str());
       string line;
       while (getline(lines, line)) site.addEngineLine(line);

@@ -108,20 +108,16 @@ void WorkflowEngineFacade::sendNotification(int instanceId, const std::map<std::
   const char* mjKey     = getenv("MJ_APIKEY_PUBLIC");
 
   if (resendKey) {
-      std::cout << "[Init] Strategy: Using Resend Adapter\n";
       transport.reset(new ResendEmailAdapter(resendKey, getenv("RESEND_FROM_EMAIL")));
   } 
   else if (brevoKey) {
-      std::cout << "[Init] Strategy: Using Brevo Adapter\n";
       transport.reset(new BrevoEmailAdapter(brevoKey, getenv("BREVO_FROM_EMAIL")));
   } 
   else if (mjKey) {
       bool sandbox = (getenv("MJ_SANDBOX") != nullptr);
-      std::cout << "[Init] Strategy: Using Mailjet Adapter " << (sandbox ? "(SANDBOX)" : "(LIVE)") << "\n";
       transport.reset(new MailjetEmailAdapter(mjKey, getenv("MJ_APIKEY_PRIVATE"), getenv("MJ_FROM_EMAIL"), "TIVIDY Support", sandbox));
   } 
   else {
-      std::cout << "[Init] Missing API credentials. Using Console Adapter.\n";
       transport.reset(new ConsoleEmailAdapter(cout));
   }
 

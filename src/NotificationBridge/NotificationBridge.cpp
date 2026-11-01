@@ -33,7 +33,7 @@ NotificationData ResultNotice::compose() {
     if (context) {
         for (const auto& pair : context->getPayloadData()) {
             if (pair.first == "email" || pair.first == "customer_email") continue;
-
+            if (pair.first == "blueprint_path") continue; // mo added: hide internal file path
             string formattedKey = pair.first;
             std::replace(formattedKey.begin(), formattedKey.end(), '_', ' ');
             if (!formattedKey.empty()) {
@@ -73,13 +73,17 @@ NotificationData DeadlineNotice::compose(){
 /**
  * @brief Mocks email delivery by printing the notification to the terminal.
  */
-bool ConsoleEmailAdapter::sendEmail(string to, string subject, string body) {
-    string email = "";
-    email += "\n--- SIMULATED EMAIL ---\n";
-    email += "To: " + to + "\n";
-    email += "Subject: " + subject + "\n";
-    email += "Body: " + body + "\n";
-    email += "--------------------------\n";
-    cout << email; 
-    return true; 
+bool ConsoleEmailAdapter::sendEmail(string to, string subject, string /*body*/) {
+    // string email = "";
+    // email += "\n--- SIMULATED EMAIL ---\n";
+    // email += "To: " + to + "\n";
+    // email += "Subject: " + subject + "\n";
+    // email += "Body: " + body + "\n";
+    // email += "--------------------------\n";
+    // cout << email; 
+    // return true;
+    
+    //mos version (better)
+    cout << "\n[EMAIL SENT] To: " << to << " | Subject: " << subject << "\n";
+    return true;
 }
