@@ -30,7 +30,6 @@ bool ActionExecutor::undoLastAction() {
   Action *lastAction = actions.back();
   if (!lastAction->isUndoable())
     return false;
-  lastAction->undo();
   lastAction->getReceiver()->setMemento(
       history.getLatestMemento()); // restore the saved state
 

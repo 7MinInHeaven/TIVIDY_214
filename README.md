@@ -8,7 +8,7 @@
 ![C++](https://img.shields.io/badge/C++-11-2ea043?style=for-the-badge&logo=cplusplus&logoColor=white&labelColor=2d333b)
 ![CMake](https://img.shields.io/badge/CMake-3.16+-196c2e?style=for-the-badge&logo=cmake&logoColor=white&labelColor=2d333b)
 ![Docker](https://img.shields.io/badge/Docker-Containerised-2ea043?style=for-the-badge&logo=docker&logoColor=white&labelColor=2d333b)
-![Tests](https://img.shields.io/badge/Tests-28%20passing-196c2e?style=for-the-badge&labelColor=2d333b)
+![Tests](https://img.shields.io/badge/Tests-115%20passing-196c2e?style=for-the-badge&labelColor=2d333b)
 ![Valgrind](https://img.shields.io/badge/Valgrind-0%20leaks-2ea043?style=for-the-badge&labelColor=2d333b)
 
 </div>
