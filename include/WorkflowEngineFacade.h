@@ -12,6 +12,7 @@
 #include "NotificationBridge.h"
 #include "WorkflowScenarioCatalog.h"
 #include "WorkItem.h"
+#include "Command.h"
 #include <cstdlib>
 #include <curl/curl.h>
 #include <iostream>
@@ -37,6 +38,8 @@ class WorkflowService {
       virtual std::string getStatus(int actorId, int instanceId) const = 0;
       virtual std::vector<std::string> getHistory(int actorId, int instanceId) const = 0;
       virtual std::vector<int> listInstanceIds(int actorId) const = 0;
+
+
   };
 
   class WorkflowEngineFacade: public WorkflowService {
@@ -50,6 +53,7 @@ class WorkflowService {
       string status; // Open, Approved, Rejected or Cancelled
       vector<string> history;
       map<string, string> payload;
+
       unique_ptr<RequestChain> chain; // this request's WorkGroups, task states and commands
     };
     Request &find(int instanceId);
@@ -61,6 +65,9 @@ class WorkflowService {
     DatabaseObserver* dbObserver;
     WorkflowScenarioCatalog scenarioCatalog;
     void attachObserverToTree(WorkComponent* component);
+
+    //Thando 
+    void requireActiveOwner(const Request& request, int actorId) const;
 
   public:
     WorkflowEngineFacade();
