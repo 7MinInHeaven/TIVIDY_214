@@ -8,6 +8,7 @@
 #include <vector>
 #include <memory>
 #include <sstream>
+#include <optional>
 
 class WorkComponent;
 class WorkUnit;
@@ -72,8 +73,7 @@ class ProgressReportVisitor : public WorkVisitor{
     std::string badges;
     std::string details;
 
-    std::ostringstream decoratorLine;
-    bool isInDecorated = false;
+    PriorityLevel pendingPriority = PriorityLevel::Normal;
 };
 
 class PriorityCheckerVisitor : public WorkVisitor{

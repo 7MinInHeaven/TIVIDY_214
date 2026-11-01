@@ -2,80 +2,77 @@ body{
   font-family: monospace;
 }
 
+/* Progress tracker */
 .progress-circle {
-    --size: 40px;                 /* override per use, e.g. style="--size:56px" */
+    --size: 40px;                 
     --thickness: 4px;
     --track: #e0e0e0;
     --fill: #76e5b1;
-    --progress: 0%;                /* must include the % sign */
+    --progress: 0%;                
 
     position: relative;
-    flex: none;
     display: inline-flex;
-    flex-direction: column;        /* stack the percentage above the count */
+    flex-direction: column;   
     align-items: center;
     justify-content: center;
+
     width: var(--size);
     height: var(--size);
     border-radius: 50%;
 }
 
-/* The ring is drawn on ::before. The mask cuts out the middle, so no
-   "hole colour" is needed and it works on any background / dark mode. */
 .progress-circle::before {
     content: "";
     position: absolute;
     inset: 0;
     border-radius: 50%;
+    
     background: conic-gradient(var(--fill) var(--progress), var(--track) 0);
     mask: radial-gradient(farthest-side, transparent calc(100% - var(--thickness)), #000 calc(100% - var(--thickness) + 1px));
 } 
 
 .progress-value,
 .done-total {
-    position: relative;            /* keep text above the ring */
-    line-height: 1.1;
+    position: relative;           
     text-align: center;
 }
 
 .progress-value { font-size: calc(var(--size) * 0.30); font-weight: 700; }
 .done-total     { font-size: calc(var(--size) * 0.25); font-weight: 600; color: #818386; margin: 0; }
 
+/* Priority */
 .priority-color,
-.overdue{
-  color: white;
-  border-radius: 15px;
-  padding: 2px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin-left:4px;
+.overdue,
+.deadline{
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 8px;
+  font-weight: 600;;
+  margin-left: 4px;
 }
 
 .priority-color[data-value="0"]{
-  background-color: greenyellow;
+  background-color: #00796b;
 }
 .priority-color[data-value="1"]{
-  background-color: green;
+  background-color: #2e7d32;;
 }
 .priority-color[data-value="2"]{
-  background-color: yellow;
+  background-color: #b45309;
 }
 .priority-color[data-value="3"]{
-  background-color: red;
+  background-color: #c62828;
 }
 .overdue{
-  background-color: darkred;
+  background-color: #7f0000;
 }
-
-
-
+.deadline{
+  background-color: #37474f;
+}
 
 .task-complete{
     color: green;
 }
-
-
-
 
 /* tables */
 .log-table{
@@ -126,4 +123,98 @@ body{
 .name{
   display: flex;
   align-items: center;
+}
+
+/* Group */
+summary {
+  list-style:none;
+  cursor:pointer;
+  user-select: none;
+  display:flex;
+  align-items: center;
+
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+summary::before{
+  content: "";
+  flex:none;
+  width: 0.5em;
+  height: 0.5em;  
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(-45deg);
+  transition: transform 0.15s ease;
+}
+
+details[open] > summary::before{
+  transform: rotate(45deg);
+}
+
+summary::hover{
+  background-color: #eee;
+}
+
+summary:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+details.group {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #eee;
+}
+
+details.group > summary{
+  font-weight: 600;
+}
+
+details.group[open] > summary {
+  border-bottom: 1px solid #fafafa;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+details.group > summary thead {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+details.group > summary .progress-circle {
+  margin-left: auto;
+}
+
+details.group > ul {
+  list-style: none;
+  margin: 0;
+  padding: 8px 12px 8px 20px;
+  display:grid;
+  gap: 6px;
+}
+
+details:not(.group){
+  margin: 4px 0 4px 16px;
+}
+
+details:not(.group) > summary {
+  display: inline-flex;
+  padding: 2px 8px;
+  font-size: 0.9em;
+  border: 1px solid #ccc;
+  background: #fafafa;
+}
+
+details:not(.group)[open] > summary {
+  margin-bottom: 6px;
+}
+
+.rules {
+  margin: 0;
+  padding-left: 1.4em;
 }

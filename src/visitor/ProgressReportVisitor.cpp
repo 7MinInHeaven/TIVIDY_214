@@ -30,7 +30,9 @@ void ProgressReportVisitor::visit(const SubProcess& item){
 }
 
 void ProgressReportVisitor::visit(const WorkUnit& item){
-    outputFile << item.getName() << writePriority(item.getPriority()) << details << badges;
+    PriorityLevel priority = pendingPriority;
+    pendingPriority = PriorityLevel::Normal;
+    outputFile << item.getName() << writePriority(priority) << details << badges;
 
     badges.clear();
     details.clear();
@@ -38,6 +40,7 @@ void ProgressReportVisitor::visit(const WorkUnit& item){
 
 
 void ProgressReportVisitor::visit(const PrioritisedTask& item){
+    pendingPriority = item.getPriority();
     if(item.hasDeadline()){
         if(item.isOverdue()){
             badges += "<span class=\"overdue\">OVERDUE</span>";
@@ -63,6 +66,8 @@ void ProgressReportVisitor::visitGroup(const WorkGroup& item){
 
     std::string myBadges = badges;
     std::string myDetails = details;
+    PriorityLevel myLevel = pendingPriority;
+    pendingPriority = PriorityLevel::Normal;
     badges.clear();
     details.clear();
 
@@ -74,10 +79,11 @@ void ProgressReportVisitor::visitGroup(const WorkGroup& item){
         }
     }
 
+
     outputFile  << "<details class=\"group\">\n"
                 << "<summary>"
                 << "\t<span class=\"name\">" << item.getName() 
-                << writePriority(item.getPriority())
+                << writePriority(myLevel)
                 << myBadges << writeProgressCircle(done, total)
                 << "</span>\n"
                 << "</summary>\n"
