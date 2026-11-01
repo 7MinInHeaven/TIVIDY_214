@@ -8,16 +8,18 @@
 #include <string>
 #include <vector>
 class WorkState;
+class WorkUnit;
 
 /**
  * @brief Snapshot of a task: its id, state and assigned worker.
  * 
- * The constructor is private an donly WorkComponent may create a memento, 
- * so no other class can read or change the saved data.
+ * The constructor and snapshot data are private; only workflow components
+ * participating in the Memento protocol may create or restore a snapshot.
  */
 
 class WorkMemento{
     friend class WorkComponent;
+    friend class WorkUnit;
     private:
         std::string taskId;
         WorkState* currentState;
