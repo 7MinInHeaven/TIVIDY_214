@@ -233,7 +233,9 @@ const WorkflowEngineFacade::Request &WorkflowEngineFacade::find(int instanceId) 
 
 //stores a new request and returns its id; an empty payload is rejected
 int WorkflowEngineFacade::submitRequest(int actorId, const map<string, string> &payload) {
-  return submitRequest(actorId, payload, defaultPath());
+  // mo added a check if the payload specifies a blueprint, otherwise it use default
+  map<string, string>::const_iterator chosen = payload.find("blueprint_path");
+  return submitRequest(actorId, payload, chosen != payload.end() ? chosen->second : defaultPath());
 }
 
 //the request gets its own chain of WorkGroups built from the blueprint; nothing is stored if that fails
@@ -362,6 +364,19 @@ vector<string> WorkflowEngineFacade::getTaskStates(int, int instanceId) const {
     return vector<string>();
   }
   return request.chain->describeTasks();
+}
+
+// mo added to generates the HTML progress report withgabbys stuff, vis pattern
+int WorkflowEngineFacade::writeProgressReport(int, int instanceId, int groupIndex) const {
+  const Request &request = find(instanceId);
+  if (!request.chain) return 0;
+  
+  const vector<WorkGroup *> &groups = request.chain->groups();
+  if (groupIndex >= 0 && static_cast<size_t>(groupIndex) < groups.size()) {
+    ProgressReportVisitor visitor;
+    visitor.createReport(groups[groupIndex]);
+  }
+  return static_cast<int>(groups.size());
 }
 
 

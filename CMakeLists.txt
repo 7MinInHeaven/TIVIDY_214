@@ -23,6 +23,7 @@ include_directories(include)
 #------------------------------------------
 find_package(CURL REQUIRED)
 find_package(nlohmann_json REQUIRED)
+find_package(Threads REQUIRED) # mo
 
 
 # -------------------------------------------------------------
@@ -36,13 +37,14 @@ link_directories(${PQXX_LIBRARY_DIRS})
 # -------------------------------------------------------------
 # Main Application Executable
 # -------------------------------------------------------------
-file(GLOB_RECURSE APP_SOURCES "src/*.cpp")
 add_executable(tividy_app ${APP_SOURCES})
 target_include_directories(tividy_app PRIVATE include ${PQXX_INCLUDE_DIRS})
+target_include_directories(tividy_app SYSTEM PRIVATE third_party) # mo
 target_link_libraries(tividy_app PRIVATE
     ${PQXX_LIBRARIES}
     CURL::libcurl
     nlohmann_json::nlohmann_json
+    Threads::Threads # mo
 )
 # -------------------------------------------------------------
 # GoogleTest Integration (FetchContent for zero-friction setup)
@@ -66,9 +68,11 @@ list(FILTER LIB_SOURCES EXCLUDE REGEX ".*main\\.cpp$")
 
 add_executable(tividy_tests ${TEST_SOURCES} ${LIB_SOURCES})
 target_include_directories(tividy_tests PRIVATE include tests ${PQXX_INCLUDE_DIRS})
+target_include_directories(tividy_tests SYSTEM PRIVATE third_party) # mo added
 target_link_libraries(tividy_tests PRIVATE GTest::gtest_main ${PQXX_LIBRARIES}
     CURL::libcurl
     nlohmann_json::nlohmann_json
+    Threads::Threads # mo added
 )
 
 include(GoogleTest)

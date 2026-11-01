@@ -111,6 +111,11 @@ class WorkflowService {
      * @brief One line per task: number, name, state and the group it belongs to.
      */
     std::vector<std::string> getTaskStates(int actorId, int instanceId) const;
+    /**
+     * @brief Generates an HTML progress report for a specific workflow group.
+     * @return The total number of groups in the request's chain.
+     */
+    int writeProgressReport(int actorId, int instanceId, int groupIndex) const; // mo added
 };
 
 #endif
