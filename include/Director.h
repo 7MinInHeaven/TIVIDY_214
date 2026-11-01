@@ -51,6 +51,16 @@ public:
      * @param[in] data The JSON file that forms the blueprint of Builder
      */
     void construct(const json& data);
+
+    /**
+     * @brief Reads in input from the JSON to determine if items need to be wrapped with priorties
+     * @param[in] data The JSON file that forms the blueprint of Builder
+     */
+
+     /**
+     * @brief Applies the decorators declared on the current WorkUnit node.
+     */
+    void parseDecorators(const json& node);
 };
 
 #endif /* DIRECTOR_H */
