@@ -335,7 +335,8 @@ void WorkflowEngineFacade::undoLastAction(int, int instanceId) {
   int taskId = request.chain->undoLastCompletion();
   if (taskId <0){
     throw logic_error("Nothing to undo");
-  } 
+  }
+  request.chain->completeTask(to_string(actorId), taskId);
   request.history.push_back("undo: task " + to_string(taskId) + " reopened");
 }
 
