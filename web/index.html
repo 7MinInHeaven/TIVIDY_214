@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>TIVIDY</title>
+<style>
+body { font-family: sans-serif; max-width: 900px; margin: 1em auto; }
+td, th { padding: 2px 10px; text-align: left; }
+#msg { color: #b00; min-height: 1.2em; }
+pre { background: #eee; padding: 6px; height: 12em; overflow: auto; }
+</style>
+</head>
+<body>
+<h1>TIVIDY workflow demo</h1>
+<p>Industry <select id="industry"></select> Acting as <select id="person"></select></p>
+<p id="msg"></p>
+<h2>Submit a request</h2>
+<form id="form"></form>
+<h2>Requests this user may see</h2>
+<ul id="list"></ul>
+<h2>Selected request</h2>
+<div id="detail">None selected</div>
+<h2>Trace (audit log)</h2>
+<pre id="trace"></pre>
+<script>
+let boot, selected = null, traceNext = 0;
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => '&#' + c.charCodeAt(0) + ';');
+
+async function api(path, method, body) {
+  const r = await fetch('/api' + path, { method: method || 'GET', headers: { 'X-Participant': $('person').value },
+                                         body: body ? new URLSearchParams(body) : undefined });
+  const j = await r.json();
+  if (!r.ok) throw new Error(r.status + ' - ' + j.error);
+  return j;
+}
+
+async function act(path, body) {
+  $('msg').textContent = '';
+  try { await api(path, 'POST', body); } catch (e) { $('msg').textContent = e.message; }
+  refresh();
+}
+
+function reset() {
+  selected = null;
+  $('detail').textContent = 'None selected';
+  refresh();
+}
+
+function showIndustry() {
+  const ind = boot.industries.find(i => i.id === $('industry').value);
+  $('person').innerHTML = boot.people.filter(p => p.industry === ind.id)
+    .map(p => `<option value="${p.id}">${esc(p.name)} (${esc(p.role)})</option>`).join('');
+  $('form').innerHTML = ind.fields.map(f => esc(f.label) + ': ' + (f.options.length
+    ? `<select name="${f.key}">` + f.options.map(o => `<option>${esc(o)}</option>`).join('') + '</select>'
+    : `<input name="${f.key}">`) + '<br>').join('') + '<button>Submit</button>';
+  reset();
+}
+
+$('form').onsubmit = e => {
+  e.preventDefault();
+  const data = Object.fromEntries(new FormData($('form')));
+  data.industry = $('industry').value;
+  act('/requests', data);
+};
+
+async function refresh() {
+  try {
+    const list = await api('/requests');
+    $('list').innerHTML = list.map(r => `<li><a href="#" onclick="selected=${r.id};refresh();return false">Request ${r.id}</a> - ${esc(r.status)}</li>`).join('') || '<li>none</li>';
+    if (selected) {
+      const r = await api('/requests/' + selected);
+      $('detail').innerHTML = `<b>Request ${r.id}: ${esc(r.status)}</b> ` +
+        ['take', 'approve', 'cancel', 'undo', 'save'].map(a => `<button onclick="act('/requests/${r.id}/${a}')">${a}</button>`).join(' ') +
+        ` <button onclick="act('/requests/${r.id}/reject', {reason: prompt('Reason?') || ''})">reject</button>` +
+        '<table><tr><th>#</th><th>Task</th><th>State</th><th></th></tr>' + r.tasks.map(t =>
+          `<tr><td>${t.id}</td><td>${esc(t.name)}</td><td>${esc(t.status)}</td><td><button onclick="act('/requests/${r.id}/tasks/${t.id}/advance')">advance</button></td></tr>`).join('') +
+        '</table><b>History</b><ul>' + r.history.map(h => `<li>${esc(h)}</li>`).join('') + '</ul>';
+    }
+    const t = await api('/trace?since=' + traceNext);
+    traceNext = t.next;
+    $('trace').textContent += t.lines.map(l => l + '\n').join('');
+  } catch (e) { $('msg').textContent = e.message; }
+}
+
+(async () => {
+  boot = await (await fetch('/api/bootstrap')).json();
+  $('industry').innerHTML = boot.industries.map(i => `<option value="${i.id}">${esc(i.name)}</option>`).join('');
+  $('industry').onchange = showIndustry;
+  $('person').onchange = reset;
+  showIndustry();
+  setInterval(refresh, 2000);
+})();
+</script>
+</body>
+</html>
