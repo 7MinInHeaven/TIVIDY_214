@@ -12,11 +12,26 @@ const int kMaxInputAttempts = 3;
 
 } // namespace
 
+
+/**
+ * @brief Constructs a new Director instance 
+ * 
+ * @param[in] b Pointer to ChainBuilder used to construct components
+ * @param[in,out] i Pointer to the WorkItem where required input data is placed
+ * @param[in] in Flag indicating whether interactive input prompting is enabled
+ */
 Director::Director(ChainBuilder* b, WorkItem* i, bool in): builder(b), item(i), input(in) {}
 
+
+/**
+ * @brief Destroys the Director instance.
+ */
 Director::~Director() {};
 
-
+/**
+ * @brief Reads in input from the JSON to determine if items need to be added to the WorkItem and creates Composite Nodes from the JSON blueprint
+ * @param[in] data The JSON file that forms the blueprint of Builder
+ */
 void Director::construct(const json& data) {
     if (builder == nullptr) 
     {
@@ -72,6 +87,10 @@ void Director::construct(const json& data) {
     }
 }
 
+/**
+ * @brief Take a portion of the JSON file and create the assosiated class and its children
+ * @param[in] node The portion of the JSON file we are using to create the classes
+ */
 void Director::parseNode(const json& node) {
     std::string type;
     if (node.contains("type"))
@@ -87,28 +106,28 @@ void Director::parseNode(const json& node) {
     if (type == "WorkGroup") 
     {
         builder->buildWorkGroup(name);
-        // parseDecorators(node);
         parseChildren(node);
         builder->endGroup();
     } else if (type == "Stage") 
     {
         builder->buildStage(name);
-        // parseDecorators(node);
         parseChildren(node);
         builder->endGroup();
     } else if (type == "SubProcess") 
     {
         builder->buildSubProcess(name);
-        // parseDecorators(node);
         parseChildren(node);
         builder->endGroup();
-    } else
+    } else 
     {
         builder->buildWorkUnit(name);
-        parseDecorators(node);
     }
 }
 
+/**
+ * @brief Determine if a parent has children and if so hand them over to the node parser
+ * @param[in] parent The portion of the JSON file that the contains children Nodes that need to be parsed
+ */
 void Director::parseChildren(const json& parent) 
 {
     if (!parent.contains("children")) {
@@ -118,31 +137,5 @@ void Director::parseChildren(const json& parent)
     for (const auto& child : parent["children"]) 
     {
         parseNode(child);
-    }
-}
-
-/**
- * @brief Applies the decorators declared on the current WorkUnit node.
- */
-void Director::parseDecorators(const json& node)
-{
-    if (!node.contains("decorators")) {
-        return;
-    }
-
-    for (const auto& decorator : node["decorators"]) {
-        const std::string type = decorator.at("type").get<std::string>();
-        std::vector<std::string> requiredKeys;
-        if (decorator.contains("required_keys")) {
-            for (const auto& key : decorator["required_keys"]) {
-                requiredKeys.push_back(key.get<std::string>());
-            }
-        }
-
-        if (requiredKeys.empty()) {
-            builder->addDecorator(type);
-        } else {
-            builder->addDecorator(type, requiredKeys);
-        }
     }
 }
