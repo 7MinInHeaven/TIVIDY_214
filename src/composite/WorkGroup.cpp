@@ -28,7 +28,6 @@ bool WorkGroup::add(WorkComponent* child) {
     }
     for(size_t i = 0; i < children.size(); i++){
         if(children[i] == child) {
-            delete child;
             return false;
         }
         if(children[i]->getName() == child->getName()) {

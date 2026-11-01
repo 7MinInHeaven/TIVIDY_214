@@ -103,7 +103,7 @@ bool WorkComponent::add(WorkComponent* child){
     delete child;
     return false;
 }
-void WorkComponent::remove(WorkComponent*){}
+void WorkComponent::remove(WorkComponent* child){delete child;}
 void WorkComponent::remove(std::string){}
 const std::vector<WorkComponent*> WorkComponent::getChildren() const {return {};}
 
