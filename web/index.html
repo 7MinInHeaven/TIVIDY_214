@@ -1,94 +1,197 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <title>TIVIDY</title>
 <style>
-body { font-family: sans-serif; max-width: 900px; margin: 1em auto; }
-td, th { padding: 2px 10px; text-align: left; }
-#msg { color: #b00; min-height: 1.2em; }
-pre { background: #eee; padding: 6px; height: 12em; overflow: auto; }
+body { margin: 0; font-family: sans-serif; font-size: 14px; background: #f4f4f4; }
+header { color: #fff; padding: 10px 16px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+header button { border: 1px solid #fff; background: transparent; color: #fff; padding: 4px 10px; cursor: pointer; }
+header button.on { background: #fff; color: #000; }
+.right { margin-left: auto; }
+#warn { background: #fff3cd; padding: 4px 16px; font-size: 12px; }
+main { display: grid; grid-template-columns: 300px 1fr 340px; gap: 12px; padding: 12px; }
+section { background: #fff; padding: 10px; border: 1px solid #ddd; overflow: auto; }
+h3 { margin: 8px 0; }
+table { border-collapse: collapse; width: 100%; }
+td, th { padding: 3px 6px; text-align: left; border-bottom: 1px solid #eee; }
+input, select, textarea { width: 100%; box-sizing: border-box; margin-bottom: 6px; }
+button { cursor: pointer; }
+#toast { position: fixed; top: 10px; right: 10px; padding: 10px 14px; color: #fff; display: none; z-index: 9; max-width: 380px; }
+#toast.bad { background: #b00020; } #toast.good { background: #1b6b3a; }
+.chip { padding: 1px 6px; border-radius: 8px; font-size: 11px; background: #ddd; }
+.s-Pending { background: #ddd; } .s-InProgress { background: #ffd54f; } .s-Completed { background: #81c784; }
+.kids { margin-left: 16px; border-left: 2px solid #eee; padding-left: 8px; }
+.leaf { margin: 2px 0; }
+.box { background: #fff3cd; border: 1px solid #e0c060; padding: 6px; margin: 6px 0; }
+.ev { font-size: 12px; margin: 2px 0; } .ev b { background: #333; color: #fff; padding: 0 5px; border-radius: 4px; margin-right: 4px; font-weight: normal; }
+pre { background: #eee; padding: 6px; overflow: auto; max-height: 260px; font-size: 11px; }
 </style>
 </head>
 <body>
-<h1>TIVIDY workflow demo</h1>
-<p>Industry <select id="industry"></select> Acting as <select id="person"></select></p>
-<p id="msg"></p>
-<h2>Submit a request</h2>
-<form id="form"></form>
-<h2>Requests this user may see</h2>
-<ul id="list"></ul>
-<h2>Selected request</h2>
-<div id="detail">None selected</div>
-<h2>Trace (audit log)</h2>
-<pre id="trace"></pre>
+<header id="bar">
+  <b>TIVIDY</b> <span id="tabs"></span>
+  <span class="right">Signed in as <select id="who" style="width:auto"></select></span>
+</header>
+<div id="warn"></div>
+<div id="toast"></div>
+<main>
+  <section>
+    <h3 id="formTitle">New request</h3>
+    <form id="form"></form>
+    <h3>Requests</h3>
+    <table id="list"></table>
+    <details><summary><b>Custom industry (generic engine)</b></summary>
+      <p>Paste any blueprint JSON. It is validated, saved, and becomes a new tab.</p>
+      <textarea id="bpText" rows="9"></textarea>
+      <button onclick="sample()">Insert sample</button> <button onclick="loadBlueprint()">Load as new industry</button>
+    </details>
+  </section>
+  <section><h3>Request details</h3><div id="detail">Select a request</div></section>
+  <section>
+    <h3>What just fired</h3><div id="fired"></div>
+    <h3>Messages sent</h3><div id="outbox"></div>
+    <h3>Database records</h3><div id="db"></div>
+  </section>
+</main>
 <script>
-let boot, selected = null, traceNext = 0;
 const $ = id => document.getElementById(id);
-const esc = s => String(s).replace(/[&<>"]/g, c => '&#' + c.charCodeAt(0) + ';');
+const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => '&#' + c.charCodeAt(0) + ';');
+let boot = null, scenario = null, selected = null, eventsNext = 0, tick = 0, bpShown = false, bpText = '';
+const events = [];
 
-async function api(path, method, body) {
-  const r = await fetch('/api' + path, { method: method || 'GET', headers: { 'X-Participant': $('person').value },
-                                         body: body ? new URLSearchParams(body) : undefined });
-  const j = await r.json();
-  if (!r.ok) throw new Error(r.status + ' - ' + j.error);
+//-------talk to the server (the person in the dropdown is sent with every call)
+async function api(path, method, params, raw) {
+  const opts = { method: method || 'GET', headers: { 'X-Participant': $('who').value || '' } };
+  if (raw !== undefined) opts.body = raw; else if (params) opts.body = new URLSearchParams(params);
+  const r = await fetch('/api' + path, opts);
+  const j = await r.json().catch(() => ({}));
+  if (!r.ok) throw new Error(j.error || ('Error ' + r.status));
   return j;
 }
-
-async function act(path, body) {
-  $('msg').textContent = '';
-  try { await api(path, 'POST', body); } catch (e) { $('msg').textContent = e.message; }
+function toast(text, bad) {
+  const t = $('toast'); t.textContent = text; t.className = bad ? 'bad' : 'good'; t.style.display = 'block';
+  clearTimeout(toast.timer); toast.timer = setTimeout(() => { t.style.display = 'none'; }, 4500);
+}
+async function act(path, params, okText) {
+  try { await api(path, 'POST', params); if (okText) toast(okText); } catch (e) { toast(e.message, true); }
   refresh();
 }
 
-function reset() {
-  selected = null;
-  $('detail').textContent = 'None selected';
+//-------industry tabs, header colour, who is signed in
+function setBoot(b) {
+  boot = b;
+  $('warn').textContent = b.warnings.length ? 'Blueprint warnings: ' + b.warnings.join(' | ') : '';
+  $('warn').style.display = b.warnings.length ? 'block' : 'none';
+  $('tabs').innerHTML = b.scenarios.map((s, i) => `<button id="tab${i}" onclick="showScenario(${i})">${esc(s.label)}</button>`).join('');
+}
+function showScenario(i) {
+  scenario = boot.scenarios[i];
+  $('bar').style.background = scenario.color;
+  boot.scenarios.forEach((s, k) => $('tab' + k).className = k === i ? 'on' : '');
+  const want = new URLSearchParams(location.search).get('as');
+  const people = boot.people.filter(p => p.group === scenario.group);
+  $('who').innerHTML = people.map(p => `<option value="${p.id}" ${String(p.id) === want ? 'selected' : ''}>${esc(p.name)} (${esc(p.role)})</option>`).join('');
+  personChanged();
+}
+function personChanged() {
+  const p = boot.people.find(x => String(x.id) === $('who').value);
+  history.replaceState(null, '', '?as=' + $('who').value);          // each browser tab keeps its own person
+  selected = null; bpShown = false;
+  $('form').style.display = p && p.submit ? 'block' : 'none';
+  $('formTitle').style.display = p && p.submit ? 'block' : 'none';
+  renderForm();
   refresh();
 }
 
-function showIndustry() {
-  const ind = boot.industries.find(i => i.id === $('industry').value);
-  $('person').innerHTML = boot.people.filter(p => p.industry === ind.id)
-    .map(p => `<option value="${p.id}">${esc(p.name)} (${esc(p.role)})</option>`).join('');
-  $('form').innerHTML = ind.fields.map(f => esc(f.label) + ': ' + (f.options.length
-    ? `<select name="${f.key}">` + f.options.map(o => `<option>${esc(o)}</option>`).join('') + '</select>'
-    : `<input name="${f.key}">`) + '<br>').join('') + '<button>Submit</button>';
-  reset();
+//-------the form is built from the blueprint's required_inputs; "(A / B / C)" in a prompt becomes a dropdown
+function renderForm() {
+  $('form').innerHTML = scenario.inputs.map(f => {
+    const m = f.prompt.match(/\(([^()]*\/[^()]*)\)\s*$/);
+    const field = m ? `<select name="${esc(f.key)}">${m[1].split('/').map(o => `<option>${esc(o.trim())}</option>`).join('')}</select>`
+                    : `<input name="${esc(f.key)}">`;
+    return `<label>${esc(f.prompt)}</label>${field}`;
+  }).join('') + '<button>Submit request</button>';
 }
-
-$('form').onsubmit = e => {
+$('form').onsubmit = async e => {
   e.preventDefault();
   const data = Object.fromEntries(new FormData($('form')));
-  data.industry = $('industry').value;
-  act('/requests', data);
+  data.scenario = scenario.id;
+  try { const r = await api('/submit', 'POST', data); toast('Request ' + r.id + ' submitted'); selected = r.id; }
+  catch (err) { toast(err.message, true); }
+  refresh();
 };
 
+//-------list, details, task tree
+function tree(n, id, canDo) {
+  if (n.type === 'WorkUnit') {
+    const btn = canDo && n.state !== 'Completed' ? `<button onclick="act('/requests/${id}/tasks/${n.id}/complete',null,'Task ${n.id} completed')">Complete task</button>` : '';
+    return `<div class="leaf">${n.id}. ${esc(n.name)} <span class="chip s-${esc(n.state).replace(' ', '')}">${esc(n.state)}</span> ${btn}</div>`;
+  }
+  return `<div><b>${esc(n.type)}</b> ${esc(n.name)}<div class="kids">${(n.children || []).map(c => tree(c, id, canDo)).join('')}</div></div>`;
+}
+function reject(id) { act('/requests/' + id + '/reject', { reason: prompt('Reason?') || 'no reason given' }, 'Request rejected'); }
+async function showBlueprint(id) {
+  if (bpShown) { bpShown = false; } else { bpText = await (await fetch('/api/requests/' + id + '/blueprint', { headers: { 'X-Participant': $('who').value } })).text(); bpShown = true; }
+  refresh();
+}
+async function showDetail(id) {
+  let d;
+  try { d = await api('/requests/' + id); } catch (e) { selected = null; $('detail').textContent = 'Select a request'; return; }
+  const c = d.can, b = (cond, path, label, ok) => cond ? `<button onclick="act('/requests/${id}/${path}',null,'${ok}')">${label}</button> ` : '';
+  $('detail').innerHTML = `<b>Request ${d.id}: ${esc(d.status)}</b> ${esc(d.lock)} (tasks ${esc(d.progress)})<br>` +
+    b(c.take, 'take', 'Take ownership', 'Ownership taken') + b(c.undo, 'undo', 'Undo last step', 'Undone') + b(c.save, 'save', 'Save progress', 'Progress saved') +
+    b(c.cancel, 'cancel', 'Cancel', 'Cancelled') +
+    (d.awaitingApproval ? `<div class="box"><b>Requires approval</b> every task is complete.<br>` +
+      (c.approve ? `<button onclick="act('/requests/${id}/approve',null,'Request approved')">Approve</button> ` : '') +
+      (c.reject ? `<button onclick="reject(${id})">Reject</button>` : '') + `</div>` : '') +
+    `<p><a href="/api/requests/${id}/report?as=${$('who').value}">Download progress report</a> | <a href="#" onclick="showBlueprint(${id});return false">${bpShown ? 'Hide' : 'Show'} blueprint</a></p>` +
+    (bpShown ? `<pre>${esc(bpText)}</pre>` : '') +
+    `<h4>Task tree (cloned from the blueprint)</h4>` + d.tree.map(n => tree(n, id, c.complete)).join('') +
+    `<h4>Request data</h4><pre>${esc(JSON.stringify(d.data, null, 1))}</pre>` +
+    `<h4>History</h4><ul>${d.history.map(h => `<li>${esc(h)}</li>`).join('')}</ul>`;
+}
+function renderEvents() {
+  const recent = events.slice(-60).reverse();
+  $('fired').innerHTML = recent.map(e => `<div class="ev"><b>${esc(e.p)}</b>${esc(e.t)}</div>`).join('');
+  const mail = events.filter(e => e.p === 'Engine' && /alert|email|mailjet|brevo|resend|notice/i.test(e.t)).slice(-8).reverse();
+  $('outbox').innerHTML = mail.map(e => `<div class="ev">${esc(e.t)}</div>`).join('') || '<div class="ev">nothing sent yet</div>';
+}
 async function refresh() {
+  if (!boot || !$('who').value) return;
   try {
-    const list = await api('/requests');
-    $('list').innerHTML = list.map(r => `<li><a href="#" onclick="selected=${r.id};refresh();return false">Request ${r.id}</a> - ${esc(r.status)}</li>`).join('') || '<li>none</li>';
-    if (selected) {
-      const r = await api('/requests/' + selected);
-      $('detail').innerHTML = `<b>Request ${r.id}: ${esc(r.status)}</b> ` +
-        ['take', 'approve', 'cancel', 'undo', 'save'].map(a => `<button onclick="act('/requests/${r.id}/${a}')">${a}</button>`).join(' ') +
-        ` <button onclick="act('/requests/${r.id}/reject', {reason: prompt('Reason?') || ''})">reject</button>` +
-        '<table><tr><th>#</th><th>Task</th><th>State</th><th></th></tr>' + r.tasks.map(t =>
-          `<tr><td>${t.id}</td><td>${esc(t.name)}</td><td>${esc(t.status)}</td><td><button onclick="act('/requests/${r.id}/tasks/${t.id}/advance')">advance</button></td></tr>`).join('') +
-        '</table><b>History</b><ul>' + r.history.map(h => `<li>${esc(h)}</li>`).join('') + '</ul>';
+    const rows = (await api('/requests')).filter(r => r.scenario === scenario.id);
+    $('list').innerHTML = '<tr><th>#</th><th>Status</th><th>Tasks</th><th></th></tr>' + (rows.map(r =>
+      `<tr><td>${r.id}</td><td>${esc(r.status)} <i>${esc(r.lock)}</i></td><td>${esc(r.progress)}</td><td>` +
+      (r.can.take ? `<button onclick="act('/requests/${r.id}/take',null,'Ownership taken')">Take ownership</button> ` : '') +
+      `<button onclick="selected=${r.id};refresh()">${r.can.complete ? 'Work on claim' : 'View details'}</button></td></tr>`).join('') ||
+      '<tr><td colspan="4">nothing visible to this person</td></tr>');
+    if (selected) await showDetail(selected); else $('detail').textContent = 'Select a request';
+    const ev = await api('/events?since=' + eventsNext);
+    eventsNext = ev.next; ev.events.forEach(e => events.push(e)); renderEvents();
+    if (tick++ % 3 === 0) {
+      const db = await api('/db');
+      $('db').innerHTML = `<div class="ev"><b>${esc(db.adapter)}</b></div>` + db.rows.map(r => `<div class="ev">${esc(r)}</div>`).join('');
     }
-    const t = await api('/trace?since=' + traceNext);
-    traceNext = t.next;
-    $('trace').textContent += t.lines.map(l => l + '\n').join('');
-  } catch (e) { $('msg').textContent = e.message; }
+  } catch (e) { $('detail').textContent = e.message; }
+}
+
+//-------generic industry
+function sample() {
+  $('bpText').value = JSON.stringify({ workflow_name: 'Pet Adoption', required_inputs: [{ key: 'applicant_name', prompt: 'Enter your full name' },
+    { key: 'pet_type', prompt: 'Pick a pet (Dog / Cat / Rabbit)' }], chain: [{ type: 'WorkGroup', name: 'Adoption', children: [
+    { type: 'Stage', name: 'Application', children: [{ type: 'WorkUnit', name: 'Check the application' }, { type: 'WorkUnit', name: 'Home visit' }] },
+    { type: 'Stage', name: 'Hand-over', children: [{ type: 'WorkUnit', name: 'Sign the adoption form' }] }] }] }, null, 2);
+}
+async function loadBlueprint() {
+  try { setBoot(await api('/blueprints', 'POST', null, $('bpText').value)); showScenario(boot.scenarios.length - 1); toast('New industry added'); }
+  catch (e) { toast(e.message, true); }
 }
 
 (async () => {
-  boot = await (await fetch('/api/bootstrap')).json();
-  $('industry').innerHTML = boot.industries.map(i => `<option value="${i.id}">${esc(i.name)}</option>`).join('');
-  $('industry').onchange = showIndustry;
-  $('person').onchange = reset;
-  showIndustry();
+  setBoot(await (await fetch('/api/bootstrap')).json());
+  $('who').onchange = personChanged;
+  showScenario(0);
   setInterval(refresh, 2000);
 })();
 </script>
