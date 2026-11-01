@@ -8,6 +8,7 @@ TEST(CompositeTest, AddGetRemoveChildrenCorrectly) {
     WorkUnit* unit = new WorkUnit("Test Unit One");
 
     group.add(stage);    
+    group.add(stage);
     group.add(new Stage("Test Stage Two"));
     group.add(new Stage("Test Stage Two"));
     group.getChildren();

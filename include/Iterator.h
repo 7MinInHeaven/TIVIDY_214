@@ -1,3 +1,6 @@
+#ifndef ITERATOR_H
+#define ITERATOR_H
+
 #include <string>
 #include <stack>
 #include <functional>
@@ -9,6 +12,7 @@
 
 class WorkIterator {
     public:
+    virtual ~WorkIterator() = default;
     virtual void first() = 0;
     virtual void next() = 0;
     virtual bool isDone() = 0;
@@ -46,9 +50,6 @@ class FilterIterator : public DepthFirstIterator{
 class StateIterator : public FilterIterator {
     public:
     StateIterator(WorkComponent* root, std::string state);
-
-    private:
-    std::string state;
 };
 
 class IncompleteIterator : public FilterIterator {
@@ -56,7 +57,7 @@ class IncompleteIterator : public FilterIterator {
     IncompleteIterator(WorkComponent* root);
 };
 
-class PriorityIterator : WorkIterator{
+class PriorityIterator : public WorkIterator{
     public:
     PriorityIterator(WorkComponent* root);
     void first() override;
@@ -69,3 +70,5 @@ class PriorityIterator : WorkIterator{
     size_t index = 0;
     std::vector<std::pair<int, WorkComponent*>> elements;
 };
+
+#endif /* ITERATOR_H */
