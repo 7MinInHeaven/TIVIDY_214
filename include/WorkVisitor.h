@@ -7,6 +7,8 @@
 #include <string>
 #include <vector>
 #include <memory>
+#include <sstream>
+#include <optional>
 
 class WorkComponent;
 class WorkUnit;
@@ -34,7 +36,7 @@ public:
 
 class ProgressReportVisitor : public WorkVisitor{
     public:
-    ProgressReportVisitor();
+    ProgressReportVisitor(std::string filename = "report");
     ~ProgressReportVisitor() override;
     void visit(const WorkUnit& item) override;
     void visit(const WorkGroup& item) override;
@@ -55,6 +57,7 @@ class ProgressReportVisitor : public WorkVisitor{
     std::string writeDoneCheck(bool complete);
 
     void writeChildren(std::vector<WorkComponent*>& children); 
+    std::string writePriority(PriorityLevel level);
     std::string writeLog(const AuditLog* log);
     std::string writeRules(const std::vector<std::shared_ptr<const ValidationRule>>& rules);
 
@@ -64,7 +67,13 @@ class ProgressReportVisitor : public WorkVisitor{
     std::string formatSeconds(long totalSeconds);
 
     //file
-    std::ofstream output;
+    std::ofstream outputFile;
+
+    //decorator shenanigans
+    std::string badges;
+    std::string details;
+
+    PriorityLevel pendingPriority = PriorityLevel::Normal;
 };
 
 class PriorityCheckerVisitor : public WorkVisitor{
