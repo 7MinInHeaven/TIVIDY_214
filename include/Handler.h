@@ -6,7 +6,6 @@
 #ifndef HANDLER_H
 #define HANDLER_H
 
-
 #include <string>
 #include "WorkItem.h"
 
