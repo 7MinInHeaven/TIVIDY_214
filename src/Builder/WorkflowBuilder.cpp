@@ -3,9 +3,19 @@
 #include <memory>
 #include <stdexcept>
 
+/**
+ * @brief Constructs a new WorkflowBuilder instance
+ */
 WorkflowBuilder::WorkflowBuilder() {}
+
+/**
+ * @brief Destroys the WorkflowBuilder instance.
+ */
 WorkflowBuilder::~WorkflowBuilder() {}
 
+/**
+ * @brief Returns the group that nodes currently being processed will be attached to
+ */
 WorkGroup* WorkflowBuilder::currentGroup() const 
 {
     if (stack.empty()) {
@@ -14,6 +24,10 @@ WorkGroup* WorkflowBuilder::currentGroup() const
     return stack.back();
 }
 
+/**
+ * @brief Links WorkGroups together either in a Chain of Responsibility or Links subtasks to a WorkGroup
+ * @param[in] group The WorkGroup that will either be attached to the list or will be attached to another Workgroup
+ */
 void WorkflowBuilder::attach(WorkGroup* group)
 {
     if (stack.empty()) 
@@ -38,6 +52,9 @@ void WorkflowBuilder::attach(WorkGroup* group)
     stack.push_back(group);
 }
 
+/**
+ * @brief Clears the current list of WorkGroups and currently processed sub-tasks
+ */
 void WorkflowBuilder::reset()
 {
     head = nullptr;
@@ -46,27 +63,40 @@ void WorkflowBuilder::reset()
     stack.clear();
 }
 
+/**
+ * @brief Create a new WorkGroup instance and attach it to either the main list of steps or to another WorkGroup
+ * @param[in] name The name of the WorkGroup to be created
+ */
 void WorkflowBuilder::buildWorkGroup(const std::string& name)
 {
     WorkGroup* group = new WorkGroup(name);
     attach(group);
 }
     
-
+/**
+ * @brief Create a Stage instance and links it to a WorkGroup 
+ * @param[in] name The name of the Stage to be created
+ */
 void WorkflowBuilder::buildStage(const std::string& name)
 {
     Stage* stage = new Stage(name);
     attach(stage);
 }
     
-
+/**
+ * @brief Create a SubProcess instance and links it to a WorkGroup 
+ * @param[in] name The name of the SubProcess to be created
+ */
 void WorkflowBuilder::buildSubProcess(const std::string& name) 
 {
     SubProcess* sub = new SubProcess(name);
     attach(sub);
 }
     
-
+/**
+ * @brief Create a WorkUnit instance and links it to a WorkGroup 
+ * @param[in] name The name of the WorkUnit to be created
+ */
 void WorkflowBuilder::buildWorkUnit(const std::string& name)
 {
     WorkGroup* parent = currentGroup();
@@ -80,6 +110,7 @@ void WorkflowBuilder::buildWorkUnit(const std::string& name)
     
 /**
  * @brief Wraps the most recently added child in the active composite.
+ * @param[in] type The type of Decorator that needs to be made
  */
 void WorkflowBuilder::addDecorator(const std::string& type)
 {
@@ -87,6 +118,11 @@ void WorkflowBuilder::addDecorator(const std::string& type)
     addDecorator(type, noRequiredKeys);
 }
 
+/**
+ * @brief Wraps the most recently added child in the active composite.
+ * @param[in] type The type of Decorator that needs to be made
+ * @param[in] requiredKeys The keys needed to instantiate the Decorator
+ */
 void WorkflowBuilder::addDecorator(
     const std::string& type, const std::vector<std::string>& requiredKeys)
 {
@@ -125,6 +161,9 @@ void WorkflowBuilder::addDecorator(
     parent->children.back() = decorated.release();
 }
 
+/**
+ * @brief Pops sub-tasks off a stack to manage which sub-tasks are linked to which parents
+ */
 void WorkflowBuilder::endGroup() 
 {
     if (!stack.empty()) 
@@ -133,12 +172,17 @@ void WorkflowBuilder::endGroup()
     }
 }
     
-    
+/**
+ * @brief Returns the start of the chain of objects 
+ */
 Handler* WorkflowBuilder::getResult()
 {
     return head;
 }
 
+/**
+ * @brief Returns the high level of steps (WorkGroups)
+ */
 std::vector<WorkGroup*> WorkflowBuilder::getWorkGroups()
 {
     return workGroups;
