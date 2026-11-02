@@ -1,0 +1,5 @@
+<map id="WorkflowBuilder" name="WorkflowBuilder">
+<area shape="rect" id="Node000001" title="Concrete Builder that assembles top&#45;level WorkGroup chains and nested Composite hierarchies." alt="" coords="5,319,161,624"/>
+<area shape="rect" id="Node000002" href="$classChainBuilder.html" title="Abstract builder that constructs a chain of WorkGroups and their children." alt="" coords="11,5,156,271"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="86,285,86,319,81,319,81,285"/>
+</map>

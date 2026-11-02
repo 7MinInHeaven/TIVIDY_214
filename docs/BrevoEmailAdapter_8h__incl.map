@@ -1,0 +1,17 @@
+<map id="include/BrevoEmailAdapter.h" name="include/BrevoEmailAdapter.h">
+<area shape="rect" id="Node000001" title="Adapter for the Brevo (formerly Sendinblue) API." alt="" coords="223,5,433,31"/>
+<area shape="rect" id="Node000002" href="$NotificationBridge_8h.html" title="Defines the Bridge pattern for the notification subsystem." alt="" coords="185,79,335,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="319,33,283,70,279,67,315,29"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="317,225,376,251"/>
+<area shape="poly" id="edge8_Node000001_Node000003" title=" " alt="" coords="336,30,351,78,355,151,352,212,347,212,350,151,345,79,331,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="277,102,300,123,322,151,336,181,345,211,340,213,331,183,318,153,296,127,274,106"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,152,85,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="226,107,94,150,92,145,225,101"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="109,152,187,177"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="243,106,180,147,177,142,241,102"/>
+<area shape="rect" id="Node000006" href="$WorkItem_8h.html" title=" " alt="" coords="211,152,309,177"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="263,104,263,138,257,138,257,104"/>
+<area shape="poly" id="edge7_Node000006_Node000003" title=" " alt="" coords="276,175,324,214,320,219,272,179"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="235,225,285,251"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="263,178,263,212,257,212,257,178"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="Action" name="Action">
+<area shape="rect" id="Node000001" title="Command interface: one action that can be run on a task." alt="" coords="265,5,383,151"/>
+<area shape="rect" id="Node000002" href="$classAssignTaskCommand.html" title=" " alt="" coords="5,199,195,324"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="256,137,178,201,175,196,253,133"/>
+<area shape="rect" id="Node000003" href="$classCompleteTaskCommand.html" title=" " alt="" coords="219,199,429,324"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="327,164,327,198,321,198,321,164"/>
+<area shape="rect" id="Node000004" href="$classStartTaskCommand.html" title=" " alt="" coords="453,199,630,324"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="395,135,469,196,466,201,392,139"/>
+</map>

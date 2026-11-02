@@ -1,0 +1,12 @@
+<map id="src/Chain/Handler.cpp" name="src/Chain/Handler.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,168,31"/>
+<area shape="rect" id="Node000002" href="$Handler_8h.html" title="Abstract handler for the Chain of Responsibility pattern." alt="" coords="45,79,129,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,31,89,65,84,65,84,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="19,225,77,251"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="86,105,73,153,57,213,52,211,68,151,81,103"/>
+<area shape="rect" id="Node000004" href="$WorkItem_8h.html" title=" " alt="" coords="82,152,179,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="96,103,119,139,114,142,92,106"/>
+<area shape="poly" id="edge5_Node000004_Node000003" title=" " alt="" coords="119,179,74,218,70,214,116,175"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="105,225,156,251"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="133,178,133,212,128,212,128,178"/>
+</map>

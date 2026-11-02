@@ -1,0 +1,11 @@
+<map id="EmailTransport" name="EmailTransport">
+<area shape="rect" id="Node000001" title="The Target interface in the Adapter Pattern." alt="" coords="311,5,457,91"/>
+<area shape="rect" id="Node000002" href="$classBrevoEmailAdapter.html" title="A Concrete Strategy/Adapter that sends emails via the Brevo REST API." alt="" coords="5,139,171,244"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="299,88,184,141,172,147,170,142,182,136,297,83"/>
+<area shape="rect" id="Node000003" href="$classConsoleEmailAdapter.html" title="A Concrete Adapter for testing and offline fallback." alt="" coords="195,149,373,234"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="349,103,316,150,311,147,345,100"/>
+<area shape="rect" id="Node000004" href="$classMailjetEmailAdapter.html" title=" " alt="" coords="398,139,570,244"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="424,100,449,137,445,140,419,103"/>
+<area shape="rect" id="Node000005" href="$classResendEmailAdapter.html" title="A Concrete Strategy/Adapter that sends emails via the Resend REST API." alt="" coords="594,139,769,244"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="471,84,584,136,595,142,593,147,582,141,469,89"/>
+</map>

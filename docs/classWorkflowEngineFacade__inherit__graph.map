@@ -1,0 +1,5 @@
+<map id="WorkflowEngineFacade" name="WorkflowEngineFacade">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,339,204,604"/>
+<area shape="rect" id="Node000002" href="$classWorkflowService.html" title=" " alt="" coords="26,5,183,291"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,304,107,338,102,338,102,304"/>
+</map>

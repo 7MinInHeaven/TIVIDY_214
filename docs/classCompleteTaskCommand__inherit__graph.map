@@ -1,0 +1,5 @@
+<map id="CompleteTaskCommand" name="CompleteTaskCommand">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,199,215,324"/>
+<area shape="rect" id="Node000002" href="$classAction.html" title="Command interface: one action that can be run on a task." alt="" coords="51,5,169,151"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="113,164,113,198,107,198,107,164"/>
+</map>

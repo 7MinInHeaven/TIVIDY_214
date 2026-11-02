@@ -1,0 +1,11 @@
+<map id="Notification" name="Notification">
+<area shape="rect" id="Node000001" title="The Abstraction in the Bridge Pattern." alt="" coords="183,417,309,543"/>
+<area shape="rect" id="Node000002" href="$classNotificationChannel.html" title="The Implementor interface in the Bridge Pattern." alt="" coords="5,195,183,280"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="115,279,142,334,176,392,184,403,179,406,172,395,137,336,110,281"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="207,205,285,270"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="249,270,249,401,243,401,243,270"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="181,5,311,85"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="249,99,249,204,243,204,243,99"/>
+<area shape="rect" id="Node000005" href="$classWorkItem.html" title="Represents a generic payload data container moving through the workflow." alt="" coords="310,135,451,340"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="375,341,366,369,354,395,323,431,319,427,349,392,361,367,369,339"/>
+</map>
