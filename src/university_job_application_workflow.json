@@ -1,0 +1,207 @@
+{
+  "workflow_name": "University Job Application Processing Workflow",
+  "required_inputs": [
+    {
+      "key": "applicant_name",
+      "prompt": "Enter the applicant's full name"
+    },
+    {
+      "key": "applicant_email",
+      "prompt": "Enter the applicant's email address"
+    },
+    {
+      "key": "position_title",
+      "prompt": "Enter the position the applicant is applying for"
+    },
+    {
+      "key": "target_department",
+      "prompt": "Enter the department the position belongs to"
+    },
+    {
+      "key": "supporting_documents",
+      "prompt": "Enter the supporting documents submitted (e.g. CV, cover letter, certificates)"
+    }
+  ],
+  "chain": [
+    {
+      "type": "WorkGroup",
+      "name": "University Job Application Process",
+      "children": [
+        {
+          "type": "Stage",
+          "name": "Applicant Details Collection",
+          "children": [
+            {
+              "type": "SubProcess",
+              "name": "Personal Information Capture",
+              "children": [
+                {
+                  "type": "WorkUnit",
+                  "name": "Collect Applicant Name and Contact Details"
+                },
+                {
+                  "type": "WorkUnit",
+                  "name": "Collect Applicant Qualifications and Experience"
+                }
+              ]
+            },
+            {
+              "type": "SubProcess",
+              "name": "Position Selection",
+              "children": [
+                {
+                  "type": "WorkUnit",
+                  "name": "Record Position Applied For"
+                },
+                {
+                  "type": "WorkUnit",
+                  "name": "Record Target Department"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Stage",
+          "name": "Application Validation",
+          "children": [
+            {
+              "type": "SubProcess",
+              "name": "Completeness Check",
+              "children": [
+                {
+                  "type": "WorkUnit",
+                  "name": "Verify All Required Fields Are Filled"
+                },
+                {
+                  "type": "WorkUnit",
+                  "name": "Verify Contact Details Are Well Formed"
+                }
+              ]
+            },
+            {
+              "type": "SubProcess",
+              "name": "Eligibility Check",
+              "children": [
+                {
+                  "type": "WorkUnit",
+                  "name": "Check Minimum Qualification Requirements"
+                },
+                {
+                  "type": "WorkUnit",
+                  "name": "Check for Duplicate Applications"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Stage",
+          "name": "Supporting Document Review",
+          "children": [
+            {
+              "type": "SubProcess",
+              "name": "Document Verification",
+              "children": [
+                {
+                  "type": "WorkUnit",
+                  "name": "Verify Curriculum Vitae"
+                },
+                {
+                  "type": "WorkUnit",
+                  "name": "Verify Academic Certificates"
+                },
+                {
+                  "type": "WorkUnit",
+                  "name": "Verify Reference Letters"
+                }
+              ]
+            },
+            {
+              "type": "SubProcess",
+              "name": "Document Assessment",
+              "children": [
+                {
+                  "type": "WorkUnit",
+                  "name": "Assess Document Authenticity"
+                },
+                {
+                  "type": "WorkUnit",
+                  "name": "Record Document Review Findings"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Stage",
+          "name": "Department Routing",
+          "children": [
+            {
+              "type": "SubProcess",
+              "name": "Department Assignment",
+              "children": [
+                {
+                  "type": "WorkUnit",
+                  "name": "Match Application to Department"
+                },
+                {
+                  "type": "WorkUnit",
+                  "name": "Forward Application to Department Hiring Committee"
+                }
+              ]
+            },
+            {
+              "type": "SubProcess",
+              "name": "Departmental Decision",
+              "children": [
+                {
+                  "type": "WorkUnit",
+                  "name": "Review Application by Hiring Committee"
+                },
+                {
+                  "type": "WorkUnit",
+                  "name": "Record Hiring Committee Decision"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Stage",
+          "name": "Applicant Notification",
+          "children": [
+            {
+              "type": "SubProcess",
+              "name": "Outcome Communication",
+              "children": [
+                {
+                  "type": "WorkUnit",
+                  "name": "Prepare Outcome Notification"
+                },
+                {
+                  "type": "WorkUnit",
+                  "name": "Send Outcome Notification to Applicant"
+                }
+              ]
+            },
+            {
+              "type": "SubProcess",
+              "name": "Application Closure",
+              "children": [
+                {
+                  "type": "WorkUnit",
+                  "name": "Archive Application Record"
+                },
+                {
+                  "type": "WorkUnit",
+                  "name": "Close Application Case"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

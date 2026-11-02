@@ -1,0 +1,17 @@
+<map id="src/Database observeradapterstrategy/PostgresAdapter.cpp" name="src/Database observeradapterstrategy/PostgresAdapter.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="40,5,312,45"/>
+<area shape="rect" id="Node000002" href="$PostgresAdapter_8h.html" title="Declares the Adapter and ConcreteStrategy for Cloud PostgreSQL." alt="" coords="106,93,246,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="179,46,179,79,173,79,173,46"/>
+<area shape="rect" id="Node000003" href="$ExternalDatabase_8h.html" title="Declares the abstract Target (Adapter pattern) and Abstract Strategy (Strategy pattern) interface for..." alt="" coords="23,167,174,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="165,121,123,159,120,155,162,117"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="69,240,128,265"/>
+<area shape="poly" id="edge8_Node000002_Node000004" title=" " alt="" coords="107,116,80,123,55,134,32,149,13,168,9,177,8,186,18,203,37,218,60,232,57,236,33,223,14,206,3,187,4,176,9,165,28,144,52,129,79,118,105,111"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="222,240,285,265"/>
+<area shape="poly" id="edge9_Node000002_Node000005" title=" " alt="" coords="247,116,289,134,308,148,324,165,329,185,321,204,306,220,288,234,285,230,302,216,317,201,323,184,319,168,305,152,287,139,245,121"/>
+<area shape="rect" id="Node000006" href="$PostgresAPI_8h.html" title="Declares the PostgreSQL Adaptee wrapping low&#45;level libpq C API calls." alt="" coords="198,167,309,192"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="190,117,232,155,229,159,187,121"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="101,192,101,226,96,226,96,192"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="125,190,217,232,215,237,122,194"/>
+<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="230,194,138,237,135,232,227,190"/>
+<area shape="poly" id="edge7_Node000006_Node000005" title=" " alt="" coords="256,192,256,226,251,226,251,192"/>
+</map>

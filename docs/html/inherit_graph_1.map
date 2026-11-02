@@ -1,0 +1,9 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$classAction.html" title="Command interface: one action that can be run on a task." alt="" coords="5,55,68,80"/>
+<area shape="rect" id="Node000001" href="$classAssignTaskCommand.html" title=" " alt="" coords="126,5,287,31"/>
+<area shape="poly" id="edge1_Node000000_Node000001" title=" " alt="" coords="80,50,115,39,155,28,157,33,117,45,82,55"/>
+<area shape="rect" id="Node000002" href="$classCompleteTaskCommand.html" title=" " alt="" coords="116,55,297,80"/>
+<area shape="poly" id="edge2_Node000000_Node000002" title=" " alt="" coords="82,65,116,65,116,70,82,70"/>
+<area shape="rect" id="Node000003" href="$classStartTaskCommand.html" title=" " alt="" coords="132,104,281,129"/>
+<area shape="poly" id="edge3_Node000000_Node000003" title=" " alt="" coords="82,78,117,89,161,101,159,107,115,94,80,83"/>
+</map>

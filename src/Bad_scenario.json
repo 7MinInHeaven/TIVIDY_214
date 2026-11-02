@@ -1,0 +1,11 @@
+{
+  "workflow_name": "BAd scenario",
+  "required_inputs": [],
+  "chain": [
+    {
+      "type": "NotARealWorkflowNode",
+      "name": "This must fail validation",
+      "children": []
+    }
+  ]
+}

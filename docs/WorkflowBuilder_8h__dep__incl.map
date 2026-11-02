@@ -1,0 +1,9 @@
+<map id="include/WorkflowBuilder.h" name="include/WorkflowBuilder.h">
+<area shape="rect" id="Node000001" title="Concrete Builder declaration for constructing chained composite workflows." alt="" coords="266,5,457,31"/>
+<area shape="rect" id="Node000002" href="$WorkflowBuilder_8cpp.html" title=" " alt="" coords="5,86,232,111"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="314,37,155,89,153,83,312,32"/>
+<area shape="rect" id="Node000003" href="$RequestChain_8cpp.html" title=" " alt="" coords="256,86,467,111"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="364,44,364,86,359,86,359,44"/>
+<area shape="rect" id="Node000004" href="$WorkflowEngineFacade_8cpp.html" title=" " alt="" coords="490,79,689,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="408,33,535,76,534,81,406,38"/>
+</map>

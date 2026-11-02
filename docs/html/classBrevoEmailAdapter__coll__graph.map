@@ -1,0 +1,5 @@
+<map id="BrevoEmailAdapter" name="BrevoEmailAdapter">
+<area shape="rect" id="Node000001" title="A Concrete Strategy/Adapter that sends emails via the Brevo REST API." alt="" coords="5,139,171,244"/>
+<area shape="rect" id="Node000002" href="$classEmailTransport.html" title="The Target interface in the Adapter Pattern." alt="" coords="15,5,161,91"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="91,104,91,138,85,138,85,104"/>
+</map>

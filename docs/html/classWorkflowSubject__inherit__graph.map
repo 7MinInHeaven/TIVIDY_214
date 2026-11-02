@@ -1,0 +1,21 @@
+<map id="WorkflowSubject" name="WorkflowSubject">
+<area shape="rect" id="Node000001" title="Subject participant in the Observer design pattern." alt="" coords="497,5,655,151"/>
+<area shape="rect" id="Node000002" href="$classWorkComponent.html" title="Abstract inteface for composite and leaf components." alt="" coords="488,199,664,584"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="579,164,579,199,573,199,573,164"/>
+<area shape="rect" id="Node000003" href="$classTaskDecorator.html" title=" " alt="" coords="254,642,397,927"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="483,543,399,673,395,670,478,540"/>
+<area shape="rect" id="Node000007" href="$classWorkGroup.html" title="Composite, owns and manages child components instantiable but still acts as interface for other compo..." alt="" coords="508,632,644,937"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="579,598,579,632,573,632,573,598"/>
+<area shape="rect" id="Node000010" href="$classWorkUnit.html" title="Leaf: single unit of work that can be assigned, started and completed." alt="" coords="668,712,809,857"/>
+<area shape="poly" id="edge9_Node000002_Node000010" title=" " alt="" coords="664,596,711,711,706,713,659,598"/>
+<area shape="rect" id="Node000004" href="$classAuditedTask.html" title=" " alt="" coords="5,1045,123,1191"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="246,863,190,922,137,987,100,1046,96,1044,132,984,186,918,242,859"/>
+<area shape="rect" id="Node000005" href="$classPrioritisedTask.html" title=" " alt="" coords="147,985,331,1251"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="287,941,276,986,271,985,282,940"/>
+<area shape="rect" id="Node000006" href="$classValidatedTask.html" title=" " alt="" coords="355,1005,511,1231"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="378,940,399,1004,394,1006,373,941"/>
+<area shape="rect" id="Node000008" href="$classStage.html" title="Composite class, sits below WorkGroup, above SubProcess." alt="" coords="535,1065,617,1171"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="579,951,579,1065,573,1065,573,951"/>
+<area shape="rect" id="Node000009" href="$classSubProcess.html" title="Composite class, sits below Stage, above WorkUnit." alt="" coords="641,1065,754,1171"/>
+<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="639,950,681,1064,676,1066,634,952"/>
+</map>

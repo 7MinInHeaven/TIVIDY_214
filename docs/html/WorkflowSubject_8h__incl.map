@@ -1,0 +1,7 @@
+<map id="include/WorkflowSubject.h" name="include/WorkflowSubject.h">
+<area shape="rect" id="Node000001" title="Declares the Subject participant for the Observer pattern." alt="" coords="50,5,243,31"/>
+<area shape="rect" id="Node000002" href="$WorkflowObserver_8h.html" title="Declares the abstract Observer interface for the Workflow Observer pattern." alt="" coords="5,79,157,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="138,33,103,70,99,67,134,29"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="182,79,245,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="160,29,195,67,191,70,156,33"/>
+</map>

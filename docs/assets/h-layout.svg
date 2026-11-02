@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="56" viewBox="0 0 900 56" role="img" aria-label="Project Layout">
+  <title>Project Layout</title>
+  <rect x="0.5" y="0.5" width="899" height="55" rx="4" fill="#0d1117" stroke="#1b4d2e"/>
+  <path d="M1 22 V1 H110" fill="none" stroke="#2ea043" stroke-width="3"/>
+  <path d="M899 34 V55 H770" fill="none" stroke="#2ea043" stroke-width="3"/>
+  <g transform="translate(20,12)" fill="none" stroke="#3fb950" stroke-width="2"
+     stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2" y="2" width="30" height="22" rx="3"/>
+    <path d="M0 30 H34"/>
+    <polyline points="12,8 8,13 12,18"/>
+    <polyline points="22,8 26,13 22,18"/>
+    <line x1="19" y1="7" x2="15" y2="19"/>
+  </g>
+  <text x="72" y="35" font-family="'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="22" font-weight="700"
+        letter-spacing="1.5" fill="#f0f6fc">PROJECT LAYOUT</text>
+  <circle cx="872" cy="28" r="3" fill="#2ea043">
+    <animate attributeName="opacity" values="1;0.25;1" dur="2.4s" repeatCount="indefinite"/>
+  </circle>
+</svg>

@@ -1,0 +1,15 @@
+services:
+  tividy_app:
+    build: .
+    container_name: tividy_app
+    env_file:
+      - .env
+    volumes:
+      - ./src:/app/src
+    stdin_open: true
+    tty: true
+    ports:
+      - "8080:8080"
+    command: ["./build/bin/tividy_app", "--web"]
+    environment:
+      - TIVIDY_HOST=0.0.0.0   # for web i believe

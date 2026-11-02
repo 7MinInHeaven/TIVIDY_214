@@ -1,0 +1,12 @@
+<map id="src/Memento/WorkMemento.cpp" name="src/Memento/WorkMemento.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,239,31"/>
+<area shape="rect" id="Node000002" href="$Memento_8h.html" title="Memento pattern: snapshots of a task&#39;s state, used to undo actions." alt="" coords="135,79,231,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="134,29,166,66,162,70,130,33"/>
+<area shape="rect" id="Node000005" href="$WorkState_8h.html" title="Abstract state interface for the State pattern." alt="" coords="10,79,111,104"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="114,33,82,70,78,66,110,29"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="50,152,109,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="168,106,109,146,106,142,165,102"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="152,152,215,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="186,104,186,138,181,138,181,104"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="66,104,75,138,70,140,61,105"/>
+</map>
