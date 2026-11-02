@@ -6,18 +6,70 @@
 	<title>Progress Report</title>
 	<link rel="stylesheet" href="style.css">
 </head>
-<body><li class="group"><details>
-<summary>	<span class="name">Test Group<div class="progress-circle" style="--progress: 0;" role="progressbar" value>
+<body><details class="group">
+<summary>	<span class="name">Step 3: ApprovalHandler (Amount-Based Sign-Off & Final Settlement)<span class="priority-color" data-value="1">Normal</span><div class="progress-circle" style="--progress: 0;" role="progressbar" value>
 	<span class="progress-value">0%</span>
 	<span class="done-total">0/3</span>
 </div></span>
 </summary>
-<ul>Validated Test Stage<details><summary>Log</summary>
-</details>
-Audited Test Stage<details><summary>Log</summary>
-</details>
-Prioritised Test Stage<span class="priority-color" data-value="1">Normal</span>
+<ul>
+<li><details class="group">
+<summary>	<span class="name">Stage 3A: TeamLeadApprovalHandler (Claims Up to R250,000)<span class="priority-color" data-value="1">Normal</span><div class="progress-circle" style="--progress: 0;" role="progressbar" value>
+	<span class="progress-value">0%</span>
+	<span class="done-total">0/2</span>
+</div></span>
+</summary>
+<ul>
+<li>Check claimed amount against R250,000 first-level approval threshold<span class="priority-color" data-value="1">Normal</span></li>
+<li><details class="group">
+<summary>	<span class="name">SubProcess 3A-1: Life Team Lead Sign-Off<span class="priority-color" data-value="1">Normal</span><div class="progress-circle" style="--progress: 0;" role="progressbar" value>
+	<span class="progress-value">0%</span>
+	<span class="done-total">0/2</span>
+</div></span>
+</summary>
+<ul>
+<li>Confirm all assigned specialist checklist tasks are completed<span class="priority-color" data-value="1">Normal</span></li>
+<li>Sign off claim up to R250,000 or escalate higher amounts to Senior Claims Manager<span class="priority-color" data-value="1">Normal</span></li>
 </ul>
 </details>
 </li>
+</ul>
+</details>
+</li>
+<li><details class="group">
+<summary>	<span class="name">Stage 3B: SeniorManagerApprovalHandler (Claims Above R250,000)<span class="priority-color" data-value="1">Normal</span><div class="progress-circle" style="--progress: 0;" role="progressbar" value>
+	<span class="progress-value">0%</span>
+	<span class="done-total">0/1</span>
+</div></span>
+</summary>
+<ul>
+<li><details class="group">
+<summary>	<span class="name">SubProcess 3B-1: Senior Claims Manager High-Value Review<span class="priority-color" data-value="1">Normal</span><div class="progress-circle" style="--progress: 0;" role="progressbar" value>
+	<span class="progress-value">0%</span>
+	<span class="done-total">0/2</span>
+</div></span>
+</summary>
+<ul>
+<li>Audit high-value payout calculation and regulatory compliance logs<span class="priority-color" data-value="1">Normal</span></li>
+<li>Record Senior Claims Manager final executive approval<span class="priority-color" data-value="1">Normal</span></li>
+</ul>
+</details>
+</li>
+</ul>
+</details>
+</li>
+<li><details class="group">
+<summary>	<span class="name">Stage 3C: Database Persistence & Customer Notification<span class="priority-color" data-value="1">Normal</span><div class="progress-circle" style="--progress: 0;" role="progressbar" value>
+	<span class="progress-value">0%</span>
+	<span class="done-total">0/2</span>
+</div></span>
+</summary>
+<ul>
+<li>Persist final claim state and audit history to cloud PostgreSQL database<span class="priority-color" data-value="1">Normal</span></li>
+<li>Dispatch final ResultNotice outcome email and in-app alert<span class="priority-color" data-value="1">Normal</span></li>
+</ul>
+</details>
+</li>
+</ul>
+</details>
 </body>
