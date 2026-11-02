@@ -78,75 +78,85 @@ $(function() {
   <div class="headertitle"><div class="title">ChainBuilder.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Abstract Builder interface for assembling a chain of WorkGroups.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;string&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;stdexcept&gt;</code><br />
 <code>#include &quot;<a class="el" href="Composite_8h_source.html">Composite.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for ChainBuilder.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="ChainBuilder_8h__incl.png" border="0" usemap="#ainclude_2ChainBuilder_8h" alt=""/></div>
 <map name="ainclude_2ChainBuilder_8h" id="ainclude_2ChainBuilder_8h">
-<area shape="rect" title=" " alt="" coords="601,5,768,31"/>
-<area shape="rect" title=" " alt="" coords="228,299,287,324"/>
-<area shape="poly" title=" " alt="" coords="601,32,467,50,309,78,163,113,106,133,64,154,37,176,16,199,10,211,8,223,11,236,18,249,31,259,50,269,102,284,215,303,214,308,100,290,48,274,28,264,14,252,6,238,3,223,5,209,11,196,33,172,62,150,104,128,162,108,308,72,466,45,600,26"/>
-<area shape="rect" title=" " alt="" coords="920,299,982,324"/>
-<area shape="poly" title=" " alt="" coords="768,23,873,36,1001,59,1138,96,1205,120,1270,150,1321,178,1339,196,1355,224,1360,239,1354,252,1329,271,1292,285,1245,295,1193,303,1085,311,996,313,996,308,1085,306,1192,298,1244,290,1290,280,1327,266,1350,249,1354,239,1350,226,1335,200,1318,182,1267,154,1203,125,1136,101,1000,64,872,41,768,28"/>
-<area shape="rect" href="Composite_8h.html" title=" " alt="" coords="632,79,736,104"/>
-<area shape="poly" title=" " alt="" coords="687,31,687,65,682,65,682,31"/>
-<area shape="poly" title=" " alt="" coords="632,97,543,102,438,112,341,129,303,140,277,154,255,174,243,195,239,220,242,250,251,285,246,286,236,251,234,220,238,193,250,171,273,150,301,136,340,124,438,107,543,97,632,92"/>
-<area shape="poly" title=" " alt="" coords="737,93,986,112,1120,129,1175,138,1216,149,1285,174,1311,192,1335,224,1340,239,1334,252,1311,270,1275,283,1232,294,1183,301,1082,310,996,313,996,307,1081,305,1182,296,1231,288,1274,278,1308,265,1330,249,1334,238,1330,227,1308,196,1283,178,1214,155,1173,144,1119,134,986,118,736,98"/>
-<area shape="rect" href="Common_8h.html" title=" " alt="" coords="547,225,640,251"/>
-<area shape="poly" title=" " alt="" coords="726,102,760,114,790,131,801,141,808,153,809,166,802,179,779,196,742,210,655,230,653,225,740,205,776,191,798,176,803,165,803,155,797,145,787,136,757,119,724,107"/>
-<area shape="rect" href="CompletedState_8h.html" title=" " alt="" coords="302,152,440,177"/>
-<area shape="poly" title=" " alt="" coords="635,107,436,152,434,146,633,101"/>
-<area shape="rect" href="WorkState_8h.html" title=" " alt="" coords="251,225,352,251"/>
-<area shape="poly" title=" " alt="" coords="632,95,544,98,441,106,392,114,349,124,314,137,292,154,285,167,284,182,292,212,287,214,279,182,280,165,288,150,312,133,347,119,391,109,441,101,544,92,632,90"/>
-<area shape="rect" href="Handler_8h.html" title=" " alt="" coords="92,152,176,177"/>
-<area shape="poly" title=" " alt="" coords="632,101,440,122,195,155,190,156,189,150,195,149,439,117,632,95"/>
-<area shape="rect" href="WorkItem_8h.html" title=" " alt="" coords="28,225,125,251"/>
-<area shape="poly" title=" " alt="" coords="632,97,492,102,318,112,163,129,110,141,82,154,74,166,71,181,72,211,67,212,66,180,70,164,79,150,108,136,162,124,318,107,492,96,632,91"/>
-<area shape="rect" href="InProgressState_8h.html" title=" " alt="" coords="464,152,600,177"/>
-<area shape="poly" title=" " alt="" coords="661,106,570,149,568,144,659,102"/>
-<area shape="rect" href="Memento_8h.html" title=" " alt="" coords="427,225,523,251"/>
-<area shape="poly" title=" " alt="" coords="708,102,731,116,752,135,764,156,764,168,758,179,676,199,537,227,536,222,675,194,755,175,759,167,759,158,748,138,728,121,705,106"/>
-<area shape="rect" href="PendingState_8h.html" title=" " alt="" coords="624,152,744,177"/>
-<area shape="poly" title=" " alt="" coords="687,104,687,138,682,138,682,104"/>
-<area shape="rect" href="WorkflowSubject_8h.html" title="Declares the Subject participant for the Observer pattern." alt="" coords="1060,152,1202,177"/>
-<area shape="poly" title=" " alt="" coords="737,98,1046,147,1045,152,736,104"/>
-<area shape="rect" href="WorkVisitor_8h.html" title=" " alt="" coords="870,152,978,177"/>
-<area shape="poly" title=" " alt="" coords="724,101,873,145,871,151,722,107"/>
-<area shape="rect" title=" " alt="" coords="1014,225,1094,251"/>
-<area shape="poly" title=" " alt="" coords="737,89,793,92,859,101,928,119,961,133,993,150,1024,179,1045,212,1040,215,1020,182,989,154,959,138,926,124,858,106,792,97,737,94"/>
-<area shape="poly" title=" " alt="" coords="548,252,301,304,300,298,546,247"/>
-<area shape="poly" title=" " alt="" coords="641,246,907,299,906,304,640,251"/>
-<area shape="rect" title=" " alt="" coords="602,299,673,324"/>
-<area shape="poly" title=" " alt="" coords="603,250,626,286,621,288,599,252"/>
-<area shape="rect" title=" " alt="" coords="519,299,578,324"/>
-<area shape="poly" title=" " alt="" coords="588,252,565,289,561,286,584,250"/>
-<area shape="poly" title=" " alt="" coords="361,180,324,217,320,214,358,176"/>
-<area shape="poly" title=" " alt="" coords="297,252,274,288,270,286,292,250"/>
-<area shape="poly" title=" " alt="" coords="143,176,166,210,197,249,236,287,232,291,193,252,162,213,139,179"/>
-<area shape="poly" title=" " alt="" coords="126,179,96,216,92,213,122,176"/>
-<area shape="poly" title=" " alt="" coords="106,248,216,291,214,296,105,253"/>
-<area shape="rect" title=" " alt="" coords="51,299,102,324"/>
-<area shape="poly" title=" " alt="" coords="79,251,79,285,74,285,74,251"/>
-<area shape="poly" title=" " alt="" coords="496,180,353,224,351,219,494,175"/>
-<area shape="poly" title=" " alt="" coords="441,253,301,299,299,294,439,248"/>
-<area shape="poly" title=" " alt="" coords="524,246,535,248,743,280,907,302,906,307,742,285,535,253,523,251"/>
-<area shape="poly" title=" " alt="" coords="625,180,366,227,365,222,624,174"/>
-<area shape="poly" title=" " alt="" coords="1133,178,1128,214,1120,234,1108,252,1083,273,1054,288,997,306,996,301,1052,284,1080,269,1104,249,1115,232,1122,212,1128,177"/>
-<area shape="rect" href="WorkflowObserver_8h.html" title="Declares the abstract Observer interface for the Workflow Observer pattern." alt="" coords="1168,225,1320,251"/>
-<area shape="poly" title=" " alt="" coords="1151,175,1216,216,1213,220,1148,180"/>
-<area shape="poly" title=" " alt="" coords="871,172,632,193,506,209,416,228,291,294,289,289,414,223,505,204,631,188,870,167"/>
-<area shape="poly" title=" " alt="" coords="871,180,769,204,727,216,706,227,702,238,706,249,719,259,738,269,791,285,906,303,906,308,790,290,736,274,716,264,702,252,696,238,702,224,725,212,767,199,869,174"/>
-<area shape="poly" title=" " alt="" coords="872,180,654,226,653,221,871,175"/>
-<area shape="rect" title=" " alt="" coords="716,225,789,251"/>
-<area shape="poly" title=" " alt="" coords="898,180,794,222,792,218,896,175"/>
-<area shape="rect" title=" " alt="" coords="814,225,888,251"/>
-<area shape="poly" title=" " alt="" coords="914,180,875,218,871,214,910,176"/>
-<area shape="poly" title=" " alt="" coords="946,175,1021,216,1019,221,944,180"/>
-<area shape="rect" title=" " alt="" coords="912,225,990,251"/>
-<area shape="poly" title=" " alt="" coords="931,177,944,212,939,214,926,179"/>
+<area shape="rect" title="Abstract Builder interface for assembling a chain of WorkGroups." alt="" coords="1113,5,1280,31"/>
+<area shape="rect" title=" " alt="" coords="294,299,353,324"/>
+<area shape="poly" title=" " alt="" coords="1170,33,989,102,864,144,735,180,682,189,636,192,557,189,519,189,481,193,439,205,393,228,375,240,360,256,338,288,333,285,356,252,372,236,390,223,437,200,480,188,519,184,557,184,636,187,682,184,733,175,863,139,987,97,1168,28"/>
+<area shape="rect" title=" " alt="" coords="1383,299,1445,324"/>
+<area shape="poly" title=" " alt="" coords="1281,27,1344,42,1413,66,1480,101,1510,124,1536,150,1554,175,1565,200,1564,225,1552,252,1533,273,1510,288,1460,306,1458,301,1508,283,1530,269,1548,249,1559,224,1559,201,1550,178,1532,154,1506,128,1477,105,1411,70,1343,47,1280,32"/>
+<area shape="rect" title=" " alt="" coords="1672,79,1759,104"/>
+<area shape="poly" title=" " alt="" coords="1280,26,1452,48,1653,76,1659,77,1658,82,1652,81,1452,53,1280,32"/>
+<area shape="rect" href="Composite_8h.html" title="defines The structure for WorkComponents" alt="" coords="610,79,714,104"/>
+<area shape="poly" title=" " alt="" coords="1113,33,741,81,728,83,727,78,740,76,1113,27"/>
+<area shape="poly" title=" " alt="" coords="610,98,381,118,274,135,237,144,218,154,204,177,200,199,206,223,219,249,231,265,247,278,282,296,279,300,244,282,227,269,214,252,201,225,195,200,199,175,215,150,235,139,273,129,381,113,610,93"/>
+<area shape="poly" title=" " alt="" coords="714,90,903,93,1151,102,1273,110,1379,120,1459,133,1487,141,1505,150,1528,172,1540,197,1541,223,1530,252,1516,269,1498,283,1460,301,1458,297,1495,279,1512,265,1525,249,1536,222,1535,198,1523,175,1502,154,1485,146,1458,138,1378,125,1272,115,1151,108,902,99,714,96"/>
+<area shape="rect" href="Common_8h.html" title=" " alt="" coords="1071,225,1165,251"/>
+<area shape="poly" title=" " alt="" coords="715,94,835,112,906,128,975,150,1040,181,1093,215,1090,219,1037,186,973,154,905,133,834,117,714,100"/>
+<area shape="rect" href="CompletedState_8h.html" title="State for a task or group whose work is finished." alt="" coords="423,152,562,177"/>
+<area shape="poly" title=" " alt="" coords="636,106,534,149,532,144,634,102"/>
+<area shape="rect" href="WorkState_8h.html" title="Abstract state interface for the State pattern." alt="" coords="229,225,330,251"/>
+<area shape="poly" title=" " alt="" coords="611,102,516,121,464,136,412,154,354,186,306,219,303,215,351,181,410,150,462,131,515,116,609,97"/>
+<area shape="rect" href="Handler_8h.html" title="Abstract handler for the Chain of Responsibility pattern." alt="" coords="69,152,153,177"/>
+<area shape="poly" title=" " alt="" coords="610,101,417,122,173,155,167,156,166,150,172,149,417,117,609,95"/>
+<area shape="rect" href="WorkItem_8h.html" title=" " alt="" coords="5,225,103,251"/>
+<area shape="poly" title=" " alt="" coords="610,97,469,102,295,112,140,129,86,141,58,154,51,166,48,181,50,211,44,212,42,180,46,164,55,150,85,136,139,124,294,107,469,96,609,91"/>
+<area shape="rect" href="InProgressState_8h.html" title="State for a task or group whose work has started but is not finished." alt="" coords="586,152,722,177"/>
+<area shape="poly" title=" " alt="" coords="663,105,659,139,654,138,658,104"/>
+<area shape="rect" href="Memento_8h.html" title="Memento pattern: snapshots of a task&#39;s state, used to undo actions." alt="" coords="455,225,551,251"/>
+<area shape="poly" title=" " alt="" coords="686,102,709,116,730,135,742,156,742,168,736,179,713,191,670,204,565,227,564,222,669,199,711,186,732,175,736,166,736,157,726,138,705,121,683,106"/>
+<area shape="rect" href="PendingState_8h.html" title="State for a task or group whose work has not started yet." alt="" coords="229,152,349,177"/>
+<area shape="poly" title=" " alt="" coords="610,105,362,152,361,147,609,100"/>
+<area shape="rect" href="WorkflowSubject_8h.html" title="Declares the Subject participant for the Observer pattern." alt="" coords="1348,152,1491,177"/>
+<area shape="poly" title=" " alt="" coords="714,95,1334,153,1334,158,714,100"/>
+<area shape="rect" href="WorkVisitor_8h.html" title="Visitor pattern, execute methods on Composite without modifying classes." alt="" coords="853,152,961,177"/>
+<area shape="poly" title=" " alt="" coords="702,101,855,146,854,151,701,107"/>
+<area shape="rect" title=" " alt="" coords="1239,225,1319,251"/>
+<area shape="poly" title=" " alt="" coords="715,96,852,117,1017,149,1137,184,1237,218,1235,223,1136,189,1016,155,851,122,714,102"/>
+<area shape="poly" title=" " alt="" coords="1072,251,1060,253,857,277,657,294,367,311,366,306,657,288,856,271,1059,248,1071,246"/>
+<area shape="poly" title=" " alt="" coords="1166,248,1370,297,1369,302,1164,253"/>
+<area shape="rect" title=" " alt="" coords="1127,299,1197,324"/>
+<area shape="poly" title=" " alt="" coords="1128,250,1150,286,1145,288,1123,252"/>
+<area shape="rect" title=" " alt="" coords="1043,299,1102,324"/>
+<area shape="poly" title=" " alt="" coords="1113,252,1090,289,1085,286,1108,250"/>
+<area shape="poly" title=" " alt="" coords="459,180,328,223,326,218,458,175"/>
+<area shape="poly" title=" " alt="" coords="289,250,311,286,307,288,284,252"/>
+<area shape="poly" title=" " alt="" coords="119,176,141,212,156,231,174,249,200,265,228,279,282,298,280,303,226,284,197,270,171,253,152,235,136,215,115,179"/>
+<area shape="poly" title=" " alt="" coords="104,179,74,216,70,213,100,176"/>
+<area shape="poly" title=" " alt="" coords="98,248,281,296,280,301,97,253"/>
+<area shape="rect" title=" " alt="" coords="29,299,79,324"/>
+<area shape="poly" title=" " alt="" coords="57,251,57,285,51,285,51,251"/>
+<area shape="poly" title=" " alt="" coords="594,180,344,227,343,222,593,175"/>
+<area shape="poly" title=" " alt="" coords="475,253,366,296,364,291,473,248"/>
+<area shape="poly" title=" " alt="" coords="552,246,564,248,735,264,968,281,1369,305,1369,310,968,286,734,270,563,253,551,252"/>
+<area shape="poly" title=" " alt="" coords="290,178,285,212,280,211,284,177"/>
+<area shape="poly" title=" " alt="" coords="1450,175,1475,188,1498,206,1512,227,1514,239,1510,252,1488,278,1460,296,1457,291,1484,274,1505,249,1508,239,1507,229,1494,210,1472,193,1447,180"/>
+<area shape="rect" href="WorkflowObserver_8h.html" title="Declares the abstract Observer interface for the Workflow Observer pattern." alt="" coords="1343,225,1495,251"/>
+<area shape="poly" title=" " alt="" coords="1422,178,1422,212,1417,212,1417,178"/>
+<area shape="poly" title=" " alt="" coords="854,174,620,200,508,215,444,228,416,241,390,258,347,291,344,287,387,253,414,236,442,223,507,210,619,195,853,169"/>
+<area shape="poly" title=" " alt="" coords="962,171,1063,191,1178,223,1203,235,1228,248,1303,275,1370,295,1368,300,1301,280,1226,253,1201,240,1176,228,1062,196,961,177"/>
+<area shape="poly" title=" " alt="" coords="942,175,1072,218,1070,223,940,180"/>
+<area shape="rect" title=" " alt="" coords="875,225,948,251"/>
+<area shape="poly" title=" " alt="" coords="911,178,913,212,907,212,905,178"/>
+<area shape="rect" title=" " alt="" coords="973,225,1047,251"/>
+<area shape="poly" title=" " alt="" coords="925,175,983,215,980,219,922,180"/>
+<area shape="poly" title=" " alt="" coords="962,174,1221,223,1226,224,1225,229,1220,228,961,179"/>
+<area shape="rect" title=" " alt="" coords="575,225,653,251"/>
+<area shape="poly" title=" " alt="" coords="861,180,667,227,666,221,860,175"/>
+<area shape="rect" title=" " alt="" coords="677,225,751,251"/>
+<area shape="poly" title=" " alt="" coords="877,180,759,223,757,218,875,175"/>
+<area shape="rect" title=" " alt="" coords="775,225,850,251"/>
+<area shape="poly" title=" " alt="" coords="894,179,841,219,838,215,891,175"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -154,19 +164,41 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="ChainBuilder_8h__dep__incl.png" border="0" usemap="#ainclude_2ChainBuilder_8hdep" alt=""/></div>
 <map name="ainclude_2ChainBuilder_8hdep" id="ainclude_2ChainBuilder_8hdep">
-<area shape="rect" title=" " alt="" coords="219,5,386,31"/>
-<area shape="rect" href="Director_8h.html" title=" " alt="" coords="129,79,265,104"/>
-<area shape="poly" title=" " alt="" coords="276,41,216,81,213,76,273,36"/>
-<area shape="rect" href="WorkflowEngineFacade_8cpp.html" title=" " alt="" coords="203,152,402,192"/>
-<area shape="poly" title=" " alt="" coords="305,44,305,152,300,152,300,44"/>
-<area shape="rect" href="WorkflowBuilder_8h.html" title=" " alt="" coords="341,79,531,104"/>
-<area shape="poly" title=" " alt="" coords="337,35,415,76,413,81,335,39"/>
-<area shape="rect" href="Director_8cpp.html" title=" " alt="" coords="5,159,179,185"/>
-<area shape="poly" title=" " alt="" coords="173,114,109,161,106,157,169,110"/>
-<area shape="poly" title=" " alt="" coords="225,110,279,150,276,154,222,114"/>
-<area shape="poly" title=" " alt="" coords="406,113,336,154,333,150,403,109"/>
-<area shape="rect" href="WorkflowBuilder_8cpp.html" title=" " alt="" coords="427,159,653,185"/>
-<area shape="poly" title=" " alt="" coords="464,110,526,157,523,161,460,114"/>
+<area shape="rect" title="Abstract Builder interface for assembling a chain of WorkGroups." alt="" coords="896,5,1063,31"/>
+<area shape="rect" href="Director_8h.html" title="defines the way objects are created and linked" alt="" coords="911,79,1047,104"/>
+<area shape="poly" title=" " alt="" coords="982,44,982,79,977,79,977,44"/>
+<area shape="rect" href="WorkflowEngineFacade_8cpp.html" title=" " alt="" coords="800,299,999,339"/>
+<area shape="poly" title=" " alt="" coords="924,37,880,55,833,79,790,112,771,131,756,153,749,175,751,195,761,216,776,235,818,270,862,296,859,301,815,274,772,239,756,219,746,197,744,174,752,151,767,128,786,108,830,75,877,50,922,32"/>
+<area shape="rect" href="WorkflowBuilder_8h.html" title="Concrete Builder declaration for constructing chained composite workflows." alt="" coords="1215,152,1405,177"/>
+<area shape="poly" title=" " alt="" coords="1019,34,1285,149,1283,154,1017,39"/>
+<area shape="rect" href="RequestChain_8h.html" title=" " alt="" coords="767,152,941,177"/>
+<area shape="poly" title=" " alt="" coords="949,113,876,154,873,149,946,108"/>
+<area shape="poly" title=" " alt="" coords="975,118,955,178,909,299,904,297,950,176,969,117"/>
+<area shape="rect" href="Director_8cpp.html" title=" " alt="" coords="1017,152,1190,177"/>
+<area shape="poly" title=" " alt="" coords="1012,108,1084,149,1082,154,1010,113"/>
+<area shape="rect" href="WorkflowEngineFacade_8h.html" title=" " alt="" coords="457,225,691,251"/>
+<area shape="poly" title=" " alt="" coords="797,183,620,228,619,223,795,178"/>
+<area shape="rect" href="RequestChain_8cpp.html" title=" " alt="" coords="1017,225,1227,251"/>
+<area shape="poly" title=" " alt="" coords="911,178,1079,223,1078,228,910,183"/>
+<area shape="rect" href="Proxy_8h.html" title=" " alt="" coords="446,306,566,331"/>
+<area shape="poly" title=" " alt="" coords="557,263,518,308,514,304,553,259"/>
+<area shape="poly" title=" " alt="" coords="635,251,822,296,820,301,634,256"/>
+<area shape="rect" href="main_8cpp.html" title=" " alt="" coords="591,306,696,331"/>
+<area shape="poly" title=" " alt="" coords="595,259,635,304,631,308,591,263"/>
+<area shape="rect" href="ScenarioAccessPolicies_8h.html" title=" " alt="" coords="5,387,241,412"/>
+<area shape="poly" title=" " alt="" coords="438,337,180,389,179,384,437,331"/>
+<area shape="rect" href="AccessControlProxy_8cpp.html" title=" " alt="" coords="266,387,506,412"/>
+<area shape="poly" title=" " alt="" coords="478,341,405,389,402,384,475,337"/>
+<area shape="rect" href="AccessPolicy_8cpp.html" title=" " alt="" coords="530,387,725,412"/>
+<area shape="poly" title=" " alt="" coords="537,337,611,384,608,389,534,341"/>
+<area shape="rect" href="AccessTypes_8cpp.html" title=" " alt="" coords="749,387,943,412"/>
+<area shape="poly" title=" " alt="" coords="563,332,579,336,793,384,791,389,577,341,562,337"/>
+<area shape="rect" href="ScenarioAccessPolicies_8cpp.html" title=" " alt="" coords="17,460,229,500"/>
+<area shape="poly" title=" " alt="" coords="126,426,126,460,121,460,121,426"/>
+<area shape="poly" title=" " alt="" coords="1299,191,1275,223,1241,253,1182,281,1119,300,1057,312,999,318,999,313,1056,306,1118,295,1180,276,1238,248,1271,220,1295,187"/>
+<area shape="poly" title=" " alt="" coords="1268,185,1154,228,1152,223,1266,180"/>
+<area shape="rect" href="WorkflowBuilder_8cpp.html" title=" " alt="" coords="1302,225,1529,251"/>
+<area shape="poly" title=" " alt="" coords="1340,183,1400,223,1397,227,1337,187"/>
 </map>
 </div>
 </div>
@@ -175,9 +207,12 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classChainBuilder.html">ChainBuilder</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abstract builder that constructs a chain of WorkGroups and their children.  <a href="classChainBuilder.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Abstract Builder interface for assembling a chain of WorkGroups. </p>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8

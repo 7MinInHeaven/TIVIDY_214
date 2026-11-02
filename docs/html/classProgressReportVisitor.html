@@ -76,57 +76,79 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Concrete Visitor, displays tree as a HTML progress Report Groups are collapsable.  
+ <a href="classProgressReportVisitor.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="WorkVisitor_8h_source.html">WorkVisitor.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for ProgressReportVisitor:</div>
 <div class="dyncontent">
 <div class="center"><img src="classProgressReportVisitor__inherit__graph.png" border="0" usemap="#aProgressReportVisitor_inherit__map" alt="Inheritance graph"/></div>
 <map name="aProgressReportVisitor_inherit__map" id="aProgressReportVisitor_inherit__map">
-<area shape="rect" title=" " alt="" coords="5,79,168,104"/>
-<area shape="rect" href="classWorkVisitor.html" title=" " alt="" coords="38,5,135,31"/>
-<area shape="poly" title=" " alt="" coords="89,44,89,79,84,79,84,44"/>
+<area shape="rect" title="Concrete Visitor, displays tree as a HTML progress Report Groups are collapsable." alt="" coords="5,259,196,524"/>
+<area shape="rect" href="classWorkVisitor.html" title="Abstract Visitor interface, visit() method per concrete WorkComponent type Each concrete type impleme..." alt="" coords="38,5,163,211"/>
+<area shape="poly" title=" " alt="" coords="103,225,103,258,98,258,98,225"/>
 </map>
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+</div>
 <div class="dynheader">
 Collaboration diagram for ProgressReportVisitor:</div>
 <div class="dyncontent">
 <div class="center"><img src="classProgressReportVisitor__coll__graph.png" border="0" usemap="#aProgressReportVisitor_coll__map" alt="Collaboration graph"/></div>
 <map name="aProgressReportVisitor_coll__map" id="aProgressReportVisitor_coll__map">
-<area shape="rect" title=" " alt="" coords="5,79,168,104"/>
-<area shape="rect" href="classWorkVisitor.html" title=" " alt="" coords="38,5,135,31"/>
-<area shape="poly" title=" " alt="" coords="89,44,89,79,84,79,84,44"/>
+<area shape="rect" title="Concrete Visitor, displays tree as a HTML progress Report Groups are collapsable." alt="" coords="5,259,196,524"/>
+<area shape="rect" href="classWorkVisitor.html" title="Abstract Visitor interface, visit() method per concrete WorkComponent type Each concrete type impleme..." alt="" coords="38,5,163,211"/>
+<area shape="poly" title=" " alt="" coords="103,225,103,258,98,258,98,225"/>
 </map>
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5e82425e058f7205cf2a4c5537e5889a" id="r_a5e82425e058f7205cf2a4c5537e5889a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProgressReportVisitor.html#a5e82425e058f7205cf2a4c5537e5889a">ProgressReportVisitor</a> ()</td></tr>
-<tr class="separator:a5e82425e058f7205cf2a4c5537e5889a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb6f19cc093b471e976f2ba09125001b" id="r_acb6f19cc093b471e976f2ba09125001b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProgressReportVisitor.html#acb6f19cc093b471e976f2ba09125001b">ProgressReportVisitor</a> (std::string filename=&quot;report&quot;)</td></tr>
+<tr class="memdesc:acb6f19cc093b471e976f2ba09125001b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens &lt;filename&gt;.html and writes HTML document header.  <br /></td></tr>
+<tr class="separator:acb6f19cc093b471e976f2ba09125001b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a49dc9ac426e9f397918364e6015b99c3" id="r_a49dc9ac426e9f397918364e6015b99c3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProgressReportVisitor.html#a49dc9ac426e9f397918364e6015b99c3">~ProgressReportVisitor</a> () override</td></tr>
+<tr class="memdesc:a49dc9ac426e9f397918364e6015b99c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">clouses the output file if it is still open  <br /></td></tr>
 <tr class="separator:a49dc9ac426e9f397918364e6015b99c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26384c14facf02a3e27229a617e830a4" id="r_a26384c14facf02a3e27229a617e830a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProgressReportVisitor.html#a26384c14facf02a3e27229a617e830a4">visit</a> (const <a class="el" href="classWorkUnit.html">WorkUnit</a> &amp;item) override</td></tr>
+<tr class="memdesc:a26384c14facf02a3e27229a617e830a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes leaf: name, priority and then any decorator badges and details.  <br /></td></tr>
 <tr class="separator:a26384c14facf02a3e27229a617e830a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea64df968a0ed342d09aa3842fb8fdbc" id="r_aea64df968a0ed342d09aa3842fb8fdbc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProgressReportVisitor.html#aea64df968a0ed342d09aa3842fb8fdbc">visit</a> (const <a class="el" href="classWorkGroup.html">WorkGroup</a> &amp;item) override</td></tr>
+<tr class="memdesc:aea64df968a0ed342d09aa3842fb8fdbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes Group using visitGroup(item)  <br /></td></tr>
 <tr class="separator:aea64df968a0ed342d09aa3842fb8fdbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c791745864a5dd6d8ba27593c73f979" id="r_a3c791745864a5dd6d8ba27593c73f979"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProgressReportVisitor.html#a3c791745864a5dd6d8ba27593c73f979">visit</a> (const <a class="el" href="classStage.html">Stage</a> &amp;item) override</td></tr>
+<tr class="memdesc:a3c791745864a5dd6d8ba27593c73f979"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes <a class="el" href="classStage.html" title="Composite class, sits below WorkGroup, above SubProcess.">Stage</a> using visitGroup(item)  <br /></td></tr>
 <tr class="separator:a3c791745864a5dd6d8ba27593c73f979"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a232ede72001da838b2f6af58e6f3c3ce" id="r_a232ede72001da838b2f6af58e6f3c3ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProgressReportVisitor.html#a232ede72001da838b2f6af58e6f3c3ce">visit</a> (const <a class="el" href="classSubProcess.html">SubProcess</a> &amp;item) override</td></tr>
+<tr class="memdesc:a232ede72001da838b2f6af58e6f3c3ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes <a class="el" href="classSubProcess.html" title="Composite class, sits below Stage, above WorkUnit.">SubProcess</a> using visitGroup(item)  <br /></td></tr>
 <tr class="separator:a232ede72001da838b2f6af58e6f3c3ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac26f5de61f8ad55345c1e41bc72119e8" id="r_ac26f5de61f8ad55345c1e41bc72119e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProgressReportVisitor.html#ac26f5de61f8ad55345c1e41bc72119e8">visit</a> (const <a class="el" href="classPrioritisedTask.html">PrioritisedTask</a> &amp;item) override</td></tr>
+<tr class="memdesc:ac26f5de61f8ad55345c1e41bc72119e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Records priority and deadline or OVERDUE badge, then visits wrapped task.  <br /></td></tr>
 <tr class="separator:ac26f5de61f8ad55345c1e41bc72119e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc708e1fba7768bd063fd787ccdf3bd8" id="r_abc708e1fba7768bd063fd787ccdf3bd8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProgressReportVisitor.html#abc708e1fba7768bd063fd787ccdf3bd8">visit</a> (const <a class="el" href="classAuditedTask.html">AuditedTask</a> &amp;item) override</td></tr>
+<tr class="memdesc:abc708e1fba7768bd063fd787ccdf3bd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Records audit log table details, then visits wrapped task.  <br /></td></tr>
 <tr class="separator:abc708e1fba7768bd063fd787ccdf3bd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa33e4d934531f0bbe66cf4390b4b5586" id="r_aa33e4d934531f0bbe66cf4390b4b5586"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProgressReportVisitor.html#aa33e4d934531f0bbe66cf4390b4b5586">visit</a> (const <a class="el" href="classValidatedTask.html">ValidatedTask</a> &amp;item) override</td></tr>
+<tr class="memdesc:aa33e4d934531f0bbe66cf4390b4b5586"><td class="mdescLeft">&#160;</td><td class="mdescRight">Records Validation rule list details, then visits wrapped task.  <br /></td></tr>
 <tr class="separator:aa33e4d934531f0bbe66cf4390b4b5586"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d7544db7e901de271882a7625d7468a" id="r_a1d7544db7e901de271882a7625d7468a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProgressReportVisitor.html#a1d7544db7e901de271882a7625d7468a">createReport</a> (<a class="el" href="classWorkComponent.html">WorkComponent</a> *root)</td></tr>
+<tr class="memdesc:a1d7544db7e901de271882a7625d7468a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates full report for tree and closes the file.  <br /></td></tr>
 <tr class="separator:a1d7544db7e901de271882a7625d7468a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c399cbca722208e4ff4b440cbc4f153" id="r_a3c399cbca722208e4ff4b440cbc4f153"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProgressReportVisitor.html#a3c399cbca722208e4ff4b440cbc4f153">writeCSS</a> ()</td></tr>
+<tr class="separator:a3c399cbca722208e4ff4b440cbc4f153"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classWorkVisitor"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classWorkVisitor')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classWorkVisitor.html">WorkVisitor</a></td></tr>
 <tr class="memitem:a5aeb1b6f5834787ef3f03560dd9e866d inherit pub_methods_classWorkVisitor" id="r_a5aeb1b6f5834787ef3f03560dd9e866d"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkVisitor.html#a5aeb1b6f5834787ef3f03560dd9e866d">~WorkVisitor</a> ()=default</td></tr>
 <tr class="separator:a5aeb1b6f5834787ef3f03560dd9e866d inherit pub_methods_classWorkVisitor"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a5e82425e058f7205cf2a4c5537e5889a" name="a5e82425e058f7205cf2a4c5537e5889a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5e82425e058f7205cf2a4c5537e5889a">&#9670;&#160;</a></span>ProgressReportVisitor()</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Concrete Visitor, displays tree as a HTML progress Report Groups are collapsable. </p>
+<details >
+<summary >
+Details</summary>
+<p>blocks with progress circle to show no. children done out of the total Decorates add details about their specific functionality that they add to a component </p>
+</details>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="acb6f19cc093b471e976f2ba09125001b" name="acb6f19cc093b471e976f2ba09125001b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb6f19cc093b471e976f2ba09125001b">&#9670;&#160;</a></span>ProgressReportVisitor()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -134,11 +156,20 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">ProgressReportVisitor::ProgressReportVisitor </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>filename</em> = <code>&quot;report&quot;</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Opens &lt;filename&gt;.html and writes HTML document header. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>name of report file, can add directory information to output file to specific directory </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -165,6 +196,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>clouses the output file if it is still open </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -183,6 +216,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Generates full report for tree and closes the file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">root</td><td>Root of the tree to report on </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -209,6 +250,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Records audit log table details, then visits wrapped task. </p>
 
 <p>Implements <a class="el" href="classWorkVisitor.html#a3da837c431292429032f1c36b7bdb39b">WorkVisitor</a>.</p>
 
@@ -238,6 +281,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Records priority and deadline or OVERDUE badge, then visits wrapped task. </p>
+
 <p>Implements <a class="el" href="classWorkVisitor.html#a004f022ddf5bf9dc7fa40a4b157ff3e0">WorkVisitor</a>.</p>
 
 </div>
@@ -265,6 +310,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Writes <a class="el" href="classStage.html" title="Composite class, sits below WorkGroup, above SubProcess.">Stage</a> using visitGroup(item) </p>
 
 <p>Implements <a class="el" href="classWorkVisitor.html#aa3ab41248503b7c8438b46272603cc28">WorkVisitor</a>.</p>
 
@@ -294,6 +341,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Writes <a class="el" href="classSubProcess.html" title="Composite class, sits below Stage, above WorkUnit.">SubProcess</a> using visitGroup(item) </p>
+
 <p>Implements <a class="el" href="classWorkVisitor.html#acac6a80d134f520161ce04c2b622de89">WorkVisitor</a>.</p>
 
 </div>
@@ -321,6 +370,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Records Validation rule list details, then visits wrapped task. </p>
 
 <p>Implements <a class="el" href="classWorkVisitor.html#a755f09bf3c866ea32af9e6c68dcfd151">WorkVisitor</a>.</p>
 
@@ -350,6 +401,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Writes Group using visitGroup(item) </p>
+
 <p>Implements <a class="el" href="classWorkVisitor.html#a372e7344d82d08e2b5ba32e05360eb75">WorkVisitor</a>.</p>
 
 </div>
@@ -378,7 +431,26 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Writes leaf: name, priority and then any decorator badges and details. </p>
+
 <p>Implements <a class="el" href="classWorkVisitor.html#a038ac268b2b9d36872edf7a05698a593">WorkVisitor</a>.</p>
+
+</div>
+</div>
+<a id="a3c399cbca722208e4ff4b440cbc4f153" name="a3c399cbca722208e4ff4b440cbc4f153"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c399cbca722208e4ff4b440cbc4f153">&#9670;&#160;</a></span>writeCSS()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ProgressReportVisitor::writeCSS </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

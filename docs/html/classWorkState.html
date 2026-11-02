@@ -76,34 +76,51 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Base class for the states a <a class="el" href="classWorkComponent.html" title="Abstract inteface for composite and leaf components.">WorkComponent</a> can be in.  
+ <a href="classWorkState.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="WorkState_8h_source.html">WorkState.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for WorkState:</div>
 <div class="dyncontent">
 <div class="center"><img src="classWorkState__inherit__graph.png" border="0" usemap="#aWorkState_inherit__map" alt="Inheritance graph"/></div>
 <map name="aWorkState_inherit__map" id="aWorkState_inherit__map">
-<area shape="rect" title=" " alt="" coords="173,5,263,31"/>
-<area shape="rect" href="classCompletedState.html" title=" " alt="" coords="5,79,132,104"/>
-<area shape="poly" title=" " alt="" coords="183,39,94,81,92,76,181,34"/>
-<area shape="rect" href="classInProgressState.html" title=" " alt="" coords="156,79,280,104"/>
-<area shape="poly" title=" " alt="" coords="221,44,221,79,215,79,215,44"/>
-<area shape="rect" href="classPendingState.html" title=" " alt="" coords="304,79,412,104"/>
-<area shape="poly" title=" " alt="" coords="254,34,336,76,334,81,251,39"/>
+<area shape="rect" title="Base class for the states a WorkComponent can be in." alt="" coords="195,5,325,131"/>
+<area shape="rect" href="classCompletedState.html" title="Final state in the State pattern: the work is done and no further progress is made." alt="" coords="5,179,160,324"/>
+<area shape="poly" title=" " alt="" coords="192,143,155,181,151,177,188,139"/>
+<area shape="rect" href="classInProgressState.html" title="State in the State pattern for work that has started; the next update completes it." alt="" coords="184,179,336,324"/>
+<area shape="poly" title=" " alt="" coords="263,145,263,179,257,179,257,145"/>
+<area shape="rect" href="classPendingState.html" title="Initial state in the State pattern; the next update moves the work to In Progress." alt="" coords="360,179,496,324"/>
+<area shape="poly" title=" " alt="" coords="328,139,364,177,360,180,325,143"/>
 </map>
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+</div>
+<div class="dynheader">
+Collaboration diagram for WorkState:</div>
+<div class="dyncontent">
+<div class="center"><img src="classWorkState__coll__graph.png" border="0" usemap="#aWorkState_coll__map" alt="Collaboration graph"/></div>
+<map name="aWorkState_coll__map" id="aWorkState_coll__map">
+<area shape="rect" title="Base class for the states a WorkComponent can be in." alt="" coords="5,5,135,131"/>
+</map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a4ef078c5253a7c799df3609c90febadc" id="r_a4ef078c5253a7c799df3609c90febadc"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkState.html#a4ef078c5253a7c799df3609c90febadc">~WorkState</a> ()</td></tr>
+<tr class="memdesc:a4ef078c5253a7c799df3609c90febadc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor so concrete states are destroyed correctly.  <br /></td></tr>
 <tr class="separator:a4ef078c5253a7c799df3609c90febadc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af897f4deba4f3b3baffc889b4524513f" id="r_af897f4deba4f3b3baffc889b4524513f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkState.html#af897f4deba4f3b3baffc889b4524513f">handleUpdate</a> (<a class="el" href="classWorkComponent.html">WorkComponent</a> *context)=0</td></tr>
+<tr class="memdesc:af897f4deba4f3b3baffc889b4524513f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles an update request for the given component.  <br /></td></tr>
 <tr class="separator:af897f4deba4f3b3baffc889b4524513f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b8f66eed77cac67e347dd02a480ea98" id="r_a3b8f66eed77cac67e347dd02a480ea98"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkState.html#a3b8f66eed77cac67e347dd02a480ea98">getStatus</a> () const =0</td></tr>
+<tr class="memdesc:a3b8f66eed77cac67e347dd02a480ea98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the human-readable name of the state.  <br /></td></tr>
 <tr class="separator:a3b8f66eed77cac67e347dd02a480ea98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc1791f02620fbbc2db8f025df7a07ba" id="r_afc1791f02620fbbc2db8f025df7a07ba"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classWorkState.html">WorkState</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkState.html#afc1791f02620fbbc2db8f025df7a07ba">clone</a> ()=0</td></tr>
+<tr class="memdesc:afc1791f02620fbbc2db8f025df7a07ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a copy of this state.  <br /></td></tr>
 <tr class="separator:afc1791f02620fbbc2db8f025df7a07ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Base class for the states a <a class="el" href="classWorkComponent.html" title="Abstract inteface for composite and leaf components.">WorkComponent</a> can be in. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4ef078c5253a7c799df3609c90febadc" name="a4ef078c5253a7c799df3609c90febadc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4ef078c5253a7c799df3609c90febadc">&#9670;&#160;</a></span>~WorkState()</h2>
 
@@ -126,6 +143,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Virtual destructor so concrete states are destroyed correctly. </p>
 
 </div>
 </div>
@@ -152,6 +171,9 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Creates a copy of this state. </p>
+<dl class="section return"><dt>Returns</dt><dd>A new copy of the State </dd></dl>
 
 <p>Implemented in <a class="el" href="classCompletedState.html#a27df7597e84debb46cfdeacb10d0b551">CompletedState</a>, <a class="el" href="classInProgressState.html#a70a17ea1bdd24bc33872767e78e5fbef">InProgressState</a>, and <a class="el" href="classPendingState.html#aed9484632701cfde4e7d9470a9bbe674">PendingState</a>.</p>
 
@@ -180,6 +202,9 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the human-readable name of the state. </p>
+<dl class="section return"><dt>Returns</dt><dd>"Pending", "In Progress" or "Completed" for the built-in states. </dd></dl>
+
 <p>Implemented in <a class="el" href="classCompletedState.html#aa42f030dfd37e0f1d01adbe2d69949f1">CompletedState</a>, <a class="el" href="classInProgressState.html#a5378ace6cec6d9bc2cc77eb8a795d864">InProgressState</a>, and <a class="el" href="classPendingState.html#a9177933023d59e59daf4109ad7f241a0">PendingState</a>.</p>
 
 </div>
@@ -207,6 +232,14 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Handles an update request for the given component. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">context</td><td>The work component that holds this state. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implemented in <a class="el" href="classCompletedState.html#a6e18ef67618f7c9509b1b088b6c33268">CompletedState</a>, <a class="el" href="classInProgressState.html#ad0f8d7c4b198513f034730a423f48725">InProgressState</a>, and <a class="el" href="classPendingState.html#a2472a0f1b4d252be6cca53ff02210332">PendingState</a>.</p>
 

@@ -1,5 +1,5 @@
 <map id="EmailChannel" name="EmailChannel">
-<area shape="rect" id="Node000001" title="A Concrete Implementor in the Bridge Pattern (and Context in the Strategy Pattern)." alt="" coords="25,79,137,104"/>
-<area shape="rect" id="Node000002" href="$classNotificationChannel.html" title="The Implementor interface in the Bridge Pattern." alt="" coords="5,5,156,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="83,44,83,79,78,79,78,44"/>
+<area shape="rect" id="Node000001" title="A Concrete Implementor in the Bridge Pattern (and Context in the Strategy Pattern)." alt="" coords="29,139,159,224"/>
+<area shape="rect" id="Node000002" href="$classNotificationChannel.html" title="The Implementor interface in the Bridge Pattern." alt="" coords="5,5,183,91"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="97,104,97,138,91,138,91,104"/>
 </map>

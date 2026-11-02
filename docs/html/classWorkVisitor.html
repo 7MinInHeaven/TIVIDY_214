@@ -76,40 +76,60 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Abstract Visitor interface, <a class="el" href="classWorkVisitor.html#a038ac268b2b9d36872edf7a05698a593" title="Visits WorkUnit.">visit()</a> method per concrete <a class="el" href="classWorkComponent.html" title="Abstract inteface for composite and leaf components.">WorkComponent</a> type Each concrete type implements accept(WorkVisitor&amp;) and provides itself as a parameter, so that the visitor is aware of its type.  
+ <a href="classWorkVisitor.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="WorkVisitor_8h_source.html">WorkVisitor.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for WorkVisitor:</div>
 <div class="dyncontent">
 <div class="center"><img src="classWorkVisitor__inherit__graph.png" border="0" usemap="#aWorkVisitor_inherit__map" alt="Inheritance graph"/></div>
 <map name="aWorkVisitor_inherit__map" id="aWorkVisitor_inherit__map">
-<area shape="rect" title=" " alt="" coords="131,5,229,31"/>
-<area shape="rect" href="classPriorityCheckerVisitor.html" title=" " alt="" coords="5,79,168,104"/>
-<area shape="poly" title=" " alt="" coords="156,41,104,81,100,76,153,37"/>
-<area shape="rect" href="classProgressReportVisitor.html" title=" " alt="" coords="192,79,355,104"/>
-<area shape="poly" title=" " alt="" coords="207,37,260,76,256,81,204,41"/>
+<area shape="rect" title="Abstract Visitor interface, visit() method per concrete WorkComponent type Each concrete type impleme..." alt="" coords="119,5,244,211"/>
+<area shape="rect" href="classPriorityCheckerVisitor.html" title="Calculates rank of Components Priority for PrioritisedIterator." alt="" coords="5,279,160,504"/>
+<area shape="poly" title=" " alt="" coords="144,225,124,280,119,278,138,223"/>
+<area shape="rect" href="classProgressReportVisitor.html" title="Concrete Visitor, displays tree as a HTML progress Report Groups are collapsable." alt="" coords="185,259,375,524"/>
+<area shape="poly" title=" " alt="" coords="224,223,236,257,231,259,219,225"/>
 </map>
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+</div>
+<div class="dynheader">
+Collaboration diagram for WorkVisitor:</div>
+<div class="dyncontent">
+<div class="center"><img src="classWorkVisitor__coll__graph.png" border="0" usemap="#aWorkVisitor_coll__map" alt="Collaboration graph"/></div>
+<map name="aWorkVisitor_coll__map" id="aWorkVisitor_coll__map">
+<area shape="rect" title="Abstract Visitor interface, visit() method per concrete WorkComponent type Each concrete type impleme..." alt="" coords="5,5,131,211"/>
+</map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a5aeb1b6f5834787ef3f03560dd9e866d" id="r_a5aeb1b6f5834787ef3f03560dd9e866d"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkVisitor.html#a5aeb1b6f5834787ef3f03560dd9e866d">~WorkVisitor</a> ()=default</td></tr>
 <tr class="separator:a5aeb1b6f5834787ef3f03560dd9e866d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a038ac268b2b9d36872edf7a05698a593" id="r_a038ac268b2b9d36872edf7a05698a593"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkVisitor.html#a038ac268b2b9d36872edf7a05698a593">visit</a> (const <a class="el" href="classWorkUnit.html">WorkUnit</a> &amp;item)=0</td></tr>
+<tr class="memdesc:a038ac268b2b9d36872edf7a05698a593"><td class="mdescLeft">&#160;</td><td class="mdescRight">Visits <a class="el" href="classWorkUnit.html" title="Leaf: single unit of work that can be assigned, started and completed.">WorkUnit</a>.  <br /></td></tr>
 <tr class="separator:a038ac268b2b9d36872edf7a05698a593"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a372e7344d82d08e2b5ba32e05360eb75" id="r_a372e7344d82d08e2b5ba32e05360eb75"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkVisitor.html#a372e7344d82d08e2b5ba32e05360eb75">visit</a> (const <a class="el" href="classWorkGroup.html">WorkGroup</a> &amp;item)=0</td></tr>
+<tr class="memdesc:a372e7344d82d08e2b5ba32e05360eb75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Visits <a class="el" href="classWorkGroup.html" title="Composite, owns and manages child components instantiable but still acts as interface for other compo...">WorkGroup</a>.  <br /></td></tr>
 <tr class="separator:a372e7344d82d08e2b5ba32e05360eb75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3ab41248503b7c8438b46272603cc28" id="r_aa3ab41248503b7c8438b46272603cc28"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkVisitor.html#aa3ab41248503b7c8438b46272603cc28">visit</a> (const <a class="el" href="classStage.html">Stage</a> &amp;item)=0</td></tr>
+<tr class="memdesc:aa3ab41248503b7c8438b46272603cc28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Visits <a class="el" href="classStage.html" title="Composite class, sits below WorkGroup, above SubProcess.">Stage</a>.  <br /></td></tr>
 <tr class="separator:aa3ab41248503b7c8438b46272603cc28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acac6a80d134f520161ce04c2b622de89" id="r_acac6a80d134f520161ce04c2b622de89"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkVisitor.html#acac6a80d134f520161ce04c2b622de89">visit</a> (const <a class="el" href="classSubProcess.html">SubProcess</a> &amp;item)=0</td></tr>
+<tr class="memdesc:acac6a80d134f520161ce04c2b622de89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Visits <a class="el" href="classSubProcess.html" title="Composite class, sits below Stage, above WorkUnit.">SubProcess</a>.  <br /></td></tr>
 <tr class="separator:acac6a80d134f520161ce04c2b622de89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a004f022ddf5bf9dc7fa40a4b157ff3e0" id="r_a004f022ddf5bf9dc7fa40a4b157ff3e0"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkVisitor.html#a004f022ddf5bf9dc7fa40a4b157ff3e0">visit</a> (const <a class="el" href="classPrioritisedTask.html">PrioritisedTask</a> &amp;item)=0</td></tr>
+<tr class="memdesc:a004f022ddf5bf9dc7fa40a4b157ff3e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Visits <a class="el" href="classPrioritisedTask.html">PrioritisedTask</a>.  <br /></td></tr>
 <tr class="separator:a004f022ddf5bf9dc7fa40a4b157ff3e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3da837c431292429032f1c36b7bdb39b" id="r_a3da837c431292429032f1c36b7bdb39b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkVisitor.html#a3da837c431292429032f1c36b7bdb39b">visit</a> (const <a class="el" href="classAuditedTask.html">AuditedTask</a> &amp;item)=0</td></tr>
+<tr class="memdesc:a3da837c431292429032f1c36b7bdb39b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Visits <a class="el" href="classAuditedTask.html">AuditedTask</a>.  <br /></td></tr>
 <tr class="separator:a3da837c431292429032f1c36b7bdb39b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a755f09bf3c866ea32af9e6c68dcfd151" id="r_a755f09bf3c866ea32af9e6c68dcfd151"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkVisitor.html#a755f09bf3c866ea32af9e6c68dcfd151">visit</a> (const <a class="el" href="classValidatedTask.html">ValidatedTask</a> &amp;item)=0</td></tr>
+<tr class="memdesc:a755f09bf3c866ea32af9e6c68dcfd151"><td class="mdescLeft">&#160;</td><td class="mdescRight">Visits <a class="el" href="classValidatedTask.html">ValidatedTask</a>.  <br /></td></tr>
 <tr class="separator:a755f09bf3c866ea32af9e6c68dcfd151"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Abstract Visitor interface, <a class="el" href="classWorkVisitor.html#a038ac268b2b9d36872edf7a05698a593" title="Visits WorkUnit.">visit()</a> method per concrete <a class="el" href="classWorkComponent.html" title="Abstract inteface for composite and leaf components.">WorkComponent</a> type Each concrete type implements accept(WorkVisitor&amp;) and provides itself as a parameter, so that the visitor is aware of its type. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a5aeb1b6f5834787ef3f03560dd9e866d" name="a5aeb1b6f5834787ef3f03560dd9e866d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5aeb1b6f5834787ef3f03560dd9e866d">&#9670;&#160;</a></span>~WorkVisitor()</h2>
 
@@ -160,6 +180,14 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Visits <a class="el" href="classAuditedTask.html">AuditedTask</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">item</td><td><a class="el" href="classAuditedTask.html">AuditedTask</a> being visited </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Implemented in <a class="el" href="classProgressReportVisitor.html#abc708e1fba7768bd063fd787ccdf3bd8">ProgressReportVisitor</a>, and <a class="el" href="classPriorityCheckerVisitor.html#a9d7daa19233550d9a9bafd210eeb4f34">PriorityCheckerVisitor</a>.</p>
 
 </div>
@@ -187,6 +215,14 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Visits <a class="el" href="classPrioritisedTask.html">PrioritisedTask</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">item</td><td><a class="el" href="classPrioritisedTask.html">PrioritisedTask</a> being visited </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implemented in <a class="el" href="classProgressReportVisitor.html#ac26f5de61f8ad55345c1e41bc72119e8">ProgressReportVisitor</a>, and <a class="el" href="classPriorityCheckerVisitor.html#a3510f2c3e21a2400a3159b071ca8eca1">PriorityCheckerVisitor</a>.</p>
 
@@ -216,6 +252,14 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Visits <a class="el" href="classStage.html" title="Composite class, sits below WorkGroup, above SubProcess.">Stage</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">item</td><td><a class="el" href="classStage.html" title="Composite class, sits below WorkGroup, above SubProcess.">Stage</a> being visited </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Implemented in <a class="el" href="classProgressReportVisitor.html#a3c791745864a5dd6d8ba27593c73f979">ProgressReportVisitor</a>, and <a class="el" href="classPriorityCheckerVisitor.html#a730e7b5e4cabfa96acd106860ffeb224">PriorityCheckerVisitor</a>.</p>
 
 </div>
@@ -243,6 +287,14 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Visits <a class="el" href="classSubProcess.html" title="Composite class, sits below Stage, above WorkUnit.">SubProcess</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">item</td><td><a class="el" href="classSubProcess.html" title="Composite class, sits below Stage, above WorkUnit.">SubProcess</a> being visited </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implemented in <a class="el" href="classProgressReportVisitor.html#a232ede72001da838b2f6af58e6f3c3ce">ProgressReportVisitor</a>, and <a class="el" href="classPriorityCheckerVisitor.html#a3bfbe41e42c3edc2ba8b4cfb407486b7">PriorityCheckerVisitor</a>.</p>
 
@@ -272,6 +324,14 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Visits <a class="el" href="classValidatedTask.html">ValidatedTask</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">item</td><td><a class="el" href="classValidatedTask.html">ValidatedTask</a> being visited </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Implemented in <a class="el" href="classProgressReportVisitor.html#aa33e4d934531f0bbe66cf4390b4b5586">ProgressReportVisitor</a>, and <a class="el" href="classPriorityCheckerVisitor.html#ae6a4035d66aa4ed8ff013ed1b564d93e">PriorityCheckerVisitor</a>.</p>
 
 </div>
@@ -300,6 +360,14 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Visits <a class="el" href="classWorkGroup.html" title="Composite, owns and manages child components instantiable but still acts as interface for other compo...">WorkGroup</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">item</td><td><a class="el" href="classWorkGroup.html" title="Composite, owns and manages child components instantiable but still acts as interface for other compo...">WorkGroup</a> being visited </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Implemented in <a class="el" href="classProgressReportVisitor.html#aea64df968a0ed342d09aa3842fb8fdbc">ProgressReportVisitor</a>, and <a class="el" href="classPriorityCheckerVisitor.html#a55be4670363441d3623393bad2b10caa">PriorityCheckerVisitor</a>.</p>
 
 </div>
@@ -327,6 +395,14 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Visits <a class="el" href="classWorkUnit.html" title="Leaf: single unit of work that can be assigned, started and completed.">WorkUnit</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">item</td><td><a class="el" href="classWorkUnit.html" title="Leaf: single unit of work that can be assigned, started and completed.">WorkUnit</a> being visited </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implemented in <a class="el" href="classProgressReportVisitor.html#a26384c14facf02a3e27229a617e830a4">ProgressReportVisitor</a>, and <a class="el" href="classPriorityCheckerVisitor.html#a6a5a34e7df4dd275400c1ade924b2a5b">PriorityCheckerVisitor</a>.</p>
 

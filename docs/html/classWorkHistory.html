@@ -76,24 +76,43 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Caretaker: keeps snapshots in the order they were taken.  
+ <a href="classWorkHistory.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="Memento_8h_source.html">Memento.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for WorkHistory:</div>
+<div class="dyncontent">
+<div class="center"><img src="classWorkHistory__coll__graph.png" border="0" usemap="#aWorkHistory_coll__map" alt="Collaboration graph"/></div>
+<map name="aWorkHistory_coll__map" id="aWorkHistory_coll__map">
+<area shape="rect" title="Caretaker: keeps snapshots in the order they were taken." alt="" coords="5,5,167,171"/>
+</map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a93a9e722536eca884c479cc0872898d8" id="r_a93a9e722536eca884c479cc0872898d8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkHistory.html#a93a9e722536eca884c479cc0872898d8">WorkHistory</a> ()</td></tr>
+<tr class="memdesc:a93a9e722536eca884c479cc0872898d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Created an empty history.  <br /></td></tr>
 <tr class="separator:a93a9e722536eca884c479cc0872898d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a563cf1a71ea8befd36871bb76e0c0b83" id="r_a563cf1a71ea8befd36871bb76e0c0b83"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkHistory.html#a563cf1a71ea8befd36871bb76e0c0b83">~WorkHistory</a> ()</td></tr>
 <tr class="separator:a563cf1a71ea8befd36871bb76e0c0b83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac6e19a030b2c6277f747b055fa644104" id="r_ac6e19a030b2c6277f747b055fa644104"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkHistory.html#ac6e19a030b2c6277f747b055fa644104">addMemento</a> (<a class="el" href="classWorkMemento.html">WorkMemento</a> *memento)</td></tr>
+<tr class="memdesc:ac6e19a030b2c6277f747b055fa644104"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores a snapshot as teh latest entry.  <br /></td></tr>
 <tr class="separator:ac6e19a030b2c6277f747b055fa644104"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae39e02dc37cf9ff38ba0ddfb3557c51d" id="r_ae39e02dc37cf9ff38ba0ddfb3557c51d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkHistory.html#ae39e02dc37cf9ff38ba0ddfb3557c51d">isEmpty</a> () const</td></tr>
+<tr class="memdesc:ae39e02dc37cf9ff38ba0ddfb3557c51d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether any snapshot are stored.  <br /></td></tr>
 <tr class="separator:ae39e02dc37cf9ff38ba0ddfb3557c51d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2934560935581b5a155895ba66e9fd98" id="r_a2934560935581b5a155895ba66e9fd98"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classWorkMemento.html">WorkMemento</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkHistory.html#a2934560935581b5a155895ba66e9fd98">getLatestMemento</a> () const</td></tr>
+<tr class="memdesc:a2934560935581b5a155895ba66e9fd98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives the most recent snapshot without removing it.  <br /></td></tr>
 <tr class="separator:a2934560935581b5a155895ba66e9fd98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b719ef41df7bbd0129472c7e8cdd7a7" id="r_a2b719ef41df7bbd0129472c7e8cdd7a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkHistory.html#a2b719ef41df7bbd0129472c7e8cdd7a7">popLatest</a> ()</td></tr>
+<tr class="memdesc:a2b719ef41df7bbd0129472c7e8cdd7a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes and deletes the most recent snapshot.  <br /></td></tr>
 <tr class="separator:a2b719ef41df7bbd0129472c7e8cdd7a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Caretaker: keeps snapshots in the order they were taken. </p>
+<p>The latest snapshot is the one used by the nect undo. Not copyable. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a93a9e722536eca884c479cc0872898d8" name="a93a9e722536eca884c479cc0872898d8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a93a9e722536eca884c479cc0872898d8">&#9670;&#160;</a></span>WorkHistory()</h2>
 
@@ -116,6 +135,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Created an empty history. </p>
 
 </div>
 </div>
@@ -153,6 +174,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Stores a snapshot as teh latest entry. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">memento</td><td>The snapshot to keep. The history takes ownership. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a2934560935581b5a155895ba66e9fd98" name="a2934560935581b5a155895ba66e9fd98"></a>
@@ -169,6 +198,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Gives the most recent snapshot without removing it. </p>
+<dl class="section return"><dt>Returns</dt><dd>The latest snapshot. Check <a class="el" href="classWorkHistory.html#ae39e02dc37cf9ff38ba0ddfb3557c51d" title="Tells whether any snapshot are stored.">isEmpty()</a> first. </dd></dl>
 
 </div>
 </div>
@@ -187,6 +219,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Tells whether any snapshot are stored. </p>
+<dl class="section return"><dt>Returns</dt><dd>true if the history is empty. </dd></dl>
+
 </div>
 </div>
 <a id="a2b719ef41df7bbd0129472c7e8cdd7a7" name="a2b719ef41df7bbd0129472c7e8cdd7a7"></a>
@@ -203,6 +238,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Removes and deletes the most recent snapshot. </p>
 
 </div>
 </div>

@@ -76,45 +76,56 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>State in the State pattern for work that has started; the next update completes it.  
+ <a href="classInProgressState.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="InProgressState_8h_source.html">InProgressState.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for InProgressState:</div>
 <div class="dyncontent">
 <div class="center"><img src="classInProgressState__inherit__graph.png" border="0" usemap="#aInProgressState_inherit__map" alt="Inheritance graph"/></div>
 <map name="aInProgressState_inherit__map" id="aInProgressState_inherit__map">
-<area shape="rect" title=" " alt="" coords="5,79,129,104"/>
-<area shape="rect" href="classWorkState.html" title=" " alt="" coords="23,5,112,31"/>
-<area shape="poly" title=" " alt="" coords="70,44,70,79,65,79,65,44"/>
+<area shape="rect" title="State in the State pattern for work that has started; the next update completes it." alt="" coords="5,179,157,324"/>
+<area shape="rect" href="classWorkState.html" title="Base class for the states a WorkComponent can be in." alt="" coords="17,5,146,131"/>
+<area shape="poly" title=" " alt="" coords="84,145,84,179,79,179,79,145"/>
 </map>
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+</div>
 <div class="dynheader">
 Collaboration diagram for InProgressState:</div>
 <div class="dyncontent">
 <div class="center"><img src="classInProgressState__coll__graph.png" border="0" usemap="#aInProgressState_coll__map" alt="Collaboration graph"/></div>
 <map name="aInProgressState_coll__map" id="aInProgressState_coll__map">
-<area shape="rect" title=" " alt="" coords="5,79,129,104"/>
-<area shape="rect" href="classWorkState.html" title=" " alt="" coords="23,5,112,31"/>
-<area shape="poly" title=" " alt="" coords="70,44,70,79,65,79,65,44"/>
+<area shape="rect" title="State in the State pattern for work that has started; the next update completes it." alt="" coords="5,179,157,324"/>
+<area shape="rect" href="classWorkState.html" title="Base class for the states a WorkComponent can be in." alt="" coords="17,5,146,131"/>
+<area shape="poly" title=" " alt="" coords="84,145,84,179,79,179,79,145"/>
 </map>
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ad56bd1b8de079807a922b32182be2608" id="r_ad56bd1b8de079807a922b32182be2608"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInProgressState.html#ad56bd1b8de079807a922b32182be2608">InProgressState</a> ()</td></tr>
+<tr class="memdesc:ad56bd1b8de079807a922b32182be2608"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an In Progress state.  <br /></td></tr>
 <tr class="separator:ad56bd1b8de079807a922b32182be2608"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad0f8d7c4b198513f034730a423f48725" id="r_ad0f8d7c4b198513f034730a423f48725"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInProgressState.html#ad0f8d7c4b198513f034730a423f48725">handleUpdate</a> (<a class="el" href="classWorkComponent.html">WorkComponent</a> *context)</td></tr>
+<tr class="memdesc:ad0f8d7c4b198513f034730a423f48725"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles an update request by moving the context to the Completed state.  <br /></td></tr>
 <tr class="separator:ad0f8d7c4b198513f034730a423f48725"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5378ace6cec6d9bc2cc77eb8a795d864" id="r_a5378ace6cec6d9bc2cc77eb8a795d864"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInProgressState.html#a5378ace6cec6d9bc2cc77eb8a795d864">getStatus</a> () const override</td></tr>
+<tr class="memdesc:a5378ace6cec6d9bc2cc77eb8a795d864"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the status name, "In Progress".  <br /></td></tr>
 <tr class="separator:a5378ace6cec6d9bc2cc77eb8a795d864"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70a17ea1bdd24bc33872767e78e5fbef" id="r_a70a17ea1bdd24bc33872767e78e5fbef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classWorkState.html">WorkState</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInProgressState.html#a70a17ea1bdd24bc33872767e78e5fbef">clone</a> () override</td></tr>
+<tr class="memdesc:a70a17ea1bdd24bc33872767e78e5fbef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a copy of this state.  <br /></td></tr>
 <tr class="separator:a70a17ea1bdd24bc33872767e78e5fbef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d0977455c17bca47a0f0ec101cfb548" id="r_a7d0977455c17bca47a0f0ec101cfb548"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInProgressState.html#a7d0977455c17bca47a0f0ec101cfb548">~InProgressState</a> ()</td></tr>
+<tr class="memdesc:a7d0977455c17bca47a0f0ec101cfb548"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the state.  <br /></td></tr>
 <tr class="separator:a7d0977455c17bca47a0f0ec101cfb548"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classWorkState"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classWorkState')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classWorkState.html">WorkState</a></td></tr>
 <tr class="memitem:a4ef078c5253a7c799df3609c90febadc inherit pub_methods_classWorkState" id="r_a4ef078c5253a7c799df3609c90febadc"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWorkState.html#a4ef078c5253a7c799df3609c90febadc">~WorkState</a> ()</td></tr>
+<tr class="memdesc:a4ef078c5253a7c799df3609c90febadc inherit pub_methods_classWorkState"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor so concrete states are destroyed correctly.  <br /></td></tr>
 <tr class="separator:a4ef078c5253a7c799df3609c90febadc inherit pub_methods_classWorkState"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>State in the State pattern for work that has started; the next update completes it. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad56bd1b8de079807a922b32182be2608" name="ad56bd1b8de079807a922b32182be2608"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad56bd1b8de079807a922b32182be2608">&#9670;&#160;</a></span>InProgressState()</h2>
 
@@ -129,6 +140,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Creates an In Progress state. </p>
 
 </div>
 </div>
@@ -155,6 +168,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Destroys the state. </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -180,6 +195,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Creates a copy of this state. </p>
 
 <p>Implements <a class="el" href="classWorkState.html#afc1791f02620fbbc2db8f025df7a07ba">WorkState</a>.</p>
 
@@ -208,6 +225,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the status name, "In Progress". </p>
+
 <p>Implements <a class="el" href="classWorkState.html#a3b8f66eed77cac67e347dd02a480ea98">WorkState</a>.</p>
 
 </div>
@@ -235,6 +254,14 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Handles an update request by moving the context to the Completed state. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">context</td><td>The work component that holds this state. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implements <a class="el" href="classWorkState.html#af897f4deba4f3b3baffc889b4524513f">WorkState</a>.</p>
 

@@ -1,9 +1,11 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$classValidationRule.html" title=" " alt="" coords="5,55,121,80"/>
-<area shape="rect" id="Node000001" href="$classEmailFormatRule.html" title=" " alt="" coords="175,5,310,31"/>
-<area shape="poly" id="edge30_Node000000_Node000001" title=" " alt="" coords="123,48,195,28,196,33,124,53"/>
-<area shape="rect" id="Node000002" href="$classNumericRangeRule.html" title=" " alt="" coords="169,55,316,80"/>
-<area shape="poly" id="edge31_Node000000_Node000002" title=" " alt="" coords="135,65,169,65,169,70,135,70"/>
-<area shape="rect" id="Node000003" href="$classRequiredKeyRule.html" title=" " alt="" coords="176,104,309,129"/>
-<area shape="poly" id="edge32_Node000000_Node000003" title=" " alt="" coords="124,81,196,101,195,106,123,86"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,55,120,80"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="168,55,307,80"/>
+<area shape="poly" id="edge27_Node000000_Node000001" title=" " alt="" coords="134,65,168,65,168,70,134,70"/>
+<area shape="rect" id="Node000002" href="$classAccessDeniedError.html" title=" " alt="" coords="371,5,515,31"/>
+<area shape="poly" id="edge28_Node000001_Node000002" title=" " alt="" coords="304,49,389,28,390,33,305,54"/>
+<area shape="rect" id="Node000003" href="$classBlueprintValidationError.html" title="Reports a blueprint that does not match the supported schema." alt="" coords="355,55,532,80"/>
+<area shape="poly" id="edge29_Node000001_Node000003" title=" " alt="" coords="320,65,354,65,354,70,320,70"/>
+<area shape="rect" id="Node000004" href="$classValidationError.html" title=" " alt="" coords="384,104,503,129"/>
+<area shape="poly" id="edge30_Node000001_Node000004" title=" " alt="" coords="305,81,390,101,389,107,304,86"/>
 </map>

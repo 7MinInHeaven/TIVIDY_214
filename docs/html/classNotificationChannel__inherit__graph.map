@@ -1,7 +1,7 @@
 <map id="NotificationChannel" name="NotificationChannel">
-<area shape="rect" id="Node000001" title="The Implementor interface in the Bridge Pattern." alt="" coords="44,5,195,31"/>
-<area shape="rect" id="Node000002" href="$classAppChannel.html" title="A Concrete Implementor in the Bridge Pattern." alt="" coords="5,79,105,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="102,43,68,80,64,77,98,39"/>
-<area shape="rect" id="Node000003" href="$classEmailChannel.html" title="A Concrete Implementor in the Bridge Pattern (and Context in the Strategy Pattern)." alt="" coords="129,79,241,104"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="141,39,176,77,172,80,137,43"/>
+<area shape="rect" id="Node000001" title="The Implementor interface in the Bridge Pattern." alt="" coords="29,5,207,91"/>
+<area shape="rect" id="Node000002" href="$classAppChannel.html" title="A Concrete Implementor in the Bridge Pattern." alt="" coords="5,149,97,214"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="93,104,70,150,65,147,88,102"/>
+<area shape="rect" id="Node000003" href="$classEmailChannel.html" title="A Concrete Implementor in the Bridge Pattern (and Context in the Strategy Pattern)." alt="" coords="121,139,251,224"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="148,102,167,137,162,140,143,104"/>
 </map>

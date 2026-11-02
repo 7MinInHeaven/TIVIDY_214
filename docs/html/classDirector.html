@@ -77,15 +77,29 @@ $(function() {
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="Director_8h_source.html">Director.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for Director:</div>
+<div class="dyncontent">
+<div class="center"><img src="classDirector__coll__graph.png" border="0" usemap="#aDirector_coll__map" alt="Collaboration graph"/></div>
+<map name="aDirector_coll__map" id="aDirector_coll__map">
+<area shape="rect" title=" " alt="" coords="5,5,151,131"/>
+</map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a41c89add039af7603ca572eb23dfd038" id="r_a41c89add039af7603ca572eb23dfd038"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDirector.html#a41c89add039af7603ca572eb23dfd038">Director</a> (<a class="el" href="classChainBuilder.html">ChainBuilder</a> *b, <a class="el" href="classWorkItem.html">WorkItem</a> *i=nullptr, bool input=false)</td></tr>
+<tr class="memdesc:a41c89add039af7603ca572eb23dfd038"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a new <a class="el" href="classDirector.html">Director</a> instance.  <br /></td></tr>
 <tr class="separator:a41c89add039af7603ca572eb23dfd038"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a59d7a588bfd4edd22948a9e7fd8c854a" id="r_a59d7a588bfd4edd22948a9e7fd8c854a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDirector.html#a59d7a588bfd4edd22948a9e7fd8c854a">~Director</a> ()</td></tr>
+<tr class="memdesc:a59d7a588bfd4edd22948a9e7fd8c854a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the <a class="el" href="classDirector.html">Director</a> instance.  <br /></td></tr>
 <tr class="separator:a59d7a588bfd4edd22948a9e7fd8c854a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a58d19b286422e1ab61ef9b671648af00" id="r_a58d19b286422e1ab61ef9b671648af00"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDirector.html#a58d19b286422e1ab61ef9b671648af00">construct</a> (const <a class="el" href="Director_8h.html#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;data)</td></tr>
+<tr class="memdesc:a58d19b286422e1ab61ef9b671648af00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads in input from the JSON to determine if items need to be added to the <a class="el" href="classWorkItem.html" title="Represents a generic payload data container moving through the workflow.">WorkItem</a> and creates Composite Nodes from the JSON blueprint.  <br /></td></tr>
 <tr class="separator:a58d19b286422e1ab61ef9b671648af00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f58c6e0ca409b80d40850d8695f33d6" id="r_a3f58c6e0ca409b80d40850d8695f33d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDirector.html#a3f58c6e0ca409b80d40850d8695f33d6">parseDecorators</a> (const <a class="el" href="Director_8h.html#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;node)</td></tr>
+<tr class="memdesc:a3f58c6e0ca409b80d40850d8695f33d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads in input from the JSON to determine if items need to be wrapped with priorties.  <br /></td></tr>
+<tr class="separator:a3f58c6e0ca409b80d40850d8695f33d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a41c89add039af7603ca572eb23dfd038" name="a41c89add039af7603ca572eb23dfd038"></a>
@@ -120,6 +134,16 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Constructs a new <a class="el" href="classDirector.html">Director</a> instance. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">b</td><td>Pointer to <a class="el" href="classChainBuilder.html" title="Abstract builder that constructs a chain of WorkGroups and their children.">ChainBuilder</a> used to construct components </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">i</td><td>Pointer to the <a class="el" href="classWorkItem.html" title="Represents a generic payload data container moving through the workflow.">WorkItem</a> where required input data is placed </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">in</td><td>Flag indicating whether interactive input prompting is enabled </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a59d7a588bfd4edd22948a9e7fd8c854a" name="a59d7a588bfd4edd22948a9e7fd8c854a"></a>
@@ -136,6 +160,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Destroys the <a class="el" href="classDirector.html">Director</a> instance. </p>
 
 </div>
 </div>
@@ -155,6 +181,41 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Reads in input from the JSON to determine if items need to be added to the <a class="el" href="classWorkItem.html" title="Represents a generic payload data container moving through the workflow.">WorkItem</a> and creates Composite Nodes from the JSON blueprint. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>The JSON file that forms the blueprint of Builder </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3f58c6e0ca409b80d40850d8695f33d6" name="a3f58c6e0ca409b80d40850d8695f33d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f58c6e0ca409b80d40850d8695f33d6">&#9670;&#160;</a></span>parseDecorators()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Director::parseDecorators </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="Director_8h.html#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;&#160;</td>
+          <td class="paramname"><em>node</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reads in input from the JSON to determine if items need to be wrapped with priorties. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>The JSON file that forms the blueprint of Builder</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Applies the decorators declared on the current <a class="el" href="classWorkUnit.html" title="Leaf: single unit of work that can be assigned, started and completed.">WorkUnit</a> node. </p>
 
 </div>
 </div>
