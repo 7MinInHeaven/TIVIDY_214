@@ -31,6 +31,7 @@ Ashley Mthemba: u25072235
 
 Gabriel van Staden: u25172922 
 
+[View the generated Doxygen documentation](https://7mininheaven.github.io/TIVIDY_214/annotated.html)
 <img src="docs/assets/divider.svg" alt="" width="100%"/>
 
 <img src="docs/assets/h-design-patterns.svg" alt="Design Patterns Implemented" width="100%"/>
