@@ -1,115 +1,123 @@
 <map id="include/Memento.h" name="include/Memento.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="3288,5,3435,31"/>
-<area shape="rect" id="Node000002" href="$Command_8h.html" title=" " alt="" coords="860,159,1012,185"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="3275,23,2190,41,1586,59,1364,69,1234,81,1156,98,1080,120,965,162,963,157,1079,115,1155,93,1233,76,1364,64,1585,53,2190,36,3274,18"/>
-<area shape="rect" id="Node000007" href="$WorkUnit_8cpp.html" title=" " alt="" coords="1094,247,1298,273"/>
-<area shape="poly" id="edge63_Node000001_Node000007" title=" " alt="" coords="3274,22,2884,26,2617,33,2328,44,2037,60,1766,83,1534,114,1440,133,1362,155,1316,175,1272,201,1210,249,1207,245,1269,197,1313,170,1360,149,1438,128,1533,109,1766,78,2037,55,2327,38,2616,27,2884,21,3274,17"/>
-<area shape="rect" id="Node000008" href="$Composite_8h.html" title=" " alt="" coords="3284,79,3439,104"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="3364,44,3364,79,3359,79,3359,44"/>
-<area shape="rect" id="Node000051" href="$WorkHistory_8cpp.html" title=" " alt="" coords="3463,79,3679,104"/>
-<area shape="poly" id="edge61_Node000001_Node000051" title=" " alt="" coords="3409,33,3538,76,3536,81,3407,38"/>
-<area shape="rect" id="Node000052" href="$WorkMemento_8cpp.html" title=" " alt="" coords="3703,79,3937,104"/>
-<area shape="poly" id="edge62_Node000001_Node000052" title=" " alt="" coords="3449,30,3747,76,3746,81,3448,35"/>
-<area shape="rect" id="Node000003" href="$ActionExecutor_8cpp.html" title=" " alt="" coords="5,247,243,273"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="847,183,581,208,255,243,200,250,199,245,254,237,581,202,846,178"/>
-<area shape="rect" id="Node000004" href="$AssignTaskCommand_8cpp.html" title=" " alt="" coords="267,247,547,273"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="852,190,478,250,477,245,851,184"/>
-<area shape="rect" id="Node000005" href="$CompleteTaskCommand_8cpp.html" title=" " alt="" coords="571,240,778,280"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="889,192,733,242,731,237,887,187"/>
-<area shape="rect" id="Node000006" href="$StartTaskCommand_8cpp.html" title=" " alt="" coords="802,247,1070,273"/>
-<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="939,199,939,247,933,247,933,199"/>
-<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="985,187,1162,245,1160,250,983,192"/>
-<area shape="poly" id="edge16_Node000008_Node000002" title=" " alt="" coords="3270,98,2501,120,1401,155,1012,170,1012,165,1401,149,2501,114,3270,92"/>
-<area shape="poly" id="edge57_Node000008_Node000007" title=" " alt="" coords="3270,97,2322,116,1805,133,1616,143,1504,155,1422,175,1341,201,1221,250,1219,245,1340,196,1420,170,1504,149,1615,138,1804,127,2322,110,3270,91"/>
-<area shape="rect" id="Node000009" href="$ChainBuilder_8h.html" title=" " alt="" coords="1517,159,1683,185"/>
-<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="3270,96,3009,99,2632,108,2193,125,1744,155,1677,162,1677,157,1744,149,2192,120,2632,102,3009,94,3270,90"/>
-<area shape="rect" id="Node000012" href="$WorkflowEngineFacade_8cpp.html" title=" " alt="" coords="1397,328,1595,368"/>
-<area shape="poly" id="edge49_Node000008_Node000012" title=" " alt="" coords="3270,96,2951,101,2530,111,2140,128,1999,140,1917,155,1877,172,1849,191,1788,242,1764,264,1737,282,1667,311,1596,331,1595,326,1665,306,1735,278,1761,259,1785,238,1846,187,1875,167,1915,149,1998,135,2140,123,2530,105,2951,95,3270,91"/>
-<area shape="rect" id="Node000014" href="$WorkflowBuilder_8cpp.html" title=" " alt="" coords="1620,335,1847,361"/>
-<area shape="poly" id="edge47_Node000008_Node000014" title=" " alt="" coords="3270,95,3004,98,2651,106,2304,124,2160,137,2051,155,1988,170,1940,185,1895,208,1840,242,1810,266,1783,292,1744,337,1740,333,1779,288,1807,262,1837,238,1892,203,1938,180,1987,165,2050,149,2159,132,2303,118,2651,100,3004,92,3270,90"/>
-<area shape="rect" id="Node000015" href="$DatabaseObserver_8h.html" title="Declares the ConcreteObserver and Strategy Context for database persistence." alt="" coords="2143,159,2348,185"/>
-<area shape="poly" id="edge17_Node000008_Node000015" title=" " alt="" coords="3270,102,2348,166,2348,161,3270,96"/>
-<area shape="rect" id="Node000016" href="$WorkflowEngineFacade_8h.html" title=" " alt="" coords="1851,247,2085,273"/>
-<area shape="poly" id="edge46_Node000008_Node000016" title=" " alt="" coords="3270,97,2995,103,2641,115,2317,132,2200,142,2131,155,2085,175,2043,201,1982,249,1979,245,2040,196,2083,170,2130,149,2199,137,2316,126,2641,109,2995,98,3270,92"/>
-<area shape="rect" id="Node000025" href="$Decorator_8h.html" title=" " alt="" coords="3175,159,3323,185"/>
-<area shape="poly" id="edge26_Node000008_Node000025" title=" " alt="" coords="3335,114,3267,161,3264,157,3332,110"/>
-<area shape="rect" id="Node000026" href="$Iterator_8h.html" title=" " alt="" coords="2406,247,2538,273"/>
-<area shape="poly" id="edge43_Node000008_Node000026" title=" " alt="" coords="3278,109,2958,164,2550,243,2518,250,2517,245,2549,237,2957,159,3277,104"/>
-<area shape="rect" id="Node000027" href="$WorkComponent_8cpp.html" title=" " alt="" coords="3941,335,4193,361"/>
-<area shape="poly" id="edge55_Node000008_Node000027" title=" " alt="" coords="3404,107,3488,150,3513,172,3524,181,3540,189,3569,196,3613,200,3741,202,4084,196,4263,195,4422,199,4489,204,4544,212,4585,223,4610,238,4617,249,4620,260,4617,271,4610,282,4590,293,4554,304,4448,320,4318,333,4193,342,4193,337,4318,328,4447,315,4552,298,4588,288,4606,278,4612,269,4614,260,4612,251,4606,242,4583,228,4543,218,4488,210,4422,205,4263,200,4084,202,3741,207,3613,205,3568,201,3538,195,3521,186,3510,176,3485,154,3401,112"/>
-<area shape="rect" id="Node000039" href="$PriorityCheckerVisitor_8cpp.html" title=" " alt="" coords="3969,240,4159,280"/>
-<area shape="poly" id="edge58_Node000008_Node000039" title=" " alt="" coords="3365,117,3373,156,3382,175,3395,190,3416,203,3442,213,3506,228,3582,235,3665,237,3830,234,3901,234,3958,237,3970,239,3969,244,3957,243,3901,239,3830,239,3665,242,3582,240,3505,233,3440,218,3413,208,3392,194,3377,178,3368,158,3359,118"/>
-<area shape="rect" id="Node000040" href="$ProgressReportVisitor_8cpp.html" title=" " alt="" coords="4183,240,4372,280"/>
-<area shape="poly" id="edge59_Node000008_Node000040" title=" " alt="" coords="3376,115,3404,155,3423,175,3445,190,3475,202,3511,212,3596,225,3695,232,3801,234,4010,232,4099,233,4171,237,4183,239,4182,244,4170,243,4099,238,4010,237,3801,239,3695,237,3595,230,3509,217,3473,207,3443,194,3420,179,3400,159,3371,118"/>
-<area shape="rect" id="Node000041" href="$WorkComponentValidationVisitor_8cpp.html" title=" " alt="" coords="4397,240,4595,280"/>
-<area shape="poly" id="edge60_Node000008_Node000041" title=" " alt="" coords="3389,110,3443,150,3468,173,3479,182,3496,189,3579,210,3685,222,3806,229,3935,231,4188,230,4297,232,4384,237,4397,239,4396,244,4384,243,4297,237,4188,236,3935,236,3806,234,3684,228,3578,215,3494,195,3477,186,3465,177,3440,154,3386,114"/>
-<area shape="rect" id="Node000042" href="$NotificationObserver_8h.html" title="The Observer that listens to workflow state changes and triggers notifications." alt="" coords="3551,159,3769,185"/>
-<area shape="poly" id="edge44_Node000008_Node000042" title=" " alt="" coords="3419,105,3617,157,3616,162,3417,110"/>
-<area shape="rect" id="Node000044" href="$WorkflowSubject_8cpp.html" title=" " alt="" coords="3793,152,4065,192"/>
-<area shape="poly" id="edge48_Node000008_Node000044" title=" " alt="" coords="3453,103,3793,149,3793,155,3453,108"/>
-<area shape="rect" id="Node000045" href="$CompletedState_8cpp.html" title=" " alt="" coords="4090,159,4305,185"/>
-<area shape="poly" id="edge50_Node000008_Node000045" title=" " alt="" coords="3452,101,3629,116,3767,124,3904,132,4078,149,4131,157,4130,162,4077,155,3903,138,3767,129,3629,122,3452,107"/>
-<area shape="rect" id="Node000046" href="$InProgressState_8cpp.html" title=" " alt="" coords="4329,159,4541,185"/>
-<area shape="poly" id="edge51_Node000008_Node000046" title=" " alt="" coords="3453,101,3697,118,3887,123,4077,130,4318,149,4371,157,4371,162,4317,155,4076,135,3887,128,3697,123,3452,107"/>
-<area shape="rect" id="Node000047" href="$PendingState_8cpp.html" title=" " alt="" coords="4565,159,4761,185"/>
-<area shape="poly" id="edge52_Node000008_Node000047" title=" " alt="" coords="3452,101,3620,113,3763,119,4005,121,4246,126,4388,134,4554,149,4605,157,4604,162,4553,155,4387,139,4246,131,4005,127,3763,124,3620,118,3452,107"/>
-<area shape="rect" id="Node000048" href="$Stage_8cpp.html" title=" " alt="" coords="4785,159,4967,185"/>
-<area shape="poly" id="edge53_Node000008_Node000048" title=" " alt="" coords="3452,101,3654,114,3825,120,4115,119,4255,119,4405,122,4574,131,4774,149,4822,157,4821,162,4773,155,4574,136,4405,127,4255,124,4115,125,3825,125,3654,120,3452,107"/>
-<area shape="rect" id="Node000049" href="$SubProcess_8cpp.html" title=" " alt="" coords="4991,159,5209,185"/>
-<area shape="poly" id="edge54_Node000008_Node000049" title=" " alt="" coords="3452,101,3685,116,3882,122,4218,122,4379,121,4552,123,4748,132,4979,149,5036,157,5036,162,4978,155,4748,137,4552,128,4379,126,4218,127,3882,128,3685,121,3452,107"/>
-<area shape="rect" id="Node000050" href="$WorkGroup_8cpp.html" title=" " alt="" coords="5233,159,5449,185"/>
-<area shape="poly" id="edge56_Node000008_Node000050" title=" " alt="" coords="3452,101,3722,118,3950,124,4152,124,4339,121,4526,119,4727,120,4954,129,5222,149,5278,157,5278,162,5221,155,4954,135,4726,126,4526,124,4339,126,4152,129,3950,129,3722,123,3452,107"/>
-<area shape="rect" id="Node000010" href="$Director_8h.html" title=" " alt="" coords="1323,247,1459,273"/>
-<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="1560,192,1420,250,1418,245,1558,188"/>
-<area shape="poly" id="edge15_Node000009_Node000012" title=" " alt="" coords="1571,195,1545,215,1524,241,1513,263,1506,287,1500,328,1494,328,1501,285,1508,261,1519,239,1542,212,1567,190"/>
-<area shape="rect" id="Node000013" href="$WorkflowBuilder_8h.html" title=" " alt="" coords="1534,247,1725,273"/>
-<area shape="poly" id="edge12_Node000009_Node000013" title=" " alt="" coords="1611,197,1628,246,1623,248,1606,198"/>
-<area shape="rect" id="Node000011" href="$Director_8cpp.html" title=" " alt="" coords="1199,335,1372,361"/>
-<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="1368,283,1301,337,1298,333,1364,279"/>
-<area shape="poly" id="edge11_Node000010_Node000012" title=" " alt="" coords="1417,279,1474,326,1471,330,1414,283"/>
-<area shape="poly" id="edge14_Node000013_Node000012" title=" " alt="" coords="1601,282,1527,330,1524,326,1599,278"/>
-<area shape="poly" id="edge13_Node000013_Node000014" title=" " alt="" coords="1655,279,1721,333,1718,337,1652,283"/>
-<area shape="poly" id="edge18_Node000015_Node000016" title=" " alt="" coords="2196,191,2006,250,2004,245,2194,186"/>
-<area shape="rect" id="Node000024" href="$DatabaseObserver_8cpp.html" title=" " alt="" coords="2109,240,2381,280"/>
-<area shape="poly" id="edge25_Node000015_Node000024" title=" " alt="" coords="2248,198,2248,240,2243,240,2243,198"/>
-<area shape="poly" id="edge23_Node000016_Node000012" title=" " alt="" coords="1892,278,1596,331,1595,326,1891,273"/>
-<area shape="rect" id="Node000017" href="$Proxy_8h.html" title=" " alt="" coords="1871,335,1991,361"/>
-<area shape="poly" id="edge19_Node000016_Node000017" title=" " alt="" coords="1960,286,1938,336,1933,334,1955,284"/>
-<area shape="rect" id="Node000023" href="$main_8cpp.html" title=" " alt="" coords="2015,335,2121,361"/>
-<area shape="poly" id="edge24_Node000016_Node000023" title=" " alt="" coords="1994,280,2056,333,2052,337,1990,284"/>
-<area shape="rect" id="Node000018" href="$ScenarioAccessPolicies_8h.html" title=" " alt="" coords="1550,416,1786,441"/>
-<area shape="poly" id="edge20_Node000017_Node000018" title=" " alt="" coords="1880,367,1707,419,1705,413,1879,362"/>
-<area shape="rect" id="Node000020" href="$AccessControlProxy_8cpp.html" title=" " alt="" coords="1811,416,2051,441"/>
-<area shape="poly" id="edge21_Node000017_Node000020" title=" " alt="" coords="1933,374,1933,416,1928,416,1928,374"/>
-<area shape="rect" id="Node000021" href="$AccessPolicy_8cpp.html" title=" " alt="" coords="2075,416,2269,441"/>
-<area shape="poly" id="edge22_Node000017_Node000021" title=" " alt="" coords="1980,362,2138,413,2136,419,1978,367"/>
-<area shape="poly" id="edge27_Node000025_Node000026" title=" " alt="" coords="3162,180,2888,201,2719,219,2550,243,2515,250,2514,245,2549,237,2718,213,2887,195,3161,175"/>
-<area shape="rect" id="Node000033" href="$AuditedTask_8cpp.html" title=" " alt="" coords="2562,247,2779,273"/>
-<area shape="poly" id="edge34_Node000025_Node000033" title=" " alt="" coords="3162,189,2791,243,2743,250,2743,245,2790,237,3161,183"/>
-<area shape="rect" id="Node000034" href="$PrioritisedTask_8cpp.html" title=" " alt="" coords="2803,240,2981,280"/>
-<area shape="poly" id="edge35_Node000025_Node000034" title=" " alt="" coords="3189,190,2971,243,2970,237,3188,185"/>
-<area shape="rect" id="Node000035" href="$StandardRules_8cpp.html" title=" " alt="" coords="3005,247,3237,273"/>
-<area shape="poly" id="edge36_Node000025_Node000035" title=" " alt="" coords="3222,195,3140,249,3137,245,3219,190"/>
-<area shape="rect" id="Node000036" href="$TaskDecorator_8cpp.html" title=" " alt="" coords="3262,247,3493,273"/>
-<area shape="poly" id="edge37_Node000025_Node000036" title=" " alt="" coords="3279,190,3361,245,3358,249,3276,195"/>
-<area shape="rect" id="Node000037" href="$ValidatedTask_8cpp.html" title=" " alt="" coords="3517,247,3745,273"/>
-<area shape="poly" id="edge38_Node000025_Node000037" title=" " alt="" coords="3314,185,3581,245,3579,250,3313,190"/>
-<area shape="rect" id="Node000038" href="$ValidationRule_8cpp.html" title=" " alt="" coords="3769,240,3945,280"/>
-<area shape="poly" id="edge39_Node000025_Node000038" title=" " alt="" coords="3316,185,3343,189,3459,205,3550,214,3641,222,3758,237,3769,239,3769,244,3757,243,3641,228,3550,219,3459,210,3342,195,3315,190"/>
-<area shape="poly" id="edge40_Node000025_Node000039" title=" " alt="" coords="3315,185,3343,189,3515,208,3650,215,3785,221,3958,237,3970,239,3969,244,3957,243,3785,226,3650,220,3515,213,3342,195,3314,190"/>
-<area shape="poly" id="edge41_Node000025_Node000040" title=" " alt="" coords="3337,183,3394,189,3612,205,3782,210,3953,217,4171,237,4183,239,4182,244,4170,243,3952,223,3782,216,3612,210,3393,195,3337,188"/>
-<area shape="poly" id="edge42_Node000025_Node000041" title=" " alt="" coords="3337,180,3444,189,3708,203,3915,208,4121,215,4384,237,4397,239,4396,244,4384,243,4120,220,3914,213,3708,209,3444,195,3337,185"/>
-<area shape="poly" id="edge28_Node000026_Node000027" title=" " alt="" coords="2526,273,2550,277,2776,294,3169,312,3940,340,3940,345,3168,317,2776,299,2549,283,2525,278"/>
-<area shape="rect" id="Node000028" href="$DepthFirstIterator_8cpp.html" title=" " alt="" coords="2145,335,2383,361"/>
-<area shape="poly" id="edge29_Node000026_Node000028" title=" " alt="" coords="2432,280,2293,338,2291,333,2430,276"/>
-<area shape="rect" id="Node000029" href="$FilterIterator_8cpp.html" title=" " alt="" coords="2407,335,2611,361"/>
-<area shape="poly" id="edge30_Node000026_Node000029" title=" " alt="" coords="2485,284,2507,334,2502,336,2480,286"/>
-<area shape="rect" id="Node000030" href="$IncompleteIterator_8cpp.html" title=" " alt="" coords="2635,335,2879,361"/>
-<area shape="poly" id="edge31_Node000026_Node000030" title=" " alt="" coords="2524,274,2720,333,2718,338,2523,279"/>
-<area shape="rect" id="Node000031" href="$PriorityIterator_8cpp.html" title=" " alt="" coords="2904,335,3123,361"/>
-<area shape="poly" id="edge32_Node000026_Node000031" title=" " alt="" coords="2530,273,2550,277,2720,304,2891,325,2940,333,2939,338,2890,331,2719,309,2549,283,2529,278"/>
-<area shape="rect" id="Node000032" href="$StateIterator_8cpp.html" title=" " alt="" coords="3147,335,3352,361"/>
-<area shape="poly" id="edge33_Node000026_Node000032" title=" " alt="" coords="2528,273,2550,277,2713,298,2842,305,2970,310,3135,325,3186,333,3185,338,3134,331,2970,316,2841,310,2713,303,2549,283,2527,278"/>
-<area shape="rect" id="Node000043" href="$NotificationObserver_8cpp.html" title="Implementation of the NotificationObserver." alt="" coords="4669,240,4856,280"/>
-<area shape="poly" id="edge45_Node000042_Node000043" title=" " alt="" coords="3740,184,3782,189,3914,201,4026,208,4216,212,4407,218,4519,225,4651,237,4670,240,4669,245,4650,243,4518,230,4407,223,4216,218,4025,213,3913,207,3781,195,3739,189"/>
+<area shape="rect" id="Node000001" title="Memento pattern: snapshots of a task&#39;s state, used to undo actions." alt="" coords="2714,5,2861,31"/>
+<area shape="rect" id="Node000002" href="$Command_8h.html" title="Command pattern: agent actions as objects, run and undone by an invoker." alt="" coords="1261,159,1413,185"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="2701,31,1413,165,1412,160,2700,26"/>
+<area shape="rect" id="Node000019" href="$WorkUnit_8cpp.html" title=" " alt="" coords="5,247,209,273"/>
+<area shape="poly" id="edge71_Node000001_Node000019" title=" " alt="" coords="2700,23,2369,32,1866,54,1575,71,1271,93,963,121,661,155,516,177,373,203,156,250,155,245,372,198,515,171,660,149,962,115,1270,87,1575,65,1866,48,2369,27,2700,18"/>
+<area shape="rect" id="Node000020" href="$Composite_8h.html" title="defines The structure for WorkComponents" alt="" coords="2710,79,2865,104"/>
+<area shape="poly" id="edge18_Node000001_Node000020" title=" " alt="" coords="2790,44,2790,79,2785,79,2785,44"/>
+<area shape="rect" id="Node000053" href="$WorkHistory_8cpp.html" title=" " alt="" coords="2889,79,3105,104"/>
+<area shape="poly" id="edge69_Node000001_Node000053" title=" " alt="" coords="2835,33,2964,76,2962,81,2833,38"/>
+<area shape="rect" id="Node000054" href="$WorkMemento_8cpp.html" title=" " alt="" coords="3129,79,3363,104"/>
+<area shape="poly" id="edge70_Node000001_Node000054" title=" " alt="" coords="2875,30,3173,76,3172,81,2874,35"/>
+<area shape="rect" id="Node000003" href="$RequestChain_8h.html" title=" " alt="" coords="2077,328,2252,353"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="1360,192,1415,242,1443,264,1464,278,1515,293,1583,305,1750,322,1928,332,2077,336,2077,341,1928,337,1750,328,1582,310,1514,298,1462,282,1440,269,1411,246,1356,196"/>
+<area shape="rect" id="Node000004" href="$WorkflowEngineFacade_8h.html" title=" " alt="" coords="1662,401,1897,427"/>
+<area shape="poly" id="edge10_Node000002_Node000004" title=" " alt="" coords="1349,196,1372,238,1388,259,1408,278,1443,303,1481,324,1561,359,1639,383,1708,399,1706,404,1638,388,1559,364,1478,329,1440,307,1404,282,1385,263,1368,241,1344,199"/>
+<area shape="rect" id="Node000011" href="$WorkflowEngineFacade_8cpp.html" title=" " alt="" coords="2071,475,2269,515"/>
+<area shape="poly" id="edge11_Node000002_Node000011" title=" " alt="" coords="1341,197,1350,238,1358,259,1369,278,1394,306,1418,322,1479,351,1562,394,1651,424,1762,449,1875,467,2071,486,2070,491,1874,472,1761,454,1649,429,1560,399,1477,356,1415,326,1390,310,1365,282,1353,261,1345,239,1336,199"/>
+<area shape="rect" id="Node000014" href="$ActionExecutor_8cpp.html" title=" " alt="" coords="526,247,763,273"/>
+<area shape="poly" id="edge12_Node000002_Node000014" title=" " alt="" coords="1247,186,776,243,722,250,722,245,775,237,1247,181"/>
+<area shape="rect" id="Node000015" href="$AssignTaskCommand_8cpp.html" title=" " alt="" coords="787,247,1067,273"/>
+<area shape="poly" id="edge13_Node000002_Node000015" title=" " alt="" coords="1269,190,982,250,981,245,1268,185"/>
+<area shape="rect" id="Node000016" href="$CompleteTaskCommand_8cpp.html" title=" " alt="" coords="1092,240,1299,280"/>
+<area shape="poly" id="edge14_Node000002_Node000016" title=" " alt="" coords="1307,194,1228,242,1225,238,1304,190"/>
+<area shape="rect" id="Node000017" href="$StartTaskCommand_8cpp.html" title=" " alt="" coords="233,247,501,273"/>
+<area shape="poly" id="edge15_Node000002_Node000017" title=" " alt="" coords="1247,182,924,206,514,243,452,250,451,245,514,237,923,200,1247,177"/>
+<area shape="rect" id="Node000018" href="$WorkGroup_8cpp.html" title=" " alt="" coords="1475,247,1691,273"/>
+<area shape="poly" id="edge16_Node000002_Node000018" title=" " alt="" coords="1384,187,1551,245,1549,250,1382,192"/>
+<area shape="poly" id="edge17_Node000002_Node000019" title=" " alt="" coords="1247,181,679,213,221,243,169,250,169,245,220,237,679,207,1247,175"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="2090,358,1842,404,1841,399,2089,353"/>
+<area shape="rect" id="Node000013" href="$RequestChain_8cpp.html" title=" " alt="" coords="2065,401,2275,427"/>
+<area shape="poly" id="edge9_Node000003_Node000013" title=" " alt="" coords="2169,367,2172,401,2166,401,2164,367"/>
+<area shape="rect" id="Node000005" href="$Proxy_8h.html" title=" " alt="" coords="1650,482,1770,507"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="1762,439,1722,484,1718,480,1758,435"/>
+<area shape="poly" id="edge7_Node000004_Node000011" title=" " alt="" coords="1850,427,2077,472,2076,477,1849,432"/>
+<area shape="rect" id="Node000012" href="$main_8cpp.html" title=" " alt="" coords="1795,482,1900,507"/>
+<area shape="poly" id="edge8_Node000004_Node000012" title=" " alt="" coords="1800,435,1839,480,1835,484,1796,439"/>
+<area shape="rect" id="Node000006" href="$ScenarioAccessPolicies_8h.html" title=" " alt="" coords="1461,563,1697,588"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="1680,517,1600,565,1597,560,1678,512"/>
+<area shape="rect" id="Node000008" href="$AccessControlProxy_8cpp.html" title=" " alt="" coords="1722,563,1962,588"/>
+<area shape="poly" id="edge6_Node000005_Node000008" title=" " alt="" coords="1742,512,1824,560,1821,565,1740,517"/>
+<area shape="poly" id="edge28_Node000020_Node000002" title=" " alt="" coords="2696,99,2232,121,1613,155,1413,168,1413,163,1613,149,2232,116,2696,94"/>
+<area shape="poly" id="edge53_Node000020_Node000003" title=" " alt="" coords="2696,100,2420,119,2296,135,2254,144,2230,154,2212,173,2197,195,2178,245,2170,293,2167,328,2162,328,2164,292,2173,243,2193,193,2208,169,2227,150,2252,139,2295,130,2420,114,2696,94"/>
+<area shape="poly" id="edge54_Node000020_Node000004" title=" " alt="" coords="2696,96,2478,101,2211,111,1972,128,1887,140,1839,154,1816,170,1799,187,1788,205,1781,225,1774,271,1771,328,1771,353,1779,400,1774,401,1766,354,1766,328,1769,271,1775,224,1783,203,1795,184,1813,166,1837,150,1886,135,1971,123,2211,106,2478,96,2696,91"/>
+<area shape="poly" id="edge57_Node000020_Node000011" title=" " alt="" coords="2696,95,2568,98,2421,107,2286,125,2232,138,2193,154,2159,181,2141,209,2126,242,2103,282,2084,305,2068,329,2047,379,2046,400,2055,425,2080,453,2112,472,2110,477,2077,457,2050,428,2040,401,2042,378,2064,327,2079,301,2098,278,2121,240,2136,207,2155,177,2190,150,2230,133,2285,120,2420,102,2568,93,2696,90"/>
+<area shape="poly" id="edge64_Node000020_Node000018" title=" " alt="" coords="2696,97,2453,103,2146,114,1868,131,1769,142,1711,155,1674,175,1640,201,1594,249,1590,245,1637,197,1671,170,1709,149,1768,137,1868,126,2146,109,2452,98,2696,92"/>
+<area shape="poly" id="edge65_Node000020_Node000019" title=" " alt="" coords="2696,97,2089,115,1673,132,1249,155,734,188,509,209,221,243,171,250,170,245,220,237,509,204,733,183,1249,149,1673,127,2089,110,2696,92"/>
+<area shape="rect" id="Node000021" href="$ChainBuilder_8h.html" title="Abstract Builder interface for assembling a chain of WorkGroups." alt="" coords="3705,159,3872,185"/>
+<area shape="poly" id="edge19_Node000020_Node000021" title=" " alt="" coords="2879,101,3109,116,3288,121,3466,128,3693,149,3737,157,3737,162,3692,155,3466,133,3288,126,3108,122,2878,107"/>
+<area shape="rect" id="Node000025" href="$WorkflowBuilder_8cpp.html" title=" " alt="" coords="2327,328,2554,353"/>
+<area shape="poly" id="edge55_Node000020_Node000025" title=" " alt="" coords="2696,99,2570,106,2431,117,2314,133,2275,143,2254,154,2240,177,2240,192,2251,203,2270,211,2322,223,2346,229,2364,238,2387,260,2408,284,2436,326,2432,329,2404,287,2383,263,2360,242,2344,234,2320,228,2269,216,2248,207,2235,194,2234,175,2251,150,2273,138,2313,128,2431,112,2570,101,2696,94"/>
+<area shape="rect" id="Node000026" href="$DatabaseObserver_8h.html" title="Declares the ConcreteObserver and Strategy Context for database persistence." alt="" coords="1850,159,2055,185"/>
+<area shape="poly" id="edge29_Node000020_Node000026" title=" " alt="" coords="2697,102,2432,124,2108,155,2043,162,2042,157,2107,149,2432,119,2696,97"/>
+<area shape="rect" id="Node000028" href="$Decorator_8h.html" title=" " alt="" coords="3948,159,4096,185"/>
+<area shape="poly" id="edge32_Node000020_Node000028" title=" " alt="" coords="2879,101,3039,112,3175,117,3406,119,3636,124,3771,133,3929,149,3973,157,3972,162,3928,155,3770,138,3636,129,3406,124,3175,123,3039,118,2878,107"/>
+<area shape="rect" id="Node000029" href="$Iterator_8h.html" title=" " alt="" coords="2792,247,2924,273"/>
+<area shape="poly" id="edge50_Node000020_Node000029" title=" " alt="" coords="2879,101,3418,113,3731,126,3837,136,3870,143,3886,150,3894,161,3897,172,3894,183,3886,194,3864,207,3828,218,3721,232,3580,240,3423,242,3119,240,3004,239,2937,243,2900,250,2899,245,2936,237,3004,234,3119,234,3423,236,3580,234,3720,227,3827,213,3862,203,3883,190,3889,181,3891,172,3889,163,3883,154,3868,148,3836,142,3730,132,3417,118,2878,106"/>
+<area shape="rect" id="Node000030" href="$WorkComponent_8cpp.html" title=" " alt="" coords="4433,328,4685,353"/>
+<area shape="poly" id="edge63_Node000020_Node000030" title=" " alt="" coords="2878,101,3120,116,3325,122,3674,120,3842,118,4021,121,4225,130,4465,149,4549,152,4626,147,4761,134,4823,136,4882,150,4911,164,4939,183,4968,207,4998,239,5007,260,5004,271,4997,282,4977,298,4947,311,4869,329,4777,338,4686,343,4686,337,4776,333,4868,323,4945,306,4974,293,4993,278,4999,269,5001,260,4993,241,4965,211,4936,187,4908,168,4880,155,4822,141,4761,139,4626,153,4549,158,4465,155,4225,135,4021,126,3842,124,3674,125,3325,127,3120,121,2878,107"/>
+<area shape="rect" id="Node000042" href="$PriorityCheckerVisitor_8cpp.html" title=" " alt="" coords="4357,240,4546,280"/>
+<area shape="poly" id="edge66_Node000020_Node000042" title=" " alt="" coords="2878,101,3066,112,3226,114,3498,107,3628,105,3767,109,3925,123,4109,149,4192,167,4274,191,4406,237,4404,242,4272,196,4191,173,4108,155,3924,128,3767,114,3628,111,3498,113,3226,120,3066,118,2878,107"/>
+<area shape="rect" id="Node000043" href="$ProgressReportVisitor_8cpp.html" title=" " alt="" coords="4570,240,4759,280"/>
+<area shape="poly" id="edge67_Node000020_Node000043" title=" " alt="" coords="2878,101,3081,114,3252,118,3544,114,3684,113,3834,116,4004,127,4204,149,4314,168,4424,191,4602,237,4601,243,4423,196,4313,173,4203,155,4004,132,3834,121,3684,118,3544,119,3252,123,3080,119,2878,107"/>
+<area shape="rect" id="Node000044" href="$WorkComponentValidationVisitor_8cpp.html" title=" " alt="" coords="4784,240,4983,280"/>
+<area shape="poly" id="edge68_Node000020_Node000044" title=" " alt="" coords="2878,101,3099,115,3286,120,3603,118,3756,116,3920,119,4105,129,4324,149,4457,168,4590,191,4807,237,4805,243,4589,196,4457,173,4323,155,4105,134,3920,124,3756,122,3603,123,3285,125,3098,120,2878,107"/>
+<area shape="rect" id="Node000045" href="$NotificationObserver_8h.html" title="The Observer that listens to workflow state changes and triggers notifications." alt="" coords="5057,159,5275,185"/>
+<area shape="poly" id="edge51_Node000020_Node000045" title=" " alt="" coords="2878,101,3207,120,3486,127,3732,126,3960,122,4189,118,4433,118,4711,127,5038,149,5099,157,5099,162,5038,155,4711,133,4433,123,4189,123,3960,127,3732,132,3486,133,3207,126,2878,107"/>
+<area shape="rect" id="Node000047" href="$WorkflowSubject_8cpp.html" title=" " alt="" coords="2265,152,2537,192"/>
+<area shape="poly" id="edge56_Node000020_Node000047" title=" " alt="" coords="2718,109,2494,155,2493,149,2717,104"/>
+<area shape="rect" id="Node000048" href="$CompletedState_8cpp.html" title=" " alt="" coords="2561,159,2776,185"/>
+<area shape="poly" id="edge58_Node000020_Node000048" title=" " alt="" coords="2760,114,2688,161,2685,157,2757,110"/>
+<area shape="rect" id="Node000049" href="$InProgressState_8cpp.html" title=" " alt="" coords="2800,159,3012,185"/>
+<area shape="poly" id="edge59_Node000020_Node000049" title=" " alt="" coords="2818,110,2890,157,2887,161,2815,114"/>
+<area shape="rect" id="Node000050" href="$PendingState_8cpp.html" title=" " alt="" coords="3036,159,3232,185"/>
+<area shape="poly" id="edge60_Node000020_Node000050" title=" " alt="" coords="2852,104,3084,157,3083,162,2850,110"/>
+<area shape="rect" id="Node000051" href="$Stage_8cpp.html" title=" " alt="" coords="3257,159,3438,185"/>
+<area shape="poly" id="edge61_Node000020_Node000051" title=" " alt="" coords="2879,102,3245,149,3288,157,3287,162,3244,155,2878,107"/>
+<area shape="rect" id="Node000052" href="$SubProcess_8cpp.html" title=" " alt="" coords="3462,159,3681,185"/>
+<area shape="poly" id="edge62_Node000020_Node000052" title=" " alt="" coords="2878,101,3040,116,3166,124,3291,133,3450,149,3503,157,3502,162,3450,155,3291,138,3166,129,3040,121,2878,107"/>
+<area shape="poly" id="edge27_Node000021_Node000011" title=" " alt="" coords="3724,190,3693,195,3604,201,3492,202,3232,201,3100,202,2975,208,2867,221,2821,230,2782,242,2741,262,2710,283,2686,307,2664,332,2618,383,2587,407,2547,429,2477,455,2405,473,2334,485,2270,492,2269,486,2333,480,2404,468,2476,450,2545,424,2584,403,2615,379,2660,329,2682,304,2707,279,2738,257,2780,238,2819,225,2866,216,2975,203,3099,197,3232,196,3492,197,3603,196,3692,189,3723,185"/>
+<area shape="rect" id="Node000022" href="$Director_8h.html" title="defines the way objects are created and linked" alt="" coords="2214,247,2350,273"/>
+<area shape="poly" id="edge20_Node000021_Node000022" title=" " alt="" coords="3725,190,3693,195,3509,213,3353,223,3216,228,3088,229,2822,229,2665,233,2481,243,2351,254,2350,249,2480,237,2665,228,2822,223,3088,223,3216,222,3353,218,3509,208,3692,189,3724,185"/>
+<area shape="rect" id="Node000024" href="$WorkflowBuilder_8h.html" title="Concrete Builder declaration for constructing chained composite workflows." alt="" coords="2492,247,2683,273"/>
+<area shape="poly" id="edge23_Node000021_Node000024" title=" " alt="" coords="3725,190,3693,195,3543,210,3415,218,3198,221,2980,223,2853,230,2702,243,2649,250,2649,245,2702,237,2852,224,2980,218,3198,216,3415,213,3542,205,3692,189,3724,185"/>
+<area shape="poly" id="edge21_Node000022_Node000003" title=" " alt="" coords="2255,283,2184,330,2181,326,2252,278"/>
+<area shape="poly" id="edge22_Node000022_Node000011" title=" " alt="" coords="2293,285,2300,316,2305,352,2303,391,2290,428,2263,457,2230,477,2228,472,2260,453,2285,425,2297,390,2300,353,2295,317,2288,287"/>
+<area shape="poly" id="edge26_Node000024_Node000011" title=" " alt="" coords="2599,285,2604,320,2601,338,2594,355,2562,390,2526,419,2485,442,2441,460,2352,483,2270,494,2269,489,2351,478,2440,455,2483,437,2523,414,2559,386,2589,352,2596,337,2598,320,2593,286"/>
+<area shape="poly" id="edge25_Node000024_Node000013" title=" " alt="" coords="2591,287,2587,322,2580,340,2568,355,2547,369,2518,380,2444,397,2359,407,2276,413,2275,407,2358,402,2443,391,2517,375,2545,364,2564,351,2575,337,2581,321,2586,286"/>
+<area shape="poly" id="edge24_Node000024_Node000025" title=" " alt="" coords="2555,282,2464,330,2461,325,2552,277"/>
+<area shape="poly" id="edge30_Node000026_Node000004" title=" " alt="" coords="1884,191,1842,211,1823,225,1807,242,1795,261,1787,283,1778,328,1777,370,1780,401,1775,401,1772,370,1773,328,1781,281,1790,259,1803,238,1819,221,1839,206,1882,186"/>
+<area shape="rect" id="Node000027" href="$DatabaseObserver_8cpp.html" title=" " alt="" coords="1817,240,2089,280"/>
+<area shape="poly" id="edge31_Node000026_Node000027" title=" " alt="" coords="1955,198,1955,240,1950,240,1950,198"/>
+<area shape="poly" id="edge40_Node000028_Node000024" title=" " alt="" coords="3934,189,3885,195,3575,216,3333,222,3091,227,2781,243,2683,251,2683,246,2780,237,3091,222,3333,217,3575,210,3884,189,3934,184"/>
+<area shape="poly" id="edge33_Node000028_Node000029" title=" " alt="" coords="3960,190,3929,195,3778,210,3650,216,3432,216,3327,215,3215,217,3087,225,2937,243,2900,250,2899,245,2936,237,3087,220,3214,211,3327,209,3432,210,3650,211,3778,204,3928,189,3959,185"/>
+<area shape="rect" id="Node000036" href="$AuditedTask_8cpp.html" title=" " alt="" coords="3913,247,4131,273"/>
+<area shape="poly" id="edge41_Node000028_Node000036" title=" " alt="" coords="4025,199,4025,247,4019,247,4019,199"/>
+<area shape="rect" id="Node000037" href="$PrioritisedTask_8cpp.html" title=" " alt="" coords="4155,240,4332,280"/>
+<area shape="poly" id="edge42_Node000028_Node000037" title=" " alt="" coords="4066,187,4195,237,4194,242,4064,192"/>
+<area shape="rect" id="Node000038" href="$StandardRules_8cpp.html" title=" " alt="" coords="2949,247,3181,273"/>
+<area shape="poly" id="edge43_Node000028_Node000038" title=" " alt="" coords="3959,190,3929,195,3723,215,3562,222,3401,227,3194,243,3137,250,3136,245,3194,237,3400,221,3562,217,3723,210,3928,189,3958,185"/>
+<area shape="rect" id="Node000039" href="$TaskDecorator_8cpp.html" title=" " alt="" coords="3205,247,3436,273"/>
+<area shape="poly" id="edge44_Node000028_Node000039" title=" " alt="" coords="3957,190,3929,195,3794,212,3689,221,3584,229,3449,243,3395,250,3394,245,3448,237,3583,223,3689,215,3794,207,3928,189,3956,185"/>
+<area shape="rect" id="Node000040" href="$ValidatedTask_8cpp.html" title=" " alt="" coords="3460,247,3688,273"/>
+<area shape="poly" id="edge45_Node000028_Node000040" title=" " alt="" coords="3953,190,3929,195,3636,250,3635,245,3928,189,3952,185"/>
+<area shape="rect" id="Node000041" href="$ValidationRule_8cpp.html" title=" " alt="" coords="3713,240,3889,280"/>
+<area shape="poly" id="edge46_Node000028_Node000041" title=" " alt="" coords="3980,192,3850,242,3849,237,3978,187"/>
+<area shape="poly" id="edge47_Node000028_Node000042" title=" " alt="" coords="4093,185,4358,237,4357,243,4092,190"/>
+<area shape="poly" id="edge48_Node000028_Node000043" title=" " alt="" coords="4110,180,4315,204,4558,237,4570,239,4570,244,4558,243,4315,210,4110,186"/>
+<area shape="poly" id="edge49_Node000028_Node000044" title=" " alt="" coords="4110,176,4404,199,4587,216,4772,237,4784,239,4783,244,4771,243,4587,222,4403,204,4109,182"/>
+<area shape="poly" id="edge34_Node000029_Node000030" title=" " alt="" coords="2913,273,2937,277,3182,293,3607,309,4433,333,4433,339,3606,315,3182,299,2936,283,2912,278"/>
+<area shape="rect" id="Node000031" href="$DepthFirstIterator_8cpp.html" title=" " alt="" coords="3719,328,3957,353"/>
+<area shape="poly" id="edge35_Node000029_Node000031" title=" " alt="" coords="2914,273,2937,277,3152,303,3320,311,3489,314,3706,325,3719,326,3718,332,3706,331,3489,320,3320,316,3152,308,2936,283,2913,278"/>
+<area shape="rect" id="Node000032" href="$FilterIterator_8cpp.html" title=" " alt="" coords="2749,328,2953,353"/>
+<area shape="poly" id="edge36_Node000029_Node000032" title=" " alt="" coords="2859,287,2855,328,2850,328,2853,286"/>
+<area shape="rect" id="Node000033" href="$IncompleteIterator_8cpp.html" title=" " alt="" coords="2977,328,3221,353"/>
+<area shape="poly" id="edge37_Node000029_Node000033" title=" " alt="" coords="2907,274,3065,325,3063,331,2905,279"/>
+<area shape="rect" id="Node000034" href="$PriorityIterator_8cpp.html" title=" " alt="" coords="3246,328,3465,353"/>
+<area shape="poly" id="edge38_Node000029_Node000034" title=" " alt="" coords="2917,273,2937,277,3106,305,3257,325,3256,331,3105,310,2936,283,2915,278"/>
+<area shape="rect" id="Node000035" href="$StateIterator_8cpp.html" title=" " alt="" coords="3489,328,3694,353"/>
+<area shape="poly" id="edge39_Node000029_Node000035" title=" " alt="" coords="2915,273,2937,277,3088,298,3206,307,3325,314,3477,325,3488,326,3488,332,3476,331,3324,319,3206,313,3087,303,2936,283,2914,278"/>
+<area shape="rect" id="Node000046" href="$NotificationObserver_8cpp.html" title="Implementation of the NotificationObserver." alt="" coords="5073,240,5259,280"/>
+<area shape="poly" id="edge52_Node000045_Node000046" title=" " alt="" coords="5169,198,5169,240,5163,240,5163,198"/>
 </map>

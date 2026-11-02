@@ -77,58 +77,67 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Base class of every link in the chain; holds a pointer to the next handler.  
+ <a href="classHandler.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="Handler_8h_source.html">Handler.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Handler:</div>
 <div class="dyncontent">
 <div class="center"><img src="classHandler__inherit__graph.png" border="0" usemap="#aHandler_inherit__map" alt="Inheritance graph"/></div>
 <map name="aHandler_inherit__map" id="aHandler_inherit__map">
-<area shape="rect" title=" " alt="" coords="401,5,474,31"/>
-<area shape="rect" href="classWorkComponent.html" title=" " alt="" coords="372,79,503,104"/>
-<area shape="poly" title=" " alt="" coords="440,44,440,79,435,79,435,44"/>
-<area shape="rect" href="classTaskDecorator.html" title=" " alt="" coords="192,152,307,177"/>
-<area shape="poly" title=" " alt="" coords="395,111,281,154,279,149,394,106"/>
-<area shape="rect" href="classWorkGroup.html" title=" " alt="" coords="390,152,485,177"/>
-<area shape="poly" title=" " alt="" coords="440,118,440,152,435,152,435,118"/>
-<area shape="rect" href="classWorkUnit.html" title=" " alt="" coords="509,152,592,177"/>
-<area shape="poly" title=" " alt="" coords="469,109,534,150,531,154,466,114"/>
-<area shape="rect" href="classAuditedTask.html" title=" " alt="" coords="5,225,107,251"/>
-<area shape="poly" title=" " alt="" coords="207,184,89,228,87,223,205,179"/>
-<area shape="rect" href="classPrioritisedTask.html" title=" " alt="" coords="131,225,248,251"/>
-<area shape="poly" title=" " alt="" coords="233,190,201,227,197,223,229,186"/>
-<area shape="rect" href="classValidatedTask.html" title=" " alt="" coords="272,225,384,251"/>
-<area shape="poly" title=" " alt="" coords="274,185,317,223,313,227,270,189"/>
-<area shape="rect" href="classStage.html" title=" " alt="" coords="408,225,467,251"/>
-<area shape="poly" title=" " alt="" coords="440,191,440,225,435,225,435,191"/>
-<area shape="rect" href="classSubProcess.html" title=" " alt="" coords="491,225,587,251"/>
-<area shape="poly" title=" " alt="" coords="466,183,524,223,521,227,463,187"/>
+<area shape="rect" title="Base class of every link in the chain; holds a pointer to the next handler." alt="" coords="508,5,644,111"/>
+<area shape="rect" href="classWorkComponent.html" title="Abstract inteface for composite and leaf components." alt="" coords="488,159,664,544"/>
+<area shape="poly" title=" " alt="" coords="579,124,579,159,573,159,573,124"/>
+<area shape="rect" href="classTaskDecorator.html" title=" " alt="" coords="254,602,397,887"/>
+<area shape="poly" title=" " alt="" coords="483,503,399,633,395,630,478,500"/>
+<area shape="rect" href="classWorkGroup.html" title="Composite, owns and manages child components instantiable but still acts as interface for other compo..." alt="" coords="508,592,644,897"/>
+<area shape="poly" title=" " alt="" coords="579,558,579,592,573,592,573,558"/>
+<area shape="rect" href="classWorkUnit.html" title="Leaf: single unit of work that can be assigned, started and completed." alt="" coords="668,672,809,817"/>
+<area shape="poly" title=" " alt="" coords="664,556,711,671,706,673,659,558"/>
+<area shape="rect" href="classAuditedTask.html" title=" " alt="" coords="5,1005,123,1151"/>
+<area shape="poly" title=" " alt="" coords="246,823,190,882,137,947,100,1006,96,1004,132,944,186,878,242,819"/>
+<area shape="rect" href="classPrioritisedTask.html" title=" " alt="" coords="147,945,331,1211"/>
+<area shape="poly" title=" " alt="" coords="287,901,276,946,271,945,282,900"/>
+<area shape="rect" href="classValidatedTask.html" title=" " alt="" coords="355,965,511,1191"/>
+<area shape="poly" title=" " alt="" coords="378,900,399,964,394,966,373,901"/>
+<area shape="rect" href="classStage.html" title="Composite class, sits below WorkGroup, above SubProcess." alt="" coords="535,1025,617,1131"/>
+<area shape="poly" title=" " alt="" coords="579,911,579,1025,573,1025,573,911"/>
+<area shape="rect" href="classSubProcess.html" title="Composite class, sits below Stage, above WorkUnit." alt="" coords="641,1025,754,1131"/>
+<area shape="poly" title=" " alt="" coords="639,910,681,1024,676,1026,634,912"/>
 </map>
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+</div>
 <div class="dynheader">
 Collaboration diagram for Handler:</div>
 <div class="dyncontent">
 <div class="center"><img src="classHandler__coll__graph.png" border="0" usemap="#aHandler_coll__map" alt="Collaboration graph"/></div>
 <map name="aHandler_coll__map" id="aHandler_coll__map">
-<area shape="rect" title=" " alt="" coords="5,5,79,31"/>
-<area shape="poly" title=" " alt="" coords="93,12,105,18,96,24,79,25,79,20,95,19,100,18,91,17"/>
+<area shape="rect" title="Base class of every link in the chain; holds a pointer to the next handler." alt="" coords="5,5,141,111"/>
+<area shape="poly" title=" " alt="" coords="142,37,160,43,168,58,165,67,159,74,155,70,161,64,163,58,157,47,141,42"/>
 </map>
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a0a95c470d04fdc9dff2e0f9a82cc24b5" id="r_a0a95c470d04fdc9dff2e0f9a82cc24b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHandler.html#a0a95c470d04fdc9dff2e0f9a82cc24b5">setNext</a> (<a class="el" href="classHandler.html">Handler</a> *nextPhase)</td></tr>
+<tr class="memdesc:a0a95c470d04fdc9dff2e0f9a82cc24b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Links the handler that receives the request after this one.  <br /></td></tr>
 <tr class="separator:a0a95c470d04fdc9dff2e0f9a82cc24b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f2ff0d5815caefa9a96adc1837d2d5b" id="r_a7f2ff0d5815caefa9a96adc1837d2d5b"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classHandler.html">Handler</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHandler.html#a7f2ff0d5815caefa9a96adc1837d2d5b">clone</a> () const =0</td></tr>
+<tr class="memdesc:a7f2ff0d5815caefa9a96adc1837d2d5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a deep copy of this handler (Prototype pattern).  <br /></td></tr>
 <tr class="separator:a7f2ff0d5815caefa9a96adc1837d2d5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a638867a60f4e60eb6e5152a03a9e5367" id="r_a638867a60f4e60eb6e5152a03a9e5367"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHandler.html#a638867a60f4e60eb6e5152a03a9e5367">handleRequest</a> (<a class="el" href="classWorkItem.html">WorkItem</a> item)</td></tr>
+<tr class="memdesc:a638867a60f4e60eb6e5152a03a9e5367"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes the request, then forwards it along the chain.  <br /></td></tr>
 <tr class="separator:a638867a60f4e60eb6e5152a03a9e5367"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:ac648b2e586445186b89e54d07bca0d09" id="r_ac648b2e586445186b89e54d07bca0d09"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classHandler.html">Handler</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHandler.html#ac648b2e586445186b89e54d07bca0d09">successor</a> = nullptr</td></tr>
+<tr class="memdesc:ac648b2e586445186b89e54d07bca0d09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Next handler in the chain, or nullptr if this is the last one.  <br /></td></tr>
 <tr class="separator:ac648b2e586445186b89e54d07bca0d09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Base class of every link in the chain; holds a pointer to the next handler. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a7f2ff0d5815caefa9a96adc1837d2d5b" name="a7f2ff0d5815caefa9a96adc1837d2d5b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7f2ff0d5815caefa9a96adc1837d2d5b">&#9670;&#160;</a></span>clone()</h2>
 
@@ -151,6 +160,10 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Creates a deep copy of this handler (Prototype pattern). </p>
+<dl class="section return"><dt>Returns</dt><dd>A newly allocated copy. The caller owns it. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The copy is not linked to any successor; the new owner must re-link it. </dd></dl>
 
 <p>Implemented in <a class="el" href="classWorkGroup.html#a0117feac397297be0eee781777539179">WorkGroup</a>, <a class="el" href="classStage.html#af72ebb1a450f53f98813adbbbf5d2d63">Stage</a>, <a class="el" href="classSubProcess.html#a6f23cce42b415ab58c5b7175c744b2f5">SubProcess</a>, <a class="el" href="classWorkUnit.html#a7858a68ceed9a87944704a2bea671d48">WorkUnit</a>, <a class="el" href="classValidatedTask.html#a741329f68dd4b5e5d68e4a350b659e77">ValidatedTask</a>, <a class="el" href="classAuditedTask.html#acdc27f1fcf893aaa9c4f560b61b602a7">AuditedTask</a>, <a class="el" href="classPrioritisedTask.html#a8d40d4bc51a2659199fbd37c873c42ea">PrioritisedTask</a>, <a class="el" href="classWorkComponent.html#a65d7be3c551ee979e2ae238322441075">WorkComponent</a>, and <a class="el" href="classTaskDecorator.html#aad9c7eaf04be9252a3eb3bb8d977df5a">TaskDecorator</a>.</p>
 
@@ -180,6 +193,14 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Processes the request, then forwards it along the chain. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">item</td><td>The work item travelling down the chain. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Reimplemented in <a class="el" href="classWorkGroup.html#a01b69bbe93b90dc8eac9cfba09234c0a">WorkGroup</a>.</p>
 
 </div>
@@ -199,6 +220,15 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Links the handler that receives the request after this one. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nextPhase</td><td>The next handler, or nullptr to end the chain here. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>The chain does not own its handlers; it only stores the pointer. </dd></dl>
 
 </div>
 </div>
@@ -222,6 +252,8 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Next handler in the chain, or nullptr if this is the last one. </p>
 
 </div>
 </div>

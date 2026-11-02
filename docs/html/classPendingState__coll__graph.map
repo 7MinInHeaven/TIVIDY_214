@@ -1,5 +1,5 @@
 <map id="PendingState" name="PendingState">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,79,113,104"/>
-<area shape="rect" id="Node000002" href="$classWorkState.html" title=" " alt="" coords="15,5,104,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="62,44,62,79,57,79,57,44"/>
+<area shape="rect" id="Node000001" title="Initial state in the State pattern; the next update moves the work to In Progress." alt="" coords="5,179,141,324"/>
+<area shape="rect" id="Node000002" href="$classWorkState.html" title="Base class for the states a WorkComponent can be in." alt="" coords="9,5,138,131"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="76,145,76,179,71,179,71,145"/>
 </map>

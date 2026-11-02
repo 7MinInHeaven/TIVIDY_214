@@ -18,3 +18,7 @@ compile_commands.json
 
 #temp local SQLite test files
 *.db
+docs/latex/
+docs/html/
+
+report.html

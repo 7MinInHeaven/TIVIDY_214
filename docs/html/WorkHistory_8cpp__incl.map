@@ -1,6 +1,6 @@
 <map id="src/Memento/WorkHistory.cpp" name="src/Memento/WorkHistory.cpp">
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,5,221,31"/>
-<area shape="rect" id="Node000002" href="$Memento_8h.html" title=" " alt="" coords="65,79,161,104"/>
+<area shape="rect" id="Node000002" href="$Memento_8h.html" title="Memento pattern: snapshots of a task&#39;s state, used to undo actions." alt="" coords="65,79,161,104"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="116,31,116,65,111,65,111,31"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="41,152,100,177"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="109,106,87,142,82,139,104,103"/>

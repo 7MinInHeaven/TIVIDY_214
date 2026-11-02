@@ -76,40 +76,68 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Abstract builder that constructs a chain of WorkGroups and their children.  
+ <a href="classChainBuilder.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="ChainBuilder_8h_source.html">ChainBuilder.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for ChainBuilder:</div>
 <div class="dyncontent">
 <div class="center"><img src="classChainBuilder__inherit__graph.png" border="0" usemap="#aChainBuilder_inherit__map" alt="Inheritance graph"/></div>
 <map name="aChainBuilder_inherit__map" id="aChainBuilder_inherit__map">
-<area shape="rect" title=" " alt="" coords="17,5,122,31"/>
-<area shape="rect" href="classWorkflowBuilder.html" title=" " alt="" coords="5,79,133,104"/>
-<area shape="poly" title=" " alt="" coords="72,44,72,79,67,79,67,44"/>
+<area shape="rect" title="Abstract builder that constructs a chain of WorkGroups and their children." alt="" coords="11,5,156,271"/>
+<area shape="rect" href="classWorkflowBuilder.html" title="Concrete Builder that assembles top&#45;level WorkGroup chains and nested Composite hierarchies." alt="" coords="5,319,161,624"/>
+<area shape="poly" title=" " alt="" coords="86,285,86,319,81,319,81,285"/>
 </map>
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+</div>
+<div class="dynheader">
+Collaboration diagram for ChainBuilder:</div>
+<div class="dyncontent">
+<div class="center"><img src="classChainBuilder__coll__graph.png" border="0" usemap="#aChainBuilder_coll__map" alt="Collaboration graph"/></div>
+<map name="aChainBuilder_coll__map" id="aChainBuilder_coll__map">
+<area shape="rect" title="Abstract builder that constructs a chain of WorkGroups and their children." alt="" coords="5,5,151,271"/>
+</map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:af4674b8f54787aed1bb9311c2a363dde" id="r_af4674b8f54787aed1bb9311c2a363dde"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classChainBuilder.html#af4674b8f54787aed1bb9311c2a363dde">~ChainBuilder</a> ()=default</td></tr>
+<tr class="memdesc:af4674b8f54787aed1bb9311c2a363dde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor so concrete builders are destroyed correctly.  <br /></td></tr>
 <tr class="separator:af4674b8f54787aed1bb9311c2a363dde"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac229485a6d2504ef3469872d39dcc3a0" id="r_ac229485a6d2504ef3469872d39dcc3a0"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classChainBuilder.html#ac229485a6d2504ef3469872d39dcc3a0">reset</a> ()=0</td></tr>
+<tr class="memdesc:ac229485a6d2504ef3469872d39dcc3a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Discards any partly built result and returns the builder to its initial state.  <br /></td></tr>
 <tr class="separator:ac229485a6d2504ef3469872d39dcc3a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac926106c40eeb92e3b2aa8b6128a6162" id="r_ac926106c40eeb92e3b2aa8b6128a6162"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classChainBuilder.html#ac926106c40eeb92e3b2aa8b6128a6162">buildWorkGroup</a> (const std::string &amp;workflowName)=0</td></tr>
+<tr class="memdesc:ac926106c40eeb92e3b2aa8b6128a6162"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a top-level or nested <a class="el" href="classWorkGroup.html" title="Composite, owns and manages child components instantiable but still acts as interface for other compo...">WorkGroup</a> and opens it for children.  <br /></td></tr>
 <tr class="separator:ac926106c40eeb92e3b2aa8b6128a6162"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5327136ddfe03489464184f72a745cbc" id="r_a5327136ddfe03489464184f72a745cbc"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classChainBuilder.html#a5327136ddfe03489464184f72a745cbc">buildStage</a> (const std::string &amp;name)=0</td></tr>
+<tr class="memdesc:a5327136ddfe03489464184f72a745cbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a <a class="el" href="classStage.html" title="Composite class, sits below WorkGroup, above SubProcess.">Stage</a> and opens it for children.  <br /></td></tr>
 <tr class="separator:a5327136ddfe03489464184f72a745cbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8dffb6f83c8dd1ead67fd0cfe2717ebd" id="r_a8dffb6f83c8dd1ead67fd0cfe2717ebd"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classChainBuilder.html#a8dffb6f83c8dd1ead67fd0cfe2717ebd">buildSubProcess</a> (const std::string &amp;name)=0</td></tr>
+<tr class="memdesc:a8dffb6f83c8dd1ead67fd0cfe2717ebd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a <a class="el" href="classSubProcess.html" title="Composite class, sits below Stage, above WorkUnit.">SubProcess</a> and opens it for children.  <br /></td></tr>
 <tr class="separator:a8dffb6f83c8dd1ead67fd0cfe2717ebd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad4be1b4fab22ccde4e4080e5827310d7" id="r_ad4be1b4fab22ccde4e4080e5827310d7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classChainBuilder.html#ad4be1b4fab22ccde4e4080e5827310d7">buildWorkUnit</a> (const std::string &amp;name)=0</td></tr>
+<tr class="memdesc:ad4be1b4fab22ccde4e4080e5827310d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a <a class="el" href="classWorkUnit.html" title="Leaf: single unit of work that can be assigned, started and completed.">WorkUnit</a> (a leaf task) inside the currently open group.  <br /></td></tr>
 <tr class="separator:ad4be1b4fab22ccde4e4080e5827310d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a415f6309b572726d33a6fb8b8ce59db9" id="r_a415f6309b572726d33a6fb8b8ce59db9"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classChainBuilder.html#a415f6309b572726d33a6fb8b8ce59db9">addDecorator</a> (const std::string &amp;)</td></tr>
+<tr class="memdesc:a415f6309b572726d33a6fb8b8ce59db9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a decorator when the concrete builder supports decorators.  <br /></td></tr>
+<tr class="separator:a415f6309b572726d33a6fb8b8ce59db9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29ccf3686fbdfe410439b469a970d3a6" id="r_a29ccf3686fbdfe410439b469a970d3a6"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classChainBuilder.html#a29ccf3686fbdfe410439b469a970d3a6">addDecorator</a> (const std::string &amp;, const std::vector&lt; std::string &gt; &amp;)</td></tr>
+<tr class="memdesc:a29ccf3686fbdfe410439b469a970d3a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a configured decorator when the concrete builder supports decorators.  <br /></td></tr>
+<tr class="separator:a29ccf3686fbdfe410439b469a970d3a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f9a26536b9548b780d2ede703570359" id="r_a1f9a26536b9548b780d2ede703570359"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classChainBuilder.html#a1f9a26536b9548b780d2ede703570359">endGroup</a> ()=0</td></tr>
+<tr class="memdesc:a1f9a26536b9548b780d2ede703570359"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the most recently opened group.  <br /></td></tr>
 <tr class="separator:a1f9a26536b9548b780d2ede703570359"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb7b486352029dca3631deabed3a223e" id="r_adb7b486352029dca3631deabed3a223e"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classHandler.html">Handler</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classChainBuilder.html#adb7b486352029dca3631deabed3a223e">getResult</a> ()=0</td></tr>
+<tr class="memdesc:adb7b486352029dca3631deabed3a223e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the head of the finished chain.  <br /></td></tr>
 <tr class="separator:adb7b486352029dca3631deabed3a223e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3b9af93521364228819235b5c1e423c" id="r_af3b9af93521364228819235b5c1e423c"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; <a class="el" href="classWorkGroup.html">WorkGroup</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classChainBuilder.html#af3b9af93521364228819235b5c1e423c">getWorkGroups</a> ()=0</td></tr>
+<tr class="memdesc:af3b9af93521364228819235b5c1e423c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the top-level groups in the order they were built.  <br /></td></tr>
 <tr class="separator:af3b9af93521364228819235b5c1e423c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Abstract builder that constructs a chain of WorkGroups and their children. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="af4674b8f54787aed1bb9311c2a363dde" name="af4674b8f54787aed1bb9311c2a363dde"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af4674b8f54787aed1bb9311c2a363dde">&#9670;&#160;</a></span>~ChainBuilder()</h2>
 
@@ -133,9 +161,93 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Virtual destructor so concrete builders are destroyed correctly. </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a415f6309b572726d33a6fb8b8ce59db9" name="a415f6309b572726d33a6fb8b8ce59db9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a415f6309b572726d33a6fb8b8ce59db9">&#9670;&#160;</a></span>addDecorator() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void ChainBuilder::addDecorator </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Adds a decorator when the concrete builder supports decorators. </p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::logic_error</td><td>when decorators are not implemented. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Reimplemented in <a class="el" href="classWorkflowBuilder.html#ac031513118cbbbd86d816bcf3761e632">WorkflowBuilder</a>.</p>
+
+</div>
+</div>
+<a id="a29ccf3686fbdfe410439b469a970d3a6" name="a29ccf3686fbdfe410439b469a970d3a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29ccf3686fbdfe410439b469a970d3a6">&#9670;&#160;</a></span>addDecorator() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void ChainBuilder::addDecorator </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Adds a configured decorator when the concrete builder supports decorators. </p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::logic_error</td><td>when decorators are not implemented. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Reimplemented in <a class="el" href="classWorkflowBuilder.html#a26d33092c6c1d198dbf8c9ae59e28749">WorkflowBuilder</a>.</p>
+
+</div>
+</div>
 <a id="a5327136ddfe03489464184f72a745cbc" name="a5327136ddfe03489464184f72a745cbc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5327136ddfe03489464184f72a745cbc">&#9670;&#160;</a></span>buildStage()</h2>
 
@@ -159,6 +271,14 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Builds a <a class="el" href="classStage.html" title="Composite class, sits below WorkGroup, above SubProcess.">Stage</a> and opens it for children. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>Name of the stage. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implemented in <a class="el" href="classWorkflowBuilder.html#a47a94a49915ef3f3671d26cb203af773">WorkflowBuilder</a>.</p>
 
@@ -188,6 +308,14 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Builds a <a class="el" href="classSubProcess.html" title="Composite class, sits below Stage, above WorkUnit.">SubProcess</a> and opens it for children. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>Name of the sub-process. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Implemented in <a class="el" href="classWorkflowBuilder.html#a6d9706d9b1f1bf42d17b61e2175f3b25">WorkflowBuilder</a>.</p>
 
 </div>
@@ -215,6 +343,14 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Builds a top-level or nested <a class="el" href="classWorkGroup.html" title="Composite, owns and manages child components instantiable but still acts as interface for other compo...">WorkGroup</a> and opens it for children. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">workflowName</td><td>Name of the group. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implemented in <a class="el" href="classWorkflowBuilder.html#ab0e8c2846be52291aef7bd092aac8909">WorkflowBuilder</a>.</p>
 
@@ -244,6 +380,14 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Builds a <a class="el" href="classWorkUnit.html" title="Leaf: single unit of work that can be assigned, started and completed.">WorkUnit</a> (a leaf task) inside the currently open group. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>Name of the unit. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Implemented in <a class="el" href="classWorkflowBuilder.html#a3bb4768844ad4dec18151c7bd2cbdc50">WorkflowBuilder</a>.</p>
 
 </div>
@@ -270,6 +414,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Closes the most recently opened group. </p>
 
 <p>Implemented in <a class="el" href="classWorkflowBuilder.html#a6a1b51b9c7a1595674c78617bc561346">WorkflowBuilder</a>.</p>
 
@@ -298,6 +444,9 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the head of the finished chain. </p>
+<dl class="section return"><dt>Returns</dt><dd>First handler of the chain, or nullptr if nothing has been built. </dd></dl>
+
 <p>Implemented in <a class="el" href="classWorkflowBuilder.html#a6b74afa15da553a9d29b9dbecade42ed">WorkflowBuilder</a>.</p>
 
 </div>
@@ -325,6 +474,9 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the top-level groups in the order they were built. </p>
+<dl class="section return"><dt>Returns</dt><dd>The root WorkGroups of the chain. </dd></dl>
+
 <p>Implemented in <a class="el" href="classWorkflowBuilder.html#a7666b9fce4618eb38e6627b74268c336">WorkflowBuilder</a>.</p>
 
 </div>
@@ -351,6 +503,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Discards any partly built result and returns the builder to its initial state. </p>
 
 <p>Implemented in <a class="el" href="classWorkflowBuilder.html#a18f91256edb9d2d2987e0af12270efde">WorkflowBuilder</a>.</p>
 

@@ -1,9 +1,9 @@
 <map id="WorkState" name="WorkState">
-<area shape="rect" id="Node000001" title=" " alt="" coords="173,5,263,31"/>
-<area shape="rect" id="Node000002" href="$classCompletedState.html" title=" " alt="" coords="5,79,132,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="183,39,94,81,92,76,181,34"/>
-<area shape="rect" id="Node000003" href="$classInProgressState.html" title=" " alt="" coords="156,79,280,104"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="221,44,221,79,215,79,215,44"/>
-<area shape="rect" id="Node000004" href="$classPendingState.html" title=" " alt="" coords="304,79,412,104"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="254,34,336,76,334,81,251,39"/>
+<area shape="rect" id="Node000001" title="Base class for the states a WorkComponent can be in." alt="" coords="195,5,325,131"/>
+<area shape="rect" id="Node000002" href="$classCompletedState.html" title="Final state in the State pattern: the work is done and no further progress is made." alt="" coords="5,179,160,324"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="192,143,155,181,151,177,188,139"/>
+<area shape="rect" id="Node000003" href="$classInProgressState.html" title="State in the State pattern for work that has started; the next update completes it." alt="" coords="184,179,336,324"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="263,145,263,179,257,179,257,145"/>
+<area shape="rect" id="Node000004" href="$classPendingState.html" title="Initial state in the State pattern; the next update moves the work to In Progress." alt="" coords="360,179,496,324"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="328,139,364,177,360,180,325,143"/>
 </map>

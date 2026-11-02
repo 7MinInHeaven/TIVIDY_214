@@ -1,0 +1,5 @@
+<map id="SystemClock" name="SystemClock">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,139,104,204"/>
+<area shape="rect" id="Node000002" href="$classClock.html" title=" " alt="" coords="12,5,97,91"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="57,104,57,138,52,138,52,104"/>
+</map>

@@ -9,9 +9,10 @@ var searchData=
   ['deliver_6',['deliver',['../classNotificationChannel.html#ab1378e527f4b65498205b6878c7650f9',1,'NotificationChannel::deliver()'],['../classEmailChannel.html#a2339dac9633ff5fad58d988c29de4b00',1,'EmailChannel::deliver()'],['../classAppChannel.html#a8e71f6ba5794c05974a9f653a2274cd8',1,'AppChannel::deliver()']]],
   ['depthfirstiterator_7',['depthfirstiterator',['../classDepthFirstIterator.html',1,'DepthFirstIterator'],['../classDepthFirstIterator.html#a6effa08c6579bad822ac6ec4eb7f5d3d',1,'DepthFirstIterator::DepthFirstIterator()']]],
   ['depthfirstiterator_2ecpp_8',['DepthFirstIterator.cpp',['../DepthFirstIterator_8cpp.html',1,'']]],
-  ['detach_9',['detach',['../classWorkflowSubject.html#a3b1f2fa7e8340297f781701f3d5c00af',1,'WorkflowSubject']]],
-  ['director_10',['director',['../classDirector.html',1,'Director'],['../classDirector.html#a41c89add039af7603ca572eb23dfd038',1,'Director::Director()']]],
-  ['director_2ecpp_11',['Director.cpp',['../Director_8cpp.html',1,'']]],
-  ['director_2eh_12',['Director.h',['../Director_8h.html',1,'']]],
-  ['disconnect_13',['disconnect',['../classPostgresAPI.html#a2cbe9f37f7b8b23b8dcf817f53c92f48',1,'PostgresAPI']]]
+  ['describetasks_9',['describeTasks',['../classRequestChain.html#a501d5a8c47afb6a937dd5dcfe5309012',1,'RequestChain']]],
+  ['detach_10',['detach',['../classWorkflowSubject.html#a3b1f2fa7e8340297f781701f3d5c00af',1,'WorkflowSubject']]],
+  ['director_11',['director',['../classDirector.html',1,'Director'],['../classDirector.html#a41c89add039af7603ca572eb23dfd038',1,'Director::Director()']]],
+  ['director_2ecpp_12',['Director.cpp',['../Director_8cpp.html',1,'']]],
+  ['director_2eh_13',['Director.h',['../Director_8h.html',1,'']]],
+  ['disconnect_14',['disconnect',['../classPostgresAPI.html#a2cbe9f37f7b8b23b8dcf817f53c92f48',1,'PostgresAPI']]]
 ];

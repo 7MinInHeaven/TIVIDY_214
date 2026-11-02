@@ -1,15 +1,15 @@
 <map id="TaskDecorator" name="TaskDecorator">
-<area shape="rect" id="Node000001" title=" " alt="" coords="132,152,247,177"/>
-<area shape="rect" id="Node000005" href="$classAuditedTask.html" title=" " alt="" coords="5,225,107,251"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="157,186,79,227,77,223,155,181"/>
-<area shape="rect" id="Node000006" href="$classPrioritisedTask.html" title=" " alt="" coords="131,225,248,251"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="192,191,192,225,187,225,187,191"/>
-<area shape="rect" id="Node000007" href="$classValidatedTask.html" title=" " alt="" coords="272,225,384,251"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="225,181,307,223,304,227,222,186"/>
-<area shape="rect" id="Node000002" href="$classWorkComponent.html" title=" " alt="" coords="124,79,255,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="192,118,192,152,187,152,187,118"/>
-<area shape="rect" id="Node000003" href="$classHandler.html" title=" " alt="" coords="90,5,163,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="148,39,181,77,177,80,144,43"/>
-<area shape="rect" id="Node000004" href="$classWorkflowSubject.html" title="Subject participant in the Observer design pattern." alt="" coords="188,5,319,31"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="236,43,202,80,198,77,232,39"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="167,632,310,917"/>
+<area shape="rect" id="Node000005" href="$classAuditedTask.html" title=" " alt="" coords="5,1025,123,1171"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="163,919,137,967,105,1026,100,1024,132,964,158,916"/>
+<area shape="rect" id="Node000006" href="$classPrioritisedTask.html" title=" " alt="" coords="147,965,331,1231"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="241,931,241,965,236,965,236,931"/>
+<area shape="rect" id="Node000007" href="$classValidatedTask.html" title=" " alt="" coords="355,985,511,1211"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="319,904,368,984,363,986,315,907"/>
+<area shape="rect" id="Node000002" href="$classWorkComponent.html" title="Abstract inteface for composite and leaf components." alt="" coords="151,199,327,584"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="241,598,241,632,236,632,236,598"/>
+<area shape="rect" id="Node000003" href="$classHandler.html" title="Base class of every link in the chain; holds a pointer to the next handler." alt="" coords="85,25,221,131"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="174,143,189,197,183,199,169,145"/>
+<area shape="rect" id="Node000004" href="$classWorkflowSubject.html" title="Subject participant in the Observer design pattern." alt="" coords="245,5,403,151"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="303,165,294,199,289,198,298,163"/>
 </map>

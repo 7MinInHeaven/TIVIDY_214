@@ -1,0 +1,13 @@
+<map id="WorkGroup" name="WorkGroup">
+<area shape="rect" id="Node000001" title="Composite, owns and manages child components instantiable but still acts as interface for other compo..." alt="" coords="91,632,227,937"/>
+<area shape="rect" id="Node000005" href="$classStage.html" title="Composite class, sits below WorkGroup, above SubProcess." alt="" coords="58,985,139,1091"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="122,952,114,986,108,984,117,950"/>
+<area shape="rect" id="Node000006" href="$classSubProcess.html" title="Composite class, sits below Stage, above WorkUnit." alt="" coords="163,985,277,1091"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="202,950,210,984,205,986,196,952"/>
+<area shape="rect" id="Node000002" href="$classWorkComponent.html" title="Abstract inteface for composite and leaf components." alt="" coords="71,199,247,584"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="161,598,161,632,156,632,156,598"/>
+<area shape="rect" id="Node000003" href="$classHandler.html" title="Base class of every link in the chain; holds a pointer to the next handler." alt="" coords="5,25,141,131"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="94,143,109,197,103,199,89,145"/>
+<area shape="rect" id="Node000004" href="$classWorkflowSubject.html" title="Subject participant in the Observer design pattern." alt="" coords="165,5,323,151"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="223,165,214,199,209,198,218,163"/>
+</map>

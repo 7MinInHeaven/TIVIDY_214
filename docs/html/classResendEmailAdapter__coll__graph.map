@@ -1,5 +1,5 @@
 <map id="ResendEmailAdapter" name="ResendEmailAdapter">
-<area shape="rect" id="Node000001" title="A Concrete Strategy/Adapter that sends emails via the Resend REST API." alt="" coords="5,79,164,104"/>
-<area shape="rect" id="Node000002" href="$classEmailTransport.html" title="The Target interface in the Adapter Pattern." alt="" coords="25,5,144,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="87,44,87,79,82,79,82,44"/>
+<area shape="rect" id="Node000001" title="A Concrete Strategy/Adapter that sends emails via the Resend REST API." alt="" coords="5,139,180,244"/>
+<area shape="rect" id="Node000002" href="$classEmailTransport.html" title="The Target interface in the Adapter Pattern." alt="" coords="19,5,166,91"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,104,95,138,90,138,90,104"/>
 </map>

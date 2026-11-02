@@ -1,0 +1,5 @@
+<map id="NotificationObserver" name="NotificationObserver">
+<area shape="rect" id="Node000001" title="Concrete Observer in the Observer Pattern." alt="" coords="5,159,179,244"/>
+<area shape="rect" id="Node000002" href="$classWorkflowObserver.html" title="Abstract Observer participant in the Observer design pattern." alt="" coords="7,5,177,111"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,124,95,159,89,159,89,124"/>
+</map>

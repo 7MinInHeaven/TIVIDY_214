@@ -1,5 +1,5 @@
 <map id="SQLiteAdapter" name="SQLiteAdapter">
-<area shape="rect" id="Node000001" title="Adapter in the Adapter pattern and ConcreteStrategy in the Strategy pattern for SQLite." alt="" coords="17,79,132,104"/>
-<area shape="rect" id="Node000002" href="$classExternalDatabase.html" title="Target interface in the Adapter pattern and abstract Strategy in the Strategy pattern." alt="" coords="5,5,144,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="77,44,77,79,72,79,72,44"/>
+<area shape="rect" id="Node000001" title="Adapter in the Adapter pattern and ConcreteStrategy in the Strategy pattern for SQLite." alt="" coords="17,199,159,364"/>
+<area shape="rect" id="Node000002" href="$classExternalDatabase.html" title="Target interface in the Adapter pattern and abstract Strategy in the Strategy pattern." alt="" coords="5,5,171,151"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="91,165,91,198,85,198,85,165"/>
 </map>

@@ -1,7 +1,7 @@
 <map id="WorkVisitor" name="WorkVisitor">
-<area shape="rect" id="Node000001" title=" " alt="" coords="131,5,229,31"/>
-<area shape="rect" id="Node000002" href="$classPriorityCheckerVisitor.html" title=" " alt="" coords="5,79,168,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="156,41,104,81,100,76,153,37"/>
-<area shape="rect" id="Node000003" href="$classProgressReportVisitor.html" title=" " alt="" coords="192,79,355,104"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="207,37,260,76,256,81,204,41"/>
+<area shape="rect" id="Node000001" title="Abstract Visitor interface, visit() method per concrete WorkComponent type Each concrete type impleme..." alt="" coords="119,5,244,211"/>
+<area shape="rect" id="Node000002" href="$classPriorityCheckerVisitor.html" title="Calculates rank of Components Priority for PrioritisedIterator." alt="" coords="5,279,160,504"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="144,225,124,280,119,278,138,223"/>
+<area shape="rect" id="Node000003" href="$classProgressReportVisitor.html" title="Concrete Visitor, displays tree as a HTML progress Report Groups are collapsable." alt="" coords="185,259,375,524"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="224,223,236,257,231,259,219,225"/>
 </map>

@@ -76,20 +76,38 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Invoker: runs commands, keeps their history and undoes them.  
+ <a href="classActionExecutor.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="Command_8h_source.html">Command.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for ActionExecutor:</div>
+<div class="dyncontent">
+<div class="center"><img src="classActionExecutor__coll__graph.png" border="0" usemap="#aActionExecutor_coll__map" alt="Collaboration graph"/></div>
+<map name="aActionExecutor_coll__map" id="aActionExecutor_coll__map">
+<area shape="rect" title="Invoker: runs commands, keeps their history and undoes them." alt="" coords="5,5,163,131"/>
+</map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aea208b35bcbbbbb1722c230bf30852a5" id="r_aea208b35bcbbbbb1722c230bf30852a5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classActionExecutor.html#aea208b35bcbbbbb1722c230bf30852a5">ActionExecutor</a> ()</td></tr>
+<tr class="memdesc:aea208b35bcbbbbb1722c230bf30852a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an executor with an empty history.  <br /></td></tr>
 <tr class="separator:aea208b35bcbbbbb1722c230bf30852a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99fe9cd90ccc7312e48ea8d59bf0b72d" id="r_a99fe9cd90ccc7312e48ea8d59bf0b72d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classActionExecutor.html#a99fe9cd90ccc7312e48ea8d59bf0b72d">~ActionExecutor</a> ()</td></tr>
+<tr class="memdesc:a99fe9cd90ccc7312e48ea8d59bf0b72d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes the actions still held in the history.  <br /></td></tr>
 <tr class="separator:a99fe9cd90ccc7312e48ea8d59bf0b72d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85af0208a569d5c93f386aa5666fb852" id="r_a85af0208a569d5c93f386aa5666fb852"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classActionExecutor.html#a85af0208a569d5c93f386aa5666fb852">executeCommand</a> (<a class="el" href="classAction.html">Action</a> *action)</td></tr>
+<tr class="memdesc:a85af0208a569d5c93f386aa5666fb852"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves a snapshot of the receiver, then runs the action.  <br /></td></tr>
 <tr class="separator:a85af0208a569d5c93f386aa5666fb852"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab68d45f52eec5337028f77a6ed8ed362" id="r_ab68d45f52eec5337028f77a6ed8ed362"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classActionExecutor.html#ab68d45f52eec5337028f77a6ed8ed362">undoLastAction</a> ()</td></tr>
+<tr class="memdesc:ab68d45f52eec5337028f77a6ed8ed362"><td class="mdescLeft">&#160;</td><td class="mdescRight">Undoes the most recently executed action.  <br /></td></tr>
 <tr class="separator:ab68d45f52eec5337028f77a6ed8ed362"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Invoker: runs commands, keeps their history and undoes them. </p>
+<p>Before a command runs, the executor asks the receiver for a snapshot (<a class="el" href="classWorkMemento.html" title="Snapshot of a task: its id, state and assigned worker.">WorkMemento</a>) keeps it in a <a class="el" href="classWorkHistory.html" title="Caretaker: keeps snapshots in the order they were taken.">WorkHistory</a>. Undo restores the receiver from the latest snapshot </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aea208b35bcbbbbb1722c230bf30852a5" name="aea208b35bcbbbbb1722c230bf30852a5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aea208b35bcbbbbb1722c230bf30852a5">&#9670;&#160;</a></span>ActionExecutor()</h2>
 
@@ -113,6 +131,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Creates an executor with an empty history. </p>
+
 </div>
 </div>
 <a id="a99fe9cd90ccc7312e48ea8d59bf0b72d" name="a99fe9cd90ccc7312e48ea8d59bf0b72d"></a>
@@ -129,6 +149,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Deletes the actions still held in the history. </p>
 
 </div>
 </div>
@@ -149,6 +171,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Saves a snapshot of the receiver, then runs the action. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">action</td><td>The command to run. Must not be null </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the action succeeded and was recorded, false otherwise </dd></dl>
+
 </div>
 </div>
 <a id="ab68d45f52eec5337028f77a6ed8ed362" name="ab68d45f52eec5337028f77a6ed8ed362"></a>
@@ -165,6 +196,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Undoes the most recently executed action. </p>
+<dl class="section return"><dt>Returns</dt><dd>false if there is nothing to undo or the last action is not undoable, true otherwise </dd></dl>
 
 </div>
 </div>

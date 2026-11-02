@@ -1,5 +1,5 @@
 <map id="AccessControlProxy" name="AccessControlProxy">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,79,156,104"/>
-<area shape="rect" id="Node000002" href="$classWorkflowService.html" title=" " alt="" coords="15,5,146,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="83,44,83,79,78,79,78,44"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,339,183,644"/>
+<area shape="rect" id="Node000002" href="$classWorkflowService.html" title=" " alt="" coords="15,5,173,291"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="97,305,97,338,91,338,91,305"/>
 </map>

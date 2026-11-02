@@ -1,0 +1,7 @@
+<map id="Notification" name="Notification">
+<area shape="rect" id="Node000001" title="The Abstraction in the Bridge Pattern." alt="" coords="89,5,215,191"/>
+<area shape="rect" id="Node000002" href="$classDeadlineNotice.html" title="A Refined Abstraction in the Bridge Pattern." alt="" coords="5,239,144,324"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="110,204,95,240,90,238,105,202"/>
+<area shape="rect" id="Node000003" href="$classResultNotice.html" title="A Refined Abstraction in the Bridge Pattern." alt="" coords="169,239,290,324"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="199,202,214,238,209,240,194,204"/>
+</map>

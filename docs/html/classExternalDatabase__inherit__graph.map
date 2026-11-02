@@ -1,7 +1,7 @@
 <map id="ExternalDatabase" name="ExternalDatabase">
-<area shape="rect" id="Node000001" title="Target interface in the Adapter pattern and abstract Strategy in the Strategy pattern." alt="" coords="74,5,213,31"/>
-<area shape="rect" id="Node000002" href="$classPostgresAdapter.html" title="Adapter in the Adapter pattern and ConcreteStrategy in the Strategy pattern for PostgreSQL." alt="" coords="5,79,135,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,42,84,80,80,77,120,38"/>
-<area shape="rect" id="Node000003" href="$classSQLiteAdapter.html" title="Adapter in the Adapter pattern and ConcreteStrategy in the Strategy pattern for SQLite." alt="" coords="159,79,274,104"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="167,38,207,77,203,80,163,42"/>
+<area shape="rect" id="Node000001" title="Target interface in the Adapter pattern and abstract Strategy in the Strategy pattern." alt="" coords="88,5,253,151"/>
+<area shape="rect" id="Node000002" href="$classPostgresAdapter.html" title="Adapter in the Adapter pattern and ConcreteStrategy in the Strategy pattern for PostgreSQL." alt="" coords="5,199,163,364"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="137,165,122,199,117,197,132,163"/>
+<area shape="rect" id="Node000003" href="$classSQLiteAdapter.html" title="Adapter in the Adapter pattern and ConcreteStrategy in the Strategy pattern for SQLite." alt="" coords="187,199,330,364"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="210,163,225,197,220,199,205,165"/>
 </map>

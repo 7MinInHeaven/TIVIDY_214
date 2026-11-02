@@ -78,14 +78,17 @@ $(function() {
   <div class="headertitle"><div class="title">InProgressState.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>State for a task or group whose work has started but is not finished.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="WorkState_8h_source.html">WorkState.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for InProgressState.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="InProgressState_8h__incl.png" border="0" usemap="#ainclude_2InProgressState_8h" alt=""/></div>
 <map name="ainclude_2InProgressState_8h" id="ainclude_2InProgressState_8h">
-<area shape="rect" title=" " alt="" coords="5,5,192,31"/>
-<area shape="rect" href="WorkState_8h.html" title=" " alt="" coords="48,79,149,104"/>
+<area shape="rect" title="State for a task or group whose work has started but is not finished." alt="" coords="5,5,192,31"/>
+<area shape="rect" href="WorkState_8h.html" title="Abstract state interface for the State pattern." alt="" coords="48,79,149,104"/>
 <area shape="poly" title=" " alt="" coords="101,31,101,65,96,65,96,31"/>
 <area shape="rect" title=" " alt="" coords="69,152,128,177"/>
 <area shape="poly" title=" " alt="" coords="101,104,101,138,96,138,96,104"/>
@@ -96,119 +99,128 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="InProgressState_8h__dep__incl.png" border="0" usemap="#ainclude_2InProgressState_8hdep" alt=""/></div>
 <map name="ainclude_2InProgressState_8hdep" id="ainclude_2InProgressState_8hdep">
-<area shape="rect" title=" " alt="" coords="5141,5,5327,31"/>
-<area shape="rect" href="Composite_8h.html" title=" " alt="" coords="3602,79,3757,104"/>
-<area shape="poly" title=" " alt="" coords="5127,27,3757,89,3757,84,5126,22"/>
-<area shape="rect" href="InProgressState_8cpp.html" title=" " alt="" coords="5128,159,5340,185"/>
-<area shape="poly" title=" " alt="" coords="5237,44,5237,159,5231,159,5231,44"/>
-<area shape="rect" href="PendingState_8cpp.html" title=" " alt="" coords="5364,159,5560,185"/>
-<area shape="poly" title=" " alt="" coords="5264,36,5446,157,5443,161,5261,41"/>
-<area shape="rect" href="ChainBuilder_8h.html" title=" " alt="" coords="4165,159,4332,185"/>
-<area shape="poly" title=" " alt="" coords="3771,100,3948,120,4153,149,4194,157,4193,162,4152,155,3948,126,3770,105"/>
-<area shape="rect" href="WorkflowEngineFacade_8cpp.html" title=" " alt="" coords="4137,328,4336,368"/>
-<area shape="poly" title=" " alt="" coords="3771,91,3928,96,4108,106,4263,123,4316,135,4345,150,4352,161,4353,171,4346,193,4339,209,4330,219,4309,242,4251,329,4246,326,4305,238,4326,216,4334,206,4341,191,4347,170,4347,162,4342,154,4314,140,4262,129,4107,112,3928,102,3771,97"/>
-<area shape="rect" href="WorkflowBuilder_8cpp.html" title=" " alt="" coords="3214,335,3441,361"/>
-<area shape="poly" title=" " alt="" coords="3588,97,3351,104,3059,116,2806,133,2724,143,2699,149,2688,154,2682,162,2681,171,2688,191,2703,209,2721,218,2741,225,2765,238,2789,260,2800,269,2815,278,2888,298,2992,314,3214,336,3213,342,2991,319,2887,303,2813,282,2797,274,2786,264,2762,242,2739,230,2719,223,2700,213,2684,193,2676,171,2677,161,2684,150,2698,144,2723,138,2806,127,3059,111,3350,99,3588,92"/>
-<area shape="rect" href="Command_8h.html" title=" " alt="" coords="4902,159,5054,185"/>
-<area shape="poly" title=" " alt="" coords="3771,95,4675,149,4902,163,4901,169,4675,155,3770,101"/>
-<area shape="rect" href="WorkUnit_8cpp.html" title=" " alt="" coords="5964,247,6168,273"/>
-<area shape="poly" title=" " alt="" coords="3771,91,4079,94,4482,104,4854,121,4988,134,5067,150,5083,159,5093,170,5102,181,5116,190,5194,210,5293,222,5407,229,5529,231,5767,231,5870,232,5952,237,6004,245,6003,250,5951,243,5869,238,5767,236,5529,236,5407,234,5293,228,5193,215,5114,194,5099,185,5089,174,5079,163,5065,154,4987,139,4853,127,4482,109,4078,100,3771,96"/>
-<area shape="rect" href="DatabaseObserver_8h.html" title="Declares the ConcreteObserver and Strategy Context for database persistence." alt="" coords="4458,159,4663,185"/>
-<area shape="poly" title=" " alt="" coords="3771,95,4068,115,4254,130,4440,149,4493,157,4492,162,4439,155,4253,136,4068,120,3770,100"/>
-<area shape="rect" href="WorkflowEngineFacade_8h.html" title=" " alt="" coords="4319,247,4554,273"/>
-<area shape="poly" title=" " alt="" coords="3771,93,3937,99,4129,110,4297,127,4356,137,4390,150,4411,172,4425,199,4438,247,4433,248,4420,201,4407,175,4387,154,4355,142,4296,132,4129,115,3936,104,3771,98"/>
-<area shape="rect" href="Decorator_8h.html" title=" " alt="" coords="1697,159,1845,185"/>
-<area shape="poly" title=" " alt="" coords="3588,99,1846,170,1846,165,3588,94"/>
-<area shape="rect" href="Iterator_8h.html" title=" " alt="" coords="561,247,693,273"/>
-<area shape="poly" title=" " alt="" coords="3588,96,2806,110,2252,127,1685,155,1193,182,979,203,705,243,670,250,669,245,704,237,978,197,1193,176,1685,149,2252,122,2806,105,3588,91"/>
-<area shape="rect" href="WorkComponent_8cpp.html" title=" " alt="" coords="5,335,257,361"/>
-<area shape="poly" title=" " alt="" coords="3588,96,3093,98,2359,107,1607,125,1292,138,1054,155,922,171,787,193,529,245,313,299,171,338,169,333,312,294,528,240,786,187,921,166,1054,149,1292,133,1607,119,2359,102,3092,93,3588,90"/>
-<area shape="rect" href="PriorityCheckerVisitor_8cpp.html" title=" " alt="" coords="2126,240,2315,280"/>
-<area shape="poly" title=" " alt="" coords="3588,97,3353,102,3048,113,2750,130,2627,141,2533,155,2458,173,2384,196,2264,242,2262,237,2382,191,2456,168,2532,149,2626,136,2750,124,3048,107,3353,97,3588,91"/>
-<area shape="rect" href="ProgressReportVisitor_8cpp.html" title=" " alt="" coords="2339,240,2529,280"/>
-<area shape="poly" title=" " alt="" coords="3588,95,3369,97,3091,106,2820,123,2709,137,2625,155,2578,173,2532,196,2460,242,2457,238,2529,191,2575,168,2624,149,2708,132,2820,118,3091,100,3369,92,3588,90"/>
-<area shape="rect" href="WorkComponentValidationVisitor_8cpp.html" title=" " alt="" coords="2553,240,2752,280"/>
-<area shape="poly" title=" " alt="" coords="3588,97,3341,104,3035,115,2769,132,2682,143,2656,148,2644,154,2634,173,2633,195,2638,218,2646,239,2641,241,2633,220,2628,196,2629,172,2640,150,2654,143,2681,137,2768,127,3034,110,3340,98,3588,92"/>
-<area shape="rect" href="NotificationObserver_8h.html" title="The Observer that listens to workflow state changes and triggers notifications." alt="" coords="2698,159,2917,185"/>
-<area shape="poly" title=" " alt="" coords="3588,100,3295,120,2929,155,2876,162,2875,157,2928,149,3294,115,3588,95"/>
-<area shape="rect" href="WorkflowSubject_8cpp.html" title=" " alt="" coords="2941,152,3213,192"/>
-<area shape="poly" title=" " alt="" coords="3588,107,3213,156,3213,150,3588,102"/>
-<area shape="rect" href="CompletedState_8cpp.html" title=" " alt="" coords="3237,159,3452,185"/>
-<area shape="poly" title=" " alt="" coords="3618,110,3394,162,3393,157,3617,104"/>
-<area shape="poly" title=" " alt="" coords="3770,90,4004,93,4336,102,4720,120,5110,149,5168,157,5167,162,5110,155,4719,125,4336,108,4004,99,3770,96"/>
-<area shape="poly" title=" " alt="" coords="3771,92,4558,111,5016,128,5207,138,5352,149,5403,157,5403,162,5351,155,5206,143,5016,133,4558,116,3771,97"/>
-<area shape="rect" href="Stage_8cpp.html" title=" " alt="" coords="3477,159,3658,185"/>
-<area shape="poly" title=" " alt="" coords="3653,114,3585,161,3582,157,3650,110"/>
-<area shape="rect" href="SubProcess_8cpp.html" title=" " alt="" coords="3682,159,3901,185"/>
-<area shape="poly" title=" " alt="" coords="3709,110,3776,157,3773,161,3706,114"/>
-<area shape="rect" href="WorkGroup_8cpp.html" title=" " alt="" coords="3925,159,4141,185"/>
-<area shape="poly" title=" " alt="" coords="3744,104,3982,157,3981,162,3743,110"/>
-<area shape="rect" href="Director_8h.html" title=" " alt="" coords="4058,247,4194,273"/>
-<area shape="poly" title=" " alt="" coords="4222,195,4144,249,4141,245,4219,191"/>
-<area shape="poly" title=" " alt="" coords="4250,198,4241,328,4235,328,4244,198"/>
-<area shape="rect" href="WorkflowBuilder_8h.html" title=" " alt="" coords="3843,247,4033,273"/>
-<area shape="poly" title=" " alt="" coords="4194,191,3980,250,3979,245,4193,186"/>
-<area shape="rect" href="Director_8cpp.html" title=" " alt="" coords="3939,335,4113,361"/>
-<area shape="poly" title=" " alt="" coords="4104,284,4042,337,4038,333,4100,280"/>
-<area shape="poly" title=" " alt="" coords="4154,279,4214,326,4211,330,4150,283"/>
-<area shape="poly" title=" " alt="" coords="3992,274,4172,325,4170,330,3991,279"/>
-<area shape="poly" title=" " alt="" coords="3843,277,3409,338,3408,333,3842,272"/>
-<area shape="rect" href="ActionExecutor_8cpp.html" title=" " alt="" coords="5398,247,5635,273"/>
-<area shape="poly" title=" " alt="" coords="5047,185,5073,189,5438,245,5438,250,5072,195,5046,190"/>
-<area shape="rect" href="AssignTaskCommand_8cpp.html" title=" " alt="" coords="5659,247,5939,273"/>
-<area shape="poly" title=" " alt="" coords="5044,185,5073,189,5234,208,5360,217,5486,224,5648,237,5712,245,5711,250,5647,243,5485,229,5359,222,5233,213,5072,195,5043,190"/>
-<area shape="rect" href="CompleteTaskCommand_8cpp.html" title=" " alt="" coords="4875,240,5081,280"/>
-<area shape="poly" title=" " alt="" coords="4981,198,4981,240,4975,240,4975,198"/>
-<area shape="rect" href="StartTaskCommand_8cpp.html" title=" " alt="" coords="5105,247,5373,273"/>
-<area shape="poly" title=" " alt="" coords="5027,187,5205,245,5203,250,5026,192"/>
-<area shape="poly" title=" " alt="" coords="5042,185,5073,189,5206,204,5319,211,5512,216,5705,219,5818,225,5952,237,6004,245,6003,250,5951,243,5818,230,5704,224,5512,221,5319,217,5206,209,5072,195,5042,190"/>
-<area shape="poly" title=" " alt="" coords="4534,195,4455,249,4452,245,4531,190"/>
-<area shape="rect" href="DatabaseObserver_8cpp.html" title=" " alt="" coords="4578,240,4850,280"/>
-<area shape="poly" title=" " alt="" coords="4594,189,4681,238,4679,242,4592,194"/>
-<area shape="poly" title=" " alt="" coords="4398,281,4282,330,4280,325,4396,276"/>
-<area shape="rect" href="Proxy_8h.html" title=" " alt="" coords="4371,335,4491,361"/>
-<area shape="poly" title=" " alt="" coords="4438,287,4435,335,4429,335,4432,286"/>
-<area shape="rect" href="main_8cpp.html" title=" " alt="" coords="4516,335,4621,361"/>
-<area shape="poly" title=" " alt="" coords="4467,278,4552,333,4549,337,4464,282"/>
-<area shape="rect" href="ScenarioAccessPolicies_8h.html" title=" " alt="" coords="3929,416,4165,441"/>
-<area shape="poly" title=" " alt="" coords="4368,366,4348,371,4108,419,4107,413,4347,365,4367,361"/>
-<area shape="rect" href="AccessControlProxy_8cpp.html" title=" " alt="" coords="4190,416,4430,441"/>
-<area shape="poly" title=" " alt="" coords="4403,371,4329,418,4327,414,4400,366"/>
-<area shape="rect" href="AccessPolicy_8cpp.html" title=" " alt="" coords="4454,416,4649,441"/>
-<area shape="poly" title=" " alt="" coords="4462,366,4535,414,4532,418,4459,371"/>
-<area shape="rect" href="AccessTypes_8cpp.html" title=" " alt="" coords="4673,416,4867,441"/>
-<area shape="poly" title=" " alt="" coords="4488,362,4504,365,4717,413,4716,419,4503,371,4487,367"/>
-<area shape="rect" href="ScenarioAccessPolicies_8cpp.html" title=" " alt="" coords="3941,489,4153,529"/>
-<area shape="poly" title=" " alt="" coords="4050,455,4050,489,4045,489,4045,455"/>
-<area shape="poly" title=" " alt="" coords="1683,176,1504,180,1261,190,984,210,843,224,705,243,669,250,668,245,704,237,842,219,984,204,1260,184,1504,174,1683,171"/>
-<area shape="rect" href="AuditedTask_8cpp.html" title=" " alt="" coords="1884,247,2101,273"/>
-<area shape="poly" title=" " alt="" coords="1815,187,1964,245,1962,250,1813,192"/>
-<area shape="rect" href="PrioritisedTask_8cpp.html" title=" " alt="" coords="717,240,895,280"/>
-<area shape="poly" title=" " alt="" coords="1684,180,1343,200,1126,218,908,243,895,244,895,239,907,237,1125,213,1342,195,1683,174"/>
-<area shape="rect" href="StandardRules_8cpp.html" title=" " alt="" coords="919,247,1151,273"/>
-<area shape="poly" title=" " alt="" coords="1684,185,1449,209,1164,243,1110,250,1110,245,1163,237,1448,204,1683,179"/>
-<area shape="rect" href="TaskDecorator_8cpp.html" title=" " alt="" coords="1176,247,1407,273"/>
-<area shape="poly" title=" " alt="" coords="1694,190,1356,250,1355,245,1693,185"/>
-<area shape="rect" href="ValidatedTask_8cpp.html" title=" " alt="" coords="1431,247,1659,273"/>
-<area shape="poly" title=" " alt="" coords="1729,192,1576,250,1574,245,1727,187"/>
-<area shape="rect" href="ValidationRule_8cpp.html" title=" " alt="" coords="1683,240,1859,280"/>
-<area shape="poly" title=" " alt="" coords="1774,198,1774,240,1769,240,1769,198"/>
-<area shape="poly" title=" " alt="" coords="1845,185,2126,238,2125,243,1844,190"/>
-<area shape="poly" title=" " alt="" coords="1859,180,2073,204,2328,237,2340,239,2339,244,2327,243,2072,209,1859,185"/>
-<area shape="poly" title=" " alt="" coords="1859,176,2162,198,2351,216,2541,237,2554,239,2553,244,2540,243,2350,221,2161,204,1859,181"/>
-<area shape="poly" title=" " alt="" coords="548,278,198,338,197,333,547,272"/>
-<area shape="rect" href="DepthFirstIterator_8cpp.html" title=" " alt="" coords="755,335,993,361"/>
-<area shape="poly" title=" " alt="" coords="674,275,842,333,840,338,673,280"/>
-<area shape="rect" href="FilterIterator_8cpp.html" title=" " alt="" coords="1017,335,1221,361"/>
-<area shape="poly" title=" " alt="" coords="686,273,705,277,855,303,1005,325,1050,333,1049,338,1004,331,854,309,704,283,685,278"/>
-<area shape="rect" href="IncompleteIterator_8cpp.html" title=" " alt="" coords="1245,335,1489,361"/>
-<area shape="poly" title=" " alt="" coords="683,273,705,277,853,297,968,306,1084,312,1233,325,1290,333,1290,338,1232,331,1084,317,968,311,852,303,704,283,682,278"/>
-<area shape="rect" href="PriorityIterator_8cpp.html" title=" " alt="" coords="282,335,501,361"/>
-<area shape="poly" title=" " alt="" coords="583,280,424,338,422,333,582,275"/>
-<area shape="rect" href="StateIterator_8cpp.html" title=" " alt="" coords="525,335,730,361"/>
-<area shape="poly" title=" " alt="" coords="630,287,630,335,625,335,625,287"/>
-<area shape="rect" href="NotificationObserver_8cpp.html" title="Implementation of the NotificationObserver." alt="" coords="2826,240,3013,280"/>
-<area shape="poly" title=" " alt="" coords="2835,191,2896,238,2893,242,2832,195"/>
+<area shape="rect" title="State for a task or group whose work has started but is not finished." alt="" coords="5393,5,5580,31"/>
+<area shape="rect" href="Composite_8h.html" title="defines The structure for WorkComponents" alt="" coords="3392,79,3546,104"/>
+<area shape="poly" title=" " alt="" coords="5379,26,3547,90,3547,85,5379,20"/>
+<area shape="rect" href="WorkGroup_8cpp.html" title=" " alt="" coords="5321,247,5537,273"/>
+<area shape="poly" title=" " alt="" coords="5483,45,5434,248,5429,247,5478,43"/>
+<area shape="rect" href="InProgressState_8cpp.html" title=" " alt="" coords="5842,159,6054,185"/>
+<area shape="poly" title=" " alt="" coords="5535,32,5914,157,5912,162,5533,37"/>
+<area shape="rect" href="PendingState_8cpp.html" title=" " alt="" coords="6078,159,6274,185"/>
+<area shape="poly" title=" " alt="" coords="5552,31,6124,157,6123,162,5551,36"/>
+<area shape="rect" href="ChainBuilder_8h.html" title="Abstract Builder interface for assembling a chain of WorkGroups." alt="" coords="2280,159,2447,185"/>
+<area shape="poly" title=" " alt="" coords="3378,97,3207,101,2979,111,2721,128,2460,155,2416,162,2415,157,2459,149,2720,123,2979,106,3207,96,3378,91"/>
+<area shape="rect" href="RequestChain_8h.html" title=" " alt="" coords="4210,328,4384,353"/>
+<area shape="poly" title=" " alt="" coords="3560,97,3692,116,3750,131,3789,150,3804,166,3811,182,3815,216,3819,249,3827,264,3840,278,3885,288,3981,302,4210,328,4209,333,3981,307,3884,293,3837,282,3822,267,3814,250,3810,217,3806,184,3799,169,3786,154,3748,136,3691,121,3560,102"/>
+<area shape="rect" href="WorkflowEngineFacade_8h.html" title=" " alt="" coords="5270,401,5505,427"/>
+<area shape="poly" title=" " alt="" coords="3560,90,4068,94,4787,104,5448,122,5672,134,5743,141,5781,150,5829,191,5871,239,5878,260,5872,281,5848,313,5823,331,5754,356,5692,376,5627,391,5506,408,5505,403,5626,385,5690,371,5752,351,5820,326,5845,309,5867,279,5872,260,5867,241,5825,195,5779,154,5742,147,5672,140,5448,127,4787,110,4068,100,3560,96"/>
+<area shape="rect" href="WorkflowEngineFacade_8cpp.html" title=" " alt="" coords="3168,475,3367,515"/>
+<area shape="poly" title=" " alt="" coords="3378,96,3094,101,2735,112,2419,129,2316,141,2284,147,2270,154,2264,162,2263,170,2270,191,2292,243,2316,285,2343,319,2373,347,2407,370,2448,389,2549,424,2601,436,2669,447,2837,465,3169,486,3168,492,2837,470,2668,452,2600,441,2547,429,2445,394,2405,374,2369,351,2339,322,2312,288,2288,245,2265,193,2258,171,2259,160,2266,150,2283,142,2315,136,2419,124,2734,107,3094,96,3378,91"/>
+<area shape="rect" href="WorkflowBuilder_8cpp.html" title=" " alt="" coords="896,328,1122,353"/>
+<area shape="poly" title=" " alt="" coords="3378,96,2644,102,2110,110,1540,123,990,141,515,167,323,182,171,200,67,220,34,231,16,242,10,251,8,260,10,269,16,278,51,289,129,299,371,315,655,327,896,334,896,339,655,332,371,320,129,304,50,294,13,282,5,271,3,260,5,249,13,238,32,226,65,215,171,195,323,177,515,161,990,136,1540,117,2110,105,2644,96,3378,90"/>
+<area shape="rect" href="Command_8h.html" title="Command pattern: agent actions as objects, run and undone by an invoker." alt="" coords="4589,159,4741,185"/>
+<area shape="poly" title=" " alt="" coords="3560,96,4589,163,4589,168,3560,101"/>
+<area shape="poly" title=" " alt="" coords="3560,91,3773,95,4068,104,4408,121,4753,149,4931,171,5105,197,5372,245,5371,250,5104,203,4930,176,4753,155,4408,127,4068,109,3773,100,3560,96"/>
+<area shape="rect" href="WorkUnit_8cpp.html" title=" " alt="" coords="3851,247,4055,273"/>
+<area shape="poly" title=" " alt="" coords="3561,91,3623,96,3693,107,3765,124,3833,150,3869,171,3901,198,3946,245,3942,249,3897,202,3866,176,3831,154,3763,129,3692,112,3623,102,3560,96"/>
+<area shape="rect" href="DatabaseObserver_8h.html" title="Declares the ConcreteObserver and Strategy Context for database persistence." alt="" coords="5562,159,5768,185"/>
+<area shape="poly" title=" " alt="" coords="3560,93,5562,164,5562,170,3560,99"/>
+<area shape="rect" href="Decorator_8h.html" title=" " alt="" coords="1318,159,1466,185"/>
+<area shape="poly" title=" " alt="" coords="3378,96,3079,100,2636,110,2115,127,1581,155,1466,165,1466,160,1581,149,2114,122,2636,104,3079,95,3378,91"/>
+<area shape="rect" href="Iterator_8h.html" title=" " alt="" coords="3111,247,3243,273"/>
+<area shape="poly" title=" " alt="" coords="3472,118,3466,157,3458,177,3446,194,3412,214,3360,230,3244,253,3243,247,3359,225,3409,209,3442,190,3454,174,3461,155,3467,118"/>
+<area shape="rect" href="WorkComponent_8cpp.html" title=" " alt="" coords="3684,328,3936,353"/>
+<area shape="poly" title=" " alt="" coords="3479,117,3483,154,3481,174,3475,193,3462,210,3446,218,3431,226,3419,241,3413,261,3414,269,3419,278,3430,285,3452,292,3517,305,3685,326,3684,331,3516,311,3450,297,3428,290,3415,282,3409,271,3407,261,3415,239,3428,222,3444,214,3459,206,3471,191,3476,173,3478,154,3474,118"/>
+<area shape="rect" href="PriorityCheckerVisitor_8cpp.html" title=" " alt="" coords="1434,240,1624,280"/>
+<area shape="poly" title=" " alt="" coords="3378,96,3072,101,2656,111,2241,128,2068,140,1938,155,1840,173,1743,196,1586,242,1584,237,1742,191,1838,168,1937,149,2068,135,2240,123,2656,106,3072,96,3378,91"/>
+<area shape="rect" href="ProgressReportVisitor_8cpp.html" title=" " alt="" coords="1648,240,1837,280"/>
+<area shape="poly" title=" " alt="" coords="3378,96,3102,101,2733,111,2368,129,2216,140,2102,155,2015,173,1930,196,1792,242,1791,237,1929,191,2014,168,2101,149,2216,135,2367,123,2733,106,3102,96,3378,91"/>
+<area shape="rect" href="WorkComponentValidationVisitor_8cpp.html" title=" " alt="" coords="1862,240,2060,280"/>
+<area shape="poly" title=" " alt="" coords="3378,96,3124,99,2790,108,2462,125,2327,138,2224,155,2160,173,2098,196,1998,242,1995,237,2096,191,2158,168,2223,149,2326,133,2462,120,2790,102,3124,93,3378,90"/>
+<area shape="rect" href="NotificationObserver_8h.html" title="The Observer that listens to workflow state changes and triggers notifications." alt="" coords="3557,159,3776,185"/>
+<area shape="poly" title=" " alt="" coords="3511,107,3639,157,3637,162,3510,112"/>
+<area shape="rect" href="WorkflowSubject_8cpp.html" title=" " alt="" coords="2472,152,2744,192"/>
+<area shape="poly" title=" " alt="" coords="3378,102,3100,123,2756,155,2744,156,2744,151,2756,149,3099,118,3378,96"/>
+<area shape="rect" href="CompletedState_8cpp.html" title=" " alt="" coords="2768,159,2983,185"/>
+<area shape="poly" title=" " alt="" coords="3378,106,2996,155,2947,162,2946,157,2995,149,3378,101"/>
+<area shape="poly" title=" " alt="" coords="3560,91,4664,107,5332,124,5612,136,5824,149,5883,157,5882,162,5824,155,5612,141,5332,129,4663,112,3560,96"/>
+<area shape="poly" title=" " alt="" coords="3561,90,4051,93,4776,102,5520,120,5831,133,6067,149,6119,157,6118,162,6066,155,5831,138,5520,125,4776,108,4051,99,3561,96"/>
+<area shape="rect" href="Stage_8cpp.html" title=" " alt="" coords="3008,159,3189,185"/>
+<area shape="poly" title=" " alt="" coords="3402,109,3153,162,3152,157,3401,104"/>
+<area shape="rect" href="SubProcess_8cpp.html" title=" " alt="" coords="3213,159,3432,185"/>
+<area shape="poly" title=" " alt="" coords="3437,113,3345,161,3343,157,3434,108"/>
+<area shape="rect" href="Director_8h.html" title="defines the way objects are created and linked" alt="" coords="3429,247,3565,273"/>
+<area shape="poly" title=" " alt="" coords="2430,185,2460,189,2683,212,2856,221,3031,226,3255,237,3429,250,3428,256,3254,243,3031,231,2856,226,2682,218,2459,195,2429,190"/>
+<area shape="poly" title=" " alt="" coords="2369,198,2376,233,2390,275,2411,317,2425,335,2441,351,2466,367,2496,382,2574,407,2668,429,2773,447,2988,472,3168,486,3168,491,2988,477,2772,452,2667,434,2573,413,2494,386,2463,372,2438,355,2421,339,2406,320,2385,277,2371,235,2364,199"/>
+<area shape="rect" href="WorkflowBuilder_8h.html" title="Concrete Builder declaration for constructing chained composite workflows." alt="" coords="2084,247,2275,273"/>
+<area shape="poly" title=" " alt="" coords="2328,193,2206,249,2204,245,2325,188"/>
+<area shape="poly" title=" " alt="" coords="3554,273,3578,277,3749,299,3883,308,4018,313,4191,325,4210,327,4209,332,4190,331,4018,318,3883,313,3748,304,3577,283,3553,278"/>
+<area shape="poly" title=" " alt="" coords="3555,273,3577,277,3641,282,3731,284,3940,285,4036,290,4111,301,4137,310,4153,322,4158,337,4149,355,4125,376,4094,395,4057,412,4013,426,3912,450,3798,468,3680,481,3563,489,3367,496,3367,490,3563,483,3679,475,3798,463,3911,445,4011,421,4055,407,4092,390,4122,372,4144,352,4152,336,4149,325,4134,315,4110,306,4036,295,3940,290,3731,289,3641,288,3577,283,3554,278"/>
+<area shape="rect" href="Director_8cpp.html" title=" " alt="" coords="3961,328,4134,353"/>
+<area shape="poly" title=" " alt="" coords="3556,273,3578,277,3753,302,3961,327,3961,332,3752,307,3577,283,3555,278"/>
+<area shape="poly" title=" " alt="" coords="4398,346,5271,402,5270,408,4398,351"/>
+<area shape="rect" href="RequestChain_8cpp.html" title=" " alt="" coords="3162,401,3373,427"/>
+<area shape="poly" title=" " alt="" coords="4196,352,4147,356,3373,408,3373,403,4146,351,4196,347"/>
+<area shape="rect" href="Proxy_8h.html" title=" " alt="" coords="5258,482,5378,507"/>
+<area shape="poly" title=" " alt="" coords="5371,439,5331,484,5327,480,5367,435"/>
+<area shape="poly" title=" " alt="" coords="5257,429,5252,429,4694,457,4148,476,3368,494,3367,489,4148,470,4694,451,5252,424,5257,424"/>
+<area shape="rect" href="main_8cpp.html" title=" " alt="" coords="5403,482,5508,507"/>
+<area shape="poly" title=" " alt="" coords="5409,435,5448,480,5444,484,5405,439"/>
+<area shape="rect" href="ScenarioAccessPolicies_8h.html" title=" " alt="" coords="4938,563,5174,588"/>
+<area shape="poly" title=" " alt="" coords="5268,514,5095,565,5093,560,5267,509"/>
+<area shape="rect" href="AccessControlProxy_8cpp.html" title=" " alt="" coords="5198,563,5438,588"/>
+<area shape="poly" title=" " alt="" coords="5321,521,5321,562,5316,562,5316,521"/>
+<area shape="rect" href="AccessPolicy_8cpp.html" title=" " alt="" coords="5462,563,5657,588"/>
+<area shape="poly" title=" " alt="" coords="5367,509,5525,560,5524,565,5366,514"/>
+<area shape="poly" title=" " alt="" coords="2191,284,2206,318,2228,357,2258,395,2296,424,2344,439,2430,451,2672,470,2944,482,3168,489,3168,494,2944,488,2672,476,2429,457,2343,444,2293,429,2255,398,2224,360,2201,320,2186,287"/>
+<area shape="poly" title=" " alt="" coords="2218,276,2317,315,2378,335,2440,351,2583,370,2780,386,3162,406,3162,411,2780,391,2583,375,2439,356,2377,340,2316,320,2216,281"/>
+<area shape="poly" title=" " alt="" coords="2108,278,2072,283,1806,308,1541,324,1123,340,1123,335,1541,319,1805,302,2071,277,2107,272"/>
+<area shape="poly" title=" " alt="" coords="4576,181,4446,189,4303,202,4182,220,4142,231,4120,242,4112,257,4113,270,4122,282,4138,293,4183,312,4234,325,4233,330,4181,317,4135,297,4118,285,4108,271,4107,255,4117,238,4140,226,4181,215,4302,197,4446,184,4575,175"/>
+<area shape="poly" title=" " alt="" coords="4725,185,4748,189,4860,197,5005,200,5147,210,5207,221,5253,238,5279,254,5302,275,5340,321,5368,367,5385,400,5380,402,5364,369,5336,324,5298,279,5275,259,5251,242,5206,226,5147,215,5004,205,4859,202,4747,195,4724,190"/>
+<area shape="poly" title=" " alt="" coords="4725,185,4748,189,4794,193,4852,193,4989,191,5058,193,5121,200,5172,214,5193,225,5208,238,5216,249,5218,260,5216,271,5208,282,5193,295,5171,308,5109,331,5024,353,4921,372,4671,407,4383,435,4084,457,3797,474,3367,493,3367,487,3797,469,4083,452,4383,430,4670,402,4920,367,5023,347,5107,326,5169,303,5190,291,5204,278,5211,269,5213,260,5211,251,5204,242,5190,229,5170,219,5120,205,5058,198,4989,196,4852,198,4794,198,4747,195,4724,190"/>
+<area shape="rect" href="ActionExecutor_8cpp.html" title=" " alt="" coords="4130,247,4368,273"/>
+<area shape="poly" title=" " alt="" coords="4597,190,4305,250,4304,245,4596,185"/>
+<area shape="rect" href="AssignTaskCommand_8cpp.html" title=" " alt="" coords="4392,247,4672,273"/>
+<area shape="poly" title=" " alt="" coords="4637,194,4551,249,4548,245,4634,190"/>
+<area shape="rect" href="CompleteTaskCommand_8cpp.html" title=" " alt="" coords="4696,240,4903,280"/>
+<area shape="poly" title=" " alt="" coords="4696,190,4772,238,4769,242,4693,194"/>
+<area shape="rect" href="StartTaskCommand_8cpp.html" title=" " alt="" coords="4927,247,5195,273"/>
+<area shape="poly" title=" " alt="" coords="4732,185,5009,245,5008,250,4731,190"/>
+<area shape="poly" title=" " alt="" coords="4755,179,5002,203,5303,237,5356,245,5355,250,5302,243,5001,209,4754,184"/>
+<area shape="poly" title=" " alt="" coords="4576,185,4348,209,4075,243,4024,250,4023,245,4074,237,4348,204,4575,180"/>
+<area shape="poly" title=" " alt="" coords="5739,185,5788,200,5830,220,5845,233,5855,248,5856,264,5847,282,5822,304,5785,324,5737,343,5684,359,5570,385,5467,404,5466,399,5569,380,5682,354,5736,337,5782,319,5819,300,5843,278,5850,263,5850,249,5841,237,5827,225,5786,205,5738,190"/>
+<area shape="rect" href="DatabaseObserver_8cpp.html" title=" " alt="" coords="5561,240,5833,280"/>
+<area shape="poly" title=" " alt="" coords="5677,196,5692,239,5687,240,5672,198"/>
+<area shape="poly" title=" " alt="" coords="1479,177,1745,200,2072,237,2119,245,2118,250,2071,243,1744,206,1479,182"/>
+<area shape="poly" title=" " alt="" coords="1480,175,3111,253,3111,258,1479,180"/>
+<area shape="rect" href="AuditedTask_8cpp.html" title=" " alt="" coords="227,247,444,273"/>
+<area shape="poly" title=" " alt="" coords="1304,180,934,201,696,219,456,243,403,250,402,245,455,237,696,214,934,196,1304,174"/>
+<area shape="rect" href="PrioritisedTask_8cpp.html" title=" " alt="" coords="468,240,646,280"/>
+<area shape="poly" title=" " alt="" coords="1304,181,1017,203,838,221,659,243,646,244,646,239,658,237,838,216,1016,198,1304,176"/>
+<area shape="rect" href="StandardRules_8cpp.html" title=" " alt="" coords="670,247,902,273"/>
+<area shape="poly" title=" " alt="" coords="1304,188,915,243,864,250,864,245,914,237,1304,183"/>
+<area shape="rect" href="TaskDecorator_8cpp.html" title=" " alt="" coords="927,247,1158,273"/>
+<area shape="poly" title=" " alt="" coords="1333,191,1090,250,1088,245,1331,185"/>
+<area shape="rect" href="ValidatedTask_8cpp.html" title=" " alt="" coords="1182,247,1410,273"/>
+<area shape="poly" title=" " alt="" coords="1371,196,1311,249,1307,245,1367,192"/>
+<area shape="rect" href="ValidationRule_8cpp.html" title=" " alt="" coords="26,240,202,280"/>
+<area shape="poly" title=" " alt="" coords="1304,177,1108,182,838,193,528,212,215,243,203,244,202,239,214,237,528,207,837,187,1108,177,1304,172"/>
+<area shape="poly" title=" " alt="" coords="1423,190,1500,238,1497,242,1421,194"/>
+<area shape="poly" title=" " alt="" coords="1453,185,1666,237,1665,243,1451,191"/>
+<area shape="poly" title=" " alt="" coords="1480,183,1850,237,1862,239,1861,245,1849,243,1479,188"/>
+<area shape="poly" title=" " alt="" coords="3258,269,3719,325,3718,331,3257,274"/>
+<area shape="rect" href="DepthFirstIterator_8cpp.html" title=" " alt="" coords="3194,328,3432,353"/>
+<area shape="poly" title=" " alt="" coords="3210,277,3294,325,3292,330,3208,282"/>
+<area shape="rect" href="FilterIterator_8cpp.html" title=" " alt="" coords="3456,328,3660,353"/>
+<area shape="poly" title=" " alt="" coords="3246,273,3503,325,3502,331,3245,278"/>
+<area shape="rect" href="IncompleteIterator_8cpp.html" title=" " alt="" coords="2452,328,2696,353"/>
+<area shape="poly" title=" " alt="" coords="3098,274,2663,331,2662,325,3097,269"/>
+<area shape="rect" href="PriorityIterator_8cpp.html" title=" " alt="" coords="2721,328,2940,353"/>
+<area shape="poly" title=" " alt="" coords="3114,278,2882,331,2880,325,3113,273"/>
+<area shape="rect" href="StateIterator_8cpp.html" title=" " alt="" coords="2964,328,3169,353"/>
+<area shape="poly" title=" " alt="" coords="3151,283,3084,330,3081,326,3148,279"/>
+<area shape="rect" href="NotificationObserver_8cpp.html" title="Implementation of the NotificationObserver." alt="" coords="3589,240,3776,280"/>
+<area shape="poly" title=" " alt="" coords="3674,198,3681,239,3676,240,3669,199"/>
 </map>
 </div>
 </div>
@@ -217,9 +229,12 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInProgressState.html">InProgressState</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">State in the State pattern for work that has started; the next update completes it.  <a href="classInProgressState.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>State for a task or group whose work has started but is not finished. </p>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8

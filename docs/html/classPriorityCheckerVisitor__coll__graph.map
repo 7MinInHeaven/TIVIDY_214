@@ -1,5 +1,5 @@
 <map id="PriorityCheckerVisitor" name="PriorityCheckerVisitor">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,79,168,104"/>
-<area shape="rect" id="Node000002" href="$classWorkVisitor.html" title=" " alt="" coords="38,5,135,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,44,89,79,84,79,84,44"/>
+<area shape="rect" id="Node000001" title="Calculates rank of Components Priority for PrioritisedIterator." alt="" coords="5,259,160,484"/>
+<area shape="rect" id="Node000002" href="$classWorkVisitor.html" title="Abstract Visitor interface, visit() method per concrete WorkComponent type Each concrete type impleme..." alt="" coords="20,5,145,211"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="85,224,85,258,80,258,80,224"/>
 </map>

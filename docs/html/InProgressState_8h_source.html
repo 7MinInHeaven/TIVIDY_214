@@ -81,32 +81,36 @@ $(document).ready(function() { init_codefold(0); });
   <div class="headertitle"><div class="title">InProgressState.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="InProgressState_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef INPROGRESSSTATE_H</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define INPROGRESSSTATE_H</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="WorkState_8h.html">WorkState.h</a>&quot;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="foldopen" id="foldopen00006" data-start="{" data-end="};">
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="classInProgressState.html">    6</a></span><span class="keyword">class </span><a class="code hl_class" href="classInProgressState.html">InProgressState</a> : <span class="keyword">public</span> <a class="code hl_class" href="classWorkState.html">WorkState</a> {</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">public</span>: </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    <a class="code hl_function" href="classInProgressState.html#ad56bd1b8de079807a922b32182be2608">InProgressState</a>();</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classInProgressState.html#ad0f8d7c4b198513f034730a423f48725">handleUpdate</a>(<a class="code hl_class" href="classWorkComponent.html">WorkComponent</a>* context);</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    std::string <a class="code hl_function" href="classInProgressState.html#a5378ace6cec6d9bc2cc77eb8a795d864">getStatus</a>() <span class="keyword">const override</span>;</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <a class="code hl_class" href="classWorkState.html">WorkState</a>* <a class="code hl_function" href="classInProgressState.html#a70a17ea1bdd24bc33872767e78e5fbef">clone</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keyword">virtual</span> <a class="code hl_function" href="classInProgressState.html#a7d0977455c17bca47a0f0ec101cfb548">~InProgressState</a>();</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>};</div>
+<a href="InProgressState_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#ifndef INPROGRESSSTATE_H</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#define INPROGRESSSTATE_H</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="WorkState_8h.html">WorkState.h</a>&quot;</span></div>
+<div class="foldopen" id="foldopen00013" data-start="{" data-end="};">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="classInProgressState.html">   13</a></span><span class="keyword">class </span><a class="code hl_class" href="classInProgressState.html">InProgressState</a> : <span class="keyword">public</span> <a class="code hl_class" href="classWorkState.html">WorkState</a> {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">public</span>: </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <a class="code hl_function" href="classInProgressState.html#ad56bd1b8de079807a922b32182be2608">InProgressState</a>();</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classInProgressState.html#ad0f8d7c4b198513f034730a423f48725">handleUpdate</a>(<a class="code hl_class" href="classWorkComponent.html">WorkComponent</a>* context);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    std::string <a class="code hl_function" href="classInProgressState.html#a5378ace6cec6d9bc2cc77eb8a795d864">getStatus</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <a class="code hl_class" href="classWorkState.html">WorkState</a>* <a class="code hl_function" href="classInProgressState.html#a70a17ea1bdd24bc33872767e78e5fbef">clone</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keyword">virtual</span> <a class="code hl_function" href="classInProgressState.html#a7d0977455c17bca47a0f0ec101cfb548">~InProgressState</a>();</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>};</div>
 </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aWorkState_8h_html"><div class="ttname"><a href="WorkState_8h.html">WorkState.h</a></div></div>
-<div class="ttc" id="aclassInProgressState_html"><div class="ttname"><a href="classInProgressState.html">InProgressState</a></div><div class="ttdef"><b>Definition</b> InProgressState.h:6</div></div>
-<div class="ttc" id="aclassInProgressState_html_a5378ace6cec6d9bc2cc77eb8a795d864"><div class="ttname"><a href="classInProgressState.html#a5378ace6cec6d9bc2cc77eb8a795d864">InProgressState::getStatus</a></div><div class="ttdeci">std::string getStatus() const override</div><div class="ttdef"><b>Definition</b> InProgressState.cpp:12</div></div>
-<div class="ttc" id="aclassInProgressState_html_a70a17ea1bdd24bc33872767e78e5fbef"><div class="ttname"><a href="classInProgressState.html#a70a17ea1bdd24bc33872767e78e5fbef">InProgressState::clone</a></div><div class="ttdeci">WorkState * clone() override</div><div class="ttdef"><b>Definition</b> InProgressState.cpp:17</div></div>
-<div class="ttc" id="aclassInProgressState_html_a7d0977455c17bca47a0f0ec101cfb548"><div class="ttname"><a href="classInProgressState.html#a7d0977455c17bca47a0f0ec101cfb548">InProgressState::~InProgressState</a></div><div class="ttdeci">virtual ~InProgressState()</div><div class="ttdef"><b>Definition</b> InProgressState.cpp:19</div></div>
-<div class="ttc" id="aclassInProgressState_html_ad0f8d7c4b198513f034730a423f48725"><div class="ttname"><a href="classInProgressState.html#ad0f8d7c4b198513f034730a423f48725">InProgressState::handleUpdate</a></div><div class="ttdeci">void handleUpdate(WorkComponent *context)</div><div class="ttdef"><b>Definition</b> InProgressState.cpp:7</div></div>
-<div class="ttc" id="aclassInProgressState_html_ad56bd1b8de079807a922b32182be2608"><div class="ttname"><a href="classInProgressState.html#ad56bd1b8de079807a922b32182be2608">InProgressState::InProgressState</a></div><div class="ttdeci">InProgressState()</div><div class="ttdef"><b>Definition</b> InProgressState.cpp:5</div></div>
-<div class="ttc" id="aclassWorkComponent_html"><div class="ttname"><a href="classWorkComponent.html">WorkComponent</a></div><div class="ttdef"><b>Definition</b> Composite.h:19</div></div>
-<div class="ttc" id="aclassWorkState_html"><div class="ttname"><a href="classWorkState.html">WorkState</a></div><div class="ttdef"><b>Definition</b> WorkState.h:8</div></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aWorkState_8h_html"><div class="ttname"><a href="WorkState_8h.html">WorkState.h</a></div><div class="ttdoc">Abstract state interface for the State pattern.</div></div>
+<div class="ttc" id="aclassInProgressState_html"><div class="ttname"><a href="classInProgressState.html">InProgressState</a></div><div class="ttdoc">State in the State pattern for work that has started; the next update completes it.</div><div class="ttdef"><b>Definition</b> InProgressState.h:13</div></div>
+<div class="ttc" id="aclassInProgressState_html_a5378ace6cec6d9bc2cc77eb8a795d864"><div class="ttname"><a href="classInProgressState.html#a5378ace6cec6d9bc2cc77eb8a795d864">InProgressState::getStatus</a></div><div class="ttdeci">std::string getStatus() const override</div><div class="ttdoc">Returns the status name, &quot;In Progress&quot;.</div><div class="ttdef"><b>Definition</b> InProgressState.cpp:12</div></div>
+<div class="ttc" id="aclassInProgressState_html_a70a17ea1bdd24bc33872767e78e5fbef"><div class="ttname"><a href="classInProgressState.html#a70a17ea1bdd24bc33872767e78e5fbef">InProgressState::clone</a></div><div class="ttdeci">WorkState * clone() override</div><div class="ttdoc">Creates a copy of this state.</div><div class="ttdef"><b>Definition</b> InProgressState.cpp:17</div></div>
+<div class="ttc" id="aclassInProgressState_html_a7d0977455c17bca47a0f0ec101cfb548"><div class="ttname"><a href="classInProgressState.html#a7d0977455c17bca47a0f0ec101cfb548">InProgressState::~InProgressState</a></div><div class="ttdeci">virtual ~InProgressState()</div><div class="ttdoc">Destroys the state.</div><div class="ttdef"><b>Definition</b> InProgressState.cpp:19</div></div>
+<div class="ttc" id="aclassInProgressState_html_ad0f8d7c4b198513f034730a423f48725"><div class="ttname"><a href="classInProgressState.html#ad0f8d7c4b198513f034730a423f48725">InProgressState::handleUpdate</a></div><div class="ttdeci">void handleUpdate(WorkComponent *context)</div><div class="ttdoc">Handles an update request by moving the context to the Completed state.</div><div class="ttdef"><b>Definition</b> InProgressState.cpp:7</div></div>
+<div class="ttc" id="aclassInProgressState_html_ad56bd1b8de079807a922b32182be2608"><div class="ttname"><a href="classInProgressState.html#ad56bd1b8de079807a922b32182be2608">InProgressState::InProgressState</a></div><div class="ttdeci">InProgressState()</div><div class="ttdoc">Creates an In Progress state.</div><div class="ttdef"><b>Definition</b> InProgressState.cpp:5</div></div>
+<div class="ttc" id="aclassWorkComponent_html"><div class="ttname"><a href="classWorkComponent.html">WorkComponent</a></div><div class="ttdoc">Abstract inteface for composite and leaf components.</div><div class="ttdef"><b>Definition</b> Composite.h:25</div></div>
+<div class="ttc" id="aclassWorkState_html"><div class="ttname"><a href="classWorkState.html">WorkState</a></div><div class="ttdoc">Base class for the states a WorkComponent can be in.</div><div class="ttdef"><b>Definition</b> WorkState.h:16</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

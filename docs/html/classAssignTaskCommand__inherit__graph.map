@@ -1,5 +1,5 @@
 <map id="AssignTaskCommand" name="AssignTaskCommand">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,79,167,104"/>
-<area shape="rect" id="Node000002" href="$classAction.html" title=" " alt="" coords="55,5,117,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,44,89,79,83,79,83,44"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,199,195,324"/>
+<area shape="rect" id="Node000002" href="$classAction.html" title="Command interface: one action that can be run on a task." alt="" coords="41,5,159,151"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="103,164,103,198,97,198,97,164"/>
 </map>

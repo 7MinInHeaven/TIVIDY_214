@@ -1,0 +1,7 @@
+<map id="WorkflowService" name="WorkflowService">
+<area shape="rect" id="Node000001" title=" " alt="" coords="121,5,278,291"/>
+<area shape="rect" id="Node000002" href="$classAccessControlProxy.html" title=" " alt="" coords="5,339,183,644"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="154,305,143,339,138,338,149,303"/>
+<area shape="rect" id="Node000003" href="$classWorkflowEngineFacade.html" title=" " alt="" coords="207,359,405,624"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="250,303,267,357,262,359,245,305"/>
+</map>
